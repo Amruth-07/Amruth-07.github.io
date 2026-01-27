@@ -26,7 +26,6 @@ header{
   color:white;
   text-align:center;
   padding:60px 20px;
-  animation:fadeUp 1s ease forwards;
 }
 
 header img{
@@ -40,33 +39,29 @@ header img{
 
 header h1{
   font-size:32px;
-  margin-bottom:5px;
 }
 
 header p{
-  font-size:16px;
   opacity:0.9;
 }
 
-/* RESUME BUTTON */
 .resume-btn{
   display:inline-block;
   margin-top:15px;
   padding:12px 22px;
-  background:#ffffff;
+  background:#fff;
   color:#4f46e5;
   border-radius:8px;
   font-weight:500;
   text-decoration:none;
-  transition:all 0.3s ease;
+  transition:0.3s;
 }
-
 .resume-btn:hover{
   transform:scale(1.05);
   background:#e0e7ff;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
   max-width:1000px;
   margin:40px auto;
@@ -74,12 +69,46 @@ section{
 }
 
 .card{
-  background:white;
+  background:#fff;
   padding:25px;
   border-radius:15px;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom:25px;
-  animation:fadeUp 0.8s ease forwards;
+  margin-bottom:30px;
+  opacity:0;
+  transition:all 0.9s ease;
+}
+
+/* ANIMATION TYPES */
+.fade-up{
+  transform:translateY(40px);
+}
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.slide-left{
+  transform:translateX(-60px);
+}
+.slide-left.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.slide-right{
+  transform:translateX(60px);
+}
+.slide-right.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.zoom{
+  transform:scale(0.9);
+}
+.zoom.show{
+  opacity:1;
+  transform:scale(1);
 }
 
 h2{
@@ -87,13 +116,12 @@ h2{
   margin-bottom:15px;
 }
 
-p{
+p, li{
   line-height:1.6;
 }
 
 ul{
   padding-left:20px;
-  line-height:1.6;
 }
 
 /* SKILLS */
@@ -102,22 +130,17 @@ ul{
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:15px;
 }
-
 .skill{
   background:#eef2ff;
   padding:12px;
   border-radius:10px;
-  font-size:14px;
-  font-weight:500;
 }
-
 .progress{
   background:#e5e7eb;
   border-radius:10px;
-  overflow:hidden;
   margin-top:6px;
+  overflow:hidden;
 }
-
 .progress div{
   height:6px;
   background:#4f46e5;
@@ -129,18 +152,11 @@ ul{
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
-
 .project{
   background:#f9fafb;
   padding:20px;
   border-radius:12px;
   border-left:4px solid #4f46e5;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project:hover{
-  transform:translateY(-8px);
-  box-shadow:0 15px 30px rgba(0,0,0,0.12);
 }
 
 /* FOOTER */
@@ -149,18 +165,6 @@ footer{
   padding:25px;
   font-size:14px;
   color:#6b7280;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
 }
 
 a{
@@ -173,104 +177,71 @@ a{
 <body>
 
 <header>
-  <img src="profile.jpg.png" alt="Profile Photo">
+  <img src="profile.jpg.png">
   <h1>Amrut Hanamapure</h1>
   <p>Electronics & Communication Engineering Student</p>
   <p>Bengaluru, India</p>
 
-  <a href="Resume.pdf" class="Resume-btn" download>
-    Download Resume
-  </a>
+  <a href="Resume.pdf" class="resume-btn" download>Download Resume</a>
 </header>
 
 <section>
 
-  <div class="card">
+  <div class="card fade-up">
     <h2>About Me</h2>
     <p>
-      Motivated Electronics and Communication Engineering student with a strong
-      interest in core electronics, embedded systems, and VLSI basics.
-      Seeking internship opportunities to gain hands-on industry experience.
+      Motivated Electronics & Communication Engineering student with interest
+      in embedded systems, VLSI basics, and core electronics.
     </p>
   </div>
 
-  <div class="card">
+  <div class="card slide-left">
     <h2>Skills</h2>
     <div class="skills">
-      <div class="skill">VLSI Design
-        <div class="progress"><div style="width:70%"></div></div>
-      </div>
-      <div class="skill">Verilog HDL
-        <div class="progress"><div style="width:65%"></div></div>
-      </div>
-      <div class="skill">Embedded Systems
-        <div class="progress"><div style="width:75%"></div></div>
-      </div>
-      <div class="skill">Python
-        <div class="progress"><div style="width:70%"></div></div>
-      </div>
-      <div class="skill">PCB Design
-        <div class="progress"><div style="width:60%"></div></div>
-      </div>
-      <div class="skill">Circuit Analysis
-        <div class="progress"><div style="width:75%"></div></div>
-      </div>
+      <div class="skill">VLSI<div class="progress"><div style="width:70%"></div></div></div>
+      <div class="skill">Verilog<div class="progress"><div style="width:65%"></div></div></div>
+      <div class="skill">Embedded<div class="progress"><div style="width:75%"></div></div></div>
+      <div class="skill">Python<div class="progress"><div style="width:70%"></div></div></div>
+      <div class="skill">PCB Design<div class="progress"><div style="width:60%"></div></div></div>
+      <div class="skill">Circuit Analysis<div class="progress"><div style="width:75%"></div></div></div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card slide-right">
     <h2>Experience</h2>
     <p><strong>Robotics Training – GTTC, Belagavi</strong></p>
-    <p>Jan 2023 – Feb 2023</p>
     <ul>
-      <li>Robot assembly and component integration</li>
-      <li>Basic programming and troubleshooting</li>
-      <li>Practical exposure to embedded systems</li>
+      <li>Robot assembly & troubleshooting</li>
+      <li>Embedded system exposure</li>
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card zoom">
     <h2>Projects</h2>
     <div class="projects">
-
       <div class="project">
-        <strong>Robotics Training Project</strong>
-        <p>
-          Designed and assembled basic robotic systems with motors and sensors
-          during GTTC training.
-        </p>
+        <strong>Robotics Project</strong>
+        <p>Basic robot design and motor control.</p>
       </div>
-
       <div class="project">
-        <strong>Embedded Systems Mini Project</strong>
-        <p>
-          Implemented microcontroller-based applications as part of academic
-          laboratory work.
-        </p>
+        <strong>Embedded Mini Project</strong>
+        <p>Microcontroller-based applications.</p>
       </div>
-
-      <div class="project">
-        <strong>PCB Design Practice</strong>
-        <p>
-          Designed simple PCB layouts and learned fabrication and routing basics.
-        </p>
-      </div>
-
     </div>
   </div>
 
-  <div class="card">
+  <div class="card fade-up">
     <h2>Education</h2>
     <ul>
-      <li><strong>B.E – ECE</strong>, City Engineering College, Bengaluru (2023–Present)</li>
-      <li><strong>Diploma – ECE</strong>, Govt Polytechnic Athani (CGPA: 8.3)</li>
+      <li>B.E – ECE, City Engineering College</li>
+      <li>Diploma – ECE, Govt Polytechnic Athani</li>
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card fade-up">
     <h2>Contact</h2>
-    <p>📧 <a href="mailto:amruthanamapure@gmail.com">amruthanamapure@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank">LinkedIn Profile</a></p>
+    <p>📧 amruthanamapure@gmail.com</p>
+    <p>🔗 LinkedIn Profile</p>
   </div>
 
 </section>
@@ -279,5 +250,19 @@ a{
   © 2026 Amrut Hanamapure
 </footer>
 
+<script>
+const sections = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{ threshold:0.2 });
+
+sections.forEach(sec => observer.observe(sec));
+</script>
+
 </body>
-</html>
+  </html>
