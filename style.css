@@ -172,3 +172,7 @@ a:hover{
 .card img:hover{
   transform:scale(1.02);
 }
+.reveal{
+  opacity:1 !important;
+  transform:none !important;
+}
