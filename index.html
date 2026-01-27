@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amrut | Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<img src="profile.jpg" class="profile">
+
+<h2 class="reveal">Hi! I'm</h2>
+<h1 class="reveal"><span>Amrut Hanamapure</span></h1>
+
+<p class="reveal">
+Electronics & Communication Engineering Student | Embedded | VLSI
+</p>
+
+<!-- LOAD DETAILS -->
+<div id="details"></div>
+
+<script src="script.js"></script>
+<script>
+fetch("details.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("details").innerHTML = data);
+</script>
+
+</body>
+</html>
