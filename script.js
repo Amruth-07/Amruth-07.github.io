@@ -5,3 +5,12 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+function openModal(title, desc){
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+  document.getElementById("projectModal").style.display = "block";
+}
+
+function closeModal(){
+  document.getElementById("projectModal").style.display = "none";
+}
