@@ -1,178 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Amrut Hanamapure | Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Amrut Hanamapure | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-body{
-  background:#f5f7fb;
-  color:#1f2937;
-}
+    body {
+      background: #f5f7fb;
+      color: #1f2937;
+    }
 
-header{
-  background:linear-gradient(135deg,#4f46e5,#9333ea);
-  color:white;
-  padding:60px 20px;
-  text-align:center;
-}
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-header h1{
-  font-size:32px;
-}
-header p{
-  margin-top:10px;
-  font-size:16px;
-  opacity:0.9;
-}
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
 
-section{
-  max-width:1000px;
-  margin:40px auto;
-  padding:0 20px;
-}
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
 
-.card{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom:25px;
-}
+    header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
 
-h2{
-  color:#4f46e5;
-  margin-bottom:15px;
-}
+    /* SECTIONS */
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
-}
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
 
-.skill{
-  background:#eef2ff;
-  padding:12px;
-  border-radius:10px;
-  text-align:center;
-  font-size:14px;
-  font-weight:500;
-}
+    h2 {
+      color: #4f46e5;
+      margin-bottom: 15px;
+    }
 
-.progress{
-  background:#e5e7eb;
-  border-radius:10px;
-  overflow:hidden;
-  margin-top:6px;
-}
-.progress div{
-  height:6px;
-  background:#4f46e5;
-}
+    p {
+      line-height: 1.6;
+    }
 
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+    ul {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
 
-.project{
-  background:#f9fafb;
-  padding:20px;
-  border-radius:15px;
-  border-left:4px solid #4f46e5;
-}
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+    }
 
-footer{
-  text-align:center;
-  padding:25px;
-  font-size:14px;
-  color:#6b7280;
-}
-a{
-  color:#4f46e5;
-  text-decoration:none;
-}
-</style>
+    .skill {
+      background: #eef2ff;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .progress {
+      background: #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .progress div {
+      height: 6px;
+      background: #4f46e5;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid #4f46e5;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
+  <img src="profile.jpg.png" alt="Profile Photo">
   <h1>Amrut Hanamapure</h1>
   <p>Electronics & Communication Engineering Student</p>
   <p>Bengaluru, India</p>
 </header>
 
 <section>
+
   <div class="card">
     <h2>About Me</h2>
     <p>
-      Motivated ECE student with strong interest in core electronics, embedded systems,
-      and VLSI basics. Passionate about learning new technologies and applying
-      theoretical knowledge to real-world applications.
+      Motivated Electronics and Communication Engineering student with a strong
+      interest in core electronics, embedded systems, and VLSI basics.
+      Seeking internship opportunities to gain hands-on industry experience.
     </p>
   </div>
 
   <div class="card">
     <h2>Skills</h2>
     <div class="skills">
-      <div class="skill">VLSI Design<div class="progress"><div style="width:70%"></div></div></div>
-      <div class="skill">Verilog<div class="progress"><div style="width:65%"></div></div></div>
-      <div class="skill">Embedded Systems<div class="progress"><div style="width:75%"></div></div></div>
-      <div class="skill">Python<div class="progress"><div style="width:70%"></div></div></div>
-      <div class="skill">PCB Design<div class="progress"><div style="width:60%"></div></div></div>
-      <div class="skill">Circuit Design<div class="progress"><div style="width:75%"></div></div></div>
+      <div class="skill">VLSI Design
+        <div class="progress"><div style="width:70%"></div></div>
+      </div>
+      <div class="skill">Verilog HDL
+        <div class="progress"><div style="width:65%"></div></div>
+      </div>
+      <div class="skill">Embedded Systems
+        <div class="progress"><div style="width:75%"></div></div>
+      </div>
+      <div class="skill">Python
+        <div class="progress"><div style="width:70%"></div></div>
+      </div>
+      <div class="skill">PCB Design
+        <div class="progress"><div style="width:60%"></div></div>
+      </div>
+      <div class="skill">Circuit Analysis
+        <div class="progress"><div style="width:75%"></div></div>
+      </div>
     </div>
   </div>
 
   <div class="card">
     <h2>Experience</h2>
     <p><strong>Robotics Training – GTTC, Belagavi</strong></p>
-    <p>Jan–Feb 2023</p>
+    <p>Jan 2023 – Feb 2023</p>
     <ul>
-      <li>Robot assembly & troubleshooting</li>
-      <li>Basic embedded programming</li>
-      <li>Hands-on practical exposure</li>
+      <li>Robot assembly and component integration</li>
+      <li>Basic programming and troubleshooting</li>
+      <li>Practical exposure to embedded systems</li>
     </ul>
-  </div>
-
-  <div class="card">
-    <h2>Education</h2>
-    <p><strong>B.E – ECE</strong> | City Engineering College (2023–Present)</p>
-    <p><strong>Diploma – ECE</strong> | Govt Polytechnic Athani (CGPA 8.3)</p>
   </div>
 
   <div class="card">
     <h2>Projects</h2>
     <div class="projects">
+
       <div class="project">
-        <strong>Robotics Mini Project</strong>
-        <p>Basic robotic system design and control.</p>
+        <strong>Robotics Training Project</strong>
+        <p>
+          Designed and assembled basic robotic systems with motors and sensors
+          during GTTC training.
+        </p>
       </div>
+
       <div class="project">
-        <strong>Embedded Systems Lab Work</strong>
-        <p>Microcontroller-based experiments.</p>
+        <strong>Embedded Systems Mini Project</strong>
+        <p>
+          Implemented microcontroller-based applications as part of academic
+          laboratory work.
+        </p>
       </div>
+
+      <div class="project">
+        <strong>PCB Design Practice</strong>
+        <p>
+          Designed simple PCB layouts and learned fabrication and routing basics.
+        </p>
+      </div>
+
     </div>
+  </div>
+
+  <div class="card">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>B.E – ECE</strong>, City Engineering College, Bengaluru (2023–Present)</li>
+      <li><strong>Diploma – ECE</strong>, Govt Polytechnic Athani (CGPA: 8.3)</li>
+    </ul>
   </div>
 
   <div class="card">
     <h2>Contact</h2>
     <p>📧 <a href="mailto:amruthanamapure@gmail.com">amruthanamapure@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank">LinkedIn</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank">LinkedIn Profile</a></p>
   </div>
+
 </section>
 
 <footer>
