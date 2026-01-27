@@ -1,144 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Amrut Hanamapure | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Amrut Hanamapure | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    body {
-      background: #f5f7fb;
-      color: #1f2937;
-    }
+body{
+  background:#f5f7fb;
+  color:#1f2937;
+}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #4f46e5, #9333ea);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#4f46e5,#9333ea);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+  animation:fadeUp 1s ease forwards;
+}
 
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid #ffffff;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
+header img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:4px solid #fff;
+  object-fit:cover;
+  margin-bottom:15px;
+}
 
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 5px;
-    }
+header h1{
+  font-size:32px;
+  margin-bottom:5px;
+}
 
-    header p {
-      font-size: 16px;
-      opacity: 0.9;
-    }
+header p{
+  font-size:16px;
+  opacity:0.9;
+}
 
-    /* SECTIONS */
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+/* RESUME BUTTON */
+.resume-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 22px;
+  background:#ffffff;
+  color:#4f46e5;
+  border-radius:8px;
+  font-weight:500;
+  text-decoration:none;
+  transition:all 0.3s ease;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      margin-bottom: 25px;
-    }
+.resume-btn:hover{
+  transform:scale(1.05);
+  background:#e0e7ff;
+}
 
-    h2 {
-      color: #4f46e5;
-      margin-bottom: 15px;
-    }
+/* SECTIONS */
+section{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 20px;
+}
 
-    p {
-      line-height: 1.6;
-    }
+.card{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom:25px;
+  animation:fadeUp 0.8s ease forwards;
+}
 
-    ul {
-      padding-left: 20px;
-      line-height: 1.6;
-    }
+h2{
+  color:#4f46e5;
+  margin-bottom:15px;
+}
 
-    /* SKILLS */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-    }
+p{
+  line-height:1.6;
+}
 
-    .skill {
-      background: #eef2ff;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 500;
-    }
+ul{
+  padding-left:20px;
+  line-height:1.6;
+}
 
-    .progress {
-      background: #e5e7eb;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+}
 
-    .progress div {
-      height: 6px;
-      background: #4f46e5;
-    }
+.skill{
+  background:#eef2ff;
+  padding:12px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:500;
+}
 
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+.progress{
+  background:#e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:6px;
+}
 
-    .project {
-      background: #f9fafb;
-      padding: 20px;
-      border-radius: 12px;
-      border-left: 4px solid #4f46e5;
-    }
+.progress div{
+  height:6px;
+  background:#4f46e5;
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 25px;
-      font-size: 14px;
-      color: #6b7280;
-    }
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
 
-    a {
-      color: #4f46e5;
-      text-decoration: none;
-    }
-  </style>
+.project{
+  background:#f9fafb;
+  padding:20px;
+  border-radius:12px;
+  border-left:4px solid #4f46e5;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+  color:#6b7280;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+a{
+  color:#4f46e5;
+  text-decoration:none;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="profile.jpg.png" alt="Profile Photo">
+  <img src="profile.jpg" alt="Profile Photo">
   <h1>Amrut Hanamapure</h1>
   <p>Electronics & Communication Engineering Student</p>
   <p>Bengaluru, India</p>
+
+  <a href="resume.pdf" class="resume-btn" download>
+    Download Resume
+  </a>
 </header>
 
 <section>
