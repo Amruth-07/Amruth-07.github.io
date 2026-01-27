@@ -5,9 +5,9 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-function openModal(title, desc){
+function openModal(title, content){
   document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalDesc").innerText = desc;
+  document.getElementById("modalDesc").innerHTML = content;
   document.getElementById("projectModal").style.display = "block";
 }
 
