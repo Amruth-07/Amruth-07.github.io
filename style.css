@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
@@ -5,63 +6,82 @@
   font-family:'Poppins',sans-serif;
 }
 
+/* ===== BODY ===== */
 body{
-  background:radial-gradient(circle at top,#0a0a0a,#000);
-  color:#f5f5f5;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  background:
+    radial-gradient(circle at top left, #1a0033, transparent 40%),
+    radial-gradient(circle at bottom right, #001f33, transparent 40%),
+    linear-gradient(180deg, #050505, #000);
+  color:#ffffff;
+  text-align:center;
   padding:30px 15px;
+  min-height:100vh;
 }
 
-/* Headings */
+/* ===== PROFILE IMAGE ===== */
+.profile{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  padding:4px;
+  background:linear-gradient(135deg,#7f00ff,#00d4ff);
+  box-shadow:0 0 30px rgba(127,0,255,0.6);
+  margin-bottom:20px;
+}
+
+/* ===== HEADINGS ===== */
 h2{
   font-weight:300;
-  opacity:0.8;
+  opacity:0.85;
 }
 
 h1{
-  font-size:2.5rem;
-  margin:10px 0 15px;
+  font-size:2.4rem;
+  margin:10px 0;
 }
 
 h1 span{
-  background:linear-gradient(90deg,#7f00ff,#e100ff,#00d4ff);
-  background-size:300%;
+  background:linear-gradient(
+    90deg,
+    #7f00ff,
+    #ff00cc,
+    #00d4ff,
+    #7f00ff
+  );
+  background-size:400%;
   -webkit-background-clip:text;
   color:transparent;
-  animation:gradientMove 4s infinite linear;
+  animation:gradientMove 5s linear infinite;
 }
 
-/* Subtitle */
+/* ===== PARAGRAPH ===== */
 p{
-  max-width:500px;
-  text-align:center;
+  max-width:520px;
+  margin:15px auto;
   line-height:1.6;
   opacity:0.85;
 }
 
-/* Tags */
+/* ===== TAGS ===== */
 .tag{
-  border:1px solid #333;
-  padding:8px 16px;
-  border-radius:25px;
-  margin:8px 6px;
   display:inline-block;
+  margin:8px 6px;
+  padding:8px 16px;
   font-size:14px;
-  background:rgba(255,255,255,0.03);
-  backdrop-filter:blur(6px);
-  transition:0.3s;
+  border-radius:25px;
+  border:1px solid #333;
+  background:rgba(255,255,255,0.04);
+  transition:0.3s ease;
 }
 
 .tag:hover{
-  background:#7f00ff;
-  border-color:#7f00ff;
+  background:linear-gradient(135deg,#7f00ff,#00d4ff);
+  border:none;
+  color:#fff;
   transform:translateY(-4px);
 }
 
-/* Cards */
+/* ===== CARDS ===== */
 .card{
   background:linear-gradient(145deg,#0f0f0f,#161616);
   padding:18px;
@@ -70,15 +90,31 @@ p{
   width:90%;
   max-width:360px;
   box-shadow:0 10px 25px rgba(0,0,0,0.6);
-  transition:0.3s;
+  transition:0.3s ease;
 }
 
 .card:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:0 0 20px rgba(127,0,255,0.4);
+  transform:translateY(-6px);
+  box-shadow:
+    0 0 20px rgba(127,0,255,0.5),
+    0 0 40px rgba(0,212,255,0.3);
 }
 
-/* Links */
+/* ===== RESUME BUTTON ===== */
+.resume{
+  display:inline-block;
+  margin:25px 0;
+  padding:12px 28px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#7f00ff,#ff00cc,#00d4ff);
+  background-size:300%;
+  animation:gradientMove 4s linear infinite;
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* ===== LINKS ===== */
 a{
   color:#00d4ff;
   text-decoration:none;
@@ -88,13 +124,38 @@ a:hover{
   text-decoration:underline;
 }
 
-/* Footer text */
-.footer{
-  margin-top:35px;
-  opacity:0.7;
+/* ===== SOCIAL ICONS ===== */
+.socials{
+  margin:20px 0;
 }
 
-/* Animations */
+.socials a{
+  color:#ffffff;
+  font-size:22px;
+  margin:0 12px;
+  transition:0.3s ease;
+}
+
+.socials a:hover{
+  background:linear-gradient(135deg,#7f00ff,#00d4ff);
+  -webkit-background-clip:text;
+  color:transparent;
+  transform:scale(1.3);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+/* ===== ANIMATIONS ===== */
 @keyframes gradientMove{
   0%{background-position:0%}
   100%{background-position:100%}
