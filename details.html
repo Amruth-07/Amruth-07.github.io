@@ -9,29 +9,26 @@
 
 <a href="Resume.pdf" class="resume reveal">Download Resume</a>
 
-<!-- LOCATION -->
+<!-- INFO CARDS -->
 <div class="card reveal">
   📍 <b>Location</b><br>
   Bengaluru, Karnataka, India
 </div>
 
-<!-- EXPERTISE -->
 <div class="card reveal">
   💼 <b>Expertise</b><br>
   Embedded Systems, VLSI Basics, Circuit Design
 </div>
 
-<!-- EXPERIENCE -->
 <div class="card reveal">
   🛠 <b>Experience</b><br>
   Robotics Training – GTTC, Belagavi<br>
-  <small>Jan – Feb 2023</small>
+  <small>Jan–Feb 2023</small>
 </div>
 
-<!-- EDUCATION -->
 <div class="card reveal">
   🎓 <b>Education</b><br>
-  BE – Electronics & Communication Engineering<br>
+  BE – ECE<br>
   City Engineering College, Bengaluru<br>
   <small>SGPA: 7.2</small>
 </div>
@@ -43,12 +40,13 @@
 
   <!-- PROJECT 1 -->
   <div class="project-card reveal">
-    <img src="portable.png" alt="Portable Oscilloscope using Arduino">
+    <img src="portable.png" alt="Portable Oscilloscope">
 
     <h3>Portable Oscilloscope using Arduino</h3>
+
     <p>
-      Low-cost portable oscilloscope using Arduino and OLED display to
-      visualize sine, square, and triangle waveforms.
+      Low-cost portable oscilloscope using Arduino and OLED display to visualize
+      sine, square, and triangle waveforms.
     </p>
 
     <div class="tech-stack">
@@ -59,25 +57,20 @@
     </div>
 
     <div class="project-actions">
-      <a href="#"
-onclick="openModal(
-  'Portable Oscilloscope – Code',
-  '<pre><code>' + oscilloscopeCode + '</code></pre>'
-)">
-💻 Code
-      </a>
-      <a href="https://github.com/amruth-07" target="_blank">💻 Code</a>
+      <a href="#" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">📘 Details</a>
+      <a href="#" onclick="openCode('oscilloscopeCode.txt','Portable Oscilloscope Code')">💻 Code</a>
     </div>
   </div>
 
   <!-- PROJECT 2 -->
   <div class="project-card reveal">
-    <img src="smart.png" alt="AgriGuard Smart IoT System">
+    <img src="smart.png" alt="AgriGuard">
 
     <h3>AgriGuard – Smart IoT System</h3>
+
     <p>
-      Smart IoT-based agriculture and security system using ESP32 with
-      automated irrigation and cloud monitoring.
+      IoT-based smart farming system using ESP32 for automated irrigation
+      and enhanced farm security.
     </p>
 
     <div class="tech-stack">
@@ -88,36 +81,33 @@ onclick="openModal(
     </div>
 
     <div class="project-actions">
-      <a href="#" onclick="openModal('AgriGuard – Smart IoT System', agriguardDetails)">📘 Details</a>
-      <a href="#">🌐 Live</a>
+      <a href="#" onclick="openModal('AgriGuard', agriguardDetails)">📘 Details</a>
+      <a href="#" onclick="openCode('Agriculture.txt','AgriGuard Code')">💻 Code</a>
     </div>
   </div>
-  
-<!-- PROJECT 3 -->
-<div class="project-card reveal">
-  <img src="component-tester.png" alt="All Component Tester">
 
-  <h3>All Component Tester</h3>
+  <!-- PROJECT 3 -->
+  <div class="project-card reveal">
+    <img src="component-tester.png" alt="Component Tester">
 
-  <p>
-    A compact electronic device that automatically detects and measures
-    resistors, capacitors, diodes, transistors, and other components.
-  </p>
+    <h3>All-in-One Component Tester</h3>
 
-  <div class="tech-stack">
-    <span>Arduino Nano</span>
-    <span>ATmega328</span>
-    <span>LCD</span>
-    <span>Embedded C</span>
+    <p>
+      Electronic component tester for resistors, capacitors, diodes,
+      transistors, and continuity checking.
+    </p>
+
+    <div class="tech-stack">
+      <span>Arduino</span>
+      <span>Electronics</span>
+      <span>Testing</span>
+    </div>
+
+    <div class="project-actions">
+      <a href="#" onclick="openCode('Tester.txt','Component Tester Code')">💻 Code</a>
+    </div>
   </div>
 
-  <div class="project-actions">
-    <a href="javascript:void(0)"
-       onclick="openModal('All Component Tester', componentTesterDetails)">
-       📘 Details
-    </a>
-    <a href="#" target="_blank">📄 PPT</a>
-  </div>
 </div>
 
 <!-- MODAL -->
