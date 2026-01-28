@@ -37,7 +37,7 @@ body{
   height:100%;
   border-radius:50%;
   object-fit:cover;
-  object-position:50% 40%; /* perfect face alignment */
+  object-position:50% 50%; /* perfect face alignment */
 }
 /* ===== HEADINGS ===== */
 h2{
@@ -95,7 +95,7 @@ p{
   animation:gradientMove 4s linear infinite;
   color:#fff;
   text-decoration:none;
-  font-weight:500;
+  font-weight:400;
 }
 
 /* ===== CARDS ===== */
