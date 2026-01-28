@@ -1,12 +1,10 @@
-/* ===== RESET ===== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins', sans-serif;
 }
-
-/* ===== BODY ===== */
 body{
 background:
 radial-gradient(circle at top left, #1a0033, transparent 40%),
@@ -18,12 +16,11 @@ padding:30px 15px;
 min-height:100vh;
 overflow-x:hidden;
 }
-/ ===== PROFILE IMAGE FINAL FIX ===== /
 .profile{
-width:130px;          / mobile friendly /
+width:130px;          
 height:130px;
 border-radius:50%;
-padding:5px;          / thinner ring */
+padding:5px;         
 background:linear-gradient(135deg,#7f00ff,#00d4ff);
 box-shadow:0 0 25px rgba(127,0,255,0.6);
 margin: 0 auto 24px;
@@ -37,9 +34,8 @@ width:100%;
 height:100%;
 border-radius:50%;
 object-fit:cover;
-object-position:50% 40%; /* perfect face alignment /
+object-position:50% 40%; 
 }
-/ ===== HEADINGS ===== */
 h2{
 font-weight:300;
 opacity:0.85;
@@ -57,16 +53,12 @@ background-size:400%;
 color:transparent;
 animation:gradientMove 5s linear infinite;
 }
-
-/* ===== PARAGRAPH ===== */
 p{
 max-width:520px;
 margin:15px auto;
 line-height:1.6;
 opacity:0.9;
 }
-
-/* ===== TAGS ===== */
 .tag{
 display:inline-block;
 margin:8px 6px;
@@ -83,8 +75,6 @@ background:linear-gradient(135deg,#7f00ff,#00d4ff);
 border:none;
 transform:translateY(-3px);
 }
-
-/* ===== RESUME BUTTON ===== */
 .resume{
 display:inline-block;
 margin:25px 0;
