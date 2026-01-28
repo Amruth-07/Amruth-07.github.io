@@ -5,7 +5,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-
 function openModal(title, content){
   document.getElementById("modalTitle").innerText = title;
   document.getElementById("modalDesc").innerHTML = content;
