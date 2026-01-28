@@ -15,7 +15,6 @@ function openModal(title, content){
 function closeModal(){
   document.getElementById("projectModal").style.display = "none";
 }
-
 const oscilloscopeDetails = `
 <b>Introduction:</b>
 <p>
