@@ -1,1 +1,269 @@
-cooodeeee
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <EEPROM.h>
+#include <fix_fft.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define REC_LENG 200
+#define DISP_LENG 100
+#define MIN_TRIG_SWING 5
+#define DOTS_DIV 25
+#define OLED_RESET -1
+#define FFT_N 128
+
+#define R_12k 4
+#define R_820k 16
+#define R_82k 17
+
+Adafruit_SSD1306 oled(SCREEN_WIDTH,SCREEN_HEIGHT,&Wire,OLED_RESET);
+
+const char vRangeName[10][5] PROGMEM={"A50V","A 5V"," 50V"," 20V"," 10V","  5V","  2V","  1V","0.5V","0.2V"};
+const char*const vstring_table[] PROGMEM={vRangeName[0],vRangeName[1],vRangeName[2],vRangeName[3],vRangeName[4],vRangeName[5],vRangeName[6],vRangeName[7],vRangeName[8],vRangeName[9]};
+
+int waveBuff[REC_LENG];
+char chrBuff[8];
+char hScale[]="xxxAs";
+char vScale[]="xxxx";
+
+float lsb5V=0.00563965;
+float lsb50V=0.0512939;
+float lsb5Vac=0.00630776;
+float lsb50Vac=0.0579751;
+
+volatile int vRange,hRange,trigD,scopeP,saveTimer;
+volatile boolean hold=false,switchPushed=false,fftMode=false;
+
+int dataMin,dataMax,dataAve,dataRms,rangeMax,rangeMin,rangeMaxDisp,rangeMinDisp,trigP;
+int att10x,inMode,offset5Vac,offset50Vac;
+float waveFreq,waveDuty;
+void setup(){
+pinMode(2,INPUT_PULLUP);
+pinMode(3,OUTPUT);
+pinMode(R_12k,INPUT);
+pinMode(5,INPUT_PULLUP);
+pinMode(7,INPUT_PULLUP);
+pinMode(8,INPUT_PULLUP);
+pinMode(9,INPUT_PULLUP);
+pinMode(10,INPUT_PULLUP);
+pinMode(11,INPUT_PULLUP);
+pinMode(12,INPUT_PULLUP);
+pinMode(13,OUTPUT);
+pinMode(R_820k,INPUT);
+pinMode(R_82k,INPUT);
+DIDR0=0x0f;
+oled.begin(SSD1306_SWITCHCAPVCC,0x3C);
+auxFunctions();
+loadEEPROM();
+analogReference(INTERNAL);
+trigger_level(26);
+analogRead(0);
+PCMSK0=_BV(PCINT4)|_BV(PCINT3)|_BV(PCINT1)|_BV(PCINT0);
+PCICR=_BV(PCIE0);
+startScreen();
+}
+void loop(){
+if(hRange<15)pulse();
+setInputOffset();
+setConditions();
+digitalWrite(13,HIGH);
+readWave();
+digitalWrite(13,LOW);
+setConditions();
+dataAnalize();
+writeCommonImage();
+plotData();
+dispInf();
+oled.display();
+saveEEPROM();
+while(hold){
+dispHold();
+if(inMode>0){
+if(acZero()){
+scopeP=0;
+hold=false;
+}
+delay(10);
+}
+}
+}
+int acZero(){
+if(digitalRead(8)==LOW){
+if(vRange>=5)offset5Vac=dataAve/10;
+else offset50Vac=dataAve/10;
+saveEEPROM();
+return 1;
+}
+return 0;
+}
+
+void setInputOffset(){
+if(inMode>=1){
+if(att10x){
+pull5V(R_82k);
+hiZ(R_820k);
+}else{
+hiZ(R_82k);
+pull5V(R_820k);
+}
+}else{
+hiZ(R_820k);
+hiZ(R_82k);
+}
+}
+
+void hiZ(int n){
+pinMode(n,INPUT);
+digitalWrite(n,LOW);
+}
+
+void pull5V(int n){
+pinMode(n,OUTPUT);
+digitalWrite(n,HIGH);
+}
+
+void pullGND(int n){
+pinMode(n,OUTPUT);
+digitalWrite(n,LOW);
+}
+void setConditions(){
+inMode=digitalRead(7)==LOW;
+strcpy_P(hScale,(char*)pgm_read_word(&(hstring_table[hRange])));
+strcpy_P(vScale,(char*)pgm_read_word(&(vstring_table[vRange])));
+switch(vRange){
+case 2:
+att10x=1;
+if(!inMode){rangeMax=50.0/lsb50V;rangeMin=0;rangeMaxDisp=5000;rangeMinDisp=0;}
+else{rangeMax=offset50Vac+25.0/lsb50Vac;rangeMin=offset50Vac-25.0/lsb50Vac;rangeMaxDisp=2500;rangeMinDisp=-2500;}
+break;
+case 3:
+att10x=1;
+if(!inMode){rangeMax=20.0/lsb50V;rangeMin=0;rangeMaxDisp=2000;rangeMinDisp=0;}
+else{rangeMax=offset50Vac+10.0/lsb50Vac;rangeMin=offset50Vac-10.0/lsb50Vac;rangeMaxDisp=1000;rangeMinDisp=-1000;}
+break;
+case 4:
+att10x=1;
+if(!inMode){rangeMax=10.0/lsb50V;rangeMin=0;rangeMaxDisp=1000;rangeMinDisp=0;}
+else{rangeMax=offset50Vac+5.0/lsb50Vac;rangeMin=offset50Vac-5.0/lsb50Vac;rangeMaxDisp=500;rangeMinDisp=-500;}
+break;
+case 5:
+att10x=0;
+if(!inMode){rangeMax=5.0/lsb5V;rangeMin=0;rangeMaxDisp=500;rangeMinDisp=0;}
+else{rangeMax=offset5Vac+2.5/lsb5Vac;rangeMin=offset5Vac-2.5/lsb5Vac;rangeMaxDisp=250;rangeMinDisp=-250;}
+break;
+case 6:
+att10x=0;
+if(!inMode){rangeMax=2.0/lsb5V;rangeMin=0;rangeMaxDisp=200;rangeMinDisp=0;}
+else{rangeMax=offset5Vac+1.0/lsb5Vac;rangeMin=offset5Vac-1.0/lsb5Vac;rangeMaxDisp=100;rangeMinDisp=-100;}
+break;
+case 7:
+att10x=0;
+if(!inMode){rangeMax=1.0/lsb5V;rangeMin=0;rangeMaxDisp=100;rangeMinDisp=0;}
+else{rangeMax=offset5Vac+0.5/lsb5Vac;rangeMin=offset5Vac-0.5/lsb5Vac;rangeMaxDisp=50;rangeMinDisp=-50;}
+break;
+case 8:
+att10x=0;
+if(!inMode){rangeMax=0.5/lsb5V;rangeMin=0;rangeMaxDisp=50;rangeMinDisp=0;}
+else{rangeMax=offset5Vac+0.25/lsb5Vac;rangeMin=offset5Vac-0.25/lsb5Vac;rangeMaxDisp=25;rangeMinDisp=-25;}
+break;
+case 9:
+att10x=0;
+if(!inMode){rangeMax=0.2/lsb5V;rangeMin=0;rangeMaxDisp=20;rangeMinDisp=0;}
+else{rangeMax=offset5Vac+0.1/lsb5Vac;rangeMin=offset5Vac-0.1/lsb5Vac;rangeMaxDisp=10;rangeMinDisp=-10;}
+break;
+}
+}
+void readWave(){
+byte*p=(byte*)waveBuff;
+if(att10x)pullGND(R_12k);else hiZ(R_12k);
+switchPushed=false;
+switch(hRange){
+case 0:timeExec=1660;sample_us(200000L);break;
+case 1:timeExec=860;sample_us(100000L);break;
+case 2:timeExec=460;sample_us(50000L);break;
+case 3:timeExec=220;sample_us(20000L);break;
+case 4:timeExec=140;sample_us(10000L);break;
+case 5:timeExec=100;sample_us(5000L);break;
+case 6:
+timeExec=76;
+ADCSRA=(ADCSRA&0xf8)|0x06;
+for(int i=0;i<REC_LENG;i++){waveBuff[i]=analogRead(0);delayMicroseconds(23);}
+break;
+case 7:
+timeExec=68;
+ADCSRA=(ADCSRA&0xf8)|0x05;
+for(int i=0;i<REC_LENG;i++){waveBuff[i]=analogRead(0);delayMicroseconds(11);}
+break;
+case 8:
+timeExec=64;
+ADCSRA=(ADCSRA&0xf8)|0x04;
+for(int i=0;i<REC_LENG;i++){waveBuff[i]=analogRead(0);delayMicroseconds(4);asm("nop");}
+break;
+case 9:case 10:case 11:
+timeExec=62;
+ADCSRA=(ADCSRA&0xf8)|0x02;
+for(int i=0;i<REC_LENG;i++){waveBuff[i]=analogRead(0);asm("nop");}
+break;
+case 12:case 13:case 14:
+timeExec=61;
+ADCSRB=0x40;
+ADCSRA=(ADCSRA&0xf8)|0x62;
+cli();
+for(int i=0;i<REC_LENG;i++){while(!(ADCSRA&0x10));ADCSRA|=0x10;*p++=ADCL;*p++=ADCH;}
+ADCSRA&=0x9f;
+sei();
+break;
+default:
+extern byte oscspeed;
+timeExec=62;
+oscspeed=21-hRange;
+modeequiv();
+break;
+}
+}
+void writeCommonImage(){
+oled.clearDisplay();
+if(fftMode)return;
+oled.setTextColor(WHITE);
+oled.drawFastVLine(26,9,55,WHITE);
+oled.drawFastVLine(127,9,3,WHITE);
+oled.drawFastVLine(127,61,3,WHITE);
+for(int x=26;x<=128;x+=5)oled.drawFastHLine(x,36,2,WHITE);
+for(int x=102;x>30;x-=25)for(int y=10;y<63;y+=5)oled.drawFastVLine(x,y,2,WHITE);
+}
+
+void plotData(){
+long y1,y2;
+if(fftMode){plotFFT();return;}
+for(int x=0;x<=98;x++){
+y1=map(waveBuff[x+trigP-50],rangeMin,rangeMax,63,9);
+y2=map(waveBuff[x+trigP-49],rangeMin,rangeMax,63,9);
+y1=constrain(y1,9,63);
+y2=constrain(y2,9,63);
+oled.drawLine(x+27,y1,x+28,y2,WHITE);
+}
+}
+
+void saveEEPROM(){
+if(saveTimer>0){
+saveTimer-=timeExec;
+if(saveTimer<0){
+EEPROM.write(0,vRange);
+EEPROM.write(1,hRange);
+EEPROM.write(2,trigD);
+EEPROM.write(3,scopeP);
+EEPROM.write(4,offset5Vac>>8);
+EEPROM.write(5,offset5Vac&0xFF);
+EEPROM.write(6,offset50Vac>>8);
+EEPROM.write(7,offset50Vac&0xFF);
+}
+}
+}
+
+void loadEEPROM(){
+int x=EEPROM.read(0);vRange=(x>=0&&x<=9)?x:5;
+x=EEPROM.read(1);hRange=(x>=0&&x<=21)?x:3;
+x=EEPROM.read(2);trigD=(x>=0&&x<=1)?x:1;
+x=EEPROM.read(3);scopeP=(x>=0&&x<=3)?x:1;
+}
