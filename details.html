@@ -30,38 +30,58 @@ BE – ECE<br>
 City Engineering College, Bengaluru<br>
 <small>SGPA: 7.2</small>
 </div>
-<!-- PROJECTS SECTION -->
-<div class="card reveal">
-  <h3>📁 Projects</h3>
-<!-- PROJECT 1 -->
-<div class="card reveal">
-  <h3></h3>
+<!-- PROJECT CARD -->
+<div class="project-card reveal">
 
-  <img src="portable.png"
-     alt="Portable Oscilloscope using Arduino"
-     onclick="openModal(
-       'Portable Oscilloscope using Arduino',
-       oscilloscopeDetails
-     )"
-     style="width:100%;border-radius:12px;margin:12px 0;cursor:pointer;">
-    Designed and developed a low-cost, portable oscilloscope using Arduino and OLED display to visualize electrical waveforms such as sine, square, and triangle waves.
+  <img src="portable.png" alt="Portable Oscilloscope using Arduino">
+
+  <h3>Portable Oscilloscope using Arduino</h3>
 
   <p>
+    Low-cost portable oscilloscope using Arduino and OLED to visualize
+    sine, square, and triangle waveforms for educational use.
+  </p>
+
+  <!-- TECH STACK -->
+  <div class="tech-stack">
+    <span>Arduino</span>
+    <span>OLED</span>
+    <span>Embedded C</span>
+    <span>Signal Processing</span>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="project-actions">
+    <a href="#" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">📘 Details</a>
+    <a href="https://github.com/amruth-07" target="_blank">💻 Code</a>
+  </div>
+
 </div>
 
-<!-- PROJECT 2 -->
-<div class="card reveal">
-  <h3></h3>
-  <img src="smart.png"
-     alt="AgriGuard Smart IoT System"
-     onclick="openModal(
-       'AgriGuard – Smart IoT System for Farming & Security',
-       agriguardDetails
-     )"
-     style="width:100%;border-radius:12px;margin:12px 0;cursor:pointer;">
-  An IoT-based smart agriculture system using ESP32 that automates irrigation and enhances farm security through real-time sensor monitoring.
+<!-- PROJECT CARD -->
+<div class="project-card reveal">
+
+  <img src="smart.png" alt="AgriGuard Smart IoT System">
+
+  <h3>AgriGuard – Smart IoT System</h3>
+
   <p>
+    IoT-based smart agriculture system using ESP32 for automated irrigation
+    and farm security with cloud monitoring.
   </p>
+
+  <div class="tech-stack">
+    <span>ESP32</span>
+    <span>IoT</span>
+    <span>Sensors</span>
+    <span>ThingSpeak</span>
+  </div>
+
+  <div class="project-actions">
+    <a href="#" onclick="openModal('AgriGuard', agriguardDetails)">📘 Details</a>
+    <a href="#" target="_blank">🌐 Live</a>
+  </div>
+
 </div>
 <!-- PROJECT MODAL -->
 <div id="projectModal" class="modal">
