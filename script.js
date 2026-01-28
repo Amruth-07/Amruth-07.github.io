@@ -90,3 +90,47 @@ ESP32 collects sensor data and performs actions based on predefined threshold va
 Smart farming, home gardens, greenhouses, agricultural monitoring.
 </p>
 `;
+const componentTesterDetails = `
+<b>Introduction</b>
+<p>
+The All Component Tester is a compact electronic device used to
+automatically identify and measure electronic components such as
+resistors, capacitors, diodes, and transistors.
+</p>
+
+<b>Working Principle</b>
+<p>
+The system uses a microcontroller (Arduino Nano / ATmega328) to apply
+test signals to the unknown component. By measuring voltage and current
+responses, the component type and its parameters are identified.
+</p>
+
+<b>Testable Components</b>
+<ul>
+  <li>Resistors</li>
+  <li>Capacitors</li>
+  <li>Inductors</li>
+  <li>Diodes and LEDs</li>
+  <li>BJTs, MOSFETs, JFETs</li>
+</ul>
+
+<b>Features</b>
+<ul>
+  <li>Automatic component recognition</li>
+  <li>LCD display output</li>
+  <li>Battery or USB powered</li>
+  <li>Simple button interface</li>
+</ul>
+
+<b>Applications</b>
+<p>
+Useful for electronics testing, repair work, learning component behavior,
+and laboratory experiments.
+</p>
+
+<b>Limitations</b>
+<ul>
+  <li>Not suitable for high-voltage components</li>
+  <li>Cannot test components in-circuit</li>
+</ul>
+`;
