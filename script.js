@@ -1,135 +1,175 @@
-// Scroll reveal
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".reveal").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
-      el.classList.add("active");
-    }
-  });
-});
-
-// Open modal (Details OR Code)
-function openModal(title, content) {
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalDesc").innerHTML = content;
-  document.getElementById("projectModal").style.display = "block";
-}
-
-// Close modal
-function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
-}
-
-// 🔥 LOAD CODE FROM .txt FILE
-function openCode(title, file) {
-  fetch(file)
-    .then(res => res.text())
-    .then(code => {
-      document.getElementById("modalTitle").innerText = title + " – Code";
-      document.getElementById("modalDesc").innerHTML = `
-        <pre style="
-          text-align:left;
-          background:#0b0b0b;
-          padding:15px;
-          border-radius:10px;
-          overflow-x:auto;
-          font-size:13px;
-          line-height:1.5;
-        "><code id="codeBlock">${code}</code></pre>
-
-        <button onclick="copyCode()" style="
-          margin-top:12px;
-          padding:8px 16px;
-          border:none;
-          border-radius:20px;
-          background:linear-gradient(135deg,#7f00ff,#00d4ff);
-          color:white;
-          cursor:pointer;
-        ">📋 Copy Code</button>
-      `;
-      document.getElementById("projectModal").style.display = "block";
-    });
-}
-
-// Copy button
-function copyCode() {
-  const text = document.getElementById("codeBlock").innerText;
-  navigator.clipboard.writeText(text);
-  alert("✅ Code copied!");
-}
-/* ===== SCROLL REVEAL ===== */
+/* ===============================
+   SCROLL REVEAL ANIMATION
+================================ */
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+function revealOnScroll() {
   reveals.forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 80) {
       el.classList.add("active");
     }
   });
-});
+}
 
-/* ===== PROJECT DETAILS CONTENT ===== */
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+
+/* ===============================
+   PROJECT THEORY / DETAILS
+================================ */
+
+/* ---- PROJECT 1 ---- */
 const oscilloscopeDetails = `
-<h4>🔧 Portable Oscilloscope using Arduino</h4>
+<h3>📟 Portable Oscilloscope using Arduino</h3>
+
+<p>
+A portable oscilloscope is a compact electronic instrument used to visualize
+electrical signals in real time. This project is designed as a <b>low-cost
+oscilloscope</b> using an Arduino microcontroller and an OLED display.
+</p>
+
+<h4>🔧 Working Principle</h4>
 <ul>
-  <li>Arduino-based low-cost oscilloscope</li>
-  <li>OLED display for waveform visualization</li>
-  <li>Displays sine, square & triangle waves</li>
-  <li>ADC sampling using Arduino</li>
+  <li>The analog signal is applied to the Arduino ADC pin</li>
+  <li>Arduino samples the signal using its built-in ADC</li>
+  <li>Sampled values are mapped to pixel coordinates</li>
+  <li>The waveform is drawn on the OLED display</li>
+</ul>
+
+<h4>📌 Features</h4>
+<ul>
+  <li>Displays sine, square, and triangle waveforms</li>
+  <li>Portable and low power</li>
+  <li>Real-time signal visualization</li>
+  <li>Low-cost alternative to lab oscilloscopes</li>
+</ul>
+
+<h4>🧠 Applications</h4>
+<ul>
+  <li>Educational labs</li>
+  <li>Signal testing</li>
+  <li>Embedded system debugging</li>
 </ul>
 `;
 
+/* ---- PROJECT 2 ---- */
 const agriguardDetails = `
-<h4>🌱 AgriGuard – Smart IoT System</h4>
+<h3>🌱 AgriGuard – Smart IoT System for Farming & Security</h3>
+
+<p>
+AgriGuard is an <b>IoT-based smart agriculture system</b> developed using ESP32.
+It automates irrigation and improves farm security using sensors and cloud
+monitoring.
+</p>
+
+<h4>🔧 Working Principle</h4>
 <ul>
-  <li>ESP32-based smart farming solution</li>
-  <li>Automatic irrigation using soil moisture</li>
-  <li>Flame & security monitoring</li>
-  <li>Cloud monitoring via ThingSpeak</li>
+  <li>Soil moisture sensor checks water content</li>
+  <li>ESP32 controls the water pump automatically</li>
+  <li>DHT11 measures temperature & humidity</li>
+  <li>Flame & LDR sensors provide security alerts</li>
+  <li>Data is uploaded to ThingSpeak cloud</li>
+</ul>
+
+<h4>📌 Features</h4>
+<ul>
+  <li>Automatic irrigation system</li>
+  <li>Real-time IoT monitoring</li>
+  <li>Fire and intrusion detection</li>
+  <li>Cloud-based visualization</li>
+</ul>
+
+<h4>🧠 Applications</h4>
+<ul>
+  <li>Smart farming</li>
+  <li>Water conservation</li>
+  <li>Farm security monitoring</li>
 </ul>
 `;
 
+/* ---- PROJECT 3 ---- */
 const testerDetails = `
-<h4>🔌 All-in-One Component Tester</h4>
+<h3>🔌 All-in-One Electronic Component Tester</h3>
+
+<p>
+This project is an <b>automatic electronic component tester</b> that identifies
+and tests basic electronic components using an Arduino-based system.
+</p>
+
+<h4>🔧 Working Principle</h4>
 <ul>
-  <li>Tests resistors, capacitors & diodes</li>
-  <li>Transistor & continuity checking</li>
-  <li>Arduino-based measurement system</li>
-  <li>LCD display for results</li>
+  <li>Component is connected to test terminals</li>
+  <li>Arduino applies test voltages</li>
+  <li>Voltage/current response is measured</li>
+  <li>Component type and value are calculated</li>
+</ul>
+
+<h4>📌 Features</h4>
+<ul>
+  <li>Tests resistors, capacitors, diodes</li>
+  <li>Identifies transistor pin configuration</li>
+  <li>Continuity checking</li>
+  <li>LCD display output</li>
+</ul>
+
+<h4>🧠 Applications</h4>
+<ul>
+  <li>Electronics labs</li>
+  <li>Component verification</li>
+  <li>Repair and maintenance</li>
 </ul>
 `;
 
-/* ===== OPEN DETAILS MODAL ===== */
+
+/* ===============================
+   MODAL CONTROL
+================================ */
 function openModal(title, content) {
   document.getElementById("modalTitle").innerHTML = title;
   document.getElementById("modalDesc").innerHTML = content;
   document.getElementById("projectModal").style.display = "block";
 }
 
-/* ===== CLOSE MODAL ===== */
 function closeModal() {
   document.getElementById("projectModal").style.display = "none";
 }
 
-/* ===== OPEN CODE MODAL ===== */
-function openCode(title, file) {
-  fetch(file)
-    .then(res => res.text())
+
+/* ===============================
+   LOAD & SHOW CODE FILES
+================================ */
+function openCode(title, fileName) {
+  fetch(fileName)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+      return response.text();
+    })
     .then(code => {
-      document.getElementById("modalTitle").innerHTML = title + " – Code";
-      document.getElementById("modalDesc").innerHTML =
-        `<pre><code>${escapeHtml(code)}</code></pre>`;
+      document.getElementById("modalTitle").innerHTML = title + " – Source Code";
+      document.getElementById("modalDesc").innerHTML = `
+        <pre><code>${escapeHtml(code)}</code></pre>
+      `;
       document.getElementById("projectModal").style.display = "block";
     })
     .catch(() => {
-      document.getElementById("modalDesc").innerHTML = "⚠️ Code file not found.";
+      document.getElementById("modalTitle").innerHTML = title;
+      document.getElementById("modalDesc").innerHTML =
+        "<p>⚠️ Code file not found. Please check filename.</p>";
+      document.getElementById("projectModal").style.display = "block";
     });
 }
 
-/* ===== HTML ESCAPE ===== */
+
+/* ===============================
+   HTML ESCAPE (SECURITY)
+================================ */
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
-}
+  }
