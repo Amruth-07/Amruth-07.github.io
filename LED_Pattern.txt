@@ -1,1 +1,158 @@
-bbbbbbb
+// Project Title : Generating LED Patterns Using Arduino
+int leds[] = {2,3,4,5,6,7,8,9,10,11};
+int totalLEDs = 10;
+
+void setup() {
+  for(int i = 0; i < totalLEDs; i++) {
+    pinMode(leds[i], OUTPUT);
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+// === MAIN LOOP ===
+void loop() {
+
+  runningLeftToRight();
+  runningRightToLeft();
+  allBlink();
+  alternateBlink();
+  fillAndClear();
+  bounceEffect();
+  waveEffect();
+  randomBlink();
+  pairBlink();
+  spiralEffect();
+
+}
+
+// === PATTERN FUNCTIONS ===
+
+// Pattern 1: Running LED (Left to Right)
+void runningLeftToRight() {
+  for(int i = 0; i < totalLEDs; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(120);
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+// Pattern 2: Running LED (Right to Left)
+void runningRightToLeft() {
+  for(int i = totalLEDs - 1; i >= 0; i--) {
+    digitalWrite(leds[i], HIGH);
+    delay(120);
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+// Pattern 3: All LEDs Blink
+void allBlink() {
+  for(int j = 0; j < 4; j++) {
+    for(int i = 0; i < totalLEDs; i++) {
+      digitalWrite(leds[i], HIGH);
+    }
+    delay(300);
+
+    for(int i = 0; i < totalLEDs; i++) {
+      digitalWrite(leds[i], LOW);
+    }
+    delay(300);
+  }
+}
+
+// Pattern 4: Alternate LEDs
+void alternateBlink() {
+  for(int i = 0; i < totalLEDs; i += 2) {
+    digitalWrite(leds[i], HIGH);
+  }
+  delay(400);
+  clearAll();
+
+  for(int i = 1; i < totalLEDs; i += 2) {
+    digitalWrite(leds[i], HIGH);
+  }
+  delay(400);
+  clearAll();
+}
+
+// Pattern 5: Fill LEDs then Clear
+void fillAndClear() {
+  for(int i = 0; i < totalLEDs; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(100);
+  }
+  for(int i = totalLEDs - 1; i >= 0; i--) {
+    digitalWrite(leds[i], LOW);
+    delay(100);
+  }
+}
+
+// Pattern 6: Bounce Effect
+void bounceEffect() {
+  for(int i = 0; i < totalLEDs; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(80);
+    digitalWrite(leds[i], LOW);
+  }
+  for(int i = totalLEDs - 2; i > 0; i--) {
+    digitalWrite(leds[i], HIGH);
+    delay(80);
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+// Pattern 7: Wave Effect
+void waveEffect() {
+  for(int i = 0; i < totalLEDs; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(60);
+  }
+  for(int i = 0; i < totalLEDs; i++) {
+    digitalWrite(leds[i], LOW);
+    delay(60);
+  }
+}
+
+// Pattern 8: Random Blink
+void randomBlink() {
+  for(int i = 0; i < 15; i++) {
+    int randLED = random(0, totalLEDs);
+    digitalWrite(leds[randLED], HIGH);
+    delay(150);
+    digitalWrite(leds[randLED], LOW);
+  }
+}
+
+// Pattern 9: Pair Blink
+void pairBlink() {
+  for(int i = 0; i < totalLEDs - 1; i += 2) {
+    digitalWrite(leds[i], HIGH);
+    digitalWrite(leds[i+1], HIGH);
+    delay(200);
+    digitalWrite(leds[i], LOW);
+    digitalWrite(leds[i+1], LOW);
+  }
+}
+
+// Pattern 10: Spiral Effect (Center Out)
+void spiralEffect() {
+  int left = 0;
+  int right = totalLEDs - 1;
+
+  while(left <= right) {
+    digitalWrite(leds[left], HIGH);
+    digitalWrite(leds[right], HIGH);
+    delay(200);
+    digitalWrite(leds[left], LOW);
+    digitalWrite(leds[right], LOW);
+    left++;
+    right--;
+  }
+}
+
+// ================= HELPER FUNCTION =================
+void clearAll() {
+  for(int i = 0; i < totalLEDs; i++) {
+    digitalWrite(leds[i], LOW);
+  }
+}
