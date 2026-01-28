@@ -126,43 +126,34 @@ and tests basic electronic components using an Arduino-based system.
 /* ===============================
    MODAL CONTROL
 ================================ */
-function openModal(title, content) {
-  document.getElementById("modalTitle").innerHTML = title;
-  document.getElementById("modalDesc").innerHTML = content;
-  document.getElementById("projectModal").style.display = "block";
-}
 
-function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
-}
+function openCode(title, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(code => {
+      document.getElementById("modalTitle").innerText =
+        title + " – Source Code";
 
+      document.getElementById("modalDesc").innerHTML = `
+        <pre>
+<code class="language-arduino">${escapeHtml(code)}</code>
+        </pre>
+      `;
+
+      document.getElementById("projectModal").style.display = "block";
+
+      Prism.highlightAll(); // ✅ activate syntax highlighting
+    });
+}
 
 /* ===============================
    LOAD & SHOW CODE FILES
 ================================ */
 function openCode(title, fileName) {
   fetch(fileName)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("File not found");
-      }
-      return response.text();
-    })
-    .then(code => {
-      document.getElementById("modalTitle").innerHTML = title + " – Source Code";
-      document.getElementById("modalDesc").innerHTML = `
-        <pre><code>${escapeHtml(code)}</code></pre>
-      `;
-      document.getElementById("projectModal").style.display = "block";
-    })
-    .catch(() => {
-      document.getElementById("modalTitle").innerHTML = title;
-      document.getElementById("modalDesc").innerHTML =
+    .then(response =").innerHTML =
         "<p>⚠️ Code file not found. Please check filename.</p>";
-      document.getElementById("projectModal").style.display = "block";
-    });
-}
-
+      document.getElementById("proje
 
 /* ===============================
    HTML ESCAPE (SECURITY)
