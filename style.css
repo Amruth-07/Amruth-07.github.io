@@ -283,3 +283,32 @@ a:hover{
   margin: 2px 0;
   line-height: 1.4;
 }
+/* ===== FINAL MODAL SPACING FIX ===== */
+
+.modal-content {
+  line-height: 1.45;
+}
+
+/* Section titles like Introduction, Theory, Advantages */
+.modal-content b {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Paragraph control */
+.modal-content p {
+  margin: 4px 0 8px;
+}
+
+/* List control */
+.modal-content ul {
+  margin: 0 0 10px;   /* remove top gap */
+  padding-left: 18px;
+}
+
+.modal-content li {
+  margin: 3px 0;
+  line-height: 1.4;
+}
