@@ -1,63 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
   <title>Amrut Hanamapure | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ===== PROFILE IMAGE ===== -->
+  <!-- PROFILE IMAGE (FIXED) -->
   <div class="profile reveal">
-    <div class="profile">
-  <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
-    </div>
+    <img src="profile.jpg.png" alt="Amrut Hanamapure">
   </div>
 
-  <!-- ===== INTRO TEXT ===== -->
+  <!-- INTRO -->
   <h2 class="reveal">Hi! I'm</h2>
-
-  <h1 class="reveal">
-    <span>Amrut Hanamapure</span>
-  </h1>
+  <h1 class="reveal"><span>Amrut Hanamapure</span></h1>
 
   <p class="reveal">
     Electronics & Communication Engineering Student
   </p>
 
-  <!-- ===== DETAILS LOAD AREA ===== -->
-  <!-- Everything from details.html will appear here -->
-  <div id="details"></div>
+  <!-- TAGS -->
+  <div class="reveal">
+    <span class="tag">Embedded Systems</span>
+    <span class="tag">VLSI Basics</span>
+    <span class="tag">Verilog</span>
+    <span class="tag">PCB Design</span>
+    <span class="tag">Python</span>
+  </div>
 
-  <!-- ===== MAIN SCRIPT ===== -->
+  <!-- RESUME -->
+  <a href="Resume.pdf" class="resume reveal">Download Resume</a>
+
+  <!-- INFO CARDS -->
+  <div class="card reveal">
+    📍 <b>Location</b><br>
+    Bengaluru, Karnataka, India
+  </div>
+
+  <div class="card reveal">
+    💼 <b>Expertise</b><br>
+    Embedded Systems, VLSI Basics, Circuit Design
+  </div>
+
+  <div class="card reveal">
+    🛠 <b>Experience</b><br>
+    Robotics Training – GTTC, Belagavi<br>
+    <small>Jan–Feb 2023</small>
+  </div>
+
+  <div class="card reveal">
+    🎓 <b>Education</b><br>
+    BE – ECE<br>
+    City Engineering College, Bengaluru<br>
+    <small>SGPA: 7.2</small>
+  </div>
+
+  <!-- PROJECTS -->
+  <h2 class="reveal">📂 Projects</h2>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1 -->
+    <div class="project-card reveal">
+      <img src="portable.png" alt="Portable Oscilloscope">
+
+      <h3>Portable Oscilloscope using Arduino</h3>
+
+      <p>
+        Low-cost portable oscilloscope using Arduino and OLED display to visualize
+        sine, square, and triangle waveforms.
+      </p>
+
+      <div class="tech-stack">
+        <span>Arduino</span>
+        <span>OLED</span>
+        <span>Embedded C</span>
+        <span>ADC</span>
+      </div>
+
+      <div class="project-actions">
+        <a href="#" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">📘 Details</a>
+        <a href="#" onclick="openCode('Portable Oscilloscope','oscilloscopeCode.txt')">💻 Code</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card reveal">
+      <img src="smart.png" alt="AgriGuard">
+
+      <h3>AgriGuard – Smart IoT System</h3>
+
+      <p>
+        IoT-based smart farming system using ESP32 for automated irrigation
+        and enhanced farm security.
+      </p>
+
+      <div class="tech-stack">
+        <span>ESP32</span>
+        <span>IoT</span>
+        <span>Sensors</span>
+        <span>ThingSpeak</span>
+      </div>
+
+      <div class="project-actions">
+        <a href="#" onclick="openModal('AgriGuard', agriguardDetails)">📘 Details</a>
+        <a href="#" onclick="openCode('AgriGuard','Agriculture.txt')">💻 Code</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-card reveal">
+      <img src="component-tester.png" alt="Component Tester">
+
+      <h3>All-in-One Component Tester</h3>
+
+      <p>
+        Electronic component tester for resistors, capacitors, diodes,
+        transistors, and continuity checking.
+      </p>
+
+      <div class="tech-stack">
+        <span>Arduino</span>
+        <span>Electronics</span>
+        <span>Testing</span>
+      </div>
+
+      <div class="project-actions">
+        <a href="#" onclick="openModal('Component Tester', testerDetails)">📘 Details</a>
+        <a href="#" onclick="openCode('Component Tester','Tester.txt')">💻 Code</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h3 id="modalTitle"></h3>
+      <div id="modalDesc"></div>
+    </div>
+  </div>
+
+  <!-- CONNECT -->
+  <div class="card reveal">
+    <h3>🔗 Connect with Me</h3>
+
+    <p>
+      📧 <a href="mailto:amruthanamapure@gmail.com">amruthanamapure@gmail.com</a><br>
+      📞 <a href="tel:+916361508317">+91 6361508317</a>
+    </p>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/amruth-07" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.facebook.com/share/16wYDupMHy/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/amrut_hanamapure" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 
-  <!-- ===== LOAD DETAILS.HTML ===== -->
-  <script>
-    fetch("details.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("details").innerHTML = data;
-      })
-      .catch(error => {
-        document.getElementById("details").innerHTML =
-          "<p style='color:red'>Failed to load details.html</p>";
-      });
-  </script>
-
 </body>
-</html>
+      </html>
