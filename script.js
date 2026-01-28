@@ -156,10 +156,12 @@ patterns such as running lights, blinking, and alternate LEDs.
 ================================ */
 
 function openModal(title, content) {
-  const modal = document.getElementById("projectModal");
   document.getElementById("modalTitle").innerText = title;
   document.getElementById("modalDesc").innerHTML = content;
-  modal.style.display = "block";
+  document.getElementById("projectModal").style.display = "block";
+
+  // Hide copy button for details
+  document.getElementById("copyBtn").style.display = "none";
 }
 
 function closeModal() {
@@ -174,10 +176,19 @@ function openCode(title, fileName) {
   fetch(fileName)
     .then(res => res.text())
     .then(code => {
-      openModal(
-        title + " – Source Code",
-        `<pre><code class="language-cpp">${escapeHtml(code)}</code></pre>`
-      );
+
+      document.getElementById("modalTitle").innerText =
+        title + " – Source Code";
+
+      document.getElementById("modalDesc").innerHTML = `
+<pre><code class="language-cpp">${escapeHtml(code)}</code></pre>
+      `;
+
+      document.getElementById("projectModal").style.display = "block";
+
+      // Show copy button
+      document.getElementById("copyBtn").style.display = "inline-block";
+
       Prism.highlightAll();
     })
     .catch(() => {
@@ -194,4 +205,15 @@ function escapeHtml(text) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+function copyCode() {
+  const codeElement = document.querySelector("#modalDesc code");
+  if (!codeElement) return;
+
+  navigator.clipboard.writeText(codeElement.innerText)
+    .then(() => {
+      const btn = document.getElementById("copyBtn");
+      btn.innerText = "✅ Copied!";
+      setTimeout(() => btn.innerText = "📋 Copy Code", 1500);
+    });
 }
