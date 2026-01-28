@@ -11,16 +11,16 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- CSS -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Prism.js Syntax Highlighting (CSS) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
-  
+
+  <!-- Prism Syntax Highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- PROFILE IMAGE (FIXED) -->
+  <!-- PROFILE -->
   <div class="profile reveal">
     <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
   </div>
@@ -79,7 +79,6 @@
       <img src="portable.png" alt="Portable Oscilloscope">
 
       <h3>Portable Oscilloscope using Arduino</h3>
-
       <p>
         Low-cost portable oscilloscope using Arduino and OLED display to visualize
         sine, square, and triangle waveforms.
@@ -103,7 +102,6 @@
       <img src="smart.png" alt="AgriGuard">
 
       <h3>AgriGuard – Smart IoT System</h3>
-
       <p>
         IoT-based smart farming system using ESP32 for automated irrigation
         and enhanced farm security.
@@ -127,7 +125,6 @@
       <img src="component-tester.png" alt="Component Tester">
 
       <h3>All-in-One Component Tester</h3>
-
       <p>
         Electronic component tester for resistors, capacitors, diodes,
         transistors, and continuity checking.
@@ -173,12 +170,15 @@
       <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
-<!-- Prism.js core -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 
-<!-- Arduino / C highlighting -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js"></script>
-  </body>
-      </html>
+  <!-- MAIN JS (MUST BE FIRST) -->
+  <script src="script.js"></script>
+
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js"></script>
+
+</body>
+  </html>
