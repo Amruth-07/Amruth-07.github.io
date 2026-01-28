@@ -118,6 +118,39 @@ and tests basic electronic components using an Arduino-based system.
 </ul>
 `;
 
+/* ---- PROJECT 4 ---- */
+const ledPatternDetails = `
+<h4>📌 Project Overview</h4>
+<p>
+The <b>Generating LED Patterns Using Arduino</b> project demonstrates how multiple LEDs
+can be controlled using an Arduino UNO to create different lighting patterns.
+It helps beginners understand digital output control, timing, and sequencing.
+</p>
+
+<h4>⚙️ Components Used</h4>
+<ul>
+  <li>Arduino UNO</li>
+  <li>10 × LEDs (Different colors)</li>
+  <li>10 × Resistors (220Ω)</li>
+  <li>Dotted PCB Board</li>
+  <li>Connecting Wires</li>
+</ul>
+
+<h4>🔌 Working Principle</h4>
+<p>
+Each LED is connected to a digital output pin of the Arduino through a current-limiting resistor.
+The Arduino sends HIGH and LOW signals in a programmed sequence, creating
+patterns such as running lights, blinking, and alternate LEDs.
+</p>
+
+<h4>🎯 Applications</h4>
+<ul>
+  <li>Learning Arduino digital I/O</li>
+  <li>Decorative LED lighting</li>
+  <li>Signal indicators</li>
+  <li>Embedded systems practice</li>
+</ul>
+`;
 /* ===============================
    MODAL FUNCTIONS
 ================================ */
