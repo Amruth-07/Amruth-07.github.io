@@ -1,1 +1,124 @@
-agriiiii
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <DHT.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+#define DHTPIN D4
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+#define SOIL_PIN A0
+#define FIRE_PIN D6
+#define LASER_PIN D5
+#define MOTOR_PIN D7
+#define BUZZER_PIN D8
+#define LED_PIN D0
+
+const int SOIL_THRESHOLD = 800;
+const unsigned long ALARM_AUTO_OFF_MS = 10000;
+
+bool alarmState = false;
+unsigned long alarmTriggeredAt = 0;
+
+void showOLED(float temp, float hum, int soil, bool fireAlert, bool laserAlert, bool motorOn) {
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+
+  display.setCursor(0, 0);
+  display.print("Temp: ");
+  if (!isnan(temp)) display.print(temp, 1);
+  else display.print("--");
+  display.print(" C");
+
+  display.setCursor(0, 12);
+  display.print("Hum:  ");
+  if (!isnan(hum)) display.print(hum, 1);
+  else display.print("--");
+  display.print(" %");
+
+  display.setCursor(0, 24);
+  display.print("Soil: ");
+  display.print(soil);
+
+  display.setCursor(0, 36);
+  display.print("Fire: ");
+  display.print(fireAlert ? "ALERT" : "OK");
+
+  display.setCursor(0, 48);
+  display.print("Laser: ");
+  display.print(laserAlert ? "ALERT" : "SAFE");
+
+  display.setCursor(80, 48);
+  display.print("Motor:");
+  display.print(motorOn ? "ON" : "OFF");
+
+  display.display();
+}
+
+void setup() {
+  Wire.begin(D2, D1);
+
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    while (true);
+  }
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 20);
+  display.println("System Starting...");
+  display.display();
+  delay(5000);
+
+  dht.begin();
+
+  pinMode(FIRE_PIN, INPUT);
+  pinMode(LASER_PIN, INPUT);
+  pinMode(MOTOR_PIN, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
+
+  digitalWrite(MOTOR_PIN, LOW);
+  digitalWrite(BUZZER_PIN, LOW);
+  digitalWrite(LED_PIN, LOW);
+
+  display.clearDisplay();
+  display.setCursor(0, 20);
+  display.println("System Ready");
+  display.display();
+  delay(2500);
+}
+
+void loop() {
+  float temp = dht.readTemperature();
+  float hum  = dht.readHumidity();
+  int soil = analogRead(SOIL_PIN);
+  bool fireAlert = (digitalRead(FIRE_PIN) == LOW);
+  bool laserAlert = (digitalRead(LASER_PIN) == HIGH);
+
+  bool drySoil = (soil > SOIL_THRESHOLD);
+  bool motorOn = drySoil;
+
+  digitalWrite(MOTOR_PIN, motorOn ? HIGH : LOW);
+
+  if (fireAlert || laserAlert) {
+    alarmState = true;
+    alarmTriggeredAt = millis();
+    digitalWrite(BUZZER_PIN, HIGH);
+    digitalWrite(LED_PIN, HIGH);
+  }
+
+  if (alarmState && (millis() - alarmTriggeredAt > ALARM_AUTO_OFF_MS)) {
+    alarmState = false;
+    digitalWrite(BUZZER_PIN, LOW);
+    digitalWrite(LED_PIN, LOW);
+  }
+
+  showOLED(temp, hum, soil, fireAlert, laserAlert, motorOn);
+
+  delay(1000);
+}
