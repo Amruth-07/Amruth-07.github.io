@@ -1,20 +1,41 @@
-/* ===============================
-   SCROLL REVEAL ANIMATION
-================================ */
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 80) {
+/* ===== SCROLL REVEAL ===== */
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
       el.classList.add("active");
     }
   });
+});
+
+/* ===== MODAL OPEN / CLOSE ===== */
+function openModal(title, content) {
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerHTML = content;
+  document.getElementById("projectModal").style.display = "block";
 }
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
 
+/* ===== CODE MODAL ===== */
+function openCode(title, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(code => {
+      openModal(
+        title + " – Source Code",
+        `<pre><code class="language-cpp">${Prism.highlight(
+          code,
+          Prism.languages.cpp,
+          "cpp"
+        )}</code></pre>`
+      );
+    })
+    .catch(() => {
+      openModal(title, "<p>❌ Code file not found</p>");
+    });
+};
 
 /* ===============================
    PROJECT THEORY / DETAILS
@@ -121,46 +142,3 @@ and tests basic electronic components using an Arduino-based system.
   <li>Repair and maintenance</li>
 </ul>
 `;
-
-
-/* ===============================
-   MODAL CONTROL
-================================ */
-
-function openCode(title, file) {
-  fetch(file)
-    .then(res => res.text())
-    .then(code => {
-      document.getElementById("modalTitle").innerText =
-        title + " – Source Code";
-
-      document.getElementById("modalDesc").innerHTML = `
-        <pre>
-<code class="language-arduino">${escapeHtml(code)}</code>
-        </pre>
-      `;
-
-      document.getElementById("projectModal").style.display = "block";
-
-      Prism.highlightAll(); // ✅ activate syntax highlighting
-    });
-}
-
-/* ===============================
-   LOAD & SHOW CODE FILES
-================================ */
-function openCode(title, fileName) {
-  fetch(fileName)
-    .then(response =").innerHTML =
-        "<p>⚠️ Code file not found. Please check filename.</p>";
-      document.getElementById("proje
-
-/* ===============================
-   HTML ESCAPE (SECURITY)
-================================ */
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-  }
