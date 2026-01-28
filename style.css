@@ -238,3 +238,20 @@ a:hover{
   font-size:24px;
   cursor:pointer;
 }
+/* Fix gaps in modal lists */
+.modal-content ul{
+  margin: 6px 0;
+  padding-left: 18px;
+}
+
+.modal-content li{
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+/* Fix bold heading spacing */
+.modal-content b{
+  display:block;
+  margin-top:12px;
+  margin-bottom:4px;
+}
