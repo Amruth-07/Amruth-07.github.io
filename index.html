@@ -9,9 +9,11 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
@@ -19,12 +21,12 @@
 
 <body>
 
-  <!-- PROFILE IMAGE -->
+  <!-- ===== PROFILE IMAGE ===== -->
   <div class="profile reveal">
     <img src="profile.jpg.png" alt="Amrut Hanamapure">
   </div>
 
-  <!-- INTRO -->
+  <!-- ===== INTRO TEXT ===== -->
   <h2 class="reveal">Hi! I'm</h2>
 
   <h1 class="reveal">
@@ -35,13 +37,14 @@
     Electronics & Communication Engineering Student
   </p>
 
-  <!-- DETAILS WILL LOAD HERE -->
+  <!-- ===== DETAILS LOAD AREA ===== -->
+  <!-- Everything from details.html will appear here -->
   <div id="details"></div>
 
-  <!-- MAIN SCRIPT -->
+  <!-- ===== MAIN SCRIPT ===== -->
   <script src="script.js"></script>
 
-  <!-- LOAD DETAILS.HTML -->
+  <!-- ===== LOAD DETAILS.HTML ===== -->
   <script>
     fetch("details.html")
       .then(response => response.text())
@@ -50,7 +53,7 @@
       })
       .catch(error => {
         document.getElementById("details").innerHTML =
-          "<p style='color:red'>Failed to load details</p>";
+          "<p style='color:red'>Failed to load details.html</p>";
       });
   </script>
 
