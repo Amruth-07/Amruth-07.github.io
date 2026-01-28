@@ -454,3 +454,106 @@ body{
     margin-right: auto;
   }
 }
+/* ===============================
+   MODAL OPEN / CLOSE
+================================ */
+
+function openModal(title, content) {
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerHTML = content;
+  document.getElementById("projectModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+
+/* Close modal when clicking outside */
+window.onclick = function (event) {
+  const modal = document.getElementById("projectModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+/* ===============================
+   PROJECT DETAILS CONTENT
+================================ */
+
+const oscilloscopeDetails = `
+<b>Introduction</b>
+<p>
+A low-cost portable oscilloscope using Arduino and OLED display to visualize
+basic electrical waveforms.
+</p>
+
+<b>Working Principle</b>
+<ul>
+  <li>Analog signal is applied to Arduino analog pin</li>
+  <li>ADC converts signal to digital values</li>
+  <li>Waveform is plotted on OLED display</li>
+</ul>
+
+<b>Advantages</b>
+<ul>
+  <li>Low cost</li>
+  <li>Portable</li>
+  <li>Easy to understand</li>
+</ul>
+
+<b>Applications</b>
+<ul>
+  <li>Educational labs</li>
+  <li>Signal analysis</li>
+</ul>
+`;
+
+const agriguardDetails = `
+<b>Introduction</b>
+<p>
+AgriGuard is an IoT-based smart farming system using ESP32 for
+automated irrigation and security monitoring.
+</p>
+
+<b>Features</b>
+<ul>
+  <li>Soil moisture-based irrigation</li>
+  <li>Flame and intrusion detection</li>
+  <li>Cloud monitoring using ThingSpeak</li>
+</ul>
+
+<b>Applications</b>
+<ul>
+  <li>Smart agriculture</li>
+  <li>Farm security</li>
+</ul>
+`;
+
+/* ===============================
+   LOAD CODE FROM FILES
+================================ */
+
+function openCode(title, fileName) {
+  fetch(fileName)
+    .then(response => response.text())
+    .then(code => {
+      openModal(
+        title + " – Code",
+        `
+        <pre style="
+          background:#000;
+          color:#00ffcc;
+          padding:15px;
+          border-radius:10px;
+          overflow-x:auto;
+          font-size:13px;
+          text-align:left;
+          white-space:pre-wrap;
+        ">${code}</pre>
+        `
+      );
+    })
+    .catch(() => {
+      openModal(title, "<p>⚠️ Code file not found.</p>");
+    });
+  }
