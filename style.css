@@ -312,3 +312,52 @@ a:hover{
   margin: 3px 0;
   line-height: 1.4;
 }
+/* ===== Smooth Modal Animation ===== */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+  background: #111;
+  color: #fff;
+  margin: 12% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 14px;
+
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  animation: slideUp 0.35s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Close button animation */
+.close {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg) scale(1.1);
+  color: #ff4d4d;
+}
