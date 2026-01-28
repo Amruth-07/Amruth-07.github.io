@@ -251,3 +251,70 @@ a:hover{
     opacity: 1;
   }
 }
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* ---------- TABLET & DESKTOP ---------- */
+@media (min-width: 768px){
+
+  body{
+    padding: 40px 20px;
+  }
+
+  h1{
+    font-size: 3rem;
+  }
+
+  p{
+    max-width: 700px;
+    font-size: 16px;
+  }
+
+  .card{
+    max-width: 520px;
+  }
+
+  .profile{
+    width: 140px;
+    height: 140px;
+  }
+
+  .tag{
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  .socials a{
+    font-size: 24px;
+  }
+
+  /* Projects images bigger on desktop */
+  .card img{
+    max-width: 100%;
+  }
+
+  /* Modal center better on desktop */
+  .modal-content{
+    margin: 8% auto;
+    max-width: 600px;
+  }
+}
+
+/* ---------- LARGE DESKTOP ---------- */
+@media (min-width: 1200px){
+
+  body{
+    padding: 60px 20px;
+  }
+
+  h1{
+    font-size: 3.4rem;
+  }
+
+  .card{
+    max-width: 650px;
+  }
+
+  .modal-content{
+    max-width: 700px;
+  }
+}
