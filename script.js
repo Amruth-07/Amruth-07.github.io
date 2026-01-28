@@ -1,134 +1,148 @@
-/* =========================
-   SCROLL REVEAL ANIMATION
-========================= */
+/* ===============================
+   SCROLL REVEAL
+================================ */
 const reveals = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
+window.addEventListener("scroll", () => {
   reveals.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-    if (elementTop < windowHeight - 80) {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 80) {
       el.classList.add("active");
     }
   });
-}
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+});
 
-/* =========================
-   PROJECT DETAILS (THEORY)
-========================= */
+/* ===============================
+   PROJECT DETAILS CONTENT
+================================ */
+
 const oscilloscopeDetails = `
-<h4>📌 Overview</h4>
+<h4>📌 Project Overview</h4>
 <p>
 This project implements a low-cost portable oscilloscope using an Arduino
-microcontroller and OLED display. It is designed to visualize analog
-waveforms such as sine, square, and triangle signals.
+microcontroller and an OLED display. It is capable of displaying basic
+waveforms such as sine, square, and triangle waves.
 </p>
 
-<h4>⚙️ Working Principle</h4>
+<h4>⚙ Working Principle</h4>
 <ul>
-  <li>The analog signal is sampled using Arduino ADC.</li>
-  <li>Samples are mapped to OLED pixel coordinates.</li>
-  <li>Waveform is plotted in real time.</li>
+<li>Analog signals are sampled using Arduino ADC</li>
+<li>Voltage values are mapped to screen pixels</li>
+<li>Waveforms are drawn in real time on OLED</li>
 </ul>
 
-<h4>🧠 Applications</h4>
+<h4>🧰 Components Used</h4>
 <ul>
-  <li>Educational labs</li>
-  <li>Signal analysis</li>
-  <li>Embedded debugging</li>
+<li>Arduino Uno / Nano</li>
+<li>OLED Display (SSD1306)</li>
+<li>Signal Generator / Probe</li>
+</ul>
+
+<h4>🎯 Applications</h4>
+<ul>
+<li>Educational labs</li>
+<li>Signal visualization</li>
+<li>Embedded system debugging</li>
 </ul>
 `;
 
 const agriguardDetails = `
-<h4>📌 Overview</h4>
+<h4>📌 Project Overview</h4>
 <p>
-AgriGuard is an IoT-based smart farming system using ESP32 to automate irrigation
-and improve farm security.
+AgriGuard is an IoT-based smart farming system designed to automate irrigation
+and improve farm security using ESP32.
 </p>
 
-<h4>⚙️ Working Principle</h4>
+<h4>⚙ Working Principle</h4>
 <ul>
-  <li>Soil moisture sensor monitors water level.</li>
-  <li>ESP32 controls pump automatically.</li>
-  <li>Data is sent to ThingSpeak cloud.</li>
+<li>Soil moisture sensor detects water level</li>
+<li>ESP32 controls water pump automatically</li>
+<li>Sensor data uploaded to ThingSpeak cloud</li>
 </ul>
 
-<h4>🧠 Applications</h4>
+<h4>🧰 Components Used</h4>
 <ul>
-  <li>Smart agriculture</li>
-  <li>Water conservation</li>
-  <li>Remote monitoring</li>
+<li>ESP32</li>
+<li>Soil Moisture Sensor</li>
+<li>DHT11</li>
+<li>Relay Module</li>
+</ul>
+
+<h4>🎯 Applications</h4>
+<ul>
+<li>Smart agriculture</li>
+<li>Remote monitoring</li>
+<li>Water conservation</li>
 </ul>
 `;
 
 const testerDetails = `
-<h4>📌 Overview</h4>
+<h4>📌 Project Overview</h4>
 <p>
-An all-in-one electronic component tester that identifies resistors,
-capacitors, diodes, transistors, and checks continuity.
+This project is an all-in-one electronic component tester that identifies
+resistors, capacitors, diodes, and transistors automatically.
 </p>
 
-<h4>⚙️ Working Principle</h4>
+<h4>⚙ Working Principle</h4>
 <ul>
-  <li>Component is inserted into test pins.</li>
-  <li>Arduino measures voltage and current.</li>
-  <li>OLED displays component type and value.</li>
+<li>Component inserted between test pins</li>
+<li>Arduino analyzes voltage and current</li>
+<li>Results displayed on OLED screen</li>
 </ul>
 
-<h4>🧠 Applications</h4>
+<h4>🧰 Components Used</h4>
 <ul>
-  <li>Electronics labs</li>
-  <li>Fault detection</li>
-  <li>Component verification</li>
+<li>Arduino</li>
+<li>OLED Display</li>
+<li>Test Pins</li>
+</ul>
+
+<h4>🎯 Applications</h4>
+<ul>
+<li>Electronics labs</li>
+<li>Quick component testing</li>
+<li>Repair & maintenance</li>
 </ul>
 `;
 
-/* =========================
-   OPEN DETAILS MODAL
-========================= */
+/* ===============================
+   MODAL FUNCTIONS
+================================ */
+
 function openModal(title, content) {
-  document.getElementById("modalTitle").innerHTML = title;
+  const modal = document.getElementById("projectModal");
+  document.getElementById("modalTitle").innerText = title;
   document.getElementById("modalDesc").innerHTML = content;
-  document.getElementById("projectModal").style.display = "block";
+  modal.style.display = "block";
 }
 
-/* =========================
-   OPEN CODE MODAL (FETCH)
-========================= */
-function openCode(title, file) {
-  fetch(file)
-    .then(res => res.text())
-    .then(code => {
-      document.getElementById("modalTitle").innerHTML =
-        title + " – Source Code";
-
-      document.getElementById("modalDesc").innerHTML = `
-<pre><code class="language-c">${escapeHtml(code)}</code></pre>
-      `;
-
-      document.getElementById("projectModal").style.display = "block";
-
-      // Prism highlight
-      Prism.highlightAll();
-    })
-    .catch(() => {
-      document.getElementById("modalDesc").innerHTML =
-        "<p style='color:red'>Code file not found</p>";
-    });
-}
-
-/* =========================
-   CLOSE MODAL
-========================= */
 function closeModal() {
   document.getElementById("projectModal").style.display = "none";
 }
 
-/* =========================
+/* ===============================
+   CODE VIEWER
+================================ */
+
+function openCode(title, fileName) {
+  fetch(fileName)
+    .then(res => res.text())
+    .then(code => {
+      openModal(
+        title + " – Source Code",
+        `<pre><code class="language-cpp">${escapeHtml(code)}</code></pre>`
+      );
+      Prism.highlightAll();
+    })
+    .catch(() => {
+      openModal(title, "<p>❌ Code file not found</p>");
+    });
+}
+
+/* ===============================
    HTML ESCAPE (IMPORTANT)
-========================= */
+================================ */
+
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
