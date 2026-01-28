@@ -176,150 +176,14 @@ a:hover{
   opacity:1 !important;
   transform:none !important;
 }
-/* ===== PROJECT MODAL ===== */
-.modal{
-  display:none;
-  position:fixed;
-  z-index:1000;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(6px);
-}
-
-.modal-content{
-  background:#0f0f0f;
-  margin:20% auto;
-  padding:20px;
-  border-radius:16px;
-  width:85%;
-  max-width:400px;
-  color:#fff;
-  box-shadow:0 0 30px rgba(127,0,255,0.6);
-}
-
-.close{
-  float:right;
-  font-size:24px;
-  cursor:pointer;
-  color:#ff5c5c;
-}
-.fa-linkedin:hover{color:#0a66c2;}
-.fa-github:hover{color:#ffffff;}
-.fa-facebook:hover{color:#1877f2;}
-.fa-instagram:hover{color:#e1306c;}
-.fa-whatsapp:hover{color:#25d366;}
-
-.modal{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.8);
-  z-index:999;
-}
-
-.modal-content{
-  background:#111;
-  margin:10% auto;
-  padding:20px;
-  width:90%;
-  max-width:500px;
-  border-radius:12px;
-  color:#fff;
-}
-
-.close{
-  float:right;
-  font-size:24px;
-  cursor:pointer;
-}
-/* Fix gaps in modal lists */
-.modal-content ul{
-  margin: 6px 0;
-  padding-left: 18px;
-}
-
-.modal-content li{
-  margin: 4px 0;
-  line-height: 1.4;
-}
-
-/* Fix bold heading spacing */
-.modal-content b{
-  display:block;
-  margin-top:12px;
-  margin-bottom:4px;
-}
-/* ===== MODAL TEXT CLEANUP ===== */
-
-.modal-content {
-  line-height: 1.5;
-}
-
-/* Headings like Introduction, Theory, etc */
-.modal-content b {
-  display: block;
-  margin: 10px 0 4px;
-  font-weight: 600;
-}
-
-/* Paragraph spacing */
-.modal-content p {
-  margin: 4px 0 8px;
-}
-
-/* List spacing FIX */
-.modal-content ul {
-  margin: 4px 0 8px;
-  padding-left: 16px;
-}
-
-.modal-content li {
-  margin: 2px 0;
-  line-height: 1.4;
-}
-/* ===== FINAL MODAL SPACING FIX ===== */
-
-.modal-content {
-  line-height: 1.45;
-}
-
-/* Section titles like Introduction, Theory, Advantages */
-.modal-content b {
-  display: block;
-  margin: 12px 0 6px;
-  font-size: 16px;
-  color: #ffffff;
-}
-
-/* Paragraph control */
-.modal-content p {
-  margin: 4px 0 8px;
-}
-
-/* List control */
-.modal-content ul {
-  margin: 0 0 10px;   /* remove top gap */
-  padding-left: 18px;
-}
-
-.modal-content li {
-  margin: 3px 0;
-  line-height: 1.4;
-}
-/* ===== Smooth Modal Animation ===== */
+/* ===== FINAL CLEAN MODAL (NO DUPLICATES) ===== */
 
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(5px);
   z-index: 999;
   animation: fadeIn 0.3s ease forwards;
 }
@@ -331,13 +195,51 @@ a:hover{
   padding: 20px;
   width: 90%;
   max-width: 500px;
-  border-radius: 14px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(127,0,255,0.6);
 
-  transform: translateY(30px) scale(0.95);
+  transform: translateY(30px) scale(0.96);
   opacity: 0;
   animation: slideUp 0.35s ease forwards;
 }
 
+/* Close button */
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ff5c5c;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg) scale(1.1);
+  color: #ff4d4d;
+}
+
+/* Text spacing */
+.modal-content b {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+.modal-content p {
+  margin: 4px 0 8px;
+  line-height: 1.5;
+}
+
+.modal-content ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+
+.modal-content li {
+  margin: 3px 0;
+  line-height: 1.4;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -348,16 +250,4 @@ a:hover{
     transform: translateY(0) scale(1);
     opacity: 1;
   }
-}
-
-/* Close button animation */
-.close {
-  font-size: 22px;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.close:hover {
-  transform: rotate(90deg) scale(1.1);
-  color: #ff4d4d;
 }
