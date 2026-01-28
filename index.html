@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amrut Hanamapure | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Amrut Hanamapure | Portfolio</title>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="profile">
-  <div class="profile">
-  <img src="profile.jpg.png" alt="Amrut Hanamapure">
-</div>
+  <!-- PROFILE IMAGE -->
+  <div class="profile reveal">
+    <img src="profile.jpg.png" alt="Amrut Hanamapure">
+  </div>
 
-<h2 class="reveal">Hi! I'm</h2>
-<h1 class="reveal"><span>Amrut Hanamapure</span></h1>
+  <!-- INTRO -->
+  <h2 class="reveal">Hi! I'm</h2>
 
-<p class="reveal">
-Electronics & Communication Engineering Student
-</p>
+  <h1 class="reveal">
+    <span>Amrut Hanamapure</span>
+  </h1>
 
-<!-- LOAD DETAILS -->
-<div id="details"></div>
+  <p class="reveal">
+    Electronics & Communication Engineering Student
+  </p>
 
-<script src="script.js"></script>
-<script>
-fetch("details.html")
-  .then(res => res.text())
-  .then(data => document.getElementById("details").innerHTML = data);
-</script>
+  <!-- DETAILS WILL LOAD HERE -->
+  <div id="details"></div>
+
+  <!-- MAIN SCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- LOAD DETAILS.HTML -->
+  <script>
+    fetch("details.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("details").innerHTML = data;
+      })
+      .catch(error => {
+        document.getElementById("details").innerHTML =
+          "<p style='color:red'>Failed to load details</p>";
+      });
+  </script>
 
 </body>
 </html>
