@@ -1,10 +1,11 @@
-7window.addEventListener("scroll", () => {
+window.addEventListener("scroll", () => {
   document.querySelectorAll(".reveal").forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight - 50) {
       el.classList.add("active");
     }
   });
 });
+
 function openModal(title, content){
   document.getElementById("modalTitle").innerText = title;
   document.getElementById("modalDesc").innerHTML = content;
@@ -14,6 +15,7 @@ function openModal(title, content){
 function closeModal(){
   document.getElementById("projectModal").style.display = "none";
 }
+
 const oscilloscopeDetails = `
 <b>Introduction:</b>
 <p>
