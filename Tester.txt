@@ -1,1 +1,113 @@
-testuuuu
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+Adafruit_SSD1306 oled(SCREEN_WIDTH,SCREEN_HEIGHT,&Wire,OLED_RESET);
+
+#define TP1 2
+#define TP2 3
+#define TP3 4
+
+void setup(){
+pinMode(TP1,INPUT);
+pinMode(TP2,INPUT);
+pinMode(TP3,INPUT);
+oled.begin(SSD1306_SWITCHCAPVCC,0x3C);
+oled.clearDisplay();
+oled.setTextColor(WHITE);
+oled.setTextSize(1);
+oled.setCursor(10,25);
+oled.print("Component Tester");
+oled.display();
+delay(2000);
+}
+
+void loop(){
+oled.clearDisplay();
+oled.setCursor(0,0);
+oled.print("Insert Component");
+oled.display();
+delay(1000);
+
+testResistor();
+testDiode();
+testCapacitor();
+testTransistor();
+
+delay(2000);
+}
+
+void testResistor(){
+pinMode(TP1,OUTPUT);
+pinMode(TP2,INPUT);
+digitalWrite(TP1,HIGH);
+int v=analogRead(A0);
+if(v>10){
+float r=(1023.0/v-1.0)*1000.0;
+oled.clearDisplay();
+oled.setCursor(0,0);
+oled.print("Resistor");
+oled.setCursor(0,20);
+oled.print(r);
+oled.print(" Ohm");
+oled.display();
+delay(2000);
+}
+pinMode(TP1,INPUT);
+}
+
+void testDiode(){
+pinMode(TP1,OUTPUT);
+pinMode(TP2,INPUT);
+digitalWrite(TP1,HIGH);
+int v=analogRead(A0);
+if(v>100 && v<800){
+oled.clearDisplay();
+oled.setCursor(0,0);
+oled.print("Diode / LED");
+oled.setCursor(0,20);
+oled.print("VF=");
+oled.print(v*5.0/1023.0);
+oled.print("V");
+oled.display();
+delay(2000);
+}
+pinMode(TP1,INPUT);
+}
+
+void testCapacitor(){
+pinMode(TP1,OUTPUT);
+pinMode(TP2,INPUT);
+digitalWrite(TP1,LOW);
+delay(50);
+digitalWrite(TP1,HIGH);
+unsigned long t=millis();
+while(analogRead(A0)<648);
+unsigned long dt=millis()-t;
+if(dt>5){
+float c=dt*1000.0;
+oled.clearDisplay();
+oled.setCursor(0,0);
+oled.print("Capacitor");
+oled.setCursor(0,20);
+oled.print(c);
+oled.print(" uF");
+oled.display();
+delay(2000);
+}
+pinMode(TP1,INPUT);
+}
+
+void testTransistor(){
+oled.clearDisplay();
+oled.setCursor(0,0);
+oled.print("Transistor");
+oled.setCursor(0,20);
+oled.print("NPN / PNP");
+oled.display();
+delay(2000);
+}
