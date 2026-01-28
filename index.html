@@ -172,13 +172,28 @@
 
   <!-- MODAL -->
   <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
-      <h3 id="modalTitle"></h3>
-      <div id="modalDesc"></div>
-    </div>
-  </div>
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
 
+    <h3 id="modalTitle"></h3>
+
+    <!-- COPY BUTTON -->
+    <button id="copyBtn" onclick="copyCode()" style="
+      margin:10px 0;
+      padding:8px 14px;
+      border-radius:20px;
+      border:none;
+      background:linear-gradient(135deg,#7f00ff,#00d4ff);
+      color:#fff;
+      cursor:pointer;
+      display:none;
+    ">
+      📋 Copy Code
+    </button>
+
+    <div id="modalDesc"></div>
+  </div>
+  </div>
   <!-- CONNECT -->
   <div class="card reveal">
     <h3>🔗 Connect with Me</h3>
