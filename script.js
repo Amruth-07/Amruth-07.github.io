@@ -45,11 +45,10 @@ the analog voltage into digital values.
   <li>Portable and compact</li>
   <li>Easy to understand and modify</li>
 </ul>
-
 <b>Limitations:</b>
 <ul>
-  <li>Low bandwidth</li>
-  <li>Limited sampling rate</li>
+<li>Low bandwidth</li>
+<li>Limited sampling rate</li>
 </ul>
 
 <b>Applications:</b>
