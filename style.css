@@ -306,3 +306,52 @@ body{
   50%  { background-position: 100% 50%; }
   100% { background-position:   0% 50%; }
 }
+/* ===== Neon glow buttons ===== */
+.highlight-btn,
+#copyBtn{
+  display:inline-block;
+  background:#070e1c;           /* dark inside */
+  color:#fff;
+  padding:10px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  border:2px solid #6ec1ff;      /* default border */
+  transition:0.3s ease;
+  position:relative;
+}
+
+/* soft base glow */
+.highlight-btn{
+  box-shadow:0 0 10px rgba(110,193,255,0.4);
+}
+
+/* hover neon blue/purple */
+.highlight-btn:hover{
+  border-color:#b36bff;
+  box-shadow:
+    0 0 8px #b36bff,
+    0 0 18px #8f5cff,
+    0 0 35px rgba(143,92,255,0.9);
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+/* COPY BUTTON different neon colour (green) */
+#copyBtn{
+  border:2px solid #3cffb3;
+  background:#070e1c;
+  color:#fff;
+  box-shadow:0 0 10px rgba(60,255,179,0.4);
+}
+
+/* green neon hover */
+#copyBtn:hover{
+  border-color:#00ffa6;
+  box-shadow:
+    0 0 8px #00ffa6,
+    0 0 20px #00ffcc,
+    0 0 40px rgba(0,255,170,0.9);
+  color:#fff;
+  transform:translateY(-2px);
+}
