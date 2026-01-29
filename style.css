@@ -680,7 +680,7 @@ margin:6% auto;
   padding-bottom: 12px; /* space for underline */
 }
 
-/* Neon underline 
+/* Neon underline */
 .section-headline::after{
   content: "";
   position: absolute;
@@ -721,7 +721,7 @@ margin:6% auto;
   .section-headline::after{
     height: 3px;
   }
-}  */
+} 
 /* =====================================
    MOVING NEON GRADIENT TEXT – HEADLINES
    ===================================== */
@@ -819,7 +819,7 @@ margin:6% auto;
   0%   { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
-/* colourful neon Copy Code button 
+/* colourful neon Copy Code button */
 #copyBtn{
   background: linear-gradient(
     90deg,
@@ -934,4 +934,3 @@ margin:6% auto;
 #modalDesc li{
   margin-bottom: 6px;
 }
-*/
