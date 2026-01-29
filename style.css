@@ -274,45 +274,92 @@ body{
 .gradient-btn span{
   font-size:18px;
 }
-/* ===== Neon glow buttons (Details + Copy) ===== */
+/* ===== Neon glow buttons ===== */
+.highlight-btn,
+#copyBtn{
+  display:inline-block;
+  background:#070e1c;           /* dark inside */
+  color:#fff;
+  padding:10px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  border:2px solid #6ec1ff;      /* default border */
+  transition:0.3s ease;
+  position:relative;
+}
 
-/* common base */
+/* soft base glow */
+.highlight-btn{
+  box-shadow:0 0 10px rgba(110,193,255,0.4);
+}
+
+/* hover neon blue/purple */
+.highlight-btn:hover{
+  border-color:#b36bff;
+  box-shadow:
+    0 0 8px #b36bff,
+    0 0 18px #8f5cff,
+    0 0 35px rgba(143,92,255,0.9);
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+/* COPY BUTTON different neon colour (green) */
+#copyBtn{
+  border:2px solid #3cffb3;
+  background:#070e1c;
+  color:#fff;
+  box-shadow:0 0 10px rgba(60,255,179,0.4);
+}
+
+/* green neon hover */
+#copyBtn:hover{
+  border-color:#00ffa6;
+  box-shadow:
+    0 0 8px #00ffa6,
+    0 0 20px #00ffcc,
+    0 0 40px rgba(0,255,170,0.9);
+  color:#fff;
+  transform:translateY(-2px);
+  }
+/* ===== Neon gradient border buttons ===== */
+
 .highlight-btn,
 #copyBtn{
   position: relative;
-  background: #0b1220;   /* dark inside */
-  color: #ffffff;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 22px;
-  font-weight: 600;
-  cursor: pointer;
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 40px;
+  color: #fff;
   text-decoration: none;
-  overflow: hidden;
+  font-weight: 600;
+  background: #070e1c;     /* dark inner */
   z-index: 0;
+  overflow: hidden;
 }
 
-/* animated gradient border */
+/* gradient border layer */
 .highlight-btn::before,
 #copyBtn::before{
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2px; /* border thickness */
+  padding: 2px;                 /* border thickness */
 
   background: linear-gradient(
-    90deg,
-    #7f00ff,
-    #00d4ff,
+    120deg,
+    #00e5ff,
+    #7a5cff,
     #ff00cc,
-    #00ffcc,
-    #7f00ff
+    #00ffa6,
+    #00e5ff
   );
-  background-size: 300% 100%;
-  animation: btnBorderMove 6s linear infinite;
+  background-size: 300% 300%;
+  animation: neonMove 6s linear infinite;
 
-  /* show only the border */
+  /* show only border, keep center dark */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -320,25 +367,36 @@ body{
           mask-composite: exclude;
 
   z-index: -1;
+}
 
-  /* soft outer glow */
+/* soft outer neon glow */
+.highlight-btn{
+  box-shadow: 0 0 12px rgba(122,92,255,0.4);
+}
+#copyBtn{
+  box-shadow: 0 0 12px rgba(0,255,166,0.35);
+}
+
+/* stronger glow on hover */
+.highlight-btn:hover{
   box-shadow:
-    0 0 8px rgba(127,0,255,0.5),
-    0 0 16px rgba(0,212,255,0.35);
+    0 0 12px #7a5cff,
+    0 0 28px #00e5ff,
+    0 0 50px rgba(255,0,204,0.6);
+  transform: translateY(-2px);
+}
+
+#copyBtn:hover{
+  box-shadow:
+    0 0 12px #00ffa6,
+    0 0 30px #00e5ff,
+    0 0 55px rgba(0,255,166,0.7);
+  transform: translateY(-2px);
 }
 
 /* moving gradient animation */
-@keyframes btnBorderMove{
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-
-/* hover highlight */
-.highlight-btn:hover,
-#copyBtn:hover{
-  color: #ffffff;
-  box-shadow:
-    0 0 14px rgba(127,0,255,0.9),
-    0 0 28px rgba(0,212,255,0.7);
-  transform: translateY(-2px);
+@keyframes neonMove{
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
 }
