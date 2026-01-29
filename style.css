@@ -159,3 +159,32 @@ body{
   }
 
 
+/* ===== Profile alignment in Hero section ===== */
+#hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px 10px;
+}
+
+.profile{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  padding:4px;
+  background:linear-gradient(135deg,#00e0ff,#7b5cff,#ff3cac);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:15px;
+}
+
+.profile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+}
