@@ -670,3 +670,51 @@ margin:6% auto;
     font-size: 22px;
   }
 }
+/* =====================================
+   MOVING NEON GRADIENT UNDERLINE
+   FOR ALL SECTION HEADLINES
+   ===================================== */
+
+.section-headline{
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px; /* space for underline */
+}
+
+/* Neon underline */
+.section-headline::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #7f00ff,
+    #00d4ff,
+    #ff00cc,
+    #00ffcc,
+    #7f00ff
+  );
+
+  background-size: 300% 100%;
+  animation: neonMove 4s linear infinite;
+
+  box-shadow:
+    0 0 8px rgba(127,0,255,0.8),
+    0 0 18px rgba(0,212,255,0.6);
+}
+
+/* Gradient motion */
+@keyframes neonMove{
+  0%{
+    background-position: 0% 50%;
+  }
+  100%{
+    background-position: 300% 50%;
+  }
+}
