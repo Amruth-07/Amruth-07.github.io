@@ -854,8 +854,8 @@ margin:6% auto;
   color: #e8f1ff;
 
   border: none;
-  border-radius: 25px;
-  padding: 10px 18px;
+  border-radius: 15px;
+  padding: 8px 15px;
   font-weight: 600;
   cursor: pointer;
   z-index: 0;
@@ -868,7 +868,7 @@ margin:6% auto;
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2px; /* border thickness */
+  padding: 1px; /* border thickness */
 
   background: linear-gradient(
     90deg,
@@ -890,8 +890,8 @@ margin:6% auto;
   z-index: -1;
 
   box-shadow:
-    0 0 8px rgba(0,212,255,0.5),
-    0 0 14px rgba(127,0,255,0.4);
+    0 0 6px rgba(0,212,255,0.5),
+    0 0 12px rgba(127,0,255,0.4);
 }
 
 /* slow moving colours */
@@ -904,6 +904,6 @@ margin:6% auto;
 #copyBtn:hover{
   color: #ffffff;
   box-shadow:
-    0 0 10px rgba(0,212,255,0.8),
-    0 0 22px rgba(127,0,255,0.6);
+    0 0 8px rgba(0,212,255,0.8),
+    0 0 18px rgba(127,0,255,0.6);
 }
