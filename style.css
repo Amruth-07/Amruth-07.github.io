@@ -338,7 +338,7 @@ opacity:0.9;
 text-align:center;
 }
 
-/* ===== SECTION HEADLINE (ANIMATED TEXT) ===== */
+/* ===== SECTION HEADLINE (ANIMATED TEXT) ===== *
 .section-headline{
 position:relative;
 text-align:center;
@@ -359,7 +359,7 @@ filter:drop-shadow(0 0 8px rgba(127,0,255,0.4))
 100%{background-position:300% 50%;}
 }
 
-/* ===== HOBBIES ===== */
+/* ===== HOBBIES ===== 
 .hobbies-wrapper{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -409,7 +409,7 @@ box-shadow:0 0 6px rgba(127,0,255,0.5),
 100%{background-position:300% 50%;}
 }
 
-/* ===== COPY BUTTON ===== */
+/* ===== COPY BUTTON ===== 
 #copyBtn{
 position:relative;
 background:#0b1220;
@@ -451,7 +451,7 @@ box-shadow:0 0 8px rgba(0,212,255,0.8),
            0 0 18px rgba(127,0,255,0.6);
   }
 
-/* send 3D background behind everything */
+/* send 3D background behind everything 
 canvas {
   position: fixed;
   top: 0;
@@ -462,8 +462,9 @@ canvas {
   pointer-events: none;
 }
 
-/* make sure page content is above canvas */
+/* make sure page content is above canvas 
 body > *:not(canvas) {
   position: relative;
   z-index: 1;
 }
+*/
