@@ -819,3 +819,43 @@ margin:6% auto;
   0%   { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
+/* colourful neon Copy Code button */
+#copyBtn{
+  background: linear-gradient(
+    90deg,
+    #7f00ff,
+    #00d4ff,
+    #ff00cc,
+    #00ffcc,
+    #7f00ff
+  );
+  background-size: 300% 100%;
+  animation: copyBtnMove 5s linear infinite;
+
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 8px rgba(127,0,255,0.6),
+    0 0 16px rgba(0,212,255,0.4);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* same moving gradient effect as headlines */
+@keyframes copyBtnMove{
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* hover effect */
+#copyBtn:hover{
+  transform: scale(1.05);
+  box-shadow:
+    0 0 14px rgba(127,0,255,0.9),
+    0 0 26px rgba(0,212,255,0.7);
+}
