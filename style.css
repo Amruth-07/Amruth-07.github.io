@@ -522,10 +522,10 @@ margin:6% auto;
   align-items:center;
   gap:16px;
   padding:14px 20px;
-  border-radius:18px;
+  border-radius:15px;
   background:linear-gradient(145deg,#0f0f0f,#151515);
   box-shadow:0 10px 25px rgba(0,0,0,0.6);
-  transition:0.4s ease;
+  transition:0.7s ease;
 }
 
 .hobby-card:hover{
@@ -534,9 +534,9 @@ margin:6% auto;
 
 /* ===== ICON BASE ===== */
 .hobby-icon{
-  font-size:26px;
-  width:48px;
-  height:48px;
+  font-size:23px;
+  width:45px;
+  height:45px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -547,29 +547,29 @@ margin:6% auto;
 
 /* ===== ICON GRADIENT COLORS ===== */
 .music{
-  background:linear-gradient(135deg,#ff00cc,#7f00ff);
+  background:linear-gradient(125deg,#ff00cc,#7f00ff);
 }
 
 .photo{
-  background:linear-gradient(135deg,#00d4ff,#0077ff);
+  background:linear-gradient(125deg,#00d4ff,#0077ff);
 }
 
 .game{
-  background:linear-gradient(135deg,#00ff99,#00cc66);
+  background:linear-gradient(125deg,#00ff99,#00cc66);
 }
 
 .sport{
-  background:linear-gradient(135deg,#ff9900,#ff5500);
+  background:linear-gradient(125deg,#ff9900,#ff5500);
 }
 
 .fitness{
-  background:linear-gradient(135deg,#ff0066,#ff0033);
+  background:linear-gradient(125deg,#ff0066,#ff0033);
 }
 
 /* ===== TEXT ===== */
 .hobby-text{
-  font-size:15px;
-  font-weight:500;
+  font-size:13px;
+  font-weight:400;
   opacity:0.9;
 }
 
