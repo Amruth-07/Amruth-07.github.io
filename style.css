@@ -501,11 +501,6 @@ margin:6% auto;
 }
 
 /* Glow pulse (optional but sexy 😌) */
-@keyframes glowPulse{
-  0%{box-shadow:0 0 20px rgba(127,0,255,0.5);}
-  50%{box-shadow:0 0 35px rgba(0,212,255,0.9);}
-  100%{box-shadow:0 0 20px rgba(127,0,255,0.5);}
-}
 
 .section-pill{
   animation:
