@@ -52,7 +52,7 @@ oscilloscope</b> using an Arduino microcontroller and an OLED display.
 
 /* ---- PROJECT 2 ---- */
 const agriguardDetails = `
-<h3>AgriGuard â€“ Smart IoT System for Farming & Security</h3>
+<h3>AgriGuard: Smart IoT System for Farming & Security</h3>
 
 <p>
 AgriGuard is an <b>IoT-based smart agriculture system</b> developed using ESP32.
@@ -130,8 +130,8 @@ It helps beginners understand digital output control, timing, and sequencing.
 <h4>Components Used</h4>
 <ul>
   <li>Arduino UNO</li>
-  <li>10 Ã— LEDs (Different colors)</li>
-  <li>10 Ã— Resistors (220Î©)</li>
+  <li>10-LEDs (Different colors)</li>
+  <li>10-Resistors </li>
   <li>Dotted PCB Board</li>
   <li>Connecting Wires</li>
 </ul>
@@ -178,7 +178,7 @@ function openCode(title, fileName) {
     .then(code => {
 
       document.getElementById("modalTitle").innerText =
-        title + " â€“ Source Code";
+        title + "Source Code";
 
       document.getElementById("modalDesc").innerHTML = `
 <pre><code class="language-cpp">${escapeHtml(code)}</code></pre>
@@ -214,6 +214,6 @@ function copyCode() {
     .then(() => {
       const btn = document.getElementById("copyBtn");
       btn.innerText = "Copied!";
-      setTimeout(() => btn.innerText = "ðŸ“‹ Copy Code", 1500);
+      setTimeout(() => btn.innerText = Copy Code", 1500);
     });
 }
