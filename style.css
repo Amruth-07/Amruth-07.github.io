@@ -335,132 +335,55 @@ margin:6% auto;
     font-size: 15px;
   }
   }
-/* ===== HOBBIES SECTION ===== */
-.hobbies-title{
-  font-size: 2rem;
-  margin: 50px 0 30px;
+/* ===== TAG STYLE (LIKE IMAGE) ===== */
+.tag-title{
   text-align: center;
+  font-size: 2.2rem;
+  margin: 50px 0 35px;
 }
 
-.hobbies-container{
+/* Container */
+.tag-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 18px;
-  max-width: 700px;
+  gap: 20px 24px;
+  max-width: 900px;
   margin: auto;
 }
 
-/* Hobby pill */
-/* ===== HOBBIES LAYOUT ===== */
-.hobbies-title{
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 40px 0 30px;
-}
-
-.hobbies-container{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-  max-width: 760px;
-  margin: 0 auto 60px;
-}
-
-/* ===== PREMIUM DARK GLASS PILL ===== */
-.hobby-pill{
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  padding: 18px 28px;
-  font-size: 18px;
+/* Pill */
+.tag-pill{
+  padding: 14px 30px;
+  font-size: 16px;
   font-weight: 500;
   color: #ffffff;
 
   border-radius: 999px;
+  background: rgba(15, 18, 30, 0.9);
 
-  background: linear-gradient(
-    145deg,
-    #0c1628,
-    #101c33
-  );
-
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 2px solid rgba(60,120,255,0.85);
 
   box-shadow:
-    inset 0 0 12px rgba(255,255,255,0.03),
-    0 10px 25px rgba(0,0,0,0.6);
+    0 0 12px rgba(60,120,255,0.45),
+    inset 0 0 10px rgba(255,255,255,0.05);
 
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 
-/* ===== GLOW EFFECT ===== */
-.hobby-pill:hover{
+/* Hover Glow */
+.tag-pill:hover{
   transform: translateY(-4px);
   box-shadow:
-    0 0 18px rgba(0,140,255,0.6),
-    0 0 40px rgba(0,140,255,0.35),
-    inset 0 0 14px rgba(255,255,255,0.06);
+    0 0 22px rgba(60,120,255,0.8),
+    0 0 45px rgba(60,120,255,0.5),
+    inset 0 0 12px rgba(255,255,255,0.08);
 }
 
-/* Icon slightly muted */
-.hobby-pill span{
-  letter-spacing: 0.3px;
-}
-
-/* ===== MOBILE ===== */
+/* Mobile */
 @media (max-width: 600px){
-  .hobbies-container{
-    grid-template-columns: 1fr;
-  }
-
-  .hobby-pill{
-    justify-content: center;
-    font-size: 16px;
-    padding: 16px 24px;
+  .tag-pill{
+    font-size: 15px;
+    padding: 12px 24px;
   }
 }
-
-/* ===== INDIVIDUAL HOBBY GRADIENTS (SOFT & PREMIUM) ===== */
-.hobby-pill:nth-child(1){
-  background: linear-gradient(135deg, #7f00ff88, #b000ff66);
-}
-
-.hobby-pill:nth-child(2){
-  background: linear-gradient(135deg, #00d4ff88, #00bfff66);
-}
-
-.hobby-pill:nth-child(3){
-  background: linear-gradient(135deg, #ff9f4388, #ff7a1866);
-}
-
-.hobby-pill:nth-child(4){
-  background: linear-gradient(135deg, #ff5f6d88, #ffc37166);
-}
-
-.hobby-pill:nth-child(5){
-  background: linear-gradient(135deg, #00c85388, #69f0ae66);
-}
-
-/* Hover glow */
-.hobby-pill:hover{
-  transform: translateY(-4px) scale(1.06);
-  box-shadow:
-    0 0 35px rgba(127,0,255,0.8),
-    0 0 55px rgba(0,212,255,0.6);
-}
-
-/* Hover effect */
-.hobby-pill:hover{
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 20px rgba(127,0,255,0.6),
-    0 0 35px rgba(0,212,255,0.35);
-}
-
-/* Text */
-.hobby-pill span{
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  }
