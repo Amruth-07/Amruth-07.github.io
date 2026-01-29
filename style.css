@@ -9,10 +9,10 @@
 /* ================= BODY ================= */
 body{
   background:
-    radial-gradient(circle at top left, #2a004f, transparent 40%),
-    radial-gradient(circle at bottom right, #120033, transparent 40%),
-    linear-gradient(180deg, #050008, #000);
-  color:#ffffff;
+    radial-gradient(circle at top left, #1a0033, transparent 40%),
+    radial-gradient(circle at bottom right, #001f33, transparent 40%),
+    linear-gradient(180deg, #050505, #000);
+  color:#fff;
   text-align:center;
   padding:30px 15px;
   min-height:100vh;
@@ -21,18 +21,14 @@ body{
 
 /* ================= PROFILE ================= */
 .profile{
-  width:150px;
-  height:150px;
-  border-radius:50%;
+  width:160px;
+  height:160px;
+  margin:0 auto 30px;
   padding:6px;
-  background:linear-gradient(135deg,#ff2f92,#8b5cf6,#ff2f92);
-  background-size:300%;
-  animation:gradientMove 4s linear infinite;
-  box-shadow:0 0 35px rgba(255,47,146,0.7);
-  margin:0 auto 26px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff2f92,#8b5cf6,#00d4ff);
+  box-shadow:0 0 35px rgba(255,47,146,0.8);
+  animation:glowPulse 3s infinite;
 }
 
 .profile img{
@@ -43,28 +39,28 @@ body{
 }
 
 /* ================= HEADINGS ================= */
-h2{
-  font-weight:300;
-  opacity:0.85;
-}
-
 h1{
   font-size:2.6rem;
   margin:10px 0;
 }
 
 h1 span{
-  background:linear-gradient(90deg,#ff2f92,#8b5cf6,#ff6ad5);
-  background-size:400%;
+  background:linear-gradient(90deg,#ff2f92,#8b5cf6,#00d4ff);
+  background-size:300%;
   -webkit-background-clip:text;
   color:transparent;
   animation:gradientMove 5s linear infinite;
 }
 
+h2{
+  font-weight:300;
+  opacity:0.85;
+}
+
 /* ================= PARAGRAPH ================= */
 p{
-  max-width:520px;
-  margin:15px auto;
+  max-width:540px;
+  margin:18px auto;
   line-height:1.7;
   opacity:0.9;
 }
@@ -74,11 +70,11 @@ p{
   display:inline-block;
   margin:8px 6px;
   padding:8px 18px;
-  font-size:14px;
   border-radius:30px;
+  font-size:14px;
   background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.15);
-  transition:0.3s ease;
+  border:1px solid #333;
+  transition:.3s;
 }
 
 .tag:hover{
@@ -89,122 +85,115 @@ p{
 /* ================= RESUME BUTTON ================= */
 .resume{
   display:inline-block;
-  margin:28px 0;
-  padding:14px 36px;
+  margin:30px 0;
+  padding:14px 38px;
   border-radius:999px;
+  font-size:16px;
   background:linear-gradient(135deg,#ff2f92,#8b5cf6);
   background-size:300%;
   animation:gradientMove 4s linear infinite;
   color:#fff;
   text-decoration:none;
-  font-weight:600;
-  box-shadow:0 0 35px rgba(255,47,146,0.7);
-}
-
-/* ================= CARDS ================= */
-.card{
-  background:linear-gradient(145deg,#0f0f1a,#1a1a2f);
-  padding:20px;
-  margin:20px auto;
-  border-radius:18px;
-  width:90%;
-  max-width:380px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.7);
-  transition:0.3s ease;
-}
-
-.card:hover{
-  transform:translateY(-8px);
+  box-shadow:0 0 30px rgba(255,47,146,0.7);
 }
 
 /* ================= SECTION PILL (HEADLINE) ================= */
 .section-pill{
   display:inline-block;
-  margin:45px auto 30px;
-  padding:14px 44px;
+  padding:16px 44px;
   border-radius:999px;
   font-size:1.6rem;
   font-weight:600;
+  margin:45px auto 30px;
   color:#fff;
-  background:linear-gradient(135deg,#ff2f92,#8b5cf6,#ff6ad5);
-  background-size:300%;
-  animation:
-    gradientMove 4s linear infinite,
-    glowPulse 3s ease-in-out infinite;
-  box-shadow:
-    0 0 20px rgba(255,47,146,0.6),
-    0 0 60px rgba(139,92,246,0.9);
+  animation:glowPulse 3s infinite;
+}
+
+/* different section colors */
+.hobbies-pill{
+  background:linear-gradient(135deg,#ff2f92,#ff77b7);
+}
+
+.projects-pill{
+  background:linear-gradient(135deg,#00d4ff,#8b5cf6);
+}
+
+/* ================= CARDS ================= */
+.card{
+  background:linear-gradient(145deg,#0f0f0f,#161616);
+  padding:22px;
+  margin:20px auto;
+  border-radius:18px;
+  max-width:420px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.7);
 }
 
 /* ================= HOBBIES ================= */
-.hobbies-container{
+.hobbies-list{
   display:flex;
   flex-direction:column;
-  gap:18px;
-  margin:20px auto;
-  max-width:320px;
+  gap:14px;
+  margin-bottom:40px;
 }
 
 .hobby-pill{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding:16px 22px;
-  border-radius:34px;
-  background:linear-gradient(145deg,#0f0f1a,#1c1c30);
-  box-shadow:0 15px 35px rgba(0,0,0,0.7);
-  font-size:17px;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(30px);
-  animation:hobbyIn 0.6s ease forwards;
-  animation-delay:var(--delay);
-}
-
-.hobby-pill span{
-  font-size:28px;
-  filter:drop-shadow(0 0 12px currentColor);
-}
-
-.music{color:#00d4ff;}
-.photo{color:#ff7ad9;}
-.game{color:#7fff00;}
-.sport{color:#ffaa00;}
-.fitness{color:#ff4d6d;}
-
-.hobby-pill:hover{
-  transform:scale(1.07);
-  box-shadow:0 0 40px currentColor;
+  margin:auto;
+  width:85%;
+  max-width:320px;
+  padding:14px 22px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#2a0018,#3a0020);
+  font-size:16px;
+  box-shadow:0 0 25px rgba(255,47,146,0.4);
+  animation:slideUp .9s ease forwards;
 }
 
 /* ================= PROJECT GRID ================= */
 .projects-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:25px;
-  margin-top:25px;
+  gap:26px;
 }
 
+/* ================= PROJECT CARD ================= */
 .project-card{
-  background:linear-gradient(145deg,#111128,#1f1f3d);
-  border-radius:20px;
+  background:linear-gradient(145deg,#00121f,#1a0033);
   padding:18px;
-  max-width:380px;
-  margin:auto;
-  box-shadow:0 15px 35px rgba(0,0,0,0.7);
-  transition:0.3s ease;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,.7);
+  transition:.4s;
 }
 
 .project-card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-8px);
 }
 
 .project-card img{
   width:100%;
-  border-radius:16px;
+  border-radius:14px;
   margin-bottom:14px;
 }
 
+.project-card h3{
+  margin-bottom:8px;
+}
+
+/* ================= TECH STACK ================= */
+.tech-stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px 0;
+}
+
+.tech-stack span{
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+}
+
+/* ================= PROJECT BUTTONS ================= */
 .project-actions{
   display:flex;
   gap:12px;
@@ -213,17 +202,12 @@ p{
 
 .project-actions a{
   flex:1;
-  padding:11px;
-  border-radius:30px;
+  padding:10px;
+  border-radius:25px;
   background:linear-gradient(135deg,#ff2f92,#8b5cf6);
   color:#fff;
-  font-size:14px;
   text-decoration:none;
-  transition:0.3s ease;
-}
-
-.project-actions a:hover{
-  transform:scale(1.08);
+  font-size:14px;
 }
 
 /* ================= MODAL ================= */
@@ -231,21 +215,20 @@ p{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,0.9);
+  backdrop-filter:blur(6px);
   z-index:999;
   overflow-y:auto;
   padding:20px;
 }
 
 .modal-content{
-  background:#0f0f1a;
-  margin:8% auto;
+  background:#111;
+  margin:6% auto;
   padding:22px;
-  width:92%;
-  max-width:560px;
-  border-radius:20px;
-  box-shadow:0 0 40px rgba(139,92,246,0.8);
+  border-radius:18px;
+  max-width:600px;
+  box-shadow:0 0 40px rgba(255,47,146,.7);
   text-align:left;
 }
 
@@ -253,79 +236,44 @@ p{
   float:right;
   font-size:24px;
   cursor:pointer;
-  color:#ff4d6d;
+  color:#ff5c5c;
 }
 
 /* ================= CODE BOX ================= */
 pre{
-  background:#0b0b15;
+  background:#0b0b0b;
   padding:18px;
   border-radius:14px;
   overflow:auto;
   max-height:70vh;
-  font-size:13px;
-  line-height:1.6;
 }
 
 code{
+  color:#00ffcc;
   font-family:monospace;
-  white-space:pre;
-}
-
-/* ================= REVEAL ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:none;
 }
 
 /* ================= ANIMATIONS ================= */
 @keyframes gradientMove{
-  0%{background-position:0%;}
-  100%{background-position:100%;}
+  0%{background-position:0%}
+  100%{background-position:100%}
 }
 
 @keyframes glowPulse{
-  0%,100%{
-    box-shadow:
-      0 0 20px rgba(255,47,146,0.5),
-      0 0 40px rgba(139,92,246,0.6);
-  }
-  50%{
-    box-shadow:
-      0 0 40px rgba(255,47,146,1),
-      0 0 90px rgba(139,92,246,1);
-  }
+  0%,100%{box-shadow:0 0 25px rgba(255,47,146,.6)}
+  50%{box-shadow:0 0 45px rgba(255,47,146,1)}
 }
 
-@keyframes hobbyIn{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+@keyframes slideUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1; transform:none}
 }
 
 /* ================= DESKTOP ================= */
-@media (min-width:900px){
+@media(min-width:900px){
   .projects-grid{
     grid-template-columns:repeat(2,1fr);
     max-width:1100px;
     margin:auto;
   }
-
-  .hobbies-container{
-    flex-direction:row;
-    flex-wrap:wrap;
-    justify-content:center;
-    max-width:800px;
   }
-
-  .hobby-pill{
-    min-width:220px;
-  }
-}
