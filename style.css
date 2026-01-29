@@ -730,9 +730,9 @@ margin:6% auto;
   position: relative;
   text-align: center;
 
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   font-weight: 600;
-  margin: 60px 0 35px;
+  margin: 80px 0 40px;
 
   background: linear-gradient(
     90deg,
@@ -751,8 +751,8 @@ margin:6% auto;
 
   animation: headlineNeonMove 5s linear infinite;
 
-  filter: drop-shadow(0 0 6px rgba(127,0,255,0.4))
-          drop-shadow(0 0 14px rgba(0,212,255,0.35));
+  filter: drop-shadow(0 0 8px rgba(127,0,255,0.4))
+          drop-shadow(0 0 18px rgba(0,212,255,0.35));
 }
 
 /* Gradient motion */
@@ -786,7 +786,7 @@ margin:6% auto;
   position: absolute;
   inset: 0;                   /* full size */
   border-radius: inherit;
-  padding: 2px;               /* border thickness */
+  padding: 1px;               /* border thickness */
 
   background: linear-gradient(
     90deg,
@@ -810,8 +810,8 @@ margin:6% auto;
 
   /* soft glow */
   box-shadow:
-    0 0 8px rgba(127,0,255,0.5),
-    0 0 16px rgba(0,212,255,0.35);
+    0 0 6px rgba(127,0,255,0.5),
+    0 0 13px rgba(0,212,255,0.35);
 }
 
 /* same motion feel as headlines */
@@ -854,8 +854,8 @@ margin:6% auto;
   color: #e8f1ff;
 
   border: none;
-  border-radius: 15px;
-  padding: 8px 15px;
+  border-radius: 10px;
+  padding: 6px 12px;
   font-weight: 600;
   cursor: pointer;
   z-index: 0;
