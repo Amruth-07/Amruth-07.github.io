@@ -461,7 +461,80 @@ canvas {
   z-index: -1;       /* important */
   pointer-events: none;
 }
+/* =====================================
+   GRADIENT HEADLINE PILLS (SECTION TITLES)
+   ===================================== */
 
+/* Base headline pill */
+.headline-pill{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  margin: 45px auto 30px;
+  padding: 16px 38px;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+
+  border-radius: 999px;
+  text-align: center;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.6),
+    inset 0 0 12px rgba(255,255,255,0.12);
+
+  transition: all 0.35s ease;
+}
+
+/* Hover lift */
+.headline-pill:hover{
+  transform: translateY(-4px);
+}
+
+/* ================= COLORS ================= */
+
+/* Blue – Projects / Interests */
+.blue-headline{
+  background: linear-gradient(135deg,#7f00ff,#00d4ff);
+  box-shadow:
+    0 0 28px rgba(0,212,255,0.6),
+    0 0 55px rgba(127,0,255,0.5);
+}
+
+/* Purple – Skills */
+.purple-headline{
+  background: linear-gradient(135deg,#9d4edd,#5a189a);
+  box-shadow:
+    0 0 28px rgba(157,78,221,0.6),
+    0 0 55px rgba(90,24,154,0.5);
+}
+
+/* Green – Hobbies */
+.green-headline{
+  background: linear-gradient(135deg,#00c853,#69f0ae);
+  box-shadow:
+    0 0 28px rgba(0,200,130,0.6),
+    0 0 55px rgba(105,240,174,0.5);
+}
+
+/* Orange – Education / Experience */
+.orange-headline{
+  background: linear-gradient(135deg,#ff7a18,#ffb347);
+  box-shadow:
+    0 0 28px rgba(255,122,24,0.6),
+    0 0 55px rgba(255,179,71,0.5);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px){
+  .headline-pill{
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+    }
 /* make sure page content is above canvas 
 body > *:not(canvas) {
   position: relative;
