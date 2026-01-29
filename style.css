@@ -387,3 +387,6 @@ margin:6% auto;
     padding: 12px 24px;
   }
 }
+.blue-glow + .tag-title{ color:#6fa8ff; }
+.purple-glow + .tag-title{ color:#c08bff; }
+.green-glow + .tag-title{ color:#6bffb0; }
