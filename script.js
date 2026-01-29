@@ -1,219 +1,227 @@
-/* ===============================
-   SCROLL REVEAL
-================================ */
-const reveals = document.querySelectorAll(".reveal");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amrut Hanamapure | Portfolio</title>
 
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 80) {
-      el.classList.add("active");
-    }
-  });
-});
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-/* ===============================
-   PROJECT THEORY / DETAILS
-================================ */
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-/* ---- PROJECT 1 ---- */
-const oscilloscopeDetails = `
-<h3>  Portable Oscilloscope using Arduino</h3>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
 
-<p>
-A portable oscilloscope is a compact electronic instrument used to visualize
-electrical signals in real time. This project is designed as a <b>low-cost
-oscilloscope</b> using an Arduino microcontroller and an OLED display.
-</p>
+  <!-- Prism Syntax Highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
 
-<h4> Working Principle</h4>
-<ul>
-  <li>The analog signal is applied to the Arduino ADC pin</li>
-  <li>Arduino samples the signal using its built-in ADC</li>
-  <li>Sampled values are mapped to pixel coordinates</li>
-  <li>The waveform is drawn on the OLED display</li>
-</ul>
+<!-- ================= HERO SECTION ================= -->
+<section id="hero">
 
-<h4>Features</h4>
-<ul>
-  <li>Displays sine, square, and triangle waveforms</li>
-  <li>Portable and low power</li>
-  <li>Real-time signal visualization</li>
-  <li>Low-cost alternative to lab oscilloscopes</li>
-</ul>
+  <div class="profile reveal">
+    <!-- fixed double .jpg -->
+    <img src="profile.jpg" alt="Amrut Hanamapure">
+  </div>
 
-<h4>Applications</h4>
-<ul>
-  <li>Educational labs</li>
-  <li>Signal testing</li>
-  <li>Embedded system debugging</li>
-</ul>
-`;
+  <h2 class="reveal">Hi! I'm</h2>
+  <h1 class="reveal"><span>Amrut Hanamapure</span></h1>
 
-/* ---- PROJECT 2 ---- */
-const agriguardDetails = `
-<h3>AgriGuard: Smart IoT System for Farming & Security</h3>
+  <p class="reveal">
+    Electronics & Communication Engineering Student
+  </p>
 
-<p>
-AgriGuard is an <b>IoT-based smart agriculture system</b> developed using ESP32.
-It automates irrigation and improves farm security using sensors and cloud
-monitoring.
-</p>
+</section>
 
-<h4>Working Principle</h4>
-<ul>
-  <li>Soil moisture sensor checks water content</li>
-  <li>ESP32 controls the water pump automatically</li>
-  <li>DHT11 measures temperature & humidity</li>
-  <li>Flame & LDR sensors provide security alerts</li>
-  <li>Data is uploaded to ThingSpeak cloud</li>
-</ul>
+<!-- ================= TAGS ================= -->
+<div class="reveal">
+  <span class="tag">Embedded Systems</span>
+  <span class="tag">VLSI Basics</span>
+  <span class="tag">Verilog</span>
+  <span class="tag">PCB Design</span>
+  <span class="tag">Python</span>
+</div>
 
-<h4>Features</h4>
-<ul>
-  <li>Automatic irrigation system</li>
-  <li>Real-time IoT monitoring</li>
-  <li>Fire and intrusion detection</li>
-  <li>Cloud-based visualization</li>
-</ul>
+<!-- ================= RESUME ================= -->
+<a href="Resume.pdf" class="resume reveal">Download Resume</a>
 
-<h4>Applications</h4>
-<ul>
-  <li>Smart farming</li>
-  <li>Water conservation</li>
-  <li>Farm security monitoring</li>
-</ul>
-`;
+<!-- ================= INFO CARDS ================= -->
+<div class="card reveal">
+  📍 <b>Location</b><br>
+  Bengaluru, Karnataka, India
+</div>
 
-/* ---- PROJECT 3 ---- */
-const testerDetails = `
-<h3>All-in-One Electronic Component Tester</h3>
+<div class="card reveal">
+  💼 <b>Expertise</b><br>
+  Embedded Systems, VLSI Basics, Circuit Design, PCB Designing
+</div>
 
-<p>
-This project is an <b>automatic electronic component tester</b> that identifies
-and tests basic electronic components using an Arduino-based system.
-</p>
+<div class="card reveal">
+  🛠 <b>Experience</b><br>
+  Robotics Training – GTTC, Belagavi<br>
+  <small>Jan–Feb 2023</small>
+</div>
 
-<h4>Working Principle</h4>
-<ul>
-  <li>Component is connected to test terminals</li>
-  <li>Arduino applies test voltages</li>
-  <li>Voltage/current response is measured</li>
-  <li>Component type and value are calculated</li>
-</ul>
+<div class="card reveal">
+  🎓 <b>Education</b><br>
+  BE – ECE<br>
+  City Engineering College, Bengaluru<br>
+  <small>SGPA: 7.2</small>
+</div>
 
-<h4>Features</h4>
-<ul>
-  <li>Tests resistors, capacitors, diodes</li>
-  <li>Identifies transistor pin configuration</li>
-  <li>Continuity checking</li>
-  <li>LCD display output</li>
-</ul>
+<!-- ================= ABOUT ME ================= -->
+<div class="card reveal about-card">
 
-<h4>Applications</h4>
-<ul>
-  <li>Electronics labs</li>
-  <li>Component verification</li>
-  <li>Repair and maintenance</li>
-</ul>
-`;
+  <h2 class="section-headline reveal">About Me</h2>
 
-/* ---- PROJECT 4 ---- */
-const ledPatternDetails = `
-<h4>Project Overview</h4>
-<p>
-The <b>Generating LED Patterns Using Arduino</b> project demonstrates how multiple LEDs
-can be controlled using an Arduino UNO to create different lighting patterns.
-It helps beginners understand digital output control, timing, and sequencing.
-</p>
+  <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-photo-top">
 
-<h4>Components Used</h4>
-<ul>
-  <li>Arduino UNO</li>
-  <li>10-LEDs (Different colors)</li>
-  <li>10-Resistors </li>
-  <li>Dotted PCB Board</li>
-  <li>Connecting Wires</li>
-</ul>
+  <p class="about-text">
+    I am an Electronics and Communication Engineering student with a strong
+    interest in Embedded Systems, Arduino-based projects, and IoT applications.
+    I enjoy building practical hardware projects and converting ideas into
+    working prototypes using microcontrollers and sensors.
+    <br><br>
+    I am continuously learning new technologies related to electronics,
+    programming, and system design, and I am actively looking for opportunities
+    to grow as an embedded systems engineer.
+  </p>
 
-<h4>Working Principle</h4>
-<p>
-Each LED is connected to a digital output pin of the Arduino through a current-limiting resistor.
-The Arduino sends HIGH and LOW signals in a programmed sequence, creating
-patterns such as running lights, blinking, and alternate LEDs.
-</p>
+</div> <!-- fixed missing close -->
 
-<h4>Applications</h4>
-<ul>
-  <li>Learning Arduino digital I/O</li>
-  <li>Decorative LED lighting</li>
-  <li>Signal indicators</li>
-  <li>Embedded systems practice</li>
-</ul>
-`;
-/* ===============================
-   MODAL FUNCTIONS
-================================ */
+<!-- ================= HOBBIES ================= -->
+<h2 class="section-headline reveal">Hobbies</h2>
 
-function openModal(title, content) {
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalDesc").innerHTML = content;
-  document.getElementById("projectModal").style.display = "block";
+<div class="hobbies-wrapper reveal">
+  <div class="hobby-pill dark">🎧 <span>Listening to Music</span></div>
+  <div class="hobby-pill dark">📷 <span>Photography</span></div>
+  <div class="hobby-pill dark">🎮 <span>Gaming</span></div>
+  <div class="hobby-pill dark">💪🏻 <span>Fitness </span></div>
+  <div class="hobby-pill dark">🏀 <span>Sports </span></div>
+</div>
 
-  // Hide copy button for details
-  document.getElementById("copyBtn").style.display = "none";
-}
+<!-- ================= SKILLS ================= -->
+<h2 class="section-headline reveal">Skills</h2>
 
-function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
-}
+<div class="hobbies-wrapper reveal">
+  <div class="hobby-pill dark">💻 <span>VLSI Design Basic</span></div>
+  <div class="hobby-pill dark">🧩 <span>Verilog</span></div>
+  <div class="hobby-pill dark">⚡ <span>Embedded System</span></div>
+  <div class="hobby-pill dark">🐍 <span>Python</span></div>
+  <div class="hobby-pill dark">🔌 <span>PCB Designing</span></div>
+</div>
 
-/* ===============================
-   CODE VIEWER
-================================ */
+<!-- ================= INTERESTS ================= -->
+<h2 class="section-headline reveal">My Interests</h2>
 
-function openCode(title, fileName) {
-  fetch(fileName)
-    .then(res => res.text())
-    .then(code => {
+<div class="hobbies-wrapper reveal">
+  <div class="hobby-pill dark">📈 <span>Stock Market</span></div>
+  <div class="hobby-pill dark">🌐 <span>Web Building</span></div>
+  <div class="hobby-pill dark">🔍 <span>Deep Learning</span></div>
+  <div class="hobby-pill dark">🏍️ <span>Travelling</span></div>
+</div>
 
-      document.getElementById("modalTitle").innerText =
-        title + "Source Code";
+<!-- ================= PROJECTS ================= -->
+<h2 class="section-headline reveal">My Projects</h2>
 
-      document.getElementById("modalDesc").innerHTML = `
-<pre><code class="language-cpp">${escapeHtml(code)}</code></pre>
-      `;
+<div class="projects-grid">
 
-      document.getElementById("projectModal").style.display = "block";
+  <div class="project-card reveal">
+    <img src="portable.png" alt="Portable Oscilloscope">
+    <h3>Portable Oscilloscope using Arduino</h3>
+    <p>Low-cost portable oscilloscope using Arduino and OLED display to visualize
+      sine, square, and triangle waveforms.</p>
+    <div class="tech-stack">
+      <span>Arduino</span><span>OLED</span><span>Embedded C</span><span>ADC</span>
+    </div>
+    <div class="project-actions">
+      <a href="#" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">📘 Details</a>
+      <a href="#" onclick="openCode('Portable Oscilloscope','oscilloscopeCode.txt')">💻 Code</a>
+    </div>
+  </div>
 
-      // Show copy button
-      document.getElementById("copyBtn").style.display = "inline-block";
+  <div class="project-card reveal">
+    <img src="smart.png" alt="AgriGuard">
+    <h3>AgriGuard – Smart IoT System</h3>
+    <p>IoT-based smart farming system using ESP32 for automated irrigation
+      and enhanced farm security.</p>
+    <div class="tech-stack">
+      <span>ESP32</span><span>IoT</span><span>Sensors</span><span>ThingSpeak</span>
+    </div>
+    <div class="project-actions">
+      <a href="#" onclick="openModal('AgriGuard', agriguardDetails)">📘 Details</a>
+      <a href="#" onclick="openCode('AgriGuard','Agriculture.txt')">💻 Code</a>
+    </div>
+  </div>
 
-      Prism.highlightAll();
-    })
-    .catch(() => {
-      openModal(title, "<p>âŒ Code file not found</p>");
-    });
-}
+  <div class="project-card reveal">
+    <img src="component-tester.png" alt="Component Tester">
+    <h3>All-in-One Component Tester</h3>
+    <p>Electronic component tester for resistors, capacitors, diodes,
+      transistors, and continuity checking.</p>
+    <div class="tech-stack">
+      <span>Arduino</span><span>Electronics</span><span>Testing</span>
+    </div>
+    <div class="project-actions">
+      <a href="#" onclick="openModal('Component Tester', testerDetails)">📘 Details</a>
+      <a href="#" onclick="openCode('Component Tester','Tester.txt')">💻 Code</a>
+    </div>
+  </div>
 
-/* ===============================
-   HTML ESCAPE (IMPORTANT)
-================================ */
+  <div class="project-card reveal">
+    <img src="led-pattern.png" alt="LED Pattern">
+    <h3>Generating LED Patterns Using Arduino</h3>
+    <p>Arduino-based project to generate different LED lighting patterns
+      using multiple LEDs mounted on a dotted PCB board.</p>
+    <div class="tech-stack">
+      <span>Arduino UNO</span><span>LEDs</span><span>Resistors</span><span>Embedded C</span>
+    </div>
+    <div class="project-actions">
+      <a href="#" onclick="openModal('LED Pattern using Arduino', ledPatternDetails)">📘 Details</a>
+      <a href="#" onclick="openCode('LED Pattern Code','LED_Pattern.txt')">💻 Code</a>
+    </div>
+  </div>
 
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-function copyCode() {
-  const codeElement = document.querySelector("#modalDesc code");
-  if (!codeElement) return;
+</div>
 
-  navigator.clipboard.writeText(codeElement.innerText)
-    .then(() => {
-      const btn = document.getElementById("copyBtn");
-      btn.innerText = "Copied!";
-      setTimeout(() => btn.innerText = Copy Code", 1500);
-    });
-}
+<!-- ================= MODAL ================= -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modalTitle"></h3>
+    <button id="copyBtn" onclick="copyCode()">📋 Copy Code</button>
+    <div id="modalDesc"></div>
+  </div>
+</div>
+
+<!-- ================= CONNECT ================= -->
+<div class="card reveal">
+  <h3>🔗 Connect with Me</h3>
+  <p>
+    📧 <a href="mailto:amruthanamapure@gmail.com">amruthanamapure@gmail.com</a><br>
+    📞 <a href="tel:+916361508317">+91 6361508317</a>
+  </p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/amruth-07" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/amrut_hanamapure" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three-bg.js"></script>
+
+</body>
+</html>
