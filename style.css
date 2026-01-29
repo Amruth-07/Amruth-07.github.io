@@ -276,28 +276,61 @@ body{
 }
 /* ===== Neon glow buttons ===== */
 
-.highlight-btn{
-  box-shadow: 0 0 12px rgba(122,92,255,0.4);
-}
-#copyBtn{
-  box-shadow: 0 0 12px rgba(0,255,166,0.35);
+.highlight-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 22px;        /* smaller button */
+  margin: 12px 10px 0;       /* space above and between buttons */
+  font-size: 15px;           /* slightly smaller text */
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  background: #0b0f1a;
+  z-index: 0;
+  overflow: hidden;
 }
 
-/* stronger glow on hover */
-.highlight-btn:hover{
-  box-shadow:
-    0 0 12px #7a5cff,
-    0 0 28px #00e5ff,
-    0 0 50px rgba(255,0,204,0.6);
-  transform: translateY(-2px);
+/* neon gradient border */
+.highlight-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 30px;
+  background: linear-gradient(
+    90deg,
+    #00f0ff,
+    #8a2eff,
+    #ff2ed1,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: borderMove 6s linear infinite;
+  z-index: -2;
 }
 
-#copyBtn:hover{
+/* inner dark background to create border effect */
+.highlight-btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 28px;
+  background: #0b0f1a;
+  z-index: -1;
+}
+
+/* slow moving gradient */
+@keyframes borderMove {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* neon glow on hover */
+.highlight-btn:hover {
   box-shadow:
-    0 0 12px #00ffa6,
-    0 0 30px #00e5ff,
-    0 0 55px rgba(0,255,166,0.7);
-  transform: translateY(-2px);
+    0 0 10px rgba(0, 240, 255, 0.6),
+    0 0 20px rgba(138, 46, 255, 0.6),
+    0 0 30px rgba(255, 46, 209, 0.5);
 }
 
 /* moving gradient animation */
