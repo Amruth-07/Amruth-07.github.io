@@ -352,27 +352,55 @@ margin:6% auto;
 }
 
 /* Hobby pill */
+./* ===== HOBBY PILL WITH GRADIENT ===== */
 .hobby-pill{
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 14px 26px;
-  font-size: 16px;
-  border-radius: 40px;
+
+  width: 100%;
+  padding: 14px 20px;
+
+  font-size: 15px;
+  font-weight: 500;
   color: #fff;
 
+  border-radius: 40px;
+
   background: linear-gradient(
-    145deg,
-    rgba(20,20,40,0.9),
-    rgba(10,10,20,0.9)
+    135deg,
+    #7f00ff,
+    #00d4ff
   );
 
-  border: 1px solid rgba(255,255,255,0.08);
   box-shadow:
-    inset 0 0 12px rgba(255,255,255,0.05),
-    0 8px 25px rgba(0,0,0,0.6);
+    0 8px 25px rgba(0,0,0,0.6),
+    0 0 20px rgba(127,0,255,0.4);
 
   transition: all 0.3s ease;
+}
+.hobby-pill:nth-child(1){
+  background: linear-gradient(135deg,#7f00ff,#ff00cc);
+}
+.hobby-pill:nth-child(2){
+  background: linear-gradient(135deg,#00d4ff,#00ffcc);
+}
+.hobby-pill:nth-child(3){
+  background: linear-gradient(135deg,#ff7a18,#ffb347);
+}
+.hobby-pill:nth-child(4){
+  background: linear-gradient(135deg,#ff512f,#f09819);
+}
+.hobby-pill:nth-child(5){
+  background: linear-gradient(135deg,#00c853,#b2ff59);
+  }
+/* Hover glow */
+.hobby-pill:hover{
+  transform: translateY(-4px) scale(1.06);
+  box-shadow:
+    0 0 35px rgba(127,0,255,0.8),
+    0 0 55px rgba(0,212,255,0.6);
 }
 
 /* Hover effect */
