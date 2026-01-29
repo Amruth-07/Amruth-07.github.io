@@ -352,49 +352,60 @@ margin:6% auto;
 }
 
 /* Hobby pill */
-./* ===== HOBBY PILL WITH GRADIENT ===== */
+/* ===== PREMIUM GRADIENT HOBBY PILL ===== */
 .hobby-pill{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 
   width: 100%;
-  padding: 14px 20px;
+  padding: 12px 18px;
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: #fff;
 
-  border-radius: 40px;
+  border-radius: 999px; /* perfect pill */
 
   background: linear-gradient(
     135deg,
-    #7f00ff,
-    #00d4ff
+    rgba(127,0,255,0.55),
+    rgba(0,212,255,0.55)
   );
 
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+
   box-shadow:
-    0 8px 25px rgba(0,0,0,0.6),
-    0 0 20px rgba(127,0,255,0.4);
+    0 6px 18px rgba(0,0,0,0.55),
+    inset 0 0 10px rgba(255,255,255,0.08);
 
   transition: all 0.3s ease;
 }
+
+/* ===== INDIVIDUAL HOBBY GRADIENTS (SOFT & PREMIUM) ===== */
 .hobby-pill:nth-child(1){
-  background: linear-gradient(135deg,#7f00ff,#ff00cc);
+  background: linear-gradient(135deg, #7f00ff88, #b000ff66);
 }
+
 .hobby-pill:nth-child(2){
-  background: linear-gradient(135deg,#00d4ff,#00ffcc);
+  background: linear-gradient(135deg, #00d4ff88, #00bfff66);
 }
+
 .hobby-pill:nth-child(3){
-  background: linear-gradient(135deg,#ff7a18,#ffb347);
+  background: linear-gradient(135deg, #ff9f4388, #ff7a1866);
 }
+
 .hobby-pill:nth-child(4){
-  background: linear-gradient(135deg,#ff512f,#f09819);
+  background: linear-gradient(135deg, #ff5f6d88, #ffc37166);
 }
+
 .hobby-pill:nth-child(5){
-  background: linear-gradient(135deg,#00c853,#b2ff59);
-  }
+  background: linear-gradient(135deg, #00c85388, #69f0ae66);
+}
+
 /* Hover glow */
 .hobby-pill:hover{
   transform: translateY(-4px) scale(1.06);
@@ -405,10 +416,10 @@ margin:6% auto;
 
 /* Hover effect */
 .hobby-pill:hover{
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-3px);
   box-shadow:
-    0 0 20px rgba(127,0,255,0.5),
-    0 0 40px rgba(0,212,255,0.25);
+    0 0 20px rgba(127,0,255,0.6),
+    0 0 35px rgba(0,212,255,0.35);
 }
 
 /* Text */
