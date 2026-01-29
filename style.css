@@ -614,11 +614,10 @@ margin:6% auto;
 
   /* ---------- INTERESTS / SKILLS / HOBBIES ---------- */
   .hobbies-wrapper{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    max-width: 950px;
-    margin: auto;
-  }
+  display: grid;
+  gap: 18px;          /* ✅ SPACE BETWEEN ITEMS */
+  margin-top: 25px;  /* space below heading */
+}
 
   .hobby-pill.dark{
     padding: 18px 34px;
