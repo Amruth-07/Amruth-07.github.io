@@ -847,15 +847,63 @@ margin:6% auto;
 }
 
 /* same moving gradient effect as headlines */
-@keyframes copyBtnMove{
+/* neon border copy button (not fully shaded) */
+#copyBtn{
+  position: relative;
+  background: #0b1220;   /* dark inside, no full shade */
+  color: #e8f1ff;
+
+  border: none;
+  border-radius: 25px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* animated gradient border */
+#copyBtn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* border thickness */
+
+  background: linear-gradient(
+    90deg,
+    #00d4ff,
+    #7f00ff,
+    #00ffcc,
+    #00d4ff
+  );
+  background-size: 300% 100%;
+  animation: copyBorderMove 6s linear infinite;
+
+  /* show only border */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  z-index: -1;
+
+  box-shadow:
+    0 0 8px rgba(0,212,255,0.5),
+    0 0 14px rgba(127,0,255,0.4);
+}
+
+/* slow moving colours */
+@keyframes copyBorderMove{
   0%   { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-/* hover effect */
+/* hover glow (no full shade) */
 #copyBtn:hover{
-  transform: scale(1.05);
+  color: #ffffff;
   box-shadow:
-    0 0 14px rgba(127,0,255,0.9),
-    0 0 26px rgba(0,212,255,0.7);
+    0 0 10px rgba(0,212,255,0.8),
+    0 0 22px rgba(127,0,255,0.6);
 }
