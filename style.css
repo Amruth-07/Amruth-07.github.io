@@ -1,13 +1,13 @@
 /* ===== HERO 3D SECTION ===== */
 #hero{
   position: relative;
-  min-height: 60vh;          /* 🔥 reduced from 100vh */
+  min-height: 70vh;          /* 🔥 reduced from 100vh */
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   overflow:hidden;
-  padding-bottom: 25px;     /* 🔥 tighter bottom */
+  padding-bottom: 20px;     /* 🔥 tighter bottom */
 }
 
 canvas{
