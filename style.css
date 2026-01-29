@@ -60,17 +60,7 @@ body{
 }
 
 /* ================= ABOUT ================= */
-.about-text{ line-height:1.8; opacity:.9; }
-
-.about img{
-  width:100%;
-  max-width:420px;   /* limits big size */
-  height:auto;
-  border-radius:20px;
-  display:block;
-  margin:30px auto;  /* center with breathing gap */
-
-  box-shadow:0 0 25px rgba(0,0,0,0.6);
+.about-text{ line-height:1.8; opacity:.9;
 }
 
 /* ================= HOBBIES / SKILLS PILLS ================= */
@@ -225,13 +215,22 @@ body{
   .project-card{ padding:24px; }
 }
 
-.about img{
+.about-card img{
   width:100%;
-  max-width:420px;   /* limits big size */
+  max-width:450px;   /* controls size */
   height:auto;
-  border-radius:20px;
   display:block;
-  margin:30px auto;  /* center with breathing gap */
+  margin:25px auto;  /* center + space */
 
-  box-shadow:0 0 25px rgba(0,0,0,0.6);
-               }
+  border-radius:18px;
+
+  /* soft neon border */
+  border:3px solid transparent;
+  background:
+    linear-gradient(#000,#000) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
+
+  box-shadow:
+    0 0 20px rgba(127,0,255,0.4),
+    0 0 35px rgba(0,212,255,0.25);
+}
