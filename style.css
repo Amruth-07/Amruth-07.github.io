@@ -355,3 +355,78 @@ body{
   color:#fff;
   transform:translateY(-2px);
 }
+
+/* ===== Neon Moving Gradient Border Button ===== */
+
+.highlight-btn,
+#copyBtn{
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 40px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: #070e1c;   /* dark inner fill */
+  border: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* animated multicolour neon border */
+.highlight-btn::before,
+#copyBtn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* border thickness */
+
+  background: linear-gradient(
+    120deg,
+    #00e5ff,
+    #7a5cff,
+    #ff00cc,
+    #00ffa6,
+    #ffe600,
+    #00e5ff
+  );
+  background-size: 400% 400%;
+  animation: neonBorderMove 8s linear infinite;
+
+  /* show only border */
+  -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  z-index: -1;
+}
+
+/* default soft glow */
+.highlight-btn{
+  box-shadow: 0 0 10px rgba(122,92,255,0.35);
+}
+#copyBtn{
+  box-shadow: 0 0 10px rgba(0,229,255,0.35);
+}
+
+/* hover = bright neon light */
+.highlight-btn:hover,
+#copyBtn:hover{
+  box-shadow:
+    0 0 12px #7a5cff,
+    0 0 24px #00e5ff,
+    0 0 40px #ff00cc,
+    0 0 65px rgba(0,229,255,0.8);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* moving gradient animation */
+@keyframes neonBorderMove{
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
