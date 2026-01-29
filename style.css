@@ -305,24 +305,6 @@ body{
   transform:translateY(-2px);
 }
 
-/* COPY BUTTON different neon colour (green) */
-#copyBtn{
-  border:2px solid #3cffb3;
-  background:#070e1c;
-  color:#fff;
-  box-shadow:0 0 10px rgba(60,255,179,0.4);
-}
-
-/* green neon hover */
-#copyBtn:hover{
-  border-color:#00ffa6;
-  box-shadow:
-    0 0 8px #00ffa6,
-    0 0 20px #00ffcc,
-    0 0 40px rgba(0,255,170,0.9);
-  color:#fff;
-  transform:translateY(-2px);
-  }
 /* ===== Neon gradient border buttons ===== */
 
 
