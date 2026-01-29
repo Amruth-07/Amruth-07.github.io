@@ -134,12 +134,6 @@ transform:translateY(-3px);
     transform:translateY(0);
   }
 }
-
-@keyframes breathe{
-  0%,100%{ box-shadow:0 0 12px rgba(127,0,255,0.25); }
-  50%{ box-shadow:0 0 28px rgba(0,212,255,0.45); }
-}
-
 @keyframes pulse{
   from{ transform:scale(1); }
   to{ transform:scale(1.25); }
