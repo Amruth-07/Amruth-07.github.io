@@ -450,3 +450,20 @@ color:#ffffff;
 box-shadow:0 0 8px rgba(0,212,255,0.8),
            0 0 18px rgba(127,0,255,0.6);
   }
+
+/* send 3D background behind everything */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;       /* important */
+  pointer-events: none;
+}
+
+/* make sure page content is above canvas */
+body > *:not(canvas) {
+  position: relative;
+  z-index: 1;
+}
