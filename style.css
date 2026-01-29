@@ -168,10 +168,24 @@ transition:0.3s ease;
 transform:translateY(-8px);
 }
 
+/* ===== PROJECT IMAGE WITH COLOUR BORDER ===== */
 .project-card img{
-width:100%;
-border-radius:14px;
-margin-bottom:14px;
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 16px;
+
+  padding: 4px; /* space for border */
+  background: linear-gradient(
+    135deg,
+    #7f00ff,
+    #00d4ff
+  );
+
+  box-shadow:
+    0 0 18px rgba(127,0,255,0.5),
+    0 0 30px rgba(0,212,255,0.35);
+
+  transition: all 0.35s ease;
 }
 
 .project-card h3{
