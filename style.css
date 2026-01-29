@@ -1,3 +1,17 @@
+/* ===== HERO 3D SECTION ===== */
+#hero{
+  position: relative;
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+canvas{
+  pointer-events:none;
+}
 
 *{
 margin:0;
