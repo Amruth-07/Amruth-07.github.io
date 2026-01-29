@@ -458,23 +458,6 @@ margin:6% auto;
   margin-right: 10px;
   filter: drop-shadow(0 0 10px rgba(0,212,255,0.8));
 }
-
-/* Neon underline + divider */
-.fancy-title::after{
-  content: "";
-  display: block;
-  width: 140px;
-  height: 3px;
-  margin: 14px auto 0;
-
-  background: linear-gradient(90deg,#7f00ff,#00d4ff);
-  border-radius: 10px;
-
-  box-shadow:
-    0 0 10px rgba(127,0,255,0.8),
-    0 0 25px rgba(0,212,255,0.6);
-}
-
 /* Glow animation */
 @keyframes titleGlow{
   0%{
@@ -497,3 +480,35 @@ margin:6% auto;
     font-size: 1.6rem;
   }
     }
+/* ===== SECTION PILL HEADLINE ===== */
+.section-pill{
+  display:inline-block;
+  margin:40px auto 25px;
+  padding:14px 36px;
+  border-radius:999px;
+  font-size:1.3rem;
+  font-weight:500;
+  color:#fff;
+  background:linear-gradient(90deg,#7f00ff,#ff00cc,#00d4ff);
+  background-size:300%;
+  animation:gradientMove 5s linear infinite;
+  box-shadow:0 0 25px rgba(127,0,255,0.7);
+}
+
+/* Center alignment fix */
+.section-pill{
+  display:table;
+}
+
+/* Glow pulse (optional but sexy 😌) */
+@keyframes glowPulse{
+  0%{box-shadow:0 0 20px rgba(127,0,255,0.5);}
+  50%{box-shadow:0 0 35px rgba(0,212,255,0.9);}
+  100%{box-shadow:0 0 20px rgba(127,0,255,0.5);}
+}
+
+.section-pill{
+  animation:
+    gradientMove 5s linear infinite,
+    glowPulse 2.5s ease-in-out infinite;
+}
