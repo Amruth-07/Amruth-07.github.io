@@ -541,3 +541,100 @@ body > *:not(canvas) {
   z-index: 1;
 }
 */
+/* =================================================
+   FULL DESKTOP VERSION – PORTFOLIO (>=1024px)
+   ================================================= */
+@media (min-width: 1024px){
+
+  /* ---------- GLOBAL WIDTH ---------- */
+  body{
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  section{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  /* ---------- SECTION HEADLINES ---------- */
+  .section-headline{
+    font-size: 2.8rem;
+    margin: 90px 0 50px;
+  }
+
+  /* ---------- ABOUT ME ---------- */
+  .about-card{
+    max-width: 900px;
+    margin: auto;
+    padding: 45px;
+  }
+
+  .about-photo-top{
+    max-width: 420px;
+    margin-bottom: 25px;
+  }
+
+  .about-text{
+    font-size: 16.5px;
+    line-height: 1.9;
+  }
+
+  /* ---------- INTERESTS / SKILLS / HOBBIES ---------- */
+  .hobbies-wrapper{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 950px;
+    margin: auto;
+  }
+
+  .hobby-pill.dark{
+    padding: 18px 34px;
+    font-size: 18px;
+  }
+
+  /* ---------- PROJECTS GRID ---------- */
+  .projects-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  /* ---------- PROJECT CARD ---------- */
+  .project-card{
+    padding: 24px;
+  }
+
+  .project-card img{
+    border-radius: 18px;
+  }
+
+  .project-card h3{
+    font-size: 20px;
+    margin-top: 18px;
+  }
+
+  .project-card p{
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* ---------- PROJECT BUTTONS ---------- */
+  .project-actions a{
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+
+  /* ---------- RESUME / CTA BUTTON ---------- */
+  .resume{
+    font-size: 17px;
+    padding: 14px 36px;
+  }
+
+  /* ---------- FOOTER / CONNECT ---------- */
+  .socials a{
+    font-size: 22px;
+  }
+}
