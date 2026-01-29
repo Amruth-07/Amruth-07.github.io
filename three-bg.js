@@ -1,67 +1,68 @@
-// ===== APPLE STYLE HERO 3D =====
-const hero = document.getElementById("hero");
-
+// create scene
 const scene = new THREE.Scene();
 
+// camera
 const camera = new THREE.PerspectiveCamera(
-  60,
+  75,
   window.innerWidth / window.innerHeight,
   0.1,
-  100
+  1000
 );
+camera.position.z = 5;
 
-camera.position.z = 8;
-
-const renderer = new THREE.WebGLRenderer({
-  alpha: true,
-  antialias: true
-});
-
+// renderer
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-renderer.domElement.style.position = "absolute";
-renderer.domElement.style.top = "0";
-renderer.domElement.style.left = "0";
-renderer.domElement.style.zIndex = "0";
+// make canvas act as background
+const canvas = renderer.domElement;
+canvas.style.position = "fixed";
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.width = "100%";
+canvas.style.height = "100%";
+canvas.style.zIndex = "-1";        // push behind all content
+canvas.style.pointerEvents = "none";
 
-hero.appendChild(renderer.domElement);
+document.body.appendChild(canvas);
 
-// ✨ Minimal particles
+// star geometry
+const starCount = 1500;
 const geometry = new THREE.BufferGeometry();
-const count = 900;
+const positions = new Float32Array(starCount * 3);
 
-const positions = new Float32Array(count * 3);
-for (let i = 0; i < count * 3; i++) {
-  positions[i] = (Math.random() - 0.5) * 12;
+for (let i = 0; i < starCount * 3; i++) {
+  positions[i] = (Math.random() - 0.5) * 200;
 }
 
-geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(positions, 3)
+);
 
+// star material
 const material = new THREE.PointsMaterial({
   color: 0xffffff,
-  size: 0.025,
-  opacity: 0.6,
-  transparent: true
+  size: 0.7
 });
 
-const particles = new THREE.Points(geometry, material);
-scene.add(particles);
+// star field
+const stars = new THREE.Points(geometry, material);
+scene.add(stars);
 
-// 🎥 Smooth animation
-const clock = new THREE.Clock();
-
+// animation
 function animate() {
-  const t = clock.getElapsedTime();
-  particles.rotation.y = t * 0.05;
-  particles.rotation.x = t * 0.02;
-  renderer.render(scene, camera);
   requestAnimationFrame(animate);
+
+  stars.rotation.x += 0.0005;
+  stars.rotation.y += 0.0007;
+
+  renderer.render(scene, camera);
 }
 
 animate();
 
-// 📱 Resize support
+// resize support
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
