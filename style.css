@@ -718,3 +718,8 @@ margin:6% auto;
     background-position: 300% 50%;
   }
 }
+@media (max-width: 600px){
+  .section-headline::after{
+    height: 3px;
+  }
+}
