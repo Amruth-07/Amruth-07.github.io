@@ -335,14 +335,7 @@ margin:6% auto;
     font-size: 15px;
   }
   }
-/* ===== TAG STYLE (LIKE IMAGE) ===== */
-.tag-title{
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 50px 0 35px;
-}
-
-/* Container */
+/* ===== TAG BASE STYLE ===== */
 .tag-container{
   display: flex;
   flex-wrap: wrap;
@@ -352,7 +345,6 @@ margin:6% auto;
   margin: auto;
 }
 
-/* Pill */
 .tag-pill{
   padding: 14px 30px;
   font-size: 16px;
@@ -362,31 +354,46 @@ margin:6% auto;
   border-radius: 999px;
   background: rgba(15, 18, 30, 0.9);
 
-  border: 2px solid rgba(60,120,255,0.85);
-
+  border: 2px solid var(--glow);
   box-shadow:
-    0 0 12px rgba(60,120,255,0.45),
+    0 0 14px var(--glow-soft),
     inset 0 0 10px rgba(255,255,255,0.05);
 
   transition: all 0.3s ease;
 }
 
-/* Hover Glow */
 .tag-pill:hover{
   transform: translateY(-4px);
   box-shadow:
-    0 0 22px rgba(60,120,255,0.8),
-    0 0 45px rgba(60,120,255,0.5),
+    0 0 25px var(--glow),
+    0 0 50px var(--glow-soft),
     inset 0 0 12px rgba(255,255,255,0.08);
+  }
+/* ===== GLOW THEMES ===== */
+
+/* Blue – AI / ML */
+.blue-glow{
+  --glow: rgba(60,120,255,0.9);
+  --glow-soft: rgba(60,120,255,0.45);
 }
 
-/* Mobile */
-@media (max-width: 600px){
-  .tag-pill{
-    font-size: 15px;
-    padding: 12px 24px;
-  }
+/* Purple – Embedded / VLSI */
+.purple-glow{
+  --glow: rgba(160,90,255,0.9);
+  --glow-soft: rgba(160,90,255,0.45);
 }
+
+/* Green – Hobbies / Personal */
+.green-glow{
+  --glow: rgba(0,200,130,0.9);
+  --glow-soft: rgba(0,200,130,0.45);
+}
+
+/* Orange – Projects / Experience */
+.orange-glow{
+  --glow: rgba(255,150,60,0.9);
+  --glow-soft: rgba(255,150,60,0.45);
+  }
 .blue-glow + .tag-title{ color:#6fa8ff; }
 .purple-glow + .tag-title{ color:#c08bff; }
 .green-glow + .tag-title{ color:#6bffb0; }
