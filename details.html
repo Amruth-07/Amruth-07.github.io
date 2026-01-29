@@ -57,7 +57,7 @@
     </div>
 
     <div class="project-actions">
-      <a href="#" onclick="openDetails('Portable Oscilloscope', oscilloscopeDetails)">
+      <a href="#" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">
         📘 Details
       </a>
       <a href="#" onclick="openCode('Portable Oscilloscope','oscilloscopeCode.txt')">
@@ -85,7 +85,7 @@
     </div>
 
     <div class="project-actions">
-      <a href="#" onclick="openDetails('AgriGuard', agriguardDetails)">
+      <a href="#" onclick="openModal('AgriGuard', agriguardDetails)">
         📘 Details
       </a>
       <a href="#" onclick="openCode('AgriGuard','Agriculture.txt')">
@@ -112,7 +112,7 @@
     </div>
 
     <div class="project-actions">
-      <a href="#" onclick="openDetails('All-in-One Component Tester', testerDetails)">
+      <a href="#" onclick="openModal('All-in-One Component Tester', testerDetails)">
         📘 Details
       </a>
       <a href="#" onclick="openCode('All-in-One Component Tester','Tester.txt')">
@@ -121,34 +121,36 @@
     </div>
   </div>
 
-</div>
-<!-- PROJECT 4 -->
-<div class="project-card reveal">
-  <img src="led-pattern.png" alt="LED Pattern using Arduino">
+  <!-- PROJECT 4 (fixed position) -->
+  <div class="project-card reveal">
+    <img src="led-pattern.png" alt="LED Pattern using Arduino">
 
-  <h3>Generating LED Patterns Using Arduino</h3>
+    <h3>Generating LED Patterns Using Arduino</h3>
 
-  <p>
-    Arduino-based project to generate different LED lighting patterns
-    using multiple LEDs mounted on a dotted PCB board.
-  </p>
+    <p>
+      Arduino-based project to generate different LED lighting patterns
+      using multiple LEDs mounted on a dotted PCB board.
+    </p>
 
-  <div class="tech-stack">
-    <span>Arduino UNO</span>
-    <span>LEDs</span>
-    <span>Resistors</span>
-    <span>Embedded C</span>
+    <div class="tech-stack">
+      <span>Arduino UNO</span>
+      <span>LEDs</span>
+      <span>Resistors</span>
+      <span>Embedded C</span>
+    </div>
+
+    <div class="project-actions">
+      <a href="#" onclick="openModal('LED Pattern using Arduino', ledPatternDetails)">
+        📘 Details
+      </a>
+      <a href="#" onclick="openCode('LED Pattern Code','LED_Pattern.txt')">
+        💻 Code
+      </a>
+    </div>
   </div>
 
-  <div class="project-actions">
-    <a href="#" onclick="openModal('LED Pattern using Arduino', ledPatternDetails)">
-      📘 Details
-    </a>
-    <a href="#" onclick="openCode('LED Pattern Code','LED_Pattern.txt')">
-      💻 Code
-    </a>
-  </div>
 </div>
+
 <!-- MODAL -->
 <div id="projectModal" class="modal">
   <div class="modal-content">
