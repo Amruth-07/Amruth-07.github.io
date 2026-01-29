@@ -481,27 +481,23 @@ margin:6% auto;
   }
     }
 /* ===== SECTION PILL HEADLINE ===== */
+
 .section-pill{
   display:inline-block;
-  margin:40px auto 25px;
   padding:14px 36px;
-  border-radius:999px;
-  font-size:1.3rem;
-  font-weight:500;
+  border-radius:40px;
+  font-size:1.6rem;
+  font-weight:600;
   color:#fff;
-  background:linear-gradient(90deg,#7f00ff,#ff00cc,#00d4ff);
-  background-size:300%;
-  animation:gradientMove 5s linear infinite;
-  box-shadow:0 0 25px rgba(127,0,255,0.7);
+  background: linear-gradient(135deg,#8a2be2,#00d4ff);
+  box-shadow: 0 0 25px rgba(138,43,226,0.6);
+  animation: glowPulse 3s ease-in-out infinite;
 }
-
-/* Center alignment fix */
-.section-pill{
-  display:table;
+@keyframes glowPulse{
+  0%{box-shadow:0 0 15px rgba(138,43,226,0.4);}
+  50%{box-shadow:0 0 35px rgba(0,212,255,0.9);}
+  100%{box-shadow:0 0 15px rgba(138,43,226,0.4);}
 }
-
-/* Glow pulse (optional but sexy 😌) */
-
 .section-pill{
   animation:
     gradientMove 5s linear infinite,
