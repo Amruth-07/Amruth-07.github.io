@@ -277,19 +277,14 @@ code{
     margin:auto;
   }
   }
-/* ===== ABOUT ME SECTION ===== */
+/* ===== ABOUT ME PHOTO (FINAL SIZE FIX) ===== */
 
-.about-card{
-  max-width:520px;
-  text-align:center;
-}
-
-/* Big About Photo */
 .about-photo-wrapper{
-  width:200px;
-  height:260px;
-  margin:18px auto 20px;
+  width:220px;              /* safe width */
+  max-width:90%;
+  margin:18px auto 22px;
   padding:6px;
+
   border-radius:20px;
 
   background:linear-gradient(
@@ -302,42 +297,18 @@ code{
   animation:gradientMove 6s linear infinite;
 
   box-shadow:
-    0 0 30px rgba(255,47,146,0.6),
-    0 0 60px rgba(139,92,246,0.8);
+    0 0 28px rgba(255,47,146,0.6),
+    0 0 55px rgba(139,92,246,0.8);
 }
 
+/* THIS IS THE KEY FIX */
 .about-photo-wrapper img{
   width:100%;
-  height:100%;
-  border-radius:16px;
-  object-fit:cover;
-  object-position:50% 25%;
+  height:auto;              /* ⭐ NO FORCED HEIGHT */
   display:block;
-}
 
-/* About text */
-.about-text{
-  font-size:14.5px;
-  line-height:1.8;
-  opacity:0.92;
-  text-align:left;
-  margin-top:10px;
-}
+  border-radius:16px;
 
-/* About pill color */
-.about-pill{
-  background:linear-gradient(135deg,#ff2f92,#8b5cf6);
-}
-
-/* Desktop improvement */
-@media (min-width:768px){
-  .about-photo-wrapper{
-    width:240px;
-    height:300px;
-  }
-
-  .about-text{
-    text-align:center;
-    font-size:15px;
-  }
+  object-fit:contain;       /* ⭐ NO CROPPING */
+  background:#000;          /* fills empty space nicely */
 }
