@@ -325,49 +325,6 @@ body{
   }
 /* ===== Neon gradient border buttons ===== */
 
-.highlight-btn,
-#copyBtn{
-  position: relative;
-  display: inline-block;
-  padding: 10px 26px;
-  border-radius: 40px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  background: #070e1c;     /* dark inner */
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* gradient border layer */
-.highlight-btn::before,
-#copyBtn::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;                 /* border thickness */
-
-  background: linear-gradient(
-    120deg,
-    #00e5ff,
-    #7a5cff,
-    #ff00cc,
-    #00ffa6,
-    #00e5ff
-  );
-  background-size: 300% 300%;
-  animation: neonMove 6s linear infinite;
-
-  /* show only border, keep center dark */
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  z-index: -1;
-}
 
 /* soft outer neon glow */
 .highlight-btn{
