@@ -315,26 +315,25 @@ margin:6% auto;
   }
   
 .about-photo-top{
-  width: 180px;
-  height: 180px;
-  border-radius: 20px;
+  width: 260px;          /* 🔥 BIG on mobile */
+  height: 320px;         /* portrait look */
+  border-radius: 26px;
   object-fit: cover;
-  margin: 14px auto 18px;
+  margin: 18px auto 22px;
   border: 4px solid #7f00ff;
 
-  /* Glow animation */
   box-shadow:
-    0 0 15px rgba(127,0,255,0.6),
-    0 0 35px rgba(0,212,255,0.4);
+    0 0 18px rgba(127,0,255,0.6),
+    0 0 40px rgba(0,212,255,0.35);
 
-  animation: glowPulse 3s ease-in-out infinite;
+  animation: glowPulse 3.5s ease-in-out infinite;
 }
 
-/* Desktop */
+/* 💻 DESKTOP */
 @media (min-width: 768px){
   .about-photo-top{
-    width: 240px;
-    height: 240px;
+    width: 360px;        /* 🔥 VERY BIG */
+    height: 440px;
   }
 }
 
@@ -342,21 +341,20 @@ margin:6% auto;
 @keyframes glowPulse{
   0%{
     box-shadow:
-      0 0 12px rgba(127,0,255,0.4),
-      0 0 28px rgba(0,212,255,0.25);
+      0 0 14px rgba(127,0,255,0.4),
+      0 0 30px rgba(0,212,255,0.25);
   }
   50%{
     box-shadow:
-      0 0 28px rgba(127,0,255,0.8),
-      0 0 60px rgba(0,212,255,0.6);
+      0 0 32px rgba(127,0,255,0.85),
+      0 0 70px rgba(0,212,255,0.6);
   }
   100%{
     box-shadow:
-      0 0 12px rgba(127,0,255,0.4),
-      0 0 28px rgba(0,212,255,0.25);
+      0 0 14px rgba(127,0,255,0.4),
+      0 0 30px rgba(0,212,255,0.25);
   }
 }
-  }
 
   .about-text{
     font-size: 15px;
