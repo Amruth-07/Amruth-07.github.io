@@ -406,7 +406,7 @@ body{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:12px;
+  gap:14px;
   margin:18px 0 10px;
 }
 
@@ -414,7 +414,7 @@ body{
 .skill-pill{
   position:relative;
   padding:8px 16px;
-  border-radius:30px;
+  border-radius:25px;
   font-size:14px;
   color:#eaf6ff;
   background:#0b0f1a;
@@ -452,15 +452,15 @@ body{
 
 /* soft glow */
 .skill-pill{
-  box-shadow:0 0 8px rgba(0,229,255,.25);
+  box-shadow:0 0 6px rgba(0,229,255,.25);
 }
 
 /* hover brighter */
 .skill-pill:hover{
   box-shadow:
-    0 0 12px #7a5cff,
-    0 0 22px #00e5ff,
-    0 0 35px rgba(255,0,204,.6);
+    0 0 10px #7a5cff,
+    0 0 20px #00e5ff,
+    0 0 30px rgba(255,0,204,.6);
   transform:translateY(-2px);
 }
 
