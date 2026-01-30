@@ -398,3 +398,75 @@ body{
 .project-card p{
   margin-bottom:12px;
 }
+
+
+
+
+.hero-skills{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:18px 0 10px;
+}
+
+/* neon gradient pill */
+.skill-pill{
+  position:relative;
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:14px;
+  color:#eaf6ff;
+  background:#0b0f1a;
+  z-index:0;
+  overflow:hidden;
+}
+
+/* animated neon border */
+.skill-pill::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:2px;
+
+  background:linear-gradient(
+    120deg,
+    #00e5ff,
+    #7a5cff,
+    #ff00cc,
+    #00ffa6,
+    #00e5ff
+  );
+  background-size:300% 300%;
+  animation:skillGlow 6s linear infinite;
+
+  -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+
+  z-index:-1;
+}
+
+/* soft glow */
+.skill-pill{
+  box-shadow:0 0 8px rgba(0,229,255,.25);
+}
+
+/* hover brighter */
+.skill-pill:hover{
+  box-shadow:
+    0 0 12px #7a5cff,
+    0 0 22px #00e5ff,
+    0 0 35px rgba(255,0,204,.6);
+  transform:translateY(-2px);
+}
+
+/* moving gradient animation */
+@keyframes skillGlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
