@@ -160,3 +160,18 @@ and a series of LEDs connected through resistors on a dotted PCB board.
 <li>Mini light shows</li>
 </ul>
 `;
+function openModal(title, file) {
+  document.getElementById("modalTitle").innerText = title;
+
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("modalBody").innerHTML =
+        "<pre>" + data.replace(/</g,"&lt;") + "</pre>";
+      document.getElementById("projectModal").style.display = "block";
+    });
+}
+
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
