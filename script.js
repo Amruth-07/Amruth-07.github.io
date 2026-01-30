@@ -201,25 +201,34 @@ function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
+  const copyBtn = document.querySelector(".copy-btn");
 
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
 
   fetch(file)
     .then(response => {
-      if (!response.ok) {
-        throw new Error("File not found");
-      }
+      if (!response.ok) throw new Error("File not found");
       return response.text();
     })
     .then(data => {
-      // show text safely inside <pre>
-  modalBody.innerHTML = "<pre><code>" + data.replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</code></pre>";
-hljs.highlightAll();
+      modalBody.innerHTML =
+        "<pre><code>" +
+        data.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+        "</code></pre>";
+
+      // show copy button only for code files
+      if (file.toLowerCase().includes("code") || file.toLowerCase().includes(".ino") || file.toLowerCase().includes(".txt")) {
+        copyBtn.style.display = "inline-block";
+      } else {
+        copyBtn.style.display = "none";
+      }
+
+      if (window.hljs) hljs.highlightAll();
     })
-    .catch(error => {
+    .catch(() => {
       modalBody.innerHTML = "❌ File not found or path is wrong!";
-      console.error(error);
+      copyBtn.style.display = "none";
     });
 
   modal.style.display = "block";
