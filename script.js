@@ -1,247 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amrut Hanamapure | Portfolio</title>
+// ================= MODAL ELEMENTS =================
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const copyBtn = document.getElementById("copyBtn");
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+// store currently opened code text for copy
+let currentCodeText = "";
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Prism Syntax Highlighting -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-</head>
-<body>
-
-<!-- ================= HERO SECTION ================= -->
-<section id="hero">
-
-  <div class="profile reveal">
-    <!-- fixed double .jpg -->
-    <img src="profile.jpg" alt="Amrut Hanamapure">
-  </div>
-
-  <h2 class="reveal">Hi! I'm</h2>
-  <h1 class="reveal"><span>Amrut Hanamapure</span></h1>
-
-  <p class="reveal">
-    Electronics & Communication Engineering Student
-  </p>
-
-</section>
-
-<!-- ================= TAGS ================= -->
-<div class="reveal">
-  <span class="tag">Embedded Systems</span>
-  <span class="tag">VLSI Basics</span>
-  <span class="tag">Verilog</span>
-  <span class="tag">PCB Design</span>
-  <span class="tag">Python</span>
-</div>
-
-<!-- ================= RESUME ================= -->
-<a href="Resume.pdf" class="resume reveal">Download Resume</a>
-
-<!-- ================= INFO CARDS ================= -->
-<div class="card reveal">
-  📍 <b>Location</b><br>
-  Bengaluru, Karnataka, India
-</div>
-
-<div class="card reveal">
-  💼 <b>Expertise</b><br>
-  Embedded Systems, VLSI Basics, Circuit Design, PCB Designing
-</div>
-
-<div class="card reveal">
-  🛠 <b>Experience</b><br>
-  Robotics Training – GTTC, Belagavi<br>
-  <small>Jan–Feb 2023</small>
-</div>
-
-<div class="card reveal">
-  🎓 <b>Education</b><br>
-  BE – ECE<br>
-  City Engineering College, Bengaluru<br>
-  <small>SGPA: 7.2</small>
-</div>
-
-<!-- ================= ABOUT ME ================= -->
-<div class="card reveal about-card">
-
-  <h2 class="section-headline reveal">About Me</h2>
-
-  <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-photo-top">
-
-  <p class="about-text">
-    I am an Electronics and Communication Engineering student with a strong
-    interest in Embedded Systems, Arduino-based projects, and IoT applications.
-    I enjoy building practical hardware projects and converting ideas into
-    working prototypes using microcontrollers and sensors.
-    <br><br>
-    I am continuously learning new technologies related to electronics,
-    programming, and system design, and I am actively looking for opportunities
-    to grow as an embedded systems engineer.
-  </p>
-
-</div> <!-- fixed missing close -->
-
-<!-- ================= HOBBIES ================= -->
-<h2 class="section-headline reveal">Hobbies</h2>
-
-<div class="hobbies-wrapper reveal">
-  <div class="hobby-pill dark">🎧 <span>Listening to Music</span></div>
-  <div class="hobby-pill dark">📷 <span>Photography</span></div>
-  <div class="hobby-pill dark">🎮 <span>Gaming</span></div>
-  <div class="hobby-pill dark">💪🏻 <span>Fitness </span></div>
-  <div class="hobby-pill dark">🏀 <span>Sports </span></div>
-</div>
-
-<!-- ================= SKILLS ================= -->
-<h2 class="section-headline reveal">Skills</h2>
-
-<div class="hobbies-wrapper reveal">
-  <div class="hobby-pill dark">💻 <span>VLSI Design Basic</span></div>
-  <div class="hobby-pill dark">🧩 <span>Verilog</span></div>
-  <div class="hobby-pill dark">⚡ <span>Embedded System</span></div>
-  <div class="hobby-pill dark">🐍 <span>Python</span></div>
-  <div class="hobby-pill dark">🔌 <span>PCB Designing</span></div>
-</div>
-
-<!-- ================= INTERESTS ================= -->
-<h2 class="section-headline reveal">My Interests</h2>
-
-<div class="hobbies-wrapper reveal">
-  <div class="hobby-pill dark">📈 <span>Stock Market</span></div>
-  <div class="hobby-pill dark">🌐 <span>Web Building</span></div>
-  <div class="hobby-pill dark">🔍 <span>Deep Learning</span></div>
-  <div class="hobby-pill dark">🏍️ <span>Travelling</span></div>
-</div>
-
-<!-- ================= PROJECTS ================= -->
-<h2 class="section-headline reveal">My Projects</h2>
-
-<div class="projects-grid">
-
-  <div class="project-card reveal">
-    <img src="portable.png" alt="Portable Oscilloscope">
-    <h3>Portable Oscilloscope using Arduino</h3>
-    <p>Low-cost portable oscilloscope using Arduino and OLED display to visualize
-      sine, square, and triangle waveforms.</p>
-    <div class="tech-stack">
-      <span>Arduino</span><span>OLED</span><span>Embedded C</span><span>ADC</span>
-    </div>
-    <div class="project-actions">
-      <a href="#" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">📘 Details</a>
-      <a href="#" onclick="openCode('Portable Oscilloscope','oscilloscopeCode.txt')">💻 Code</a>
-    </div>
-  </div>
-
-  <div class="project-card reveal">
-    <img src="smart.png" alt="AgriGuard">
-    <h3>AgriGuard – Smart IoT System</h3>
-    <p>IoT-based smart farming system using ESP32 for automated irrigation
-      and enhanced farm security.</p>
-    <div class="tech-stack">
-      <span>ESP32</span><span>IoT</span><span>Sensors</span><span>ThingSpeak</span>
-    </div>
-    <div class="project-actions">
-      <a href="#" onclick="openModal('AgriGuard', agriguardDetails)">📘 Details</a>
-      <a href="#" onclick="openCode('AgriGuard','Agriculture.txt')">💻 Code</a>
-    </div>
-  </div>
-
-  <div class="project-card reveal">
-    <img src="component-tester.png" alt="Component Tester">
-    <h3>All-in-One Component Tester</h3>
-    <p>Electronic component tester for resistors, capacitors, diodes,
-      transistors, and continuity checking.</p>
-    <div class="tech-stack">
-      <span>Arduino</span><span>Electronics</span><span>Testing</span>
-    </div>
-    <div class="project-actions">
-      <a href="#" onclick="openModal('Component Tester', testerDetails)">📘 Details</a>
-      <a href="#" onclick="openCode('Component Tester','Tester.txt')">💻 Code</a>
-    </div>
-  </div>
-
-  <div class="project-card reveal">
-    <img src="led-pattern.png" alt="LED Pattern">
-    <h3>Generating LED Patterns Using Arduino</h3>
-    <p>Arduino-based project to generate different LED lighting patterns
-      using multiple LEDs mounted on a dotted PCB board.</p>
-    <div class="tech-stack">
-      <span>Arduino UNO</span><span>LEDs</span><span>Resistors</span><span>Embedded C</span>
-    </div>
-    <div class="project-actions">
-      <a href="#" onclick="openModal('LED Pattern using Arduino', ledPatternDetails)">📘 Details</a>
-      <a href="#" onclick="openCode('LED Pattern Code','LED_Pattern.txt')">💻 Code</a>
-    </div>
-  </div>
-
-</div>
-
-<!-- ================= MODAL ================= -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 id="modalTitle"></h3>
-    <button id="copyBtn" onclick="copyCode()">📋 Copy Code</button>
-    <div id="modalDesc"></div>
-  </div>
-</div>
-
-<!-- ================= CONNECT ================= -->
-<div class="card reveal">
-  <h3>🔗 Connect with Me</h3>
-  <p>
-    📧 <a href="mailto:amruthanamapure@gmail.com">amruthanamapure@gmail.com</a><br>
-    📞 <a href="tel:+916361508317">+91 6361508317</a>
-  </p>
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/amruth-07" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.instagram.com/amrut_hanamapure" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-</div>
-
-<!-- JS -->
-<script src="script.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="three-bg.js"></script>
-
-</body>
-</html>
-
-function openDetails(fileName) {
-  const modal = document.getElementById("projectModal");
-  const title = document.getElementById("modalTitle");
-  const desc = document.getElementById("modalDesc");
-
-  title.innerText = "Project Details";
+// ================= OPEN DETAILS =================
+function openDetails(fileName){
+  modalTitle.innerText = "Project Details";
+  copyBtn.style.display = "none"; // hide copy button for details
 
   fetch(fileName)
-    .then(response => response.text())
+    .then(res => res.text())
     .then(html => {
-      desc.innerHTML = html;
+      modalDesc.innerHTML = html;
       modal.style.display = "block";
     })
-    .catch(error => {
-      desc.innerHTML = "<p style='color:red'>Details file not found.</p>";
+    .catch(err => {
+      modalDesc.innerHTML = "<p style='color:red'>Unable to load details.</p>";
       modal.style.display = "block";
-      console.error(error);
+      console.error(err);
     });
+}
+
+// ================= OPEN CODE =================
+function openCode(title, fileName){
+  modalTitle.innerText = title + " - Source Code";
+  copyBtn.style.display = "inline-block"; // show copy button
+
+  fetch(fileName)
+    .then(res => res.text())
+    .then(code => {
+      currentCodeText = code; // save for copy
+
+      // escape HTML symbols
+      const safeCode = code
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+
+      modalDesc.innerHTML =
+        `<pre><code class="language-cpp">${safeCode}</code></pre>`;
+
+      modal.style.display = "block";
+
+      // syntax highlight
+      if(window.Prism){
+        Prism.highlightAll();
       }
+    })
+    .catch(err => {
+      modalDesc.innerHTML = "<p style='color:red'>Unable to load code.</p>";
+      modal.style.display = "block";
+      console.error(err);
+    });
+}
+
+// ================= COPY CODE =================
+function copyCode(){
+  if(!currentCodeText) return;
+
+  navigator.clipboard.writeText(currentCodeText)
+    .then(()=>{
+      copyBtn.innerText = "Copied!";
+      setTimeout(()=>{ copyBtn.innerText = "📋 Copy Code"; },1500);
+    });
+}
+
+// ================= CLOSE MODAL =================
+function closeModal(){
+  modal.style.display = "none";
+}
+
+// close when clicking outside modal box
+window.onclick = function(event){
+  if(event.target === modal){
+    closeModal();
+  }
+};
+
+// ================= SCROLL REVEAL =================
+function revealOnScroll(){
+  const reveals = document.querySelectorAll(".reveal");
+  const trigger = window.innerHeight * 0.85;
+
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < trigger){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
