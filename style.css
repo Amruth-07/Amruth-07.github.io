@@ -329,3 +329,53 @@ body{
     0 0 20px rgba(127,0,255,0.45),
     0 0 35px rgba(0,212,255,0.25);
   }
+.projects-grid{
+  display:grid;
+  gap:35px;          /* more space between cards */
+  max-width:700px;
+  margin:auto;
+}
+@media (max-width:600px){
+  .projects-grid{
+    gap:45px;
+  }
+}
+
+/* Project 1 – purple/blue */
+.project-card:nth-child(1) img{
+  background:linear-gradient(135deg,#7f00ff,#00d4ff);
+  box-shadow:0 0 25px rgba(127,0,255,.6),0 0 40px rgba(0,212,255,.4);
+}
+
+/* Project 2 – green/cyan */
+.project-card:nth-child(2) img{
+  background:linear-gradient(135deg,#00ffa6,#00e5ff);
+  box-shadow:0 0 25px rgba(0,255,166,.6),0 0 40px rgba(0,229,255,.4);
+}
+
+/* Project 3 – pink/orange */
+.project-card:nth-child(3) img{
+  background:linear-gradient(135deg,#ff2ed1,#ff8c00);
+  box-shadow:0 0 25px rgba(255,46,209,.6),0 0 40px rgba(255,140,0,.4);
+}
+
+/* Project 4 – yellow/blue */
+.project-card:nth-child(4) img{
+  background:linear-gradient(135deg,#ffe600,#00aaff);
+  box-shadow:0 0 25px rgba(255,230,0,.6),0 0 40px rgba(0,170,255,.4);
+}
+.project-card:nth-child(1) .highlight-btn:hover{
+  box-shadow:0 0 15px #7f00ff,0 0 30px #00d4ff;
+}
+
+.project-card:nth-child(2) .highlight-btn:hover{
+  box-shadow:0 0 15px #00ffa6,0 0 30px #00e5ff;
+}
+
+.project-card:nth-child(3) .highlight-btn:hover{
+  box-shadow:0 0 15px #ff2ed1,0 0 30px #ff8c00;
+}
+
+.project-card:nth-child(4) .highlight-btn:hover{
+  box-shadow:0 0 15px #ffe600,0 0 30px #00aaff;
+}
