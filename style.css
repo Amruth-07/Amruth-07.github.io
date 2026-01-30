@@ -1,4 +1,4 @@
-p*{
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -305,6 +305,26 @@ body{
     linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
 
   /* glow */
+  box-shadow:
+    0 0 20px rgba(127,0,255,0.45),
+    0 0 35px rgba(0,212,255,0.25);
+  }
+/* FIX About Me image alignment */
+.about-card .about-photo{
+  display:block !important;
+  width:420px !important;
+  max-width:90% !important;   /* responsive on mobile */
+  height:auto !important;
+  margin:25px auto !important; /* center horizontally */
+  object-fit:cover;
+
+  border-radius:18px;
+
+  border:3px solid transparent;
+  background:
+    linear-gradient(#0b1220,#0b1220) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
+
   box-shadow:
     0 0 20px rgba(127,0,255,0.45),
     0 0 35px rgba(0,212,255,0.25);
