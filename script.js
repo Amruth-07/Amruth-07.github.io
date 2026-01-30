@@ -212,10 +212,19 @@ function openModal(title, file) {
       return response.text();
     })
     .then(data => {
-      modalBody.innerHTML =
-        "<pre><code>" +
-        data.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-        "</code></pre>";
+  // headings
+  let formatted = data
+    .replace(/^## (.*$)/gim, '<h3>$1</h3>');
+
+  // convert - points into <ul><li>
+  formatted = formatted.replace(/^- (.*)$/gim, '<li>$1</li>');
+  formatted = formatted.replace(/(<li>.*<\/li>)/gims, '<ul>$1</ul>');
+
+  // line breaks for normal text
+  formatted = formatted.replace(/\n\n/g, '<br><br>');
+
+  modalBody.innerHTML = "<div class='details-text'>" + formatted + "</div>";
+})
 
       // show copy button only for code files
       if (file.toLowerCase().includes("code") || file.toLowerCase().includes(".ino") || file.toLowerCase().includes(".txt")) {
