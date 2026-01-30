@@ -1,4 +1,4 @@
-const ledPatternDetails = `
+ /*const ledPatternDetails = `
 <h3>Generating LED Patterns Using Arduino</h3>
 
 <p>
@@ -195,3 +195,65 @@ function openModal(title, file) {
 function closeModal() {
   document.getElementById("projectModal").style.display = "none";
 }
+*/
+// Open modal and load text/code from file
+function openModal(title, file) {
+  const modal = document.getElementById("projectModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalBody = document.getElementById("modalBody");
+
+  modalTitle.innerText = title;
+  modalBody.innerHTML = "Loading...";
+
+  fetch(file)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      // show text safely inside <pre>
+      modalBody.innerHTML =
+        "<pre>" + data.replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</pre>";
+    })
+    .catch(error => {
+      modalBody.innerHTML = "❌ File not found or path is wrong!";
+      console.error(error);
+    });
+
+  modal.style.display = "block";
+}
+
+// Close modal
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+
+// Close modal when clicking outside the content box
+window.onclick = function (event) {
+  const modal = document.getElementById("projectModal");
+  const content = document.querySelector(".modal-content");
+
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+// Simple reveal animation on scroll (optional nice effect)
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveals[i].getBoundingClientRect().top;
+    const revealPoint = 100;
+
+    if (elementTop < windowHeight - revealPoint) {
+      reveals[i].classList.add("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
