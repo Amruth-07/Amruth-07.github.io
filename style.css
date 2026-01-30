@@ -27,14 +27,12 @@ body{
   box-shadow:0 0 30px rgba(127,0,255,0.6),0 0 40px rgba(0,212,255,0.35);
   transition:transform .3s;
 }
-.profile img:hover{ transform:scale(1.05); }
-
-.about-me img{
+.about-photo-top{
   display:block;
   width:100%;
-  max-width:450px;   /* controls size */
+  max-width:450px;     /* control size */
   height:auto;
-  margin:25px auto;  /* centers image horizontally */
+  margin:25px auto;    /* center horizontally */
   border-radius:18px;
 
   /* neon border */
