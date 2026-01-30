@@ -27,24 +27,7 @@ body{
   box-shadow:0 0 30px rgba(127,0,255,0.6),0 0 40px rgba(0,212,255,0.35);
   transition:transform .3s;
 }
-.about-photo-top{
-  display:block;
-  width:100%;
-  max-width:450px;     /* control size */
-  height:auto;
-  margin:25px auto;    /* center horizontally */
-  border-radius:18px;
-
-  /* neon border */
-  border:3px solid transparent;
-  background:
-    linear-gradient(#000,#000) padding-box,
-    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
-
-  box-shadow:
-    0 0 20px rgba(127,0,255,0.4),
-    0 0 35px rgba(0,212,255,0.25);
-}
+.
 
 /* ================= GRADIENT HEADLINES ================= */
 .section-headline{
@@ -281,7 +264,24 @@ body{
   background:#eaeaea;
   color:#000;
 }
+about-photo-top{
+  display:block;
+  width:100%;
+  max-width:450px;     /* control size */
+  height:auto;
+  margin:25px auto;    /* center horizontally */
+  border-radius:18px;
 
+  /* neon border */
+  border:3px solid transparent;
+  background:
+    linear-gradient(#000,#000) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
+
+  box-shadow:
+    0 0 20px rgba(127,0,255,0.4),
+    0 0 35px rgba(0,212,255,0.25);
+}
 /* ================= DESKTOP ================= */
 @media(min-width:1024px){
   .section-headline{font-size:2.8rem;margin:90px 0 50px;}
