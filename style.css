@@ -542,3 +542,52 @@ body{
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
+
+/* ===== Light mode fixes ===== */
+.light-mode{
+  background:#f2f2f2;
+  color:#111;
+}
+
+/* hero text */
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode p{
+  color:#111;
+}
+
+/* cards become light with dark text */
+.light-mode .card{
+  background:#ffffff;
+  color:#111;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* links like Download Resume */
+.light-mode a{
+  color:#0057ff;
+}
+
+/* skill pills still dark but readable */
+.light-mode .skill-pill{
+  background:#0b0f1a;
+  color:#fff;
+}
+
+/* project cards */
+.light-mode .project-card{
+  background:#ffffff;
+  color:#111;
+}
+
+/* modal in light mode */
+.light-mode .modal-content{
+  background:#ffffff;
+  color:#111;
+}
+
+.light-mode #modalBody pre{
+  background:#eeeeee;
+  color:#000;
+}
