@@ -214,8 +214,8 @@ function openModal(title, file) {
     })
     .then(data => {
       // show text safely inside <pre>
-      modalBody.innerHTML =
-        "<pre>" + data.replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</pre>";
+  modalBody.innerHTML = "<pre><code>" + data.replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</code></pre>";
+hljs.highlightAll();
     })
     .catch(error => {
       modalBody.innerHTML = "❌ File not found or path is wrong!";
@@ -257,3 +257,13 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+function copyCode() {
+  const text = document.getElementById("modalBody").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Code copied to clipboard!");
+}
+
+function toggleTheme(){
+  document.body.classList.toggle("light-mode");
+}
