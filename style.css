@@ -545,7 +545,7 @@ body{
   color:#000;
 }
 
-/* Neon headings inside modal */
+/* Neon headings inside modal *
 #modalBody h1,
 #modalBody h2,
 #modalBody h3,
@@ -558,7 +558,7 @@ body{
   margin-top: 15px;
 }
 
-/* make main title brighter */
+/* make main title brighter *
 #modalTitle{
   color: #ffffff;
   text-shadow:
@@ -566,7 +566,7 @@ body{
     0 0 12px #9d4edd,
     0 0 24px #7b2cbf;
   }
-/* Neon star bullet points */
+/* Neon star bullet points *
 .details-text ul {
   list-style: none;
   padding-left: 0;
@@ -577,7 +577,7 @@ body{
   padding-left: 28px;
   margin: 8px 0;
 }
-
+/*
 .details-text li::before {
   content: "★";
   position: absolute;
@@ -589,3 +589,4 @@ body{
     0 0 10px #9d4edd,
     0 0 20px #7b2cbf;
   }
+*/
