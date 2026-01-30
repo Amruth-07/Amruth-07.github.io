@@ -384,7 +384,7 @@ body{
 .project-actions{
   display:flex;
   justify-content:center;
-  gap:18px;        /* space between Details and Code */
+  gap:20px;        /* space between Details and Code */
   margin-top:18px; /* space between description and buttons */
 }
 
@@ -396,5 +396,5 @@ body{
 
 /* extra breathing room between description text and buttons */
 .project-card p{
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
