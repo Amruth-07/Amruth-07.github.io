@@ -289,3 +289,23 @@ body{
   .modal-content{padding:35px 45px;max-width:1000px;}
   #modalBody code{font-size:15px;}
   }
+
+.about-photo{
+  display:block;
+  width:100%;
+  max-width:420px;     /* controls size on big screens */
+  height:auto;
+  margin:20px auto 25px;  /* center horizontally with space below */
+  border-radius:18px;
+
+  /* neon gradient border */
+  border:3px solid transparent;
+  background:
+    linear-gradient(#0b1220,#0b1220) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
+
+  /* glow */
+  box-shadow:
+    0 0 20px rgba(127,0,255,0.45),
+    0 0 35px rgba(0,212,255,0.25);
+  }
