@@ -22,7 +22,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="profile reveal">
-    <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
+    <img src="profile.jpg" alt="Amrut Hanamapure">
   </div>
 
   <h2 class="reveal">Hi! I'm</h2>
@@ -122,10 +122,8 @@
     <p>Low-cost portable oscilloscope using Arduino and OLED display to visualize sine, square, and triangle waveforms.</p>
 
     <div class="project-actions">
-      <a href="#" class="highlight-btn"
-   onclick="openCode('Portable Oscilloscope','oscilloscopeCode.txt')">
-   💻 Code
-</a>
+      <a href="#" class="highlight-btn" onclick="openModal('Portable Oscilloscope', oscilloscopeDetails)">📘 Details</a>
+      <a href="#" class="highlight-btn" onclick="openCode('Portable Oscilloscope','oscilloscopeCode.txt')">💻 Code</a>
     </div>
   </div>
 
@@ -136,10 +134,8 @@
     <p>IoT-based smart farming system using ESP32 for automated irrigation and enhanced farm security.</p>
 
     <div class="project-actions">
-      <a href="#" class="highlight-btn"
-   onclick="openCode('AgriGuard','Agriculture.txt')">
-   💻 Code
-      </a>
+      <a href="#" class="highlight-btn" onclick="openModal('AgriGuard', agriguardDetails)">📘 Details</a>
+      <a href="#" class="highlight-btn" onclick="openCode('AgriGuard','Agriculture.txt')">💻 Code</a>
     </div>
   </div>
 
@@ -150,10 +146,8 @@
     <p>Electronic component tester for resistors, capacitors, diodes, transistors, and continuity checking.</p>
 
     <div class="project-actions">
-      <a href="#" class="highlight-btn"
-   onclick="openCode('Component Tester','Tester.txt')">
-   💻 Code
-</a>
+      <a href="#" class="highlight-btn" onclick="openModal('Component Tester', testerDetails)">📘 Details</a>
+      <a href="#" class="highlight-btn" onclick="openCode('Component Tester','Tester.txt')">💻 Code</a>
     </div>
   </div>
 
@@ -164,13 +158,21 @@
     <p>Arduino-based project to generate different LED lighting patterns using multiple LEDs mounted on a dotted PCB board.</p>
 
     <div class="project-actions">
-      <a href="#" class="highlight-btn"
-   onclick="openCode('LED Patterns','LED_Pattern.txt')">
-   💻 Code
-      </a>
+      <a href="#" class="highlight-btn" onclick="openModal('LED Pattern using Arduino', ledPatternDetails)">📘 Details</a>
+      <a href="#" class="highlight-btn" onclick="openCode('LED Pattern Code','LED_Pattern.txt')">💻 Code</a>
     </div>
   </div>
 
+</div>
+
+<!-- MODAL -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modalTitle"></h3>
+    <button id="copyBtn" onclick="copyCode()">📋 Copy Code</button>
+    <div id="modalDesc"></div>
+  </div>
 </div>
 
 <!-- CONTACT -->
@@ -196,4 +198,4 @@
 <script src="three-bg.js"></script>
 
 </body>
-  </html>
+</html>
