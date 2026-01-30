@@ -225,3 +225,23 @@
 
 </body>
 </html>
+
+function openDetails(fileName) {
+  const modal = document.getElementById("projectModal");
+  const title = document.getElementById("modalTitle");
+  const desc = document.getElementById("modalDesc");
+
+  title.innerText = "Project Details";
+
+  fetch(fileName)
+    .then(response => response.text())
+    .then(html => {
+      desc.innerHTML = html;
+      modal.style.display = "block";
+    })
+    .catch(error => {
+      desc.innerHTML = "<p style='color:red'>Details file not found.</p>";
+      modal.style.display = "block";
+      console.error(error);
+    });
+      }
