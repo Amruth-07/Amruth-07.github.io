@@ -95,3 +95,34 @@ function revealOnScroll(){
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+const ledPatternDetails = `
+<h3>Generating LED Patterns Using Arduino</h3>
+<p>
+This project generates multiple LED lighting patterns using an Arduino UNO
+and a series of LEDs connected through resistors on a dotted PCB board.
+</p>
+
+<h4>Working Principle</h4>
+<ul>
+<li>Arduino controls each LED through digital output pins.</li>
+<li>LEDs are turned ON and OFF in different sequences.</li>
+<li>Delays between operations create visual patterns.</li>
+<li>Patterns repeat in a continuous loop.</li>
+</ul>
+
+<h4>Features</h4>
+<ul>
+<li>Multiple dynamic LED patterns</li>
+<li>Simple and low-cost circuit</li>
+<li>Easy to expand with more LEDs</li>
+<li>Great for beginners in Arduino</li>
+</ul>
+
+<h4>Applications</h4>
+<ul>
+<li>Decorative lighting</li>
+<li>Learning Arduino digital output</li>
+<li>Signal indicators</li>
+<li>Mini light shows</li>
+</ul>
+`;
