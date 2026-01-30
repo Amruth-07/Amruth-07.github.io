@@ -2,468 +2,41 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:'Poppins', sans-serif;
 }
 
 body{
   background:
-    radial-gradient(circle at top left,#1a0033,transparent 40%),
-    radial-gradient(circle at bottom right,#001f33,transparent 40%),
-    linear-gradient(180deg,#050505,#000);
+    radial-gradient(circle at top left, #1a0033, transparent 40%),
+    radial-gradient(circle at bottom right, #001f33, transparent 40%),
+    linear-gradient(180deg, #050505, #000);
   color:#ffffff;
   text-align:center;
-  padding:20px;
+  min-height:100vh;
 }
 
-/* ================= PROFILE PHOTO ================= */
-.profile img{
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid #7f00ff;
-  box-shadow:0 0 30px rgba(127,0,255,0.6),0 0 40px rgba(0,212,255,0.35);
-  transition:transform .3s;
-}
-.profile img:hover{ transform:scale(1.05); }
-
-/* ================= GRADIENT HEADLINES ================= */
-.section-headline{
-  font-size:2.3rem;
-  font-weight:600;
-  margin:60px 0 35px;
-
-  background:linear-gradient(90deg,#fff,#7f00ff,#00d4ff,#ff00cc,#00ffcc,#fff);
-  background-size:300% 100%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  animation:headlineMove 6s linear infinite;
-  filter:drop-shadow(0 0 6px rgba(127,0,255,.4))
-         drop-shadow(0 0 14px rgba(0,212,255,.35));
-}
-
-@keyframes headlineMove{
-  0%{background-position:0% 50%;}
-  100%{background-position:300% 50%;}
-}
-
-/* ================= CARDS ================= */
-.card{
-  background:linear-gradient(145deg,#0c1424,#121d33);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:20px;
-  margin:15px auto;
-  max-width:600px;
-  box-shadow:0 8px 25px rgba(0,0,0,.6);
-}
-
-/* ================= ABOUT ================= */
-.about-text{ line-height:1.8; opacity:.9;
-}
-
-/* ================= HOBBIES / SKILLS PILLS ================= */
-.hobbies-wrapper{
-  display:grid;
-  gap:20px;
-  margin-top:30px;
-  max-width:650px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.hobby-pill.dark{
-  position:relative;
-  padding:16px 26px;
-  border-radius:40px;
-  background:#0b1220;
-  color:#fff;
-  font-weight:500;
-  z-index:0;
-  overflow:hidden;
-}
-
-/* animated neon border */
-.hobby-pill.dark::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  padding:2px;
-
-  background:linear-gradient(90deg,#7f00ff,#00d4ff,#ff00cc,#00ffcc,#7f00ff);
-  background-size:300% 100%;
-  animation:borderMove 6s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-
-  z-index:-1;
-  box-shadow:0 0 8px rgba(127,0,255,.5),0 0 16px rgba(0,212,255,.35);
-}
-
-@keyframes borderMove{
-  0%{background-position:0% 50%;}
-  100%{background-position:300% 50%;}
-}
-
-/* ================= PROJECTS ================= */
-.projects-grid{
-  display:grid;
-  gap:25px;
-  max-width:700px;
-  margin:auto;
-}
-
-.project-card{
-  background:#0b1220;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.6);
-}
-
-/* colourful bordered images */
-.project-card img{
-  width:100%;
-  border-radius:16px;
-  padding:4px;
-  background:linear-gradient(135deg,#7f00ff,#00d4ff);
-  box-shadow:0 0 18px rgba(127,0,255,.5),0 0 30px rgba(0,212,255,.35);
-  transition:.35s;
-}
-.project-card img:hover{
-  transform:scale(1.03);
-  box-shadow:0 0 30px rgba(127,0,255,.8),0 0 55px rgba(0,212,255,.55);
-}
-
-/* ================= BUTTONS ================= */
-.resume{
+/* ===== Buttons ===== */
+.highlight-btn,
+.theme-btn{
   display:inline-block;
-  margin:25px 0;
-  padding:12px 30px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#7f00ff,#00d4ff);
-  color:#fff;
-  text-decoration:none;
-  box-shadow:0 0 20px rgba(127,0,255,.6);
-}
-
-/* Copy button neon border */
-#copyBtn{
-  position:relative;
-  background:#0b1220;
-  color:#e8f1ff;
-  border:none;
-  border-radius:25px;
   padding:10px 18px;
-  font-weight:600;
-  cursor:pointer;
-  z-index:0;
-  overflow:hidden;
-}
-
-#copyBtn::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  padding:2px;
-
-  background:linear-gradient(90deg,#00d4ff,#7f00ff,#00ffcc,#00d4ff);
-  background-size:300% 100%;
-  animation:borderMove 6s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-
-  z-index:-1;
-  box-shadow:0 0 8px rgba(0,212,255,.5),0 0 14px rgba(127,0,255,.4);
-}
-
-#copyBtn:hover{
+  border-radius:25px;
+  background:linear-gradient(45deg,#6a00ff,#00e0ff);
   color:#fff;
-  box-shadow:0 0 10px rgba(0,212,255,.8),0 0 22px rgba(127,0,255,.6);
-}
-
-/* ================= SOCIAL ICONS ================= */
-.socials a{
-  margin:0 10px;
-  font-size:20px;
-  color:#fff;
-}
-
-/* ================= DESKTOP VERSION ================= */
-@media(min-width:1024px){
-
-  body{ max-width:1200px; margin:auto; }
-
-  .profile img{ width:220px; height:220px; }
-
-  .section-headline{ font-size:2.8rem; margin:90px 0 50px; }
-
-  .hobbies-wrapper{ grid-template-columns:repeat(3,1fr); max-width:950px; }
-
-  .projects-grid{ grid-template-columns:repeat(2,1fr); max-width:1100px; }
-
-  .project-card{ padding:24px; }
-}
-
-.about-card img{
-  width:100%;
-  max-width:450px;   /* controls size */
-  height:auto;
-  display:block;
-  margin:25px auto;  /* center + space */
-
-  border-radius:18px;
-
-  /* soft neon border */
-  border:3px solid transparent;
-  background:
-    linear-gradient(#000,#000) padding-box,
-    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
-
-  box-shadow:
-    0 0 20px rgba(127,0,255,0.4),
-    0 0 35px rgba(0,212,255,0.25);
-}
-.gradient-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-
-  padding:14px 30px;
-  border-radius:40px;
+  text-decoration:none;
   border:none;
-  outline:none;
   cursor:pointer;
-
-  font-size:16px;
-  font-weight:600;
-  color:#fff;
-  text-decoration:none;
-
-  /* gradient background */
-  background:linear-gradient(135deg,#7b2cff,#00c6ff);
-
-  /* soft neon glow */
-  box-shadow:
-    0 0 15px rgba(123,44,255,0.5),
-    0 0 25px rgba(0,198,255,0.35);
-
-  transition:all 0.3s ease;
+  font-size:14px;
+  margin:5px;
+  box-shadow:0 0 10px rgba(170,0,255,0.7);
 }
 
-/* hover animation */
-.gradient-btn:hover{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:
-    0 0 25px rgba(123,44,255,0.8),
-    0 0 40px rgba(0,198,255,0.6);
-}
-
-/* optional icon size */
-.gradient-btn span{
-  font-size:18px;
-}
-/* ===== Neon glow buttons ===== */
-
-.highlight-btn {
-  position: relative;
-  display: inline-block;
-  padding: 10px 22px;        /* smaller button */
-  margin: 12px 10px 0;       /* space above and between buttons */
-  font-size: 15px;           /* slightly smaller text */
-  font-weight: 500;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  background: #0b0f1a;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* neon gradient border */
-.highlight-btn::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 30px;
-  background: linear-gradient(
-    90deg,
-    #00f0ff,
-    #8a2eff,
-    #ff2ed1,
-    #00f0ff
-  );
-  background-size: 300% 300%;
-  animation: borderMove 6s linear infinite;
-  z-index: -2;
-}
-
-/* inner dark background to create border effect */
-.highlight-btn::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 28px;
-  background: #0b0f1a;
-  z-index: -1;
-}
-
-/* slow moving gradient */
-@keyframes borderMove {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-
-/* neon glow on hover */
-.highlight-btn:hover {
-  box-shadow:
-    0 0 10px rgba(0, 240, 255, 0.6),
-    0 0 20px rgba(138, 46, 255, 0.6),
-    0 0 30px rgba(255, 46, 209, 0.5);
-}
-
-/* moving gradient animation */
-@keyframes neonMove{
-  0%   { background-position:   0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position:   0% 50%; }
-}
-/* ===== Neon glow buttons ===== */
-.highlight-btn,
-#copyBtn{
-  display:inline-block;
-  background:#070e1c;           /* dark inside */
-  color:#fff;
-  padding:10px 24px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-  border:2px solid #6ec1ff;      /* default border */
-  transition:0.3s ease;
-  position:relative;
-}
-
-/* soft base glow */
-.highlight-btn{
-  box-shadow:0 0 10px rgba(110,193,255,0.4);
-}
-
-/* hover neon blue/purple */
-.highlight-btn:hover{
-  border-color:#b36bff;
-  box-shadow:
-    0 0 8px #b36bff,
-    0 0 18px #8f5cff,
-    0 0 35px rgba(143,92,255,0.9);
-  color:#fff;
-  transform:translateY(-2px);
-}
-
-/* COPY BUTTON different neon colour (green) */
-#copyBtn{
-  border:2px solid #3cffb3;
-  background:#070e1c;
-  color:#fff;
-  box-shadow:0 0 10px rgba(60,255,179,0.4);
-}
-
-/* green neon hover */
-#copyBtn:hover{
-  border-color:#00ffa6;
-  box-shadow:
-    0 0 8px #00ffa6,
-    0 0 20px #00ffcc,
-    0 0 40px rgba(0,255,170,0.9);
-  color:#fff;
-  transform:translateY(-2px);
-}
-
-/* ===== Neon Moving Gradient Border Button ===== */
-
-.highlight-btn,
-#copyBtn{
-  position: relative;
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 40px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  background: #070e1c;   /* dark inner fill */
-  border: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* animated multicolour neon border */
-.highlight-btn::before,
-#copyBtn::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px; /* border thickness */
-
-  background: linear-gradient(
-    120deg,
-    #00e5ff,
-    #7a5cff,
-    #ff00cc,
-    #00ffa6,
-    #ffe600,
-    #00e5ff
-  );
-  background-size: 400% 400%;
-  animation: neonBorderMove 8s linear infinite;
-
-  /* show only border */
-  -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  z-index: -1;
-}
-
-/* default soft glow */
-.highlight-btn{
-  box-shadow: 0 0 10px rgba(122,92,255,0.35);
-}
-#copyBtn{
-  box-shadow: 0 0 10px rgba(0,229,255,0.35);
-}
-
-/* hover = bright neon light */
 .highlight-btn:hover,
-#copyBtn:hover{
-  box-shadow:
-    0 0 12px #7a5cff,
-    0 0 24px #00e5ff,
-    0 0 40px #ff00cc,
-    0 0 65px rgba(0,229,255,0.8);
-  transform: translateY(-2px) scale(1.03);
+.theme-btn:hover{
+  transform:scale(1.05);
 }
 
-/* moving gradient animation */
-@keyframes neonBorderMove{
-  0%   { background-position:   0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position:   0% 50%; }
-}
-
+/* ===== Modal background ===== */
 .modal{
   display:none;
   position:fixed;
@@ -475,150 +48,61 @@ body{
   background:rgba(0,0,0,0.8);
 }
 
-.modal-content{
-  background:#111;
-  color:#fff;
-  width:90%;
-  max-width:800px;
-  margin:60px auto;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 0 25px rgba(180,0,255,0.7);
-  position:relative;
-  max-height:80vh;
-  overflow-y:auto;
-}
-.modal-content{
-  animation: popup 0.3s ease;
-}
-
-.close-btn{
-  position:absolute;
-  top:10px;
-  right:15px;
-  font-size:28px;
-  cursor:pointer;
-  color:#ff4d4d;
-}
-
-#modalBody pre{
-  background:#1e1e1e;
-  padding:15px;
-  border-radius:10px;
-  overflow-x:auto;
-  color:#00ffcc;
-}
-.copy-btn{
-  background:#6a00ff;
-  color:#fff;
-  border:none;
-  padding:8px 14px;
-  border-radius:8px;
-  cursor:pointer;
-  margin-bottom:10px;
-}
-.copy-btn:hover{
-  background:#8a2bff;
-}
-@keyframes popup {
-  from {
-    transform: scale(0.8);
-    opacity:0;
-  }
-  to {
-    transform: scale(1);
-    opacity:1;
-  }
-}
-.light-mode{
-  background:#f5f5f5;
-  color:#111;
-}
-
-.light-mode .modal-content{
-  background:#ffffff;
-  color:#000;
-}
-
-.light-mode pre{
-  background:#eaeaea;
-  color:#000;
-}
-
-/* Neon headings inside modal */
-#modalBody h1,
-#modalBody h2,
-#modalBody h3,
-#modalBody h4 {
-  color: #c77dff;
-  text-shadow:
-    0 0 5px #c77dff,
-    0 0 10px #9d4edd,
-    0 0 20px #7b2cbf;
-  margin-top: 15px;
-}
-
-/* make main title brighter */
-#modalTitle{
-  color: #ffffff;
-  text-shadow:
-    0 0 6px #c77dff,
-    0 0 12px #9d4edd,
-    0 0 24px #7b2cbf;
-  }
-/* Neon star bullet points */
-.details-text ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.details-text li {
-  position: relative;
-  padding-left: 28px;
-  margin: 8px 0;
-}
-
-.details-text li::before {
-  content: "★";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #c77dff;
-  text-shadow:
-    0 0 5px #c77dff,
-    0 0 10px #9d4edd,
-    0 0 20px #7b2cbf;
-  }
-
-/* Centered modal box for all devices */
+/* ===== Modal box ===== */
 .modal-content{
   background:#111;
   color:#fff;
   width:95%;
-  max-width:900px;          /* good for desktop */
+  max-width:900px;
   margin:60px auto;
   padding:25px;
   border-radius:20px;
   box-shadow:0 0 25px rgba(180,0,255,0.7);
   position:relative;
-  max-height:80vh;
+  max-height:85vh;
   overflow-y:auto;
-  line-height:1.6;          /* line spacing */
+  line-height:1.6;
+  animation:popup 0.3s ease;
 }
 
-/* Title alignment */
+/* popup animation */
+@keyframes popup{
+  from{transform:scale(0.8);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* ===== Close button ===== */
+.close-btn{
+  position:absolute;
+  top:12px;
+  right:16px;
+  font-size:26px;
+  cursor:pointer;
+  color:#ff4d4d;
+}
+
+/* ===== Title ===== */
 #modalTitle{
   text-align:left;
   margin-bottom:15px;
+  font-size:24px;
+  color:#fff;
+  text-shadow:0 0 8px #b026ff;
 }
 
-/* Copy button alignment */
+/* ===== Copy button ===== */
 .copy-btn{
-  display:inline-block;
-  margin-bottom:15px;
+  background:linear-gradient(45deg,#6a00ff,#00e0ff);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  margin-bottom:12px;
+  box-shadow:0 0 12px rgba(170,0,255,0.8);
 }
 
-/* Common inner container for both details and code */
+/* ===== Shared inner block (code + details) ===== */
 .details-text,
 #modalBody pre{
   background:#1c1c1c;
@@ -626,15 +110,15 @@ body{
   border-radius:14px;
   width:100%;
   box-sizing:border-box;
-}
-
-/* Paragraph alignment in details */
-.details-text p{
-  margin:10px 0;
   text-align:left;
 }
 
-/* Neon headings (details) */
+/* ===== Details text ===== */
+.details-text p{
+  margin:10px 0;
+}
+
+/* Neon section headings */
 .details-text h3{
   margin:15px 0 10px;
   color:#c77dff;
@@ -644,7 +128,7 @@ body{
     0 0 20px #7b2cbf;
 }
 
-/* Star bullet alignment */
+/* Star bullet points */
 .details-text ul{
   list-style:none;
   padding-left:0;
@@ -668,20 +152,20 @@ body{
     0 0 20px #7b2cbf;
 }
 
-/* Code block alignment */
+/* ===== Code block ===== */
 #modalBody pre{
   margin:0;
   overflow-x:auto;
 }
 
 #modalBody code{
-  font-family: Consolas, monospace;
+  font-family:Consolas, monospace;
   font-size:14px;
   line-height:1.5;
-  white-space:pre;          /* keep code lines aligned */
+  white-space:pre;
 }
 
-/* Desktop extra spacing */
+/* ===== Desktop view ===== */
 @media (min-width:1024px){
   .modal-content{
     padding:35px 45px;
@@ -692,3 +176,36 @@ body{
     font-size:15px;
   }
 }
+
+/* ===== Light mode ===== */
+.light-mode{
+  background:#f5f5f5;
+  color:#111;
+}
+
+.light-mode .modal-content{
+  background:#ffffff;
+  color:#000;
+  box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.light-mode .details-text,
+.light-mode #modalBody pre{
+  background:#eaeaea;
+  color:#000;
+}
+
+.light-mode #modalTitle{
+  text-shadow:none;
+  color:#000;
+}
+
+.light-mode .details-text h3{
+  color:#6a00ff;
+  text-shadow:none;
+}
+
+.light-mode .details-text li::before{
+  color:#6a00ff;
+  text-shadow:none;
+  }
