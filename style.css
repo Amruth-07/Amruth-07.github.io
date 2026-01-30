@@ -379,3 +379,22 @@ body{
 .project-card:nth-child(4) .highlight-btn:hover{
   box-shadow:0 0 15px #ffe600,0 0 30px #00aaff;
 }
+
+/* container of Details & Code buttons */
+.project-actions{
+  display:flex;
+  justify-content:center;
+  gap:18px;        /* space between Details and Code */
+  margin-top:18px; /* space between description and buttons */
+}
+
+/* if you want more space below the project title */
+.project-card h3{
+  margin-top:10px;
+  margin-bottom:10px;  /* space between headline and description */
+}
+
+/* extra breathing room between description text and buttons */
+.project-card p{
+  margin-bottom:10px;
+}
