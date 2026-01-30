@@ -1,3 +1,37 @@
+const ledPatternDetails = `
+<h3>Generating LED Patterns Using Arduino</h3>
+
+<p>
+This Arduino-based project generates different LED lighting patterns
+using multiple LEDs mounted on a dotted PCB board.
+Each LED is connected through a resistor to protect it from excess current.
+</p>
+
+<h4>Working Principle</h4>
+<ul>
+  <li>Arduino UNO digital pins are connected to multiple LEDs.</li>
+  <li>The program turns LEDs ON and OFF in different sequences.</li>
+  <li>Delay timing controls the speed of the pattern.</li>
+  <li>By changing the sequence, different visual effects are created.</li>
+</ul>
+
+<h4>Features</h4>
+<ul>
+  <li>Running light pattern</li>
+  <li>Blinking and wave effects</li>
+  <li>Low-cost and easy to build</li>
+  <li>Good beginner embedded project</li>
+</ul>
+
+<h4>Applications</h4>
+<ul>
+  <li>Decoration lighting</li>
+  <li>Learning Arduino programming</li>
+  <li>Basic light animation systems</li>
+</ul>
+`;
+
+
 // ================= MODAL ELEMENTS =================
 const modal = document.getElementById("projectModal");
 const modalTitle = document.getElementById("modalTitle");
