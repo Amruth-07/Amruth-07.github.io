@@ -462,57 +462,46 @@ body{
 }
 /* floating theme toggle button */
 .theme-toggle{
+  /* Small left side theme toggle button */
+.theme-btn{
   position:fixed;
-  top:20px;
-  right:20px;
-  width:55px;
-  height:55px;
+  top:15px;
+  left:15px;              /* move to left side */
+  
+  width:42px;             /* smaller size */
+  height:42px;
   border-radius:50%;
-  border:none;
-  cursor:pointer;
-
+  
   display:flex;
   align-items:center;
   justify-content:center;
+  
+  background:#070e1c;     /* dark inside */
+  color:#fff;
+  font-size:18px;         /* smaller icon */
+  border:none;
+  cursor:pointer;
+  z-index:999;
+  
+  /* thin neon gradient border */
+  background:
+    linear-gradient(#070e1c,#070e1c) padding-box,
+    linear-gradient(135deg,#00e5ff,#7a5cff,#00ffa6) border-box;
+  border:2px solid transparent;
 
-  font-size:20px;
-  color:#ffffff;
-
-  background:#0b0f1a;
-  z-index:9999;
-
-  /* neon border effect */
+  /* soft glow */
   box-shadow:
-    0 0 10px rgba(0,229,255,0.5),
-    0 0 20px rgba(123,44,255,0.4);
+    0 0 10px rgba(0,229,255,0.4),
+    0 0 18px rgba(122,92,255,0.3);
 }
 
-/* animated neon ring */
-.theme-toggle::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  padding:2px;
-
-  background:linear-gradient(
-    120deg,
-    #00e5ff,
-    #7a5cff,
-    #ff00cc,
-    #00ffa6,
-    #00e5ff
-  );
-  background-size:300% 300%;
-  animation:toggleGlow 6s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
+/* hover effect */
+.theme-btn:hover{
+  box-shadow:
+    0 0 14px #00e5ff,
+    0 0 26px #7a5cff;
+  transform:scale(1.05);
 }
-
 /* hover = brighter glow */
 .theme-toggle:hover{
   transform:scale(1.08);
