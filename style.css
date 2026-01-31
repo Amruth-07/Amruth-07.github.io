@@ -918,3 +918,44 @@ body.light-mode .modal-content{
   color:#000;
   border:1px solid #bbb;
 }
+
+
+
+/* Theme toggle button in light mode */
+.light-mode .theme-toggle{
+  background:#ffffff;              /* remove dark inside */
+  color:#111;                       /* dark icon */
+  border:2px solid transparent;
+  border-radius:50%;
+
+  /* neon gradient border */
+  background-clip:padding-box;
+  position:fixed;
+  top:15px;
+  left:15px;                        /* move to left side */
+  width:45px;
+  height:45px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 0 10px rgba(0,255,200,0.4),
+    0 0 15px rgba(180,0,255,0.3);
+}
+
+/* thin gradient ring */
+.light-mode .theme-toggle::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#00ffd5,#7a5cff,#ff00cc);
+  z-index:-1;
+}
+
+/* icon size */
+.theme-toggle i{
+  font-size:18px;
+}
