@@ -1299,3 +1299,22 @@ body.light-mode .theme-toggle{
   background-clip: padding-box, border-box;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   }
+
+
+
+.light-mode .copy-btn{
+  background: #ffffff !important;
+  color: #111 !important;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(135deg, #7b2cff, #00ffd5);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.light-mode .copy-btn:hover{
+  transform: scale(1.03);
+}
