@@ -235,15 +235,15 @@ body{
 
 /* inner content block for both code & details */
 /* ===== neon headings (blue-purple) ===== */
+/* Gradient neon headings (no outer glow) */
 .details-text h3{
-  color:#7a5cff; /* main heading color */
-  text-shadow:
-    0 0 6px #7a5cff,
-    0 0 14px #4cc9f0,
-    0 0 28px #4cc9f0;
+  background:linear-gradient(90deg,#00f0ff,#7a5cff,#ff2fd2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  color:transparent;
   margin:15px 0 10px;
 }
-
 /* ===== neon star bullets (green-cyan) ===== */
 .details-text ul{list-style:none;padding:0;margin:8px 0;}
 
@@ -254,11 +254,18 @@ body{
   color:#e6e6e6; /* normal text */
 }
 
+/* Gradient neon star bullets */
 .details-text li::before{
   content:"★";
   position:absolute;
   left:0;
-  color:#00ffd5; /* star color different from heading */
+  background:linear-gradient(180deg,#00ffd5,#00aaff,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  color:transparent;
+}
+/* star color different from heading */
   text-shadow:
     0 0 6px #00ffd5,
     0 0 14px #00b3ff,
@@ -1068,4 +1075,20 @@ body.light-mode .theme-toggle{
 .light-mode .theme-toggle i{
   color:#000;               /* black symbol */
   font-size:18px;
+}
+
+
+/* Light mode same neon gradient, no glow */
+.light-mode .details-text h3{
+  background:linear-gradient(90deg,#0066ff,#7a5cff,#ff008c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.light-mode .details-text li::before{
+  background:linear-gradient(180deg,#00b3ff,#0066ff,#7a5cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
