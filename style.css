@@ -857,3 +857,25 @@ body.light-mode .modal-content{
 .light-mode .modal{
   background:rgba(0,0,0,0.3);
 }
+
+
+
+
+/* ===== FORCE LIGHT MODE INSIDE MODAL TEXT ===== */
+.light-mode #modalBody{
+  background:#f2f2f2 !important;
+  color:#000 !important;
+}
+
+/* if your JS wraps text inside another div */
+.light-mode #modalBody div{
+  background:#f2f2f2 !important;
+  color:#000 !important;
+}
+
+/* if text is inside pre or code block */
+.light-mode #modalBody pre,
+.light-mode #modalBody code{
+  background:#f2f2f2 !important;
+  color:#000 !important;
+}
