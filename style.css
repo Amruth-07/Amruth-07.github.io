@@ -999,3 +999,22 @@ body.light-mode .theme-toggle{
   align-items:center;
   justify-content:center;
 }
+
+
+/* ===== Theme toggle button in LIGHT MODE ===== */
+.light-mode .theme-toggle{
+  background:#ffffff !important;   /* full white inside */
+  border:2px solid #cfcfcf;         /* light border */
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* remove gradient glow inside */
+.light-mode .theme-toggle::before{
+  display:none !important;
+}
+
+/* make the icon dark and clear */
+.light-mode .theme-toggle i{
+  color:#000000 !important;
+  text-shadow:none !important;
+}
