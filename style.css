@@ -683,7 +683,7 @@ body{
 /* hover effect */
 .theme-toggle:hover{
   box-shadow:
-    0 0 14px #00e5ff,
-    0 0 26px #7a5cff;
+    0 0 12px #00e5ff,
+    0 0 20px #7a5cff;
   transform:scale(1.05);
 }
