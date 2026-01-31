@@ -1018,3 +1018,42 @@ body.light-mode .theme-toggle{
   color:#000000 !important;
   text-shadow:none !important;
 }
+
+
+
+/* clear white button with neon border in light mode */
+.light-mode .theme-toggle{
+  background:#ffffff !important;      /* full white inside */
+  border:2px solid transparent;       /* needed for gradient border */
+  border-radius:50%;
+  position:fixed;
+  left:12px;                          /* left side */
+  top:12px;
+  width:46px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* neon gradient border */
+  background-image:
+    linear-gradient(#ffffff, #ffffff),                 /* inner white */
+    linear-gradient(135deg,#00f0ff,#8a2cff,#ff2fd2);    /* border colors */
+  background-origin:border-box;
+  background-clip:padding-box, border-box;
+
+  box-shadow:0 0 12px rgba(0,240,255,0.5),
+             0 0 18px rgba(138,44,255,0.4);
+}
+
+/* remove old gradient glow layer if any */
+.light-mode .theme-toggle::before{
+  display:none !important;
+}
+
+/* icon colour in light mode */
+.light-mode .theme-toggle i{
+  color:#000000 !important;  /* dark icon on white */
+  font-size:18px;
+  text-shadow:none !important;
+}
