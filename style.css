@@ -1288,4 +1288,14 @@ body.light-mode .theme-toggle{
   color: #111;
 }
 
-
+.light-mode .copy-btn{
+  background: #ffffff;
+  color: #111;
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(135deg, #7b2cff, #00ffd5);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
