@@ -959,3 +959,31 @@ body.light-mode .modal-content{
 .theme-toggle i{
   font-size:18px;
 }
+
+
+/* ===== FORCE white toggle in light mode ===== */
+body.light-mode .theme-toggle{
+  background: #ffffff !important;   /* pure white inside */
+  background-image: none !important;
+  border: none;
+  color: #000 !important;           /* dark icon */
+}
+
+/* neon border outside only */
+body.light-mode .theme-toggle::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#00ffd5,#7a5cff,#ff00cc);
+  z-index:-1;
+}
+
+/* keep button round and small */
+body.light-mode .theme-toggle{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
