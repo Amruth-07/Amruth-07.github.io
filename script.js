@@ -32,19 +32,22 @@ function openModal(title, file) {
       ========================= */
       if (file.toLowerCase().includes("code")) {
 
-  modalBody.innerHTML = `
-    <pre class="language-cpp">
-      <code class="language-cpp">
+        modalBody.innerHTML = `
+<pre class="language-cpp">
+<code class="language-cpp">
 ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-      </code>
-    </pre>
-  `;
+</code>
+</pre>
+        `;
 
-  copyBtn.style.display = "inline-block";
+        copyBtn.style.display = "inline-block";
 
-  // 🔥 THIS IS THE KEY LINE
-  Prism.highlightAllUnder(modalBody);
+        // ✅ ONLY FIX: force Prism to tokenize THIS code block
+        Prism.highlightElement(
+          modalBody.querySelector("code")
+        );
       }
+
       /* =========================
          DETAILS MODE (.html files)
       ========================= */
@@ -83,8 +86,6 @@ function closeModal() {
 
 window.onclick = function (event) {
   const modal = document.getElementById("projectModal");
-  const content = document.querySelector(".modal-content");
-
   if (event.target === modal) {
     closeModal();
   }
@@ -101,7 +102,6 @@ function copyCode() {
 
   navigator.clipboard.writeText(codeBlock.innerText);
 
-  // Visual feedback (no popup)
   const btn = document.querySelector(".copy-btn");
   const oldText = btn.innerText;
   btn.innerText = "Copied ✓";
@@ -109,7 +109,8 @@ function copyCode() {
   setTimeout(() => {
     btn.innerText = oldText;
   }, 1500);
-          }
+}
+
 
 /* =========================
    THEME TOGGLE
@@ -119,7 +120,6 @@ function toggleTheme() {
   document.body.classList.toggle("light-mode");
 
   const icon = document.querySelector(".theme-toggle i");
-
   if (!icon) return;
 
   if (document.body.classList.contains("light-mode")) {
