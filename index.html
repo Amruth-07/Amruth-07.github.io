@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +11,14 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Prism CSS -->
+  <!-- Prism CSS (ONLY for code colour) -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- HERO -->
@@ -27,7 +27,7 @@
     <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
   </div>
 
-  <h2 class="reveal">Hi !  I'm</h2>
+  <h2 class="reveal">Hi ! I'm</h2>
   <h1 class="reveal"><span>Amrut Hanamapure</span></h1>
   <p class="reveal">Electronics & Communication Engineering Student</p>
 </section>
@@ -124,8 +124,8 @@
     <p>Low-cost portable oscilloscope using Arduino and OLED display to visualize sine, square, and triangle waveforms.</p>
 
     <div class="project-actions">
-    <a href="#" onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')" class="highlight-btn">📘 Details</a>
-    <a href="#" onclick="openModal('Portable Oscilloscope Source Code','oscilloscopeCode.txt')" class="highlight-btn">💻 Code</a>
+      <a href="#" onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')" class="highlight-btn">📘 Details</a>
+      <a href="#" onclick="openModal('Portable Oscilloscope Source Code','oscilloscopeCode.txt')" class="highlight-btn">💻 Code</a>
     </div>
   </div>
 
@@ -136,8 +136,8 @@
     <p>IoT-based smart farming system using ESP32 for automated irrigation and enhanced farm security.</p>
 
     <div class="project-actions">
-    <a href="#" onclick="openModal('AgriGuard Details','agriguardDetails.html')" class="highlight-btn">📘 Details</a>
-    <a href="#" onclick="openModal('AgriGuard Source Code','Agriculture.txt')" class="highlight-btn">💻 Code</a>
+      <a href="#" onclick="openModal('AgriGuard Details','agriguardDetails.html')" class="highlight-btn">📘 Details</a>
+      <a href="#" onclick="openModal('AgriGuard Source Code','Agriculture.txt')" class="highlight-btn">💻 Code</a>
     </div>
   </div>
 
@@ -160,13 +160,13 @@
     <p>Arduino-based project to generate different LED lighting patterns using multiple LEDs mounted on a dotted PCB board.</p>
 
     <div class="project-actions">
-    <a href="#" onclick="openModal('LED Pattern Details','ledPatternDetails.html')" class="highlight-btn">📘 Details</a>
-    <a href="#" onclick="openModal('LED Pattern Source Code','LED_Pattern.txt')" class="highlight-btn">💻 Code</a>
+      <a href="#" onclick="openModal('LED Pattern Details','ledPatternDetails.html')" class="highlight-btn">📘 Details</a>
+      <a href="#" onclick="openModal('LED Pattern Source Code','LED_Pattern.txt')" class="highlight-btn">💻 Code</a>
     </div>
   </div>
 
 </div>
-  
+
 <!-- CONTACT -->
 <div class="card reveal">
   <h3>🔗 Connect with Me</h3>
@@ -183,8 +183,22 @@
   </div>
 </div>
 
-<!-- JS -->
-<<!-- JS -->
+<!-- MODAL -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <button id="copyBtn" class="copy-btn" onclick="copyCode()">Copy Code</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- THEME TOGGLE -->
+<button onclick="toggleTheme()" class="theme-toggle">
+  <i class="fas fa-sun"></i>
+</button>
+
+<!-- JS (ONLY ONCE, CLEAN ORDER) -->
 <script src="script.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -192,22 +206,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="three-bg.js"></script>
-  
 
-  <!-- Modal -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <button id="copyBtn" class="copy-btn" onclick="copyCode()">Copy Code</button>
-
-    <div id="modalBody"></div>
-  </div>
-</div>
-
-  <button onclick="toggleTheme()" class="theme-toggle">
-  <i class="fas fa-sun"></i>
-  </button>
-<script src="thr
 </body>
-</html>
+  </html>
