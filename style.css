@@ -1318,3 +1318,89 @@ body.light-mode .theme-toggle{
 .light-mode .copy-btn:hover{
   transform: scale(1.03);
 }
+
+
+/* =========================
+   CODE COLORS – DARK MODE
+   ========================= */
+body:not(.light-mode) pre,
+body:not(.light-mode) code {
+  background: #0e0e12 !important;
+  color: #e6e6e6 !important;
+}
+
+/* keywords */
+body:not(.light-mode) .token.keyword {
+  color: #ff79c6;
+}
+
+/* functions & classes */
+body:not(.light-mode) .token.function,
+body:not(.light-mode) .token.class-name {
+  color: #50fa7b;
+}
+
+/* strings */
+body:not(.light-mode) .token.string {
+  color: #f1fa8c;
+}
+
+/* numbers */
+body:not(.light-mode) .token.number {
+  color: #bd93f9;
+}
+
+/* comments */
+body:not(.light-mode) .token.comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+/* preprocessor (#include, #define) */
+body:not(.light-mode) .token.directive,
+body:not(.light-mode) .token.macro {
+  color: #00eaff;
+}
+
+
+/* =========================
+   CODE COLORS – LIGHT MODE
+   ========================= */
+body.light-mode pre,
+body.light-mode code {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+/* keywords */
+body.light-mode .token.keyword {
+  color: #7c3aed;
+}
+
+/* functions & classes */
+body.light-mode .token.function,
+body.light-mode .token.class-name {
+  color: #059669;
+}
+
+/* strings */
+body.light-mode .token.string {
+  color: #b45309;
+}
+
+/* numbers */
+body.light-mode .token.number {
+  color: #2563eb;
+}
+
+/* comments */
+body.light-mode .token.comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* preprocessor */
+body.light-mode .token.directive,
+body.light-mode .token.macro {
+  color: #0891b2;
+}
