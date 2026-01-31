@@ -668,7 +668,7 @@ body{
   cursor:pointer;
   z-index:9999;
 
-  /* thin neon gradient border *
+  /* thin neon gradient border */
   background:
     linear-gradient(#070e1c,#070e1c) padding-box,
     linear-gradient(135deg,#00e5ff,#7a5cff,#00ffa6) border-box;
