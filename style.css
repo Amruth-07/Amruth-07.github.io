@@ -804,3 +804,28 @@ body.light-mode{
   background:#eaeaea;
   color:#000;
 }
+
+
+
+/* ===== FORCE LIGHT MODE MODAL ===== */
+body.light-mode #modalBody{
+  background:#f2f2f2 !important;
+  color:#111 !important;
+}
+
+body.light-mode #modalBody *{
+  color:#111 !important;
+}
+
+/* if you have a dark overlay behind text */
+body.light-mode #modalBody .dark,
+body.light-mode #modalBody .code-box{
+  background:#e9e9e9 !important;
+  color:#111 !important;
+}
+
+/* modal main box */
+body.light-mode .modal-content{
+  background:#ffffff !important;
+  color:#111 !important;
+}
