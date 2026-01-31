@@ -271,12 +271,24 @@ body{
     0 0 14px #00b3ff,
     0 0 26px #00b3ff;
 }
+/* Gradient neon sub-headings */
 .details-text h4{
-  color:#ff00cc;
-  text-shadow:
-    0 0 6px #ff00cc,
-    0 0 14px #ff4df2;
+  background:linear-gradient(90deg,#00ffa6,#00c3ff,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  color:transparent;
   margin:12px 0 8px;
+  font-size:16px;
+ }
+
+/* Light mode sub-headings neon */
+.light-mode .details-text h4{
+  background:linear-gradient(90deg,#0099ff,#7a5cff,#ff00aa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  color:transparent;
 }
 /* code formatting */
 #modalBody code{
