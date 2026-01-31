@@ -1021,39 +1021,51 @@ body.light-mode .theme-toggle{
 
 
 
-/* clear white button with neon border in light mode */
+/* Light mode theme button – white inside, neon ring border */
 .light-mode .theme-toggle{
-  background:#ffffff !important;      /* full white inside */
-  border:2px solid transparent;       /* needed for gradient border */
-  border-radius:50%;
   position:fixed;
-  left:12px;                          /* left side */
-  top:12px;
-  width:46px;
-  height:46px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  top:14px;
+  left:14px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
 
-  /* neon gradient border */
-  background-image:
-    linear-gradient(#ffffff, #ffffff),                 /* inner white */
-    linear-gradient(135deg,#00f0ff,#8a2cff,#ff2fd2);    /* border colors */
-  background-origin:border-box;
-  background-clip:padding-box, border-box;
+  /* white inside */
+  background:#ffffff;
 
-  box-shadow:0 0 12px rgba(0,240,255,0.5),
-             0 0 18px rgba(138,44,255,0.4);
+  /* neon ring */
+  box-shadow:
+    0 0 0 2px transparent,
+    0 0 10px rgba(0, 255, 255, 0.7),
+    0 0 18px rgba(138, 44, 255, 0.6),
+    0 0 28px rgba(0, 255, 170, 0.4);
+
+  /* gradient border using outline trick */
+  outline:2px solid transparent;
+  background-clip:padding-box;
 }
 
-/* remove old gradient glow layer if any */
+/* create the colored ring */
 .light-mode .theme-toggle::before{
-  display:none !important;
+  content:"";
+  position:absolute;
+  inset:-2px;              /* thickness of ring */
+  border-radius:50%;
+  background:linear-gradient(
+      135deg,
+      #00f0ff,
+      #7a5cff,
+      #ff2fd2,
+      #00ffb3
+  );
+  z-index:-1;
+  filter:blur(0.5px);       /* smooth neon */
 }
 
-/* icon colour in light mode */
+/* icon in light mode */
 .light-mode .theme-toggle i{
-  color:#000000 !important;  /* dark icon on white */
+  color:#000;               /* black symbol */
   font-size:18px;
-  text-shadow:none !important;
 }
