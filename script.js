@@ -2,7 +2,10 @@ function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
+copyBtn.style.display = "none";
 
+  modalTitle.innerText = title;
+  modalBody.innerHTML = "Loading...";
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
 
