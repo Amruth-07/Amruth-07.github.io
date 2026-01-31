@@ -631,7 +631,7 @@ body{
   border-radius:30px;
   border:2px solid transparent;
 
-  /* thin neon gradient border */
+  /* thin neon gradient border *
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#00ffa6,#00d4ff,#7b2cff) border-box;
@@ -668,7 +668,7 @@ body{
   cursor:pointer;
   z-index:9999;
 
-  /* thin neon gradient border */
+  /* thin neon gradient border *
   background:
     linear-gradient(#070e1c,#070e1c) padding-box,
     linear-gradient(135deg,#00e5ff,#7a5cff,#00ffa6) border-box;
@@ -716,7 +716,7 @@ body.light-mode{
   color:#111;
 }
 
-/* buttons inside project card *
+/* buttons inside project card */
 .light-mode .project-card .highlight-btn{
   background:#f2f2f2;
   color:#111;
