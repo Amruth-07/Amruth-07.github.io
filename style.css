@@ -610,7 +610,7 @@ body{
     0 0 10px rgba(0,229,255,0.25);
 
 }
-/* Light mode bordered cards */
+/* Light mode bordered cards *
 .light-mode .card{
   background:#ffffff;
   color:#111;
@@ -618,7 +618,7 @@ body{
   border:2px solid transparent;
   border-radius:20px;
 
-  /* gradient light border */
+  /* gradient light border *
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
@@ -715,6 +715,10 @@ body.light-mode{
 .light-mode .project-card p{
   color:#111;
 }
+
+
+
+
 
 /* buttons inside project card */
 .light-mode .project-card .highlight-btn{
