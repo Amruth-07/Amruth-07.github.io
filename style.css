@@ -647,3 +647,25 @@ body{
     0 0 14px #00e5ff,
     0 0 24px rgba(0,229,255,0.6);
 }
+
+
+/* Light mode thin neon border effect without changing size */
+.light-mode .skill-pill{
+  position:relative;
+  background:#0b0f1a;   /* dark inside */
+  color:#fff;
+
+  /* real thin border */
+  border:1.5px solid transparent;
+  border-radius:40px;
+
+  /* gradient border using background trick */
+  background:
+    linear-gradient(#0b0f1a,#0b0f1a) padding-box,
+    linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#00e5ff) border-box;
+
+  /* soft neon glow */
+  box-shadow:
+    0 0 6px rgba(0,229,255,0.35),
+    0 0 10px rgba(122,92,255,0.25);
+}
