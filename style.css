@@ -680,10 +680,10 @@ body{
     0 0 18px rgba(122,92,255,0.3);
 }
 
-/* hover effect */
+/* hover effect *
 .theme-toggle:hover{
   box-shadow:
     0 0 12px #00e5ff,
     0 0 20px #7a5cff;
   transform:scale(1.05);
-}
+}*/
