@@ -475,57 +475,6 @@ body{
 
 
 /* floating theme toggle button */
-.theme-toggle{
-  position:fixed;
-  top:20px;
-  right:20px;
-  width:55px;
-  height:55px;
-  border-radius:30%;
-  border:none;
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:15px;
-  color:#ffffff;
-
-  background:#0b0f1a;
-  z-index:9999;
-
-  /* neon border effect */
-  box-shadow:
-    0 0 5px rgba(0,229,255,0.5),
-    0 0 10px rgba(123,44,255,0.4);
-}
-
-/* animated neon ring */
-.theme-toggle::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  padding:2px;
-
-  background:linear-gradient(
-    180deg,
-    #00e5ff,
-    #7a5cff,
-    #ff00cc,
-    #00ffa6,
-    #00e5ff
-  );
-  background-size:300% 300%;
-  animation:toggleGlow 6s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-}
 
 /* hover = brighter glow */
 .theme-toggle:hover{
@@ -567,11 +516,73 @@ body{
 }
 
 /* headings glow but readable */
-.light-mode .section-headline{
-  background:linear-gradient(90deg,#6a00ff,#00c6ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  filter:none;
+/* floating theme toggle button */
+.theme-toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:20px;
+  color:#ffffff;
+
+  background:#0b0f1a;
+  z-index:9999;
+
+  /* neon border effect */
+  box-shadow:
+    0 0 10px rgba(0,229,255,0.5),
+    0 0 20px rgba(123,44,255,0.4);
+}
+
+/* animated neon ring */
+.theme-toggle::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  padding:2px;
+
+  background:linear-gradient(
+    120deg,
+    #00e5ff,
+    #7a5cff,
+    #ff00cc,
+    #00ffa6,
+    #00e5ff
+  );
+  background-size:300% 300%;
+  animation:toggleGlow 6s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* hover = brighter glow */
+.theme-toggle:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 15px #00e5ff,
+    0 0 30px #7a5cff,
+    0 0 45px rgba(255,0,204,0.7);
+}
+
+/* moving gradient animation */
+@keyframes toggleGlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 /* main cards */
