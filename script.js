@@ -32,20 +32,21 @@ function openModal(title, file) {
       ========================= */
       if (file.toLowerCase().includes("code")) {
 
-        modalBody.innerHTML = `
+        const highlighted = Prism.highlight(
+  data,
+  Prism.languages.cpp,
+  "cpp"
+);
+
+modalBody.innerHTML = `
 <pre class="language-cpp">
 <code class="language-cpp">
-${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+${highlighted}
 </code>
 </pre>
-        `;
+`;
 
-        copyBtn.style.display = "inline-block";
-
-        // ✅ ONLY FIX: force Prism to tokenize THIS code block
-        Prism.highlightElement(
-          modalBody.querySelector("code")
-        );
+copyBtn.style.display = "inline-block";
       }
 
       /* =========================
