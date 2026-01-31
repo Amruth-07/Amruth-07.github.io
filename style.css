@@ -1104,3 +1104,28 @@ body.light-mode .theme-toggle{
   -webkit-text-fill-color:transparent;
   background-clip:text;
 }
+
+
+/* ===== Fix neon headings in LIGHT MODE inside modal/details ===== */
+
+/* remove any normal text color */
+.light-mode .details-text h3,
+.light-mode .details-text h4{
+  color:transparent !important;
+}
+
+/* gradient neon for main headings */
+.light-mode .details-text h3{
+  background:linear-gradient(90deg,#007bff,#7b61ff,#ff00aa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* gradient neon for sub headings */
+.light-mode .details-text h4{
+  background:linear-gradient(90deg,#00c3ff,#00ffa6,#7b61ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
