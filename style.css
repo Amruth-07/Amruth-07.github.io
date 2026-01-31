@@ -461,8 +461,7 @@ body{
   transform:translateY(-2px);
 }
 /* floating theme toggle button */
-.theme-toggle{
-  /* Small left side theme toggle button */
+/* Small left side theme toggle button */
 .theme-btn{
   position:fixed;
   top:15px;
@@ -501,28 +500,6 @@ body{
     0 0 14px #00e5ff,
     0 0 26px #7a5cff;
   transform:scale(1.05);
-}
-/* hover = brighter glow */
-.theme-toggle:hover{
-  transform:scale(1.08);
-  box-shadow:
-    0 0 15px #00e5ff,
-    0 0 30px #7a5cff,
-    0 0 45px rgba(255,0,204,0.7);
-}
-
-/* moving gradient animation */
-@keyframes toggleGlow{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* moving gradient animation */
-@keyframes skillGlow{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
 }
 
 
