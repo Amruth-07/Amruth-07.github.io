@@ -723,14 +723,14 @@ body{
     linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
 }
 
-/* Light mode project buttons */
+/* Light mode project buttons *
 .light-mode .highlight-btn{
-  background:#ffffff;          /* light inside */
-  color:#111;                  /* dark text */
+  background:#ffffff;          /* light inside *
+  color:#111;                  /* dark text *
   border-radius:30px;
   border:2px solid transparent;
 
-  /* thin neon gradient border */
+  /* thin neon gradient border *
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#00ffa6,#00d4ff,#7b2cff) border-box;
@@ -738,10 +738,11 @@ body{
   box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* hover in light mode */
+ hover in light mode 
 .light-mode .highlight-btn:hover{
   color:#000;
   box-shadow:
     0 0 8px rgba(0,212,255,0.5),
     0 0 16px rgba(123,44,255,0.4);
 }
+*/
