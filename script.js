@@ -8,9 +8,8 @@ function openModal(title, file) {
   const modalBody = document.getElementById("modalBody");
   const copyBtn = document.getElementById("copyBtn");
 
-  // Safety check
   if (!modal || !modalTitle || !modalBody || !copyBtn) {
-    console.error("Modal elements missing in HTML");
+    console.error("Modal elements missing");
     return;
   }
 
@@ -19,52 +18,48 @@ function openModal(title, file) {
   copyBtn.style.display = "none";
 
   fetch(file)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("File not found");
-      }
-      return response.text();
+    .then(res => {
+      if (!res.ok) throw new Error("File not found");
+      return res.text();
     })
     .then(data => {
 
-      /* =========================
-         CODE MODE (.txt files)
-      ========================= */
+      /* ========= CODE MODE (.txt) ========= */
       if (file.endsWith(".txt")) {
 
-        const highlighted = Prism.highlight(
-  data,
-  Prism.languages.cpp,
-  "cpp"
-);
-
-modalBody.innerHTML = `
+        modalBody.innerHTML = `
 <pre class="language-c">
-  <code class="language-c">
-${highlighted}
+<code class="language-c">
+${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 </code>
 </pre>
-`;
+        `;
 
-copyBtn.style.display = "inline-block";
+        copyBtn.style.display = "inline-block";
+
+        // ⭐ FORCE PRISM COLORING
+        Prism.highlightAllUnder(modalBody);
       }
 
-      /* =========================
-         DETAILS MODE (.html files)
-      ========================= */
-      if (file.endsWith(".txt")) {
+      /* ========= DETAILS MODE (.html) ========= */
+      else {
+        modalBody.innerHTML = `
+<div class="details-text">
+${data}
+</div>
+        `;
+        copyBtn.style.display = "none";
+      }
+    })
+    .catch(err => {
+      modalBody.innerHTML = "❌ File not found!";
+      copyBtn.style.display = "none";
+      console.error(err);
+    });
 
-  modalBody.innerHTML = `
-    <pre class="language-c">
-      <code class="language-c">
-${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-      </code>
-    </pre>
-  `;
-
-  copyBtn.style.display = "inline-block";
-  Prism.highlightAllUnder(modalBody);
+  modal.style.display = "block";
 }
+
 
 /* =========================
    CLOSE MODAL
@@ -82,29 +77,25 @@ function closeModal() {
 
 window.onclick = function (event) {
   const modal = document.getElementById("projectModal");
-  if (event.target === modal) {
-    closeModal();
-  }
+  if (event.target === modal) closeModal();
 };
 
 
 /* =========================
-   COPY CODE FUNCTION
+   COPY CODE
 ========================= */
 
 function copyCode() {
-  const codeBlock = document.querySelector("#modalBody pre");
-  if (!codeBlock) return;
+  const code = document.querySelector("#modalBody code");
+  if (!code) return;
 
-  navigator.clipboard.writeText(codeBlock.innerText);
+  navigator.clipboard.writeText(code.innerText);
 
-  const btn = document.querySelector(".copy-btn");
-  const oldText = btn.innerText;
+  const btn = document.getElementById("copyBtn");
+  const old = btn.innerText;
   btn.innerText = "Copied ✓";
 
-  setTimeout(() => {
-    btn.innerText = oldText;
-  }, 1500);
+  setTimeout(() => btn.innerText = old, 1500);
 }
 
 
@@ -118,29 +109,19 @@ function toggleTheme() {
   const icon = document.querySelector(".theme-toggle i");
   if (!icon) return;
 
-  if (document.body.classList.contains("light-mode")) {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  } else {
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
-  }
+  icon.classList.toggle("fa-sun");
+  icon.classList.toggle("fa-moon");
 }
 
 
 /* =========================
-   SCROLL REVEAL (SAFE)
+   SCROLL REVEAL
 ========================= */
 
 function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
-
-  reveals.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-    const revealPoint = 100;
-
-    if (elementTop < windowHeight - revealPoint) {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
