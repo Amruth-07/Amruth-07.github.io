@@ -623,3 +623,27 @@ body{
 .light-mode a{
   color:#0057ff;
 }
+
+
+/* smaller thin buttons in light mode (Details & Code) */
+.light-mode .highlight-btn{
+  background:#0b0f1a;      /* keep dark inside */
+  color:#ffffff;
+
+  padding:8px 18px;        /* reduce height */
+  font-size:14px;          /* smaller text */
+  border-radius:28px;      /* slightly smaller round */
+}
+
+/* thin neon moving border */
+.light-mode .highlight-btn::before{
+  padding:1px;             /* thin border */
+}
+
+/* softer glow on hover */
+.light-mode .highlight-btn:hover{
+  box-shadow:
+    0 0 6px #7a5cff,
+    0 0 14px #00e5ff,
+    0 0 24px rgba(0,229,255,0.6);
+}
