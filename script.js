@@ -1,70 +1,69 @@
+/* =========================
+   PROJECT MODAL FUNCTION
+========================= */
+
 function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
-  const copyBtn = document.querySelector(".copy-btn");
+  const copyBtn = document.getElementById("copyBtn");
 
-  // ✅ RESET EVERY TIME
+  // Safety check
+  if (!modal || !modalTitle || !modalBody || !copyBtn) {
+    console.error("Modal elements missing in HTML");
+    return;
+  }
+
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
   fetch(file)
-    .then(res => {
-      if (!res.ok) throw new Error("File not found");
-      return res.text();
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+      return response.text();
     })
     .then(data => {
 
-      // ✅ SOURCE CODE MODE
-      if (file.toLowerCase().includes("code")) {
+      /* =========================
+         CODE MODE (.txt files)
+      ========================= */
+      if (file.endsWith(".txt")) {
+
+        const escapedCode = data
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
         modalBody.innerHTML = `
-          <pre><code>
-${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+          <pre><code class="language-cpp">
+${escapedCode}
           </code></pre>
         `;
+
         copyBtn.style.display = "inline-block";
+
+        if (window.Prism) {
+          Prism.highlightAll();
+        }
       }
 
-      // ✅ DETAILS MODE
+      /* =========================
+         DETAILS MODE (.html files)
+      ========================= */
       else {
-        let lines = data.split("\n");
-        let html = "";
-        let inList = false;
-
-        lines.forEach(line => {
-          line = line.trim();
-
-          if (line.startsWith("## ")) {
-            if (inList) {
-              html += "</ul>";
-              inList = false;
-            }
-            html += `<h3>${line.replace("## ", "")}</h3>`;
-          }
-          else if (line.startsWith("- ")) {
-            if (!inList) {
-              html += "<ul>";
-              inList = true;
-            }
-            html += `<li>${line.replace("- ", "")}</li>`;
-          }
-          else if (line !== "") {
-            if (inList) {
-              html += "</ul>";
-              inList = false;
-            }
-            html += `<p>${line}</p>`;
-          }
-        });
-
-        if (inList) html += "</ul>";
-
-        modalBody.innerHTML = `<div class="details-text">${html}</div>`;
+        modalBody.innerHTML = `
+          <div class="details-text">
+            ${data}
+          </div>
+        `;
+        copyBtn.style.display = "none";
       }
     })
     .catch(err => {
-      modalBody.innerHTML = "❌ File not found or empty";
+      modalBody.innerHTML = "❌ File not found or path error!";
       copyBtn.style.display = "none";
       console.error(err);
     });
@@ -72,12 +71,21 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
   modal.style.display = "block";
 }
 
-// Close modal
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
 function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
+  const modal = document.getElementById("projectModal");
+  if (modal) modal.style.display = "none";
 }
 
-// Close modal when clicking outside the content box
+
+/* =========================
+   CLICK OUTSIDE TO CLOSE
+========================= */
+
 window.onclick = function (event) {
   const modal = document.getElementById("projectModal");
   const content = document.querySelector(".modal-content");
@@ -87,46 +95,69 @@ window.onclick = function (event) {
   }
 };
 
-// Simple reveal animation on scroll (optional nice effect)
-function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
 
-  for (let i = 0; i < reveals.length; i++) {
-    const windowHeight = window.innerHeight;
-    const elementTop = reveals[i].getBoundingClientRect().top;
-    const revealPoint = 100;
-
-    if (elementTop < windowHeight - revealPoint) {
-      reveals[i].classList.add("active");
-    }
-  }
-}
-
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+/* =========================
+   COPY CODE FUNCTION
+========================= */
 
 function copyCode() {
-  const text = document.getElementById("modalBody").innerText;
-  navigator.clipboard.writeText(text);
+  const codeBlock = document.querySelector("#modalBody pre");
 
-  const toast = document.createElement("div");
-  toast.innerText = "Code copied!";
-  toast.className = "copy-toast";
-  document.body.appendChild(toast);
+  if (!codeBlock) {
+    alert("No code to copy!");
+    return;
+  }
 
-  setTimeout(() => {
-    toast.remove();
-  }, 2000);
+  const text = codeBlock.innerText;
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Code copied to clipboard!");
+    })
+    .catch(() => {
+      alert("Failed to copy code");
+    });
 }
 
-function toggleTheme(){
+
+/* =========================
+   THEME TOGGLE
+========================= */
+
+function toggleTheme() {
   document.body.classList.toggle("light-mode");
 
   const icon = document.querySelector(".theme-toggle i");
 
-  if(document.body.classList.contains("light-mode")){
-    icon.className = "fas fa-moon";
+  if (!icon) return;
+
+  if (document.body.classList.contains("light-mode")) {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
   } else {
-    icon.className = "fas fa-sun";
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
   }
 }
+
+
+/* =========================
+   SCROLL REVEAL (SAFE)
+========================= */
+
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const revealPoint = 100;
+
+    if (elementTop < windowHeight - revealPoint) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
