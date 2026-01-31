@@ -312,7 +312,15 @@ window.addEventListener("load", revealOnScroll);
 function copyCode() {
   const text = document.getElementById("modalBody").innerText;
   navigator.clipboard.writeText(text);
-  alert("Code copied to clipboard!");
+
+  const toast = document.createElement("div");
+  toast.innerText = "Code copied!";
+  toast.className = "copy-toast";
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2000);
 }
 
 function toggleTheme(){
