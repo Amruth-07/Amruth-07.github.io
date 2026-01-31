@@ -102,23 +102,19 @@ window.onclick = function (event) {
 
 function copyCode() {
   const codeBlock = document.querySelector("#modalBody pre");
+  if (!codeBlock) return;
 
-  if (!codeBlock) {
-    alert("No code to copy!");
-    return;
-  }
+  navigator.clipboard.writeText(codeBlock.innerText);
 
-  const text = codeBlock.innerText;
+  // Visual feedback (no popup)
+  const btn = document.querySelector(".copy-btn");
+  const oldText = btn.innerText;
+  btn.innerText = "Copied ✓";
 
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      alert("Code copied to clipboard!");
-    })
-    .catch(() => {
-      alert("Failed to copy code");
-    });
-}
-
+  setTimeout(() => {
+    btn.innerText = oldText;
+  }, 1500);
+          }
 
 /* =========================
    THEME TOGGLE
