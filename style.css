@@ -618,7 +618,7 @@ body{
   border:2px solid transparent;
   border-radius:20px;
 
-  /* gradient light border *
+  /* gradient light border */
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
