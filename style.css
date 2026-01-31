@@ -709,4 +709,16 @@ body{
     0 0 10px rgba(0,229,255,0.25);
   */
 }
+/* Light mode bordered cards */
+.light-mode .card{
+  background:#ffffff;
+  color:#111;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  border:2px solid transparent;
+  border-radius:20px;
 
+  /* gradient light border */
+  background:
+    linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
+}
