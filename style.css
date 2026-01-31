@@ -1216,3 +1216,28 @@ body.light-mode .theme-toggle{
   background: linear-gradient(135deg, #5b8cff, #00c9a7);
   color: #fff;
 }
+
+
+
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: #0b0f1a;
+  color: white;
+  box-shadow: 0 0 12px rgba(0,255,255,.6);
+  z-index: 9999;
+}
+
+/* LIGHT MODE */
+.light-mode .theme-toggle {
+  background: #ffffff;          /* FULL WHITE */
+  color: #000;
+  border: 2px solid #7dd3fc;
+  box-shadow: 0 0 10px rgba(0,150,255,.4);
+}
