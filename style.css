@@ -234,31 +234,43 @@ body{
 }
 
 /* inner content block for both code & details */
-.details-text,#modalBody pre{
-  background:#1c1c1c;
-  padding:18px;
-  border-radius:14px;
-  width:100%;
-}
-
-/* neon headings */
+/* ===== neon headings (blue-purple) ===== */
 .details-text h3{
-  color:#c77dff;
-  text-shadow:0 0 5px #c77dff,0 0 10px #9d4edd,0 0 20px #7b2cbf;
+  color:#7a5cff; /* main heading color */
+  text-shadow:
+    0 0 6px #7a5cff,
+    0 0 14px #4cc9f0,
+    0 0 28px #4cc9f0;
   margin:15px 0 10px;
 }
 
-/* neon star bullets */
+/* ===== neon star bullets (green-cyan) ===== */
 .details-text ul{list-style:none;padding:0;margin:8px 0;}
-.details-text li{position:relative;padding-left:28px;margin:6px 0;}
+
+.details-text li{
+  position:relative;
+  padding-left:28px;
+  margin:6px 0;
+  color:#e6e6e6; /* normal text */
+}
+
 .details-text li::before{
   content:"★";
   position:absolute;
   left:0;
-  color:#c77dff;
-  text-shadow:0 0 5px #c77dff,0 0 10px #9d4edd,0 0 20px #7b2cbf;
+  color:#00ffd5; /* star color different from heading */
+  text-shadow:
+    0 0 6px #00ffd5,
+    0 0 14px #00b3ff,
+    0 0 26px #00b3ff;
 }
-
+.details-text h4{
+  color:#ff00cc;
+  text-shadow:
+    0 0 6px #ff00cc,
+    0 0 14px #ff4df2;
+  margin:12px 0 8px;
+}
 /* code formatting */
 #modalBody code{
   font-family:Consolas,monospace;
