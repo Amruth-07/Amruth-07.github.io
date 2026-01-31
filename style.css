@@ -764,4 +764,53 @@ body.light-mode #modalBody pre{
   box-shadow:
     0 0 8px rgba(127,0,255,.25),
     0 0 14px rgba(0,212,255,.25);
+  }
+
+  /* ===== FINAL OVERRIDE: ROUND RIGHT SIDE THEME BUTTON ===== */
+.theme-btn{
+  position:fixed !important;
+  top:18px !important;
+  right:18px !important;   /* move to right */
+
+  width:42px !important;
+  height:42px !important;
+  padding:0 !important;
+
+  border-radius:50% !important;   /* perfect circle */
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:18px !important;
+
+  background:#0b0f1a !important;
+  color:#fff !important;
+
+  border:2px solid transparent !important;
+
+  /* neon gradient border */
+  background:
+    linear-gradient(#0b0f1a,#0b0f1a) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box !important;
+
+  box-shadow:
+    0 0 10px rgba(127,0,255,.6),
+    0 0 18px rgba(0,212,255,.45) !important;
+
+  z-index:9999 !important;
+  cursor:pointer;
 }
+
+/* light mode version */
+.light-mode .theme-btn{
+  background:
+    linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box !important;
+
+  color:#111 !important;
+
+  box-shadow:
+    0 0 6px rgba(127,0,255,.25),
+    0 0 10px rgba(0,212,255,.25) !important;
+  }
