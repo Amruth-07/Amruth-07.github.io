@@ -1570,3 +1570,69 @@ pre[class*="language-"] {
 .token.macro {
   color: #00e5ff !important;   /* neon cyan */
 }
+
+
+
+
+
+/* ===============================
+   FORCE PRISM PROGRAM COLOURS
+   (DO NOT REMOVE ANYTHING ABOVE)
+================================ */
+
+/* base */
+#modalBody pre code {
+  color: inherit !important;
+}
+
+/* keywords */
+#modalBody .token.keyword,
+#modalBody .token.control,
+#modalBody .token.directive {
+  color: #c792ea !important;   /* purple */
+}
+
+/* functions */
+#modalBody .token.function {
+  color: #82aaff !important;   /* blue */
+}
+
+/* strings */
+#modalBody .token.string,
+#modalBody .token.char {
+  color: #c3e88d !important;   /* green */
+}
+
+/* numbers */
+#modalBody .token.number {
+  color: #f78c6c !important;   /* orange */
+}
+
+/* comments */
+#modalBody .token.comment {
+  color: #7a7a7a !important;
+  font-style: italic;
+}
+
+/* operators & punctuation */
+#modalBody .token.operator,
+#modalBody .token.punctuation {
+  color: #89ddff !important;
+}
+
+/* types */
+#modalBody .token.class-name,
+#modalBody .token.builtin {
+  color: #ffcb6b !important;
+}
+
+/* preprocessor (#include, #define) */
+#modalBody .token.macro,
+#modalBody .token.directive-hash {
+  color: #ff5370 !important;
+}
+
+/* LIGHT MODE – same colours, readable */
+body.light-mode #modalBody .token {
+  filter: none !important;
+}
