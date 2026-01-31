@@ -829,3 +829,31 @@ body.light-mode .modal-content{
   background:#ffffff !important;
   color:#111 !important;
 }
+
+
+
+/* ===== Modal fix for light mode ===== */
+.light-mode .modal-content{
+  background:#ffffff !important;
+  color:#111 !important;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* inner scrolling text area */
+.light-mode #modalBody,
+.light-mode .modal-body,
+.light-mode .modal-text{
+  background:#f5f5f5 !important;
+  color:#000 !important;
+}
+
+/* if you use <pre> to show code/text */
+.light-mode #modalBody pre{
+  background:#f5f5f5 !important;
+  color:#000 !important;
+}
+
+/* remove dark overlay feeling */
+.light-mode .modal{
+  background:rgba(0,0,0,0.3);
+}
