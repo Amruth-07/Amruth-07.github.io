@@ -652,3 +652,69 @@ body{
 .light-mode a{
   color:#0057ff;
 }
+
+
+  /* ===== FORCE LIGHT MODE LOOK ===== */
+body.light-mode{
+  background:#f5f6fa !important;
+  color:#111 !important;
+}
+
+/* all main cards */
+body.light-mode .card,
+body.light-mode .about-card,
+body.light-mode .project-card{
+  background:#ffffff !important;
+  color:#111 !important;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12) !important;
+  border:1px solid rgba(0,0,0,0.06) !important;
+}
+
+/* paragraphs inside */
+body.light-mode .card p,
+body.light-mode .project-card p,
+body.light-mode .about-text{
+  color:#333 !important;
+}
+
+/* hobbies / skills pills */
+body.light-mode .hobby-pill.dark{
+  background:#ffffff !important;
+  color:#111 !important;
+  border-radius:25px !important;
+  padding:8px 14px !important;
+  font-size:14px !important;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* thin neon border only */
+body.light-mode .hobby-pill.dark::before{
+  padding:1px !important;
+  box-shadow:
+    0 0 4px rgba(127,0,255,.25),
+    0 0 8px rgba(0,212,255,.25) !important;
+}
+
+/* project cards image glow remove */
+body.light-mode .project-card img{
+  box-shadow:0 0 12px rgba(0,0,0,0.15) !important;
+}
+
+/* headings readable */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p{
+  color:#111 !important;
+}
+
+/* modal */
+body.light-mode .modal-content{
+  background:#ffffff !important;
+  color:#111 !important;
+}
+
+body.light-mode #modalBody pre{
+  background:#eeeeee !important;
+  color:#000 !important;
+}
