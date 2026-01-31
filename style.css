@@ -774,3 +774,33 @@ body.light-mode{
     linear-gradient(90deg,#a855f7,#06b6d4,#22c55e) border-box;
   color:#111;
 }
+
+
+
+
+/* Light mode modal fixes */
+.light-mode .modal-content{
+  background:#ffffff;
+  color:#111;
+}
+
+/* the scrollable text box inside modal */
+.light-mode #modalBody{
+  background:#f5f5f5;   /* light grey box */
+  color:#111;           /* dark readable text */
+}
+
+/* paragraphs and headings inside modal body */
+.light-mode #modalBody p,
+.light-mode #modalBody h1,
+.light-mode #modalBody h2,
+.light-mode #modalBody h3,
+.light-mode #modalBody li{
+  color:#111;
+}
+
+/* if code/pre blocks are used */
+.light-mode #modalBody pre{
+  background:#eaeaea;
+  color:#000;
+}
