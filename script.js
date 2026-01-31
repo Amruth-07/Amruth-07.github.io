@@ -319,11 +319,12 @@ function toggleTheme(){
   document.body.classList.toggle("light-mode");
 
   const icon = document.querySelector(".theme-toggle i");
+
   if(document.body.classList.contains("light-mode")){
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  }else{
     icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
+    icon.classList.add("fa-sun");   // show light symbol in light mode
+  }else{
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");  // show dark symbol in dark mode
   }
 }
