@@ -2,12 +2,12 @@ function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
-copyBtn.style.display = "none";
+  const copyBtn = document.querySelector(".copy-btn");
 
+  // ✅ RESET EVERY TIME
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
-  modalTitle.innerText = title;
-  modalBody.innerHTML = "Loading...";
+  copyBtn.style.display = "none";
 
   fetch(file)
     .then(res => {
@@ -16,21 +16,17 @@ copyBtn.style.display = "none";
     })
     .then(data => {
 
-      // ===== CODE MODE =====
+      // ✅ SOURCE CODE MODE
       if (file.toLowerCase().includes("code")) {
-  modalBody.innerHTML =
-    "<pre><code>" +
-    data.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-    "</code></pre>";
-
-  copyBtn.style.display = "inline-block"; // ✅ show ONLY here
+        modalBody.innerHTML = `
+          <pre><code>
+${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+          </code></pre>
+        `;
+        copyBtn.style.display = "inline-block";
       }
-        else {
-  modalBody.innerHTML = `<div class="details-text">${html}</div>`;
-  copyBtn.style.display = "none"; // ✅ keep hidden
-}
 
-      // ===== DETAILS MODE =====
+      // ✅ DETAILS MODE
       else {
         let lines = data.split("\n");
         let html = "";
@@ -40,19 +36,24 @@ copyBtn.style.display = "none";
           line = line.trim();
 
           if (line.startsWith("## ")) {
-            if (inList) { html += "</ul>"; inList = false; }
+            if (inList) {
+              html += "</ul>";
+              inList = false;
+            }
             html += `<h3>${line.replace("## ", "")}</h3>`;
           }
-          else if (line.startsWith("### ")) {
-            if (inList) { html += "</ul>"; inList = false; }
-            html += `<h4>${line.replace("### ", "")}</h4>`;
-          }
           else if (line.startsWith("- ")) {
-            if (!inList) { html += "<ul>"; inList = true; }
+            if (!inList) {
+              html += "<ul>";
+              inList = true;
+            }
             html += `<li>${line.replace("- ", "")}</li>`;
           }
           else if (line !== "") {
-            if (inList) { html += "</ul>"; inList = false; }
+            if (inList) {
+              html += "</ul>";
+              inList = false;
+            }
             html += `<p>${line}</p>`;
           }
         });
@@ -62,13 +63,14 @@ copyBtn.style.display = "none";
         modalBody.innerHTML = `<div class="details-text">${html}</div>`;
       }
     })
-    .catch(() => {
-      modalBody.innerHTML = "❌ File not found!";
+    .catch(err => {
+      modalBody.innerHTML = "❌ File not found or empty";
+      copyBtn.style.display = "none";
+      console.error(err);
     });
 
   modal.style.display = "block";
 }
-   
 
 // Close modal
 function closeModal() {
