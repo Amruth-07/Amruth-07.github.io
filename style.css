@@ -1524,3 +1524,59 @@ body.light-mode .token.directive,
 body.light-mode .token.macro{
   color:#0891b2 !important;
   }
+/* ===============================
+   PROGRAM (CODE) COLOUR OVERRIDE
+   =============================== */
+
+/* base code text */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #e6edf3 !important;
+  background: transparent !important;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+}
+
+/* comments */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7d8590 !important;
+  font-style: italic;
+}
+
+/* keywords: int, void, for, if */
+.token.keyword {
+  color: #ff79c6 !important;   /* pink */
+}
+
+/* data types */
+.token.type {
+  color: #8be9fd !important;   /* cyan */
+}
+
+/* strings */
+.token.string {
+  color: #f1fa8c !important;   /* yellow */
+}
+
+/* numbers */
+.token.number {
+  color: #bd93f9 !important;   /* violet */
+}
+
+/* functions */
+.token.function {
+  color: #50fa7b !important;   /* green */
+}
+
+/* operators */
+.token.operator {
+  color: #ffb86c !important;   /* orange */
+}
+
+/* preprocessor: #include, #define */
+.token.directive,
+.token.macro {
+  color: #00e5ff !important;   /* neon cyan */
+}
