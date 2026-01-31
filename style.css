@@ -546,33 +546,17 @@ body{
 /* ===== Light mode fixes ===== */
 /* smaller, thin-border pills in light mode */
 .light-mode .hobby-pill.dark{
-  background:#ffffff;
+ /* ===== Light mode fixes ===== */
+.light-mode{
+  background:#f2f2f2;
   color:#111;
-
-  padding:10px 18px;        /* smaller height */
-  border-radius:28px;       /* slightly smaller round */
-  font-size:14px;           /* smaller text */
-
-  box-shadow:0 4px 12px rgba(0,0,0,0.12);
 }
 
-/* make the animated neon border thinner */
-.light-mode .hobby-pill.dark::before{
-  padding:1px;              /* thin border (was 2px) */
-  box-shadow:
-    0 0 4px rgba(127,0,255,.25),
-    0 0 8px rgba(0,212,255,.2);
-}
-/* ===== Light mode hobby & skill pills ===== */
-.light-mode .hobby-pill.dark{
-  background:#ffffff;
+/* hero text */
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode p{
   color:#111;
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
 }
-
-/* keep the neon animated border but softer in light mode */
-.light-mode .hobby-pill.dark::before{
-  box-shadow:0 0 6px rgba(0,0,0,0.15);
-}
-
 
