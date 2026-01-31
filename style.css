@@ -1241,3 +1241,51 @@ body.light-mode .theme-toggle{
   border: 2px solid #7dd3fc;
   box-shadow: 0 0 10px rgba(0,150,255,.4);
 }
+
+
+
+
+  /* DARK MODE HEADINGS */
+.details-text h3,
+.details-text h4 {
+  background: linear-gradient(90deg,#22d3ee,#a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* LIGHT MODE HEADINGS */
+.light-mode .details-text h3,
+.light-mode .details-text h4 {
+  background: linear-gradient(90deg,#2563eb,#06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+
+
+
+
+.details-text li::before {
+  content: "✦";
+  margin-right: 8px;
+  color: #22d3ee;
+}
+
+.light-mode .details-text li::before {
+  color: #2563eb;
+}
+
+
+
+#modalBody pre {
+  background: #0b0f1a;
+  color: #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.light-mode #modalBody pre {
+  background: #f3f4f6;
+  color: #111;
+}
+
+
