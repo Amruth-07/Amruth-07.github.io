@@ -631,7 +631,7 @@ body{
   border-radius:30px;
   border:2px solid transparent;
 
-  /* thin neon gradient border *
+  /* thin neon gradient border */
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#00ffa6,#00d4ff,#7b2cff) border-box;
