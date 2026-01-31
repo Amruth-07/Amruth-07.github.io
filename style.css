@@ -1468,3 +1468,59 @@ body.light-mode .token.class-name { color:#059669; }
 body.light-mode .token.directive,
 body.light-mode .token.macro { color:#0891b2; }
 
+/* ===== PROGRAM COLORS (FORCE OVERRIDE) ===== */
+
+/* Dark mode */
+body:not(.light-mode) .token.comment{
+  color:#6272a4 !important;
+  font-style:italic;
+}
+
+body:not(.light-mode) .token.keyword{
+  color:#ff79c6 !important;
+}
+
+body:not(.light-mode) .token.string{
+  color:#f1fa8c !important;
+}
+
+body:not(.light-mode) .token.number{
+  color:#bd93f9 !important;
+}
+
+body:not(.light-mode) .token.function,
+body:not(.light-mode) .token.class-name{
+  color:#50fa7b !important;
+}
+
+body:not(.light-mode) .token.directive,
+body:not(.light-mode) .token.macro{
+  color:#00eaff !important;
+}
+/* Light mode */
+body.light-mode .token.comment{
+  color:#6b7280 !important;
+  font-style:italic;
+}
+
+body.light-mode .token.keyword{
+  color:#7c3aed !important;
+}
+
+body.light-mode .token.string{
+  color:#b45309 !important;
+}
+
+body.light-mode .token.number{
+  color:#2563eb !important;
+}
+
+body.light-mode .token.function,
+body.light-mode .token.class-name{
+  color:#059669 !important;
+}
+
+body.light-mode .token.directive,
+body.light-mode .token.macro{
+  color:#0891b2 !important;
+  }
