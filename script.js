@@ -217,12 +217,16 @@ function openModal(title, file) {
       // ===== CODE MODE =====
       if (file.toLowerCase().includes("code")) {
 
-        modalBody.innerHTML = `
-          <pre><code>${data
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")}
-          </code></pre>
-        `;
+        let code = data
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;")
+  .replace(/(#include|#define)/g, '<span class="pre">$1</span>')
+  .replace(/\b(int|bool|void|const|unsigned|long|float|char)\b/g, '<span class="kw">$1</span>')
+  .replace(/\b(\d+)\b/g, '<span class="num">$1</span>')
+  .replace(/"(.*?)"/g, '<span class="str">"$1"</span>')
+  .replace(/\/\/(.*)/g, '<span class="com">//$1</span>');
+
+modalBody.innerHTML = `<pre><code>${code}</code></pre>`;
 
         copyBtn.style.display = "inline-block";
 
