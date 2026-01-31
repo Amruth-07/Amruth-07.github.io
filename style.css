@@ -474,10 +474,10 @@ body{
 
 
 
-/* floating theme toggle button */
+/* floating theme toggle button *
 
-/* hover = brighter glow */
-.theme-toggle:hover{
+/* hover = brighter glow *
+.theme-toggle:hover
   transform:scale(1.08);
   box-shadow:
     0 0 10px #00e5ff,
@@ -485,30 +485,30 @@ body{
     0 0 30px rgba(255,0,204,0.7);
 }
 
-/* moving gradient animation */
-@keyframes toggleGlow{
+/* moving gradient animation *
+@keyframes toggleGlow
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
 
 /* ===== Light mode fixes ===== */
-/* smaller, thin-border pills in light mode */
-.light-mode .hobby-pill.dark{
- /* ===== Light mode fixes ===== */
+/*smaller, thin-border pills in light mode *
+.light-mode .hobby-pill.dark
+ /* ===== Light mode fixes ===== *
 .light-mode{
   background:#f2f2f2;
   color:#111;
 }
 
-/* hero text */
+/* hero text *
 .light-mode h1,
 .light-mode h2,
 .light-mode h3,
 .light-mode p{
   color:#111;
 }
-/* ===== COMPLETE LIGHT MODE OVERRIDE ===== */
+/* ===== COMPLETE LIGHT MODE OVERRIDE ===== *
 
 .light-mode{
   background:#f4f4f6;
@@ -516,7 +516,7 @@ body{
 }
 
 /* headings glow but readable */
-/* floating theme toggle button */
+/* floating theme toggle button *
 .theme-toggle{
   position:fixed;
   top:20px;
@@ -537,13 +537,13 @@ body{
   background:#0b0f1a;
   z-index:9999;
 
-  /* neon border effect */
+  /* neon border effect *
   box-shadow:
     0 0 10px rgba(0,229,255,0.5),
     0 0 20px rgba(123,44,255,0.4);
 }
 
-/* animated neon ring */
+/* animated neon ring *
 .theme-toggle::before{
   content:"";
   position:absolute;
@@ -569,7 +569,7 @@ body{
           mask-composite:exclude;
 }
 
-/* hover = brighter glow */
+/* hover = brighter glow *
 .theme-toggle:hover{
   transform:scale(1.08);
   box-shadow:
@@ -578,14 +578,14 @@ body{
     0 0 45px rgba(255,0,204,0.7);
 }
 
-/* moving gradient animation */
+/* moving gradient animation *
 @keyframes toggleGlow{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
 
-/* main cards */
+/* main cards *
 .light-mode .card,
 .light-mode .about-card,
 .light-mode .project-card{
@@ -595,19 +595,19 @@ body{
   border:1px solid rgba(0,0,0,0.06);
 }
 
-/* about image border softer */
+/* about image border softer *
 .light-mode .about-card img{
   box-shadow:0 0 12px rgba(0,0,0,0.15);
 }
 
-/* text inside cards */
+/* text inside cards *
 .light-mode .card p,
 .light-mode .project-card p,
 .light-mode .about-text{
   color:#333;
 }
 
-/* hobby + skills pills (small, light, thin neon border) */
+/* hobby + skills pills (small, light, thin neon border) *
 .light-mode .hobby-pill.dark{
   background:#ffffff;
   color:#111;
@@ -617,7 +617,7 @@ body{
   box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* thin animated border */
+/* thin animated border *
 .light-mode .hobby-pill.dark::before{
   padding:1px;
   box-shadow:
@@ -625,18 +625,18 @@ body{
     0 0 6px rgba(0,212,255,.2);
 }
 
-/* project images remove heavy dark glow */
+/* project images remove heavy dark glow *
 .light-mode .project-card img{
   box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
-/* buttons text color */
+/* buttons text color *
 .light-mode .highlight-btn,
 .light-mode #copyBtn{
   color:#111;
 }
 
-/* modal */
+/* modal *
 .light-mode .modal-content{
   background:#ffffff;
   color:#111;
@@ -648,19 +648,19 @@ body{
   color:#000;
 }
 
-/* links */
+/* links *
 .light-mode a{
   color:#0057ff;
 }
 
 
-  /* ===== FORCE LIGHT MODE LOOK ===== */
+  /* ===== FORCE LIGHT MODE LOOK ===== *
 body.light-mode{
   background:#f5f6fa !important;
   color:#111 !important;
 }
 
-/* all main cards */
+/* all main cards *
 body.light-mode .card,
 body.light-mode .about-card,
 body.light-mode .project-card{
@@ -670,14 +670,14 @@ body.light-mode .project-card{
   border:1px solid rgba(0,0,0,0.06) !important;
 }
 
-/* paragraphs inside */
+/* paragraphs inside *
 body.light-mode .card p,
 body.light-mode .project-card p,
 body.light-mode .about-text{
   color:#333 !important;
 }
 
-/* hobbies / skills pills */
+/* hobbies / skills pills *
 body.light-mode .hobby-pill.dark{
   background:#ffffff !important;
   color:#111 !important;
@@ -687,7 +687,7 @@ body.light-mode .hobby-pill.dark{
   box-shadow:0 4px 10px rgba(0,0,0,0.1) !important;
 }
 
-/* thin neon border only */
+/* thin neon border only *
 body.light-mode .hobby-pill.dark::before{
   padding:1px !important;
   box-shadow:
@@ -695,12 +695,12 @@ body.light-mode .hobby-pill.dark::before{
     0 0 8px rgba(0,212,255,.25) !important;
 }
 
-/* project cards image glow remove */
+/* project cards image glow remove *
 body.light-mode .project-card img{
   box-shadow:0 0 12px rgba(0,0,0,0.15) !important;
 }
 
-/* headings readable */
+/* headings readable *
 body.light-mode h1,
 body.light-mode h2,
 body.light-mode h3,
@@ -708,7 +708,7 @@ body.light-mode p{
   color:#111 !important;
 }
 
-/* modal */
+/* modal *
 body.light-mode .modal-content{
   background:#ffffff !important;
   color:#111 !important;
@@ -720,17 +720,17 @@ body.light-mode #modalBody pre{
 }
 
 
-/* round floating theme toggle button */
+/* round floating theme toggle button *
 .theme-btn{
   position:fixed;
   top:20px;
   right:20px;          /* move to right side */
 
-  width:44px;          /* equal width & height = circle */
+/*  width:44px;          /* equal width & height = circle *
   height:44px;
   padding:0;
 
-  border-radius:50%;   /* make it round */
+  border-radius:50%;   /* make it round *
 
   display:flex;
   align-items:center;
@@ -742,7 +742,7 @@ body.light-mode #modalBody pre{
   color:#fff;
   border:2px solid transparent;
 
-  /* neon gradient border */
+  /* neon gradient border **
   background:
     linear-gradient(#070e1c,#070e1c) padding-box,
     linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
@@ -755,7 +755,7 @@ body.light-mode #modalBody pre{
   z-index:1000;
 }
 
-/* smaller in light mode with thin border */
+/* smaller in light mode with thin border *
 .light-mode .theme-btn{
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
@@ -765,19 +765,18 @@ body.light-mode #modalBody pre{
     0 0 8px rgba(127,0,255,.25),
     0 0 14px rgba(0,212,255,.25);
   }
-
-  /* ===== FINAL OVERRIDE: ROUND RIGHT SIDE THEME BUTTON ===== */
+*/
+  /* ===== FINAL OVERRIDE: ROUND RIGHT SIDE THEME BUTTON ===== 
 .theme-btn{
   position:fixed !important;
   top:18px !important;
-  right:18px !important;   /* move to right */
+  right:18px !important;   /* move to right 
 
   width:42px !important;
   height:42px !important;
   padding:0 !important;
 
-  border-radius:50% !important;   /* perfect circle */
-
+  border-radius:50% !important;perfect circle 
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
@@ -789,7 +788,7 @@ body.light-mode #modalBody pre{
 
   border:2px solid transparent !important;
 
-  /* neon gradient border */
+  /* neon gradient border *
   background:
     linear-gradient(#0b0f1a,#0b0f1a) padding-box,
     linear-gradient(135deg,#7f00ff,#00d4ff) border-box !important;
@@ -802,7 +801,7 @@ body.light-mode #modalBody pre{
   cursor:pointer;
 }
 
-/* light mode version */
+/* light mode version *
 .light-mode .theme-btn{
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
@@ -814,3 +813,4 @@ body.light-mode #modalBody pre{
     0 0 6px rgba(127,0,255,.25),
     0 0 10px rgba(0,212,255,.25) !important;
   }
+*/
