@@ -18,14 +18,17 @@ copyBtn.style.display = "none";
 
       // ===== CODE MODE =====
       if (file.toLowerCase().includes("code")) {
+  modalBody.innerHTML =
+    "<pre><code>" +
+    data.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+    "</code></pre>";
 
-        modalBody.innerHTML = `
-          <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-          <pre><code>${escapeHTML(data)}</code></pre>
-        `;
-
-        if (window.hljs) hljs.highlightAll();
+  copyBtn.style.display = "inline-block"; // ✅ show ONLY here
       }
+        else {
+  modalBody.innerHTML = `<div class="details-text">${html}</div>`;
+  copyBtn.style.display = "none"; // ✅ keep hidden
+}
 
       // ===== DETAILS MODE =====
       else {
