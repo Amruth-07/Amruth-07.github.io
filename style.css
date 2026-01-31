@@ -689,3 +689,22 @@ body{
     0 0 8px rgba(0,229,255,0.4),
     0 0 14px rgba(122,92,255,0.3);
 }
+/* Light mode – white pills with neon gradient border */
+.light-mode .hobby-pill.dark,
+.light-mode .skill-pill{
+  background:#ffffff;      /* white inside */
+  color:#111;              /* dark text */
+
+  border:2px solid transparent;
+  border-radius:40px;
+
+  /* gradient border only */
+  background:
+    linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(120deg,#ff00cc,#7a5cff,#00e5ff,#00ffa6,#ff00cc) border-box;
+
+  /* soft outer glow */
+  box-shadow:
+    0 0 6px rgba(255,0,204,0.25),
+    0 0 10px rgba(0,229,255,0.25);
+}
