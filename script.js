@@ -205,27 +205,29 @@ function openModal(title, file) {
 
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
+  copyBtn.style.display = "none"; // hide by default
 
   fetch(file)
-    .then(response => {
-      if (!response.ok) throw new Error("File not found");
-      return response.text();
+    .then(res => {
+      if (!res.ok) throw new Error("File not found");
+      return res.text();
     })
     .then(data => {
 
-      // CODE MODE (show raw code + copy button)
+      // ===== CODE MODE =====
       if (file.toLowerCase().includes("code")) {
+
         modalBody.innerHTML = `
-  <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-  <pre id="codeBlock"><code>
-${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-  </code></pre>
-`;
+          <pre><code>${data
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")}
+          </code></pre>
+        `;
 
-        if (window.hljs) hljs.highlightAll();
-      }
+        copyBtn.style.display = "inline-block";
 
-      // DETAILS MODE (neon headings + star points)
+      } 
+      // ===== DETAILS MODE =====
       else {
         let lines = data.split("\n");
         let html = "";
@@ -234,30 +236,16 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
         lines.forEach(line => {
           line = line.trim();
 
-          // Heading ## Title
           if (line.startsWith("## ")) {
-            if (inList) {
-              html += "</ul>";
-              inList = false;
-            }
+            if (inList) { html += "</ul>"; inList = false; }
             html += `<h3>${line.replace("## ", "")}</h3>`;
           }
-
-          // Star bullet points
           else if (line.startsWith("- ")) {
-            if (!inList) {
-              html += "<ul>";
-              inList = true;
-            }
+            if (!inList) { html += "<ul>"; inList = true; }
             html += `<li>${line.replace("- ", "")}</li>`;
           }
-
-          // Normal paragraph text
           else if (line !== "") {
-            if (inList) {
-              html += "</ul>";
-              inList = false;
-            }
+            if (inList) { html += "</ul>"; inList = false; }
             html += `<p>${line}</p>`;
           }
         });
@@ -265,11 +253,11 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
         if (inList) html += "</ul>";
 
         modalBody.innerHTML = `<div class="details-text">${html}</div>`;
-        copyBtn.style.display = "none"; // hide copy for details
+        copyBtn.style.display = "none";
       }
     })
     .catch(() => {
-      modalBody.innerHTML = "❌ File not found or path is wrong!";
+      modalBody.innerHTML = "❌ File not found!";
       copyBtn.style.display = "none";
     });
 
