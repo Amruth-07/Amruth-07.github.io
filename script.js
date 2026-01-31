@@ -215,12 +215,12 @@ function openModal(title, file) {
 
       // CODE MODE (show raw code + copy button)
       if (file.toLowerCase().includes("code")) {
-        modalBody.innerHTML =
-          "<pre><code>" +
-          data.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-          "</code></pre>";
-
-        copyBtn.style.display = "inline-block";
+        modalBody.innerHTML = `
+  <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+  <pre id="codeBlock"><code>
+${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+  </code></pre>
+`;
 
         if (window.hljs) hljs.highlightAll();
       }
