@@ -499,7 +499,7 @@ body{
   box-shadow:0 0 12px rgba(0,0,0,0.15);
 }
 
-/* text inside cards */
+/* text inside cards *
 .light-mode .card p,
 .light-mode .project-card p,
 .light-mode .about-text{
@@ -581,67 +581,66 @@ body{
 }
 
 
-/* Light mode thin neon border effect without changing size *
+/* Light mode thin neon border effect without changing size */
 .light-mode .skill-pill{
   position:relative;
-  background:#0b0f1a;   /* dark inside *
+  background:#0b0f1a;   /* dark inside */
   color:#fff;
 
-  /* real thin border *
+  /* real thin border */
   border:1.5px solid transparent;
   border-radius:40px;
 
-  /* gradient border using background trick *
+  /* gradient border using background trick */
   background:
     linear-gradient(#0b0f1a,#0b0f1a) padding-box,
     linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#00e5ff) border-box;
 
   /* soft neon glow */
- /* box-shadow:
+   box-shadow: 
     0 0 6px rgba(0,229,255,0.35),
     0 0 10px rgba(122,92,255,0.25);
 }
-*/
 
-/* Light mode neon gradient border for skill pills (no size change) *
+/* Light mode neon gradient border for skill pills (no size change) */
 .light-mode .skill-pill{
-  background:#0b0f1a;           /* dark inside */
+  background:#0b0f1a; 
   color:#ffffff;
 
- /* border:0px solid transparent; /* thin border *
+ border:0px solid transparent; /* thin border *
   border-radius:40px;
 
-  /* gradient border *
+  /* gradient border */
   background:
     linear-gradient(#0b0f1a,#0b0f1a) padding-box,
     linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#00e5ff) border-box;
 
-  /* neon glow *
+  /* neon glow */
   box-shadow:
     0 0 0px rgba(0,229,255,0.4),
     0 0 0px rgba(122,92,255,0.3);
 }
-/* Light mode – white pills with neon gradient border *
+/* Light mode – white pills with neon gradient border */
 .light-mode .hobby-pill.dark,
 .light-mode .skill-pill{
-  background:#ffffff;      /* white inside *
-  color:#111;              /* dark text *
+  background:#ffffff;      /* white inside */
+  color:#111;              /* dark text */
 
   border:2px solid transparent;
   border-radius:40px;
 
-  /* gradient border only *
+  /* gradient border only */
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(120deg,#ff00cc,#7a5cff,#00e5ff,#00ffa6,#ff00cc) border-box;
 
-  /* soft outer glow *
+  /* soft outer glow */
   box-shadow:
     0 0 6px rgba(255,0,204,0.25),
     0 0 10px rgba(0,229,255,0.25);
 
 }
-/* Light mode bordered cards *
+/* Light mode bordered cards */
 .light-mode .card{
   background:#ffffff;
   color:#111;
@@ -649,7 +648,7 @@ body{
   border:2px solid transparent;
   border-radius:20px;
 
-  /* gradient light border *
+  /* gradient light border */
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
@@ -821,14 +820,6 @@ body.light-mode{
   color:#111;           /* dark readable text *
 }
 
-/* paragraphs and headings inside modal body *
-.light-mode #modalBody p,
-.light-mode #modalBody h1,
-.light-mode #modalBody h2,
-.light-mode #modalBody h3,
-.light-mode #modalBody li{
-  color:#111;
-}
 
 /* if code/pre blocks are used *
 .light-mode #modalBody pre{
