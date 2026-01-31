@@ -1144,3 +1144,75 @@ body.light-mode .theme-toggle{
              0 0 20px rgba(138,43,226,0.6);
   z-index:9999;
   }
+
+
+/* ================= CODE BLOCK BASE ================= */
+#modalBody pre {
+  background: #0f1117;
+  color: #e6edf3;
+  padding: 18px;
+  border-radius: 14px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 2px solid transparent;
+}
+
+/* Light mode code background */
+.light-mode #modalBody pre {
+  background: #ffffff;
+  color: #111;
+  border: 2px solid #e0e0e0;
+}
+
+/* ================= SYNTAX COLORS ================= */
+
+/* preprocessor (#include, #define) */
+#modalBody code span.pre {
+  color: #4fc3ff;
+  font-weight: 600;
+}
+
+/* keywords (int, bool, void, const, etc.) */
+#modalBody code span.kw {
+  color: #c77dff;
+  font-weight: 600;
+}
+
+/* numbers */
+#modalBody code span.num {
+  color: #ffb86c;
+}
+
+/* strings */
+#modalBody code span.str {
+  color: #7CFF9B;
+}
+
+/* comments */
+#modalBody code span.com {
+  color: #6ee7b7;
+  font-style: italic;
+}
+
+/* ================= COPY BUTTON ================= */
+.copy-btn {
+  margin: 10px 0 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #7c7cff, #00ffd5);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  opacity: 0.9;
+}
+
+/* Light mode button */
+.light-mode .copy-btn {
+  background: linear-gradient(135deg, #5b8cff, #00c9a7);
+  color: #fff;
+}
