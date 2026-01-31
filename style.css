@@ -235,7 +235,7 @@ body{
 
 /* inner content block for both code & details */
 /* ===== neon headings (blue-purple) ===== */
-/* Gradient neon headings (no outer glow) */
+/* Gradient neon headings (no outer glow) *
 .details-text h3{
   background:linear-gradient(90deg,#00f0ff,#7a5cff,#ff2fd2);
   -webkit-background-clip:text;
@@ -244,7 +244,7 @@ body{
   color:transparent;
   margin:15px 0 10px;
 }
-/* ===== neon star bullets (green-cyan) ===== */
+/* ===== neon star bullets (green-cyan) ===== *
 .details-text ul{list-style:none;padding:0;margin:8px 0;}
 
 .details-text li{
@@ -254,7 +254,7 @@ body{
   color:#e6e6e6; /* normal text */
 }
 
-/* Gradient neon star bullets */
+/* Gradient neon star bullets *
 .details-text li::before{
   content:"★";
   position:absolute;
@@ -265,13 +265,13 @@ body{
   background-clip:text;
   color:transparent;
 }
-/* star color different from heading */
+/* star color different from heading *
   text-shadow:
     0 0 6px #00ffd5,
     0 0 14px #00b3ff,
     0 0 26px #00b3ff;
 }
-/* Gradient neon sub-headings */
+/* Gradient neon sub-headings *
 .details-text h4{
   background:linear-gradient(90deg,#00ffa6,#00c3ff,#a855f7);
   -webkit-background-clip:text;
@@ -282,7 +282,7 @@ body{
   font-size:16px;
  }
 
-/* Light mode sub-headings neon */
+/* Light mode sub-headings neon *
 .light-mode .details-text h4{
   background:linear-gradient(90deg,#0099ff,#7a5cff,#ff00aa);
   -webkit-background-clip:text;
@@ -290,7 +290,7 @@ body{
   background-clip:text;
   color:transparent;
 }
-/* code formatting */
+/* code formatting *
 #modalBody code{
   font-family:Consolas,monospace;
   font-size:14px;
@@ -603,7 +603,7 @@ body{
 }
 */
 
-/* Light mode neon gradient border for skill pills (no size change) */
+/* Light mode neon gradient border for skill pills (no size change) *
 .light-mode .skill-pill{
   background:#0b0f1a;           /* dark inside */
   color:#ffffff;
@@ -611,37 +611,37 @@ body{
  /* border:0px solid transparent; /* thin border *
   border-radius:40px;
 
-  /* gradient border */
+  /* gradient border *
   background:
     linear-gradient(#0b0f1a,#0b0f1a) padding-box,
     linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#00e5ff) border-box;
 
-  /* neon glow */
+  /* neon glow *
   box-shadow:
     0 0 0px rgba(0,229,255,0.4),
     0 0 0px rgba(122,92,255,0.3);
 }
-/* Light mode – white pills with neon gradient border */
+/* Light mode – white pills with neon gradient border *
 .light-mode .hobby-pill.dark,
 .light-mode .skill-pill{
-  background:#ffffff;      /* white inside */
-  color:#111;              /* dark text */
+  background:#ffffff;      /* white inside *
+  color:#111;              /* dark text *
 
   border:2px solid transparent;
   border-radius:40px;
 
-  /* gradient border only */
+  /* gradient border only *
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(120deg,#ff00cc,#7a5cff,#00e5ff,#00ffa6,#ff00cc) border-box;
 
-  /* soft outer glow */
+  /* soft outer glow *
   box-shadow:
     0 0 6px rgba(255,0,204,0.25),
     0 0 10px rgba(0,229,255,0.25);
 
 }
-/* Light mode bordered cards */
+/* Light mode bordered cards *
 .light-mode .card{
   background:#ffffff;
   color:#111;
@@ -649,20 +649,20 @@ body{
   border:2px solid transparent;
   border-radius:20px;
 
-  /* gradient light border */
+  /* gradient light border *
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
 }
 
-/* Light mode project buttons */
+/* Light mode project buttons *
 .light-mode .highlight-btn{
-  background:#ffffff;          /* light inside */
-  color:#111;                  /* dark text */
+  background:#ffffff;          /* light inside *
+  color:#111;                  /* dark text *
   border-radius:30px;
   border:2px solid transparent;
 
-  /* thin neon gradient border */
+  /* thin neon gradient border *
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#00ffa6,#00d4ff,#7b2cff) border-box;
@@ -838,7 +838,7 @@ body.light-mode{
 
 
 
-/* ===== FORCE LIGHT MODE MODAL ===== */
+/* ===== FORCE LIGHT MODE MODAL ===== *
 body.light-mode #modalBody{
   background:#f2f2f2 !important;
   color:#111 !important;
@@ -848,14 +848,14 @@ body.light-mode #modalBody *{
   color:#111 !important;
 }
 
-/* if you have a dark overlay behind text */
+/* if you have a dark overlay behind text *
 body.light-mode #modalBody .dark,
 body.light-mode #modalBody .code-box{
   background:#e9e9e9 !important;
   color:#111 !important;
 }
 
-/* modal main box */
+/* modal main box *
 body.light-mode .modal-content{
   background:#ffffff !important;
   color:#111 !important;
@@ -863,14 +863,14 @@ body.light-mode .modal-content{
 
 
 
-/* ===== Modal fix for light mode ===== */
+/* ===== Modal fix for light mode ===== *
 .light-mode .modal-content{
   background:#ffffff !important;
   color:#111 !important;
   box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
-/* inner scrolling text area */
+/* inner scrolling text area *
 .light-mode #modalBody,
 .light-mode .modal-body,
 .light-mode .modal-text{
@@ -878,13 +878,13 @@ body.light-mode .modal-content{
   color:#000 !important;
 }
 
-/* if you use <pre> to show code/text */
+/* if you use <pre> to show code/text *
 .light-mode #modalBody pre{
   background:#f5f5f5 !important;
   color:#000 !important;
 }
 
-/* remove dark overlay feeling */
+/* remove dark overlay feeling *
 .light-mode .modal{
   background:rgba(0,0,0,0.3);
 }
@@ -892,26 +892,26 @@ body.light-mode .modal-content{
 
 
 
-/* ===== FORCE LIGHT MODE INSIDE MODAL TEXT ===== */
+/* ===== FORCE LIGHT MODE INSIDE MODAL TEXT ===== *
 .light-mode #modalBody{
   background:#f2f2f2 !important;
   color:#000 !important;
 }
 
-/* if your JS wraps text inside another div */
+/* if your JS wraps text inside another div *
 .light-mode #modalBody div{
   background:#f2f2f2 !important;
   color:#000 !important;
 }
 
-/* if text is inside pre or code block */
+/* if text is inside pre or code block *
 .light-mode #modalBody pre,
 .light-mode #modalBody code{
   background:#f2f2f2 !important;
   color:#000 !important;
 }
 
-/* ===== CODE VIEW STYLE (DARK MODE DEFAULT) ===== */
+/* ===== CODE VIEW STYLE (DARK MODE DEFAULT) ===== *
 #modalBody pre{
   background:#111 !important;
   color:#eaeaea !important;
@@ -936,20 +936,19 @@ body.light-mode .modal-content{
   margin-bottom:10px;
 }
 
-/* ===== LIGHT MODE CODE STYLE ===== */
+/* ===== LIGHT MODE CODE STYLE ===== *
 .light-mode #modalBody pre{
-  background:#e9e9e9 !important;   /* light grey box */
-  color:#000 !important;           /* black text */
+  background:#e9e9e9 !important;   /* light grey box *
+  color:#000 !important;           /* black text *
   border:1px solid #d0d0d0;
 }
 
-/* light mode copy button */
+/* light mode copy button *
 .light-mode .copy-btn{
   background:#f5f5f5;
   color:#000;
   border:1px solid #bbb;
 }
-
 
 
 /* Theme toggle button in light mode */
@@ -1322,41 +1321,41 @@ body.light-mode .theme-toggle{
 
 /* =========================
    CODE COLORS – DARK MODE
-   ========================= */
+   ========================= *
 body:not(.light-mode) pre,
 body:not(.light-mode) code {
   background: #0e0e12 !important;
   color: #e6e6e6 !important;
 }
 
-/* keywords */
+/* keywords *
 body:not(.light-mode) .token.keyword {
   color: #ff79c6;
 }
 
-/* functions & classes */
+/* functions & classes *
 body:not(.light-mode) .token.function,
 body:not(.light-mode) .token.class-name {
   color: #50fa7b;
 }
 
-/* strings */
+/* strings *
 body:not(.light-mode) .token.string {
   color: #f1fa8c;
 }
 
-/* numbers */
+/* numbers *
 body:not(.light-mode) .token.number {
   color: #bd93f9;
 }
 
-/* comments */
+/* comments *
 body:not(.light-mode) .token.comment {
   color: #6272a4;
   font-style: italic;
 }
 
-/* preprocessor (#include, #define) */
+/* preprocessor (#include, #define) *
 body:not(.light-mode) .token.directive,
 body:not(.light-mode) .token.macro {
   color: #00eaff;
@@ -1365,41 +1364,41 @@ body:not(.light-mode) .token.macro {
 
 /* =========================
    CODE COLORS – LIGHT MODE
-   ========================= */
+   ========================= *
 body.light-mode pre,
 body.light-mode code {
   background: #f3f4f6 !important;
   color: #111827 !important;
 }
 
-/* keywords */
+/* keywords *
 body.light-mode .token.keyword {
   color: #7c3aed;
 }
 
-/* functions & classes */
+/* functions & classes *
 body.light-mode .token.function,
 body.light-mode .token.class-name {
   color: #059669;
 }
 
-/* strings */
+/* strings *
 body.light-mode .token.string {
   color: #b45309;
 }
 
-/* numbers */
+/* numbers *
 body.light-mode .token.number {
   color: #2563eb;
 }
 
-/* comments */
+/* comments *
 body.light-mode .token.comment {
   color: #6b7280;
   font-style: italic;
 }
 
-/* preprocessor */
+/* preprocessor *
 body.light-mode .token.directive,
 body.light-mode .token.macro {
   color: #0891b2;
