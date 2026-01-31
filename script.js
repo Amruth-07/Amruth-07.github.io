@@ -30,26 +30,21 @@ function openModal(title, file) {
       /* =========================
          CODE MODE (.txt files)
       ========================= */
-      if (file.endsWith(".txt")) {
+      if (file.toLowerCase().includes("code")) {
 
-        const escapedCode = data
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
+  modalBody.innerHTML = `
+    <pre class="language-cpp">
+      <code class="language-cpp">
+${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+      </code>
+    </pre>
+  `;
 
-        modalBody.innerHTML = `
-          <pre><code class="language-cpp">
-${escapedCode}
-          </code></pre>
-        `;
+  copyBtn.style.display = "inline-block";
 
-        copyBtn.style.display = "inline-block";
-
-        if (window.Prism) {
-          Prism.highlightAll();
-        }
+  // 🔥 THIS IS THE KEY LINE
+  Prism.highlightAllUnder(modalBody);
       }
-
       /* =========================
          DETAILS MODE (.html files)
       ========================= */
