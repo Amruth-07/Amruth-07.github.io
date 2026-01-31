@@ -610,7 +610,7 @@ body{
     0 0 10px rgba(0,229,255,0.25);
 
 }
-/* Light mode bordered cards *
+/* Light mode bordered cards */
 .light-mode .card{
   background:#ffffff;
   color:#111;
