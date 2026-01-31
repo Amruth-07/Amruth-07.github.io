@@ -1,119 +1,67 @@
-Portable Oscilloscope Project (Arduino + OLED)
-This project is a small, low-cost electronic instrument that can see electrical signals as waveforms in real time.
-Instead of a big laboratory oscilloscope, it uses a microcontroller and a tiny OLED screen to:
-Measure an input voltage signal
-Convert it to digital values
-Draw the live waveform on the display
-It is portable, battery powered, and useful for learning and basic signal testing.
-Let’s go step by step in full detail.
-##1. Purpose of the Project
-In normal electronics work:
-You cannot “see” a signal, you can only measure voltage with a multimeter.
-Multimeter shows only a number, not the signal shape.
-To check if a signal is sine, square, noisy, or distorted you need an oscilloscope.
-Professional oscilloscopes are:
--Expensive
--Bulky
--Not portable
-This project solves that by creating a mini oscilloscope that:
-Shows the actual waveform
-Works anywhere with USB/battery power
-Is very low cost and easy to build
-So it is ideal for students, hobbyists, and embedded system debugging.
-##2. Main Objectives
-Capture analog voltage signals in real time
-Display waveform graphically on an OLED screen
-Make the device small and portable
-Provide basic time scale and voltage visualization
-Create a low-cost alternative for learning and testing
-Overall goal: a simple handheld tool to visualize electronic signals.
-##3. Main Components and Their Roles
-Arduino (microcontroller board)
-Brain of the system
-Reads analog signal using built-in ADC
-Processes sampled data
-Draws waveform on the OLED
-Analog Input Pin (A0)
-Where the signal to be measured is connected
-Accepts safe voltage range (usually 0–5 V)
-OLED Display (128×64)
-Shows the waveform as a moving graph
-Displays signal visually in real time
-Input Protection / Resistor Divider
-Reduces higher input voltages to safe level
-Protects the Arduino from damage
-Push Buttons (optional)
-Change time scale (speed of waveform)
-Adjust vertical scaling or modes
-Power Supply
-USB or small battery
-Makes the oscilloscope portable
-(All these blocks together form one mini oscilloscope.)
-4. Working Methodology
-The input signal is given to the analog pin.
-Arduino reads the voltage using ADC.
-ADC converts voltage to a number (0–1023 for 10-bit).
-Many samples are taken quickly in a loop.
-Each sample is mapped to a vertical pixel on the screen.
-Samples are drawn from left to right across the OLED.
-Screen is refreshed continuously to show a live moving waveform.
-Everything happens repeatedly at high speed to look real time.
-5. Working Principle (Simple Flow)
-Sense → Convert → Map → Draw → Repeat
-Example:
-Input voltage changes →
-ADC reads values like 200, 450, 800… →
-Each value becomes a Y-position on screen →
-Points are connected to form a wave →
-New samples push old ones forward →
-Live scrolling waveform appears.
-If the signal is:
-Sine → smooth curved wave
-Square → sharp high/low blocks
-Triangle → straight up and down slopes
-6. Sampling and Time Control
-Faster sampling = more accurate waveform
-Slower sampling = stretched waveform
-By changing delay between samples you control:
-Time per division (speed of graph)
-How many cycles of signal are visible
-This acts like the time base knob of a real oscilloscope.
-7. Display and Visualization
-Screen width = time axis (left to right)
-Screen height = voltage axis (up and down)
-Low voltage → lower pixels
-High voltage → higher pixels
-Continuous drawing creates a scrolling effect, so you can see the signal movement and shape.
-8. Results Achieved
-Real-time waveform display worked correctly
-Sine, square and triangle signals were clearly visible
-Device was small, light and portable
-Useful for quick signal checking and debugging
-Worked reliably with low power consumption
-So the project proved practical as a basic oscilloscope.
-9. Advantages
-Very low cost compared to lab oscilloscopes
-Portable and battery operable
-Simple to build and understand
-Great for learning signal behavior
-Useful for testing sensors, PWM and audio signals
-10. Limitations
-Limited input voltage range (must not exceed safe limit)
-Lower accuracy and bandwidth than professional devices
-No advanced triggering or deep memory
-Best for low-frequency signals (audio, sensor, PWM)
-11. Possible Improvements
-Add volts/div and time/div controls
-Add trigger for stable waveform
-Store and freeze captured signal
-Add rechargeable battery and casing
-Use faster ADC for higher frequency signals
-12. Final Conclusion
-This portable oscilloscope converts electrical signals into visible waveforms using simple steps:
-Measure voltage → digitize → map to pixels → draw continuously
-It combines:
-Signal measurement
-Real-time visualization
-Compact portable hardware
-into one small and affordable device.
-It reduces the need for expensive equipment, helps in debugging and learning electronics, and makes signal analysis accessible anywhere.
+<h3>Portable Oscilloscope using Arduino and OLED</h3>
+
+<p>
+This project is a small, low-cost portable oscilloscope that can visualize
+electrical signals as waveforms in real time. Instead of using a bulky
+laboratory oscilloscope, it uses an Arduino microcontroller and a tiny OLED
+display to observe signal shapes.
+</p>
+
+<p>
+The input analog voltage is sampled by the Arduino, converted into digital
+values, and then plotted as a moving waveform on the OLED screen. This makes
+it possible to “see” signals like sine waves, square waves, and triangle
+waves during experiments and testing.
+</p>
+
+<h4>Working Principle</h4>
+<ul>
+  <li>Analog signal is applied to the Arduino ADC input pin</li>
+  <li>Arduino samples the signal at high speed</li>
+  <li>Sampled values are scaled to fit the OLED screen height</li>
+  <li>Points are drawn continuously to form a live waveform</li>
+  <li>Buffer updates create scrolling real-time display</li>
+</ul>
+
+<h4>Main Components Used</h4>
+<ul>
+  <li>Arduino Nano / Uno</li>
+  <li>0.96" OLED display (SSD1306)</li>
+  <li>Resistor voltage divider for input protection</li>
+  <li>Push buttons for control (optional)</li>
+  <li>Battery or USB power supply</li>
+  <li>Connecting wires and small PCB</li>
+</ul>
+
+<h4>Functions Implemented</h4>
+<ul>
+  <li>Real-time waveform visualization</li>
+  <li>Adjustable time/division (sampling speed)</li>
+  <li>Adjustable voltage scaling</li>
+  <li>Basic triggering for stable display</li>
+  <li>FFT mode for simple frequency analysis (optional)</li>
+</ul>
+
+<h4>Features</h4>
+<ul>
+  <li>Compact and fully portable design</li>
+  <li>Very low cost compared to lab oscilloscopes</li>
+  <li>Good for learning and basic signal testing</li>
+  <li>Can display sine, square, triangle and noisy signals</li>
+</ul>
+
+<h4>Applications</h4>
+<ul>
+  <li>Electronics lab experiments</li>
+  <li>Debugging Arduino sensor signals</li>
+  <li>Learning about waveforms and frequency</li>
+  <li>Quick field testing of low-voltage signals</li>
+</ul>
+
+<h4>Future Improvements</h4>
+<ul>
+  <li>Add rotary encoder for smooth control</li>
+  <li>Increase sampling rate using optimized ADC</li>
+  <li>Add signal storage and freeze function</li>
+  <li>Design custom PCB enclosure for handheld use</li>
+</ul>
