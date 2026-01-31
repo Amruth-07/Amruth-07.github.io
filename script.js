@@ -30,7 +30,7 @@ function openModal(title, file) {
       /* =========================
          CODE MODE (.txt files)
       ========================= */
-      if (file.toLowerCase().includes("code")) {
+      if (file.endsWith(".txt")) {
 
         const highlighted = Prism.highlight(
   data,
@@ -39,8 +39,8 @@ function openModal(title, file) {
 );
 
 modalBody.innerHTML = `
-<pre class="language-cpp">
-<code class="language-cpp">
+<pre class="language-c">
+  <code class="language-c">
 ${highlighted}
 </code>
 </pre>
@@ -52,24 +52,19 @@ copyBtn.style.display = "inline-block";
       /* =========================
          DETAILS MODE (.html files)
       ========================= */
-      else {
-        modalBody.innerHTML = `
-          <div class="details-text">
-            ${data}
-          </div>
-        `;
-        copyBtn.style.display = "none";
-      }
-    })
-    .catch(err => {
-      modalBody.innerHTML = "❌ File not found or path error!";
-      copyBtn.style.display = "none";
-      console.error(err);
-    });
+      if (file.endsWith(".txt")) {
 
-  modal.style.display = "block";
+  modalBody.innerHTML = `
+    <pre class="language-c">
+      <code class="language-c">
+${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+      </code>
+    </pre>
+  `;
+
+  copyBtn.style.display = "inline-block";
+  Prism.highlightAllUnder(modalBody);
 }
-
 
 /* =========================
    CLOSE MODAL
