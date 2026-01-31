@@ -746,3 +746,31 @@ body.light-mode{
   background:#f4f6fb;   /* plain light background */
   color:#111;
 }
+
+
+
+
+/* Remove neon glow/double border in light mode for pills */
+.light-mode .skill-pill,
+.light-mode .hobby-pill,
+.light-mode .interest-pill{
+  box-shadow:none;              /* remove outer glow */
+}
+
+/* if you used pseudo border for neon effect */
+.light-mode .skill-pill::before,
+.light-mode .hobby-pill::before,
+.light-mode .interest-pill::before{
+  display:none;                 /* remove extra gradient border */
+}
+
+/* keep only single thin gradient border */
+.light-mode .skill-pill,
+.light-mode .hobby-pill,
+.light-mode .interest-pill{
+  border:2px solid transparent;
+  background:
+    linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(90deg,#a855f7,#06b6d4,#22c55e) border-box;
+  color:#111;
+}
