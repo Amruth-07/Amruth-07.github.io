@@ -1,120 +1,71 @@
-Smart IoT System for Farming & Security project is basically an all-in-one smart agriculture system that combines:
-Automatic irrigation
-Fire detection
-Intrusion/security detection
-Real-time monitoring (both locally on OLED and online through IoT)
-Let’s go step by step in full detail.
-1. Purpose of the Project
-In normal farming or gardening:
-People manually water plants → wastes water and time
-There is no immediate warning for fire accidents
-Fields/gardens are not protected from unauthorized entry
-Your project solves all three problems by using sensors and automation:
-Water only when soil is dry
-Alert immediately if fire is detected
-Alert if someone crosses the protected boundary
-All data is continuously shown on an OLED screen and also sent to the internet for remote monitoring.
-This makes the system smart, safe, and efficient. 
-AGRIGUARD final ppt-2.pptx None
-2. Main Objectives
-Automatically water plants based on soil moisture
-Detect fire hazards and give instant alert
-Detect unauthorized entry using laser security
-Show live data on OLED display
-Provide remote monitoring through IoT (Wi-Fi + cloud)
-Overall goal: a low-cost, reliable smart farming and security system. 
-AGRIGUARD final ppt-2.pptx None
-3. Main Components and Their Roles
-ESP32 Microcontroller
-Brain of the system
-Reads all sensors
-Controls pump, buzzer, display
-Sends data to the cloud through Wi-Fi
-Soil Moisture Sensor
-Measures how wet or dry the soil is
-If soil is dry → ESP32 turns ON water pump
-Relay Module + Water Pump
-Relay acts like an electronic switch
-ESP32 gives small signal → relay turns ON pump safely
-Pump waters the plants automatically
-Flame Sensor
-Detects fire or high heat
-If fire is sensed → buzzer sounds immediately
-Laser + LDR (Light Dependent Resistor)
-Laser beam is continuously falling on LDR
-If someone crosses and breaks the beam → intrusion detected
-Buzzer alert is triggered
-DHT11 Sensor
-Measures temperature and humidity of air
-OLED Display
-Shows live values:
-Temperature
-Humidity
-Soil moisture
-Fire status
-Security status
-Buzzer
-Gives sound alert for:
-Fire
-Unauthorized entry
-Power Supply
-Provides stable voltage to all components
-(All these blocks are integrated into one single smart system.) 
-AGRIGUARD final ppt-2.pptx None
-4. Working Methodology
-All sensors are connected to ESP32
-ESP32 continuously reads:
-Soil moisture
-Temperature & humidity
-Flame sensor
-Laser–LDR security status
-Values are compared with preset limits:
-If soil is dry → Pump ON
-If fire detected → Buzzer ON
-If laser beam breaks → Buzzer ON
-Current readings are shown on OLED in real time
-ESP32 connects to Wi-Fi and uploads data to cloud (ThingSpeak)
-User can monitor everything remotely from anywhere
-This whole process runs automatically without manual control. �
-AGRIGUARD final ppt-2.pptx None
-5. Working Principle (Simple Flow)
-Sense → Process → Act → Display → Upload
-Example:
-Soil dry → ESP32 detects low moisture → Relay ON → Pump waters plant
-Fire detected → ESP32 triggers buzzer + sends alert
-Intruder breaks laser → ESP32 triggers buzzer + sends alert
-All sensor values → shown on OLED + uploaded online
-Automation reduces human effort and saves resources. 
-AGRIGUARD final ppt-2.pptx None
-6. IoT and Remote Monitoring
-ESP32 uses Wi-Fi to connect to the internet
-Sensor data is sent to an online platform
-User can see graphs and values from mobile/laptop anywhere
-Useful for large farms or when owner is not present on site
-Immediate alerts help prevent damage. 
-AGRIGUARD final ppt-2.pptx None
-7. Results Achieved
-Automatic irrigation worked correctly
-Fire was detected and buzzer alert worked
-Laser security successfully detected intrusion
-OLED displayed live sensor data clearly
-Water and energy wastage reduced
-System operated reliably and continuously
-So the system proved practical and efficient. 
-AGRIGUARD final ppt-2.pptx None
-8. Advantages
-Saves water (only waters when needed)
-Improves plant health and yield
-Early fire warning prevents huge loss
-Protects farm/garden from trespassing
-Low cost and scalable (can add more sensors later)
-Works for home gardens, greenhouses, and farms
-9. Final Conclusion
-Your AgriGuard system smartly combines:
-Irrigation automation
-Fire safety
-Security monitoring
-IoT based remote access
-into one compact and cost-effective solution.
-It reduces manual work, saves resources, increases safety, and makes farming more intelligent and modern.
-That’s why it is ideal for smart agriculture applications. 
+<h3>AgriGuard – Smart IoT Farming & Security System</h3>
+
+<p>
+AgriGuard is an all-in-one smart agriculture system designed to automate
+irrigation and provide field security using sensors and an Arduino-based
+controller. It continuously monitors soil moisture, fire risk, and human
+intrusion to protect crops and reduce manual work.
+</p>
+
+<p>
+The system automatically waters plants only when the soil becomes dry,
+detects fire or high temperature conditions, and triggers alerts when
+unauthorized movement is sensed near the protected area. All data is
+displayed locally on an OLED screen and can also be sent online for remote
+monitoring.
+</p>
+
+<h4>Working Principle</h4>
+<ul>
+  <li>Soil moisture sensor checks the water content in soil</li>
+  <li>If soil is dry, Arduino turns ON the water pump automatically</li>
+  <li>Flame/temperature sensor detects fire or abnormal heat</li>
+  <li>PIR sensor detects human or animal movement (intrusion)</li>
+  <li>OLED display shows live status of all sensors</li>
+  <li>IoT module sends data to the internet for remote viewing</li>
+</ul>
+
+<h4>Main Components Used</h4>
+<ul>
+  <li>Arduino (Uno/Nano)</li>
+  <li>Soil moisture sensor</li>
+  <li>Flame or temperature sensor</li>
+  <li>PIR motion sensor</li>
+  <li>Relay module and water pump</li>
+  <li>OLED display</li>
+  <li>ESP8266 / WiFi IoT module</li>
+  <li>Power supply and connecting wires</li>
+</ul>
+
+<h4>Functions Implemented</h4>
+<ul>
+  <li>Automatic irrigation control</li>
+  <li>Fire detection and warning</li>
+  <li>Intrusion/security detection</li>
+  <li>Real-time sensor monitoring on OLED</li>
+  <li>Online IoT based remote monitoring</li>
+</ul>
+
+<h4>Features</h4>
+<ul>
+  <li>Saves water by watering only when needed</li>
+  <li>Improves crop safety with fire and intrusion alerts</li>
+  <li>Reduces manual monitoring effort</li>
+  <li>Low-cost and suitable for small farms and gardens</li>
+</ul>
+
+<h4>Applications</h4>
+<ul>
+  <li>Smart irrigation for agriculture fields</li>
+  <li>Home gardens and greenhouses</li>
+  <li>Farm security and boundary monitoring</li>
+  <li>IoT based remote farming systems</li>
+</ul>
+
+<h4>Future Improvements</h4>
+<ul>
+  <li>Add mobile app notifications</li>
+  <li>Integrate solar power for outdoor use</li>
+  <li>Add weather prediction based control</li>
+  <li>Use GSM module for SMS alerts without internet</li>
+  </ul>
