@@ -559,4 +559,85 @@ body{
 .light-mode p{
   color:#111;
 }
+/* ===== COMPLETE LIGHT MODE OVERRIDE ===== */
 
+.light-mode{
+  background:#f4f4f6;
+  color:#111;
+}
+
+/* headings glow but readable */
+.light-mode .section-headline{
+  background:linear-gradient(90deg,#6a00ff,#00c6ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:none;
+}
+
+/* main cards */
+.light-mode .card,
+.light-mode .about-card,
+.light-mode .project-card{
+  background:#ffffff;
+  color:#111;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  border:1px solid rgba(0,0,0,0.06);
+}
+
+/* about image border softer */
+.light-mode .about-card img{
+  box-shadow:0 0 12px rgba(0,0,0,0.15);
+}
+
+/* text inside cards */
+.light-mode .card p,
+.light-mode .project-card p,
+.light-mode .about-text{
+  color:#333;
+}
+
+/* hobby + skills pills (small, light, thin neon border) */
+.light-mode .hobby-pill.dark{
+  background:#ffffff;
+  color:#111;
+  padding:8px 16px;
+  font-size:14px;
+  border-radius:26px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* thin animated border */
+.light-mode .hobby-pill.dark::before{
+  padding:1px;
+  box-shadow:
+    0 0 3px rgba(127,0,255,.25),
+    0 0 6px rgba(0,212,255,.2);
+}
+
+/* project images remove heavy dark glow */
+.light-mode .project-card img{
+  box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+/* buttons text color */
+.light-mode .highlight-btn,
+.light-mode #copyBtn{
+  color:#111;
+}
+
+/* modal */
+.light-mode .modal-content{
+  background:#ffffff;
+  color:#111;
+  box-shadow:0 0 20px rgba(0,0,0,0.25);
+}
+
+.light-mode #modalBody pre{
+  background:#f0f0f0;
+  color:#000;
+}
+
+/* links */
+.light-mode a{
+  color:#0057ff;
+}
