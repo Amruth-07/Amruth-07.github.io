@@ -827,7 +827,7 @@ body:not(.light-mode) .theme-toggle{
 
 /* Buttons container spacing */
 .project-actions{
-  gap: 35px;                /* was 40px → smaller */
+  gap: 45px;                /* was 40px → smaller */
   margin-top: 16px;
 }
 
@@ -844,7 +844,7 @@ body:not(.light-mode) .theme-toggle{
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 30px;        /* ⬅ increase spacing here */
+  gap: 25px;        /* ⬅ increase spacing here */
   margin-top: 18px;
 }
 
@@ -862,7 +862,7 @@ body:not(.light-mode) .theme-toggle{
   overflow: hidden;     /* hides bottom */
   border-radius: 18px;
   margin-bottom: 16px;
-  transition: height 0.4s ease;
+  transition: height 0.6s ease;
 }
 
 /* image */
@@ -939,6 +939,7 @@ body:not(.light-mode) .theme-toggle{
 body.light-mode{
   --card-bg: #ffffff;   /* light card */
 }
+
 
 
 
