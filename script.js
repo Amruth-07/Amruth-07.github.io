@@ -110,19 +110,18 @@ function toggleTheme() {
 /* ==========================================
    PROJECT IMAGE TOGGLE (VIEW / HIDE)
 ========================================== */
-
 function toggleProjectImage(button){
-  const wrapper = button.parentElement;
+  const card = button.closest(".project-card");
+  const wrapper = card.querySelector(".project-image-wrapper");
 
   wrapper.classList.toggle("expanded");
 
   if(wrapper.classList.contains("expanded")){
-    button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Image';
+    button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide';
   } else {
-    button.innerHTML = '<i class="fas fa-eye"></i> View Image';
+    button.innerHTML = '<i class="fas fa-eye"></i> View';
   }
 }
-
 
 /* ===============================
    SCROLL REVEAL ANIMATION
@@ -144,3 +143,4 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 
 window.addEventListener("load", revealOnScroll);
+
