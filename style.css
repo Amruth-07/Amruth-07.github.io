@@ -949,7 +949,7 @@ body.light-mode .resume-btn{
 ========================================== */
 
 .theme-toggle{
-  width:42px;              /* 🔽 smaller */
+  width:40px;              /* 🔽 smaller */
   height:42px;
   border-radius:50%;
 
@@ -1030,7 +1030,7 @@ body:not(.light-mode) .theme-toggle{
 
 /* icon size */
 .theme-toggle i{
-  font-size:16px;
+  font-size:18px;
 }
 
 /* hover effect */
@@ -1057,3 +1057,4 @@ body:not(.light-mode) .theme-toggle{
 
   color:#ffffff;
 }
+
