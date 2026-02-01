@@ -79,7 +79,7 @@ body{
 /* ================= HOBBY / SKILL PILLS ================= */
 .hobbies-wrapper{
   display:grid;
-  gap:18px;
+  gap:14px;
   margin-top:30px;
   max-width:650px;
   margin-inline:auto;
