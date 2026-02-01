@@ -252,12 +252,12 @@ body{
 
 /* =====================================================
    PROJECT BUTTONS
-===================================================== */
+===================================================== *
 .project-actions{
   display:flex;
   justify-content:center;
   gap:30px;
-  margin-top:20px;
+  margin-top:20px;*/
 }
 
 .highlight-btn{
@@ -1301,3 +1301,4 @@ body.light-mode .view-image-btn{
   border-radius:26px;
   white-space:nowrap;               /* keep text in one line */
 }
+
