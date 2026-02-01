@@ -1145,3 +1145,14 @@ body:not(.light-mode) .theme-toggle{
 .project-image-wrapper.expanded{
   height: auto;         /* FULL IMAGE */
 }
+/* CERTIFICATE IMAGES – NORMAL */
+.certificates-grid .project-card img,
+.projects-grid .project-card img:not(.project-image){
+  width: 100%;
+  height: auto;           /* 🔥 KEY */
+  object-fit: contain;    /* no crop */
+  border-radius: 18px;
+  background: transparent;
+  padding: 0;
+}
+
