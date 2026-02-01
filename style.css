@@ -1176,3 +1176,25 @@ body:not(.light-mode) .theme-toggle{
   background: #0b1220;
   padding: 10px;
 }
+/* IMAGE WRAPPER */
+.project-image-wrapper{
+  width: 100%;
+  height: 220px;              /* shows ~60% */
+  overflow: hidden;           /* hides bottom 40% */
+  border-radius: 18px;
+  transition: height 0.4s ease;
+}
+
+/* IMAGE */
+.project-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* fills nicely */
+  object-position: top;       /* show TOP part */
+  display: block;
+}
+
+/* EXPANDED STATE – FULL IMAGE */
+.project-image-wrapper.expanded{
+  height: auto;               /* 🔥 FULL IMAGE */
+}
