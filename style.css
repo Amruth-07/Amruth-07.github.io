@@ -1195,12 +1195,15 @@ body:not(.light-mode) .theme-toggle{
    PROJECT CARD – FIX ROUND CORNERS + SPACING
 ========================================== */
 
+/* ==================================
+   PROJECT CARD – LIGHT & DARK SAFE
+================================== */
+
 .project-card{
-  background: #ffffff;          /* light card */
-  border-radius: 22px;          /* smooth rounded card */
-  padding: 18px 18px 26px;      /* 🔥 extra bottom space */
-  overflow: hidden;             /* 🔥 clips image corners */
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  background: var(--card-bg);   /* dynamic color */
+  border-radius: 22px;
+  padding: 16px;
+  overflow: hidden;
 }
 /* Image wrapper follows card shape */
 .project-image-wrapper{
@@ -1211,4 +1214,13 @@ body:not(.light-mode) .theme-toggle{
 .project-actions{
   margin-top: 18px;
   padding-bottom: 6px;    /* prevents tight bottom */
+}
+/* Default = DARK MODE */
+:root{
+  --card-bg: #0e1525;    /* dark card */
+}
+
+/* Light Mode */
+body.light-mode{
+  --card-bg: #ffffff;   /* light card */
 }
