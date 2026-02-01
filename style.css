@@ -855,3 +855,91 @@ body.light-mode .download-btn{
 body.light-mode .file-size{
   color:#555555;
 }
+
+
+/* ==================================================
+   RESUME VIEW / DOWNLOAD BUTTONS
+   ================================================== */
+
+.resume-actions{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin:20px auto 50px;
+  flex-wrap:wrap;
+}
+
+.resume-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 26px;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+
+  border-radius:40px;
+  border:2px solid transparent;
+  color:#ffffff;
+
+  background:
+    linear-gradient(#0b1220,#0b1220) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6
+    ) border-box;
+
+  box-shadow:
+    0 0 12px rgba(0,229,255,0.35),
+    0 0 22px rgba(122,92,255,0.3);
+
+  transition:0.3s ease;
+}
+
+.resume-btn:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:
+    0 0 18px rgba(0,229,255,0.6),
+    0 0 30px rgba(122,92,255,0.55);
+}
+
+/* ================= LIGHT MODE ================= */
+
+body.light-mode .resume-btn{
+  color:#111;
+  background:
+    linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6
+    ) border-box;
+}
+
+/* ==========================================
+   RESUME BUTTONS – SMALL SIZE
+========================================== */
+
+.resume-actions{
+  gap:14px;                 /* slightly closer */
+  margin:16px auto 40px;
+}
+
+.resume-btn{
+  padding:8px 18px;         /* 🔽 smaller */
+  font-size:13px;           /* 🔽 smaller text */
+  gap:6px;                  /* icon closer */
+  border-radius:30px;       /* compact look */
+}
+
+/* icon size smaller */
+.resume-btn i{
+  font-size:13px;
+}
+
