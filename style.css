@@ -19,7 +19,6 @@ body{
 #hero{
   margin-top:20px;
 }
-
 .profile img{
   width:180px;
   height:180px;
@@ -31,7 +30,6 @@ body{
     0 0 40px rgba(0,212,255,0.35);
   transition:transform .5s;
 }
-
 .profile img:hover{
   transform:scale(1.05);
 }
@@ -56,7 +54,6 @@ body{
     drop-shadow(0 0 6px rgba(127,0,255,.4))
     drop-shadow(0 0 14px rgba(0,212,255,.35));
 }
-
 @keyframes headlineMove{
   from{background-position:0% 50%;}
   to{background-position:300% 50%;}
@@ -70,7 +67,6 @@ body{
   max-width:650px;
   box-shadow:0 8px 25px rgba(0,0,0,.6);
 }
-
 .about-text{
   line-height:1.8;
   opacity:.9;
@@ -96,7 +92,6 @@ body{
   gap:16px;
   margin:18px 0 10px;
 }
-
 .skill-pill{
   position:relative;
   padding:8px 16px;
@@ -106,7 +101,6 @@ body{
   background:#0b0f1a;
   overflow:hidden;
 }
-
 .skill-pill::before{
   content:"";
   position:absolute;
@@ -141,7 +135,6 @@ body{
   max-width:700px;
   margin:30px auto;
 }
-
 .hobby-pill{
   position:relative;
   padding:18px 28px;
@@ -154,7 +147,6 @@ body{
     0 0 12px rgba(127,0,255,0.35),
     0 0 20px rgba(0,212,255,0.25);
 }
-
 .hobby-pill::before{
   content:"";
   position:absolute;
@@ -177,52 +169,14 @@ body{
   -webkit-mask-composite:xor;
           mask-composite:exclude;
 }
-
 @keyframes neonMove{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
-
 .hobby-pill:hover{
   transform:translateY(-2px) scale(1.02);
 }
-
-/* =====================================================
-   PROJECTS & CERTIFICATES GRID
-===================================================== *
-.projects-grid{
-  display:grid;
-  gap:25px;
-  max-width:100px;
-  margin:auto;
-}
-/*
-.project-card{
-  background:#0b1220;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.6);
-}
-
-.project-card img{
-  width:100%;
-  border-radius:18px;
-  padding:3px;
-  background:linear-gradient(135deg,#7f00ff,#00d4ff);
-  box-shadow:
-    0 0 18px rgba(127,0,255,.5),
-    0 0 30px rgba(0,212,255,.35);
-  transition:.4s;
-}
-
-.project-card img:hover{
-  transform:scale(1.03);
-}
-
-/* =====================================================
-   PROJECT BUTTONS
-===================================================== */
 .project-actions{
   display:flex;
   justify-content:center;
@@ -240,7 +194,6 @@ body{
   font-weight:600;
   overflow:hidden;
 }
-
 .highlight-btn::before{
   content:"";
   position:absolute;
@@ -264,16 +217,11 @@ body{
   -webkit-mask-composite:xor;
           mask-composite:exclude;
 }
-
 @keyframes neonBtn{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
-
-/* =====================================================
-   MODAL
-===================================================== */
 .modal{
   display:none;
   position:fixed;
@@ -281,7 +229,6 @@ body{
   background:rgba(0,0,0,0.8);
   z-index:999;
 }
-
 .modal-content{
   background:#111;
   width:95%;
@@ -294,7 +241,6 @@ body{
   overflow-y:auto;
   text-align:left;
 }
-
 .close-btn{
   position:absolute;
   top:10px;
@@ -303,10 +249,6 @@ body{
   cursor:pointer;
   color:#ff4d4d;
 }
-
-/* =====================================================
-   COPY BUTTON
-===================================================== */
 .copy-btn{
   margin-bottom:10px;
   padding:8px 14px;
@@ -316,10 +258,6 @@ body{
   font-weight:600;
   cursor:pointer;
 }
-
-/* =====================================================
-   THEME TOGGLE
-===================================================== */
 .theme-toggle{
   position:fixed;
   top:14px;
@@ -335,49 +273,33 @@ body{
     0 0 12px rgba(0,229,255,0.5),
     0 0 20px rgba(122,92,255,0.3);
 }
-
-/* =====================================================
-   LIGHT MODE
-===================================================== */
 body.light-mode{
   background:#f4f6fb;
   color:#111;
 }
-
 body.light-mode .card,
 body.light-mode .project-card{
   background:#ffffff;
   color:#111;
   box-shadow:0 10px 25px rgba(0,0,0,0.12);
 }
-
 body.light-mode .modal-content{
   background:#ffffff;
   color:#111;
 }
-
 body.light-mode .theme-toggle{
   background:#ffffff;
   color:#000;
   box-shadow:0 0 10px rgba(0,150,255,.4);
 }
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
 @media(min-width:1024px){
   .projects-grid{
     grid-template-columns:repeat(2,1fr);
   }
-
   .hobbies-wrapper{
     max-width:900px;
   }
 }
-/* ==================================================
-   LIGHT MODE – PILL FIX (SAFE & VERIFIED)
-   ================================================== */
-
 /* base pill in light mode */
 body.light-mode .hobby-pill,
 body.light-mode .skill-pill {
@@ -385,7 +307,6 @@ body.light-mode .skill-pill {
   color: #111111 !important;        /* dark text */
   box-shadow: none !important;
 }
-
 /* KEEP the neon border (do NOT remove ::before) */
 body.light-mode .hobby-pill::before,
 body.light-mode .skill-pill::before {
@@ -405,26 +326,17 @@ body.light-mode .skill-pill::before {
   );
   background-size: 300% 300%;
   animation: neonMove 6s linear infinite;
-
-  /* border-only mask (CRITICAL) */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 }
-/* ==================================================
-   LIGHT MODE – INFO CARD BORDERS (SAFE FIX)
-   ================================================== */
-
 body.light-mode .card {
   background: #ffffff;
   color: #111111;
-
-  /* neon gradient border */
   border: 2px solid transparent;
   border-radius: 18px;
-
   background:
     linear-gradient(#ffffff, #ffffff) padding-box,
     linear-gradient(
@@ -438,18 +350,11 @@ body.light-mode .card {
   box-shadow:
     0 6px 16px rgba(0,0,0,0.12);
 }
-/* ==================================================
-   LIGHT MODE – FIX DETAILS / CODE BUTTONS
-   ================================================== */
-
 body.light-mode .highlight-btn {
-  background: #ffffff !important;   /* white inside */
-  color: #111111 !important;        /* dark text */
-
+  background: #ffffff !important;   
+  color: #111111 !important;  
   border: 2px solid transparent;
   border-radius: 40px;
-
-  /* neon gradient border */
   background:
     linear-gradient(#ffffff, #ffffff) padding-box,
     linear-gradient(
@@ -460,47 +365,31 @@ body.light-mode .highlight-btn {
       #00ffa6,
       #00e5ff
     ) border-box;
-
   box-shadow:
     0 4px 12px rgba(0,0,0,0.15);
 }
-
-/* hover stays neon but lighter */
 body.light-mode .highlight-btn:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow:
     0 0 10px rgba(0,229,255,0.6),
     0 0 18px rgba(122,92,255,0.5);
 }
-/* ==================================================
-   FORCE SAME IMAGE SIZE (PROJECTS + CERTIFICATES)
-   ================================================== */
-
-
-/* ==================================================
-   GET IN TOUCH SECTION
-   ================================================== */
-
 .contact-section{
   max-width:800px;
   margin:80px auto;
   text-align:center;
 }
-
 .contact-subtitle{
   margin-top:-10px;
   margin-bottom:30px;
   opacity:0.8;
 }
-
-/* INFO CARDS */
 .contact-cards{
   display:flex;
   flex-direction:column;
   gap:18px;
   margin-bottom:30px;
 }
-
 .contact-card{
   display:flex;
   align-items:center;
@@ -511,18 +400,15 @@ body.light-mode .highlight-btn:hover {
   box-shadow:0 6px 16px rgba(0,0,0,0.12);
   text-align:left;
 }
-
 .contact-card h4{
   margin:0;
   font-size:16px;
 }
-
 .contact-card p{
   margin:4px 0 0;
   font-size:14px;
   opacity:0.8;
 }
-
 .contact-icon{
   width:48px;
   height:48px;
@@ -534,15 +420,12 @@ body.light-mode .highlight-btn:hover {
   color:#fff;
   background:linear-gradient(135deg,#7b2cff,#00d4ff);
 }
-
-/* SOCIAL ICONS */
 .contact-social{
   display:flex;
   justify-content:center;
   gap:18px;
   margin:25px 0 35px;
 }
-
 .contact-social a{
   width:44px;
   height:44px;
@@ -555,23 +438,18 @@ body.light-mode .highlight-btn:hover {
   box-shadow:0 6px 16px rgba(0,0,0,0.12);
   transition:0.3s;
 }
-
 .contact-social a:hover{
   transform:translateY(-3px);
   background:linear-gradient(135deg,#7b2cff,#00d4ff);
   color:#fff;
 }
-
-/* FORM */
 .contact-form{
   text-align:left;
 }
-
 .contact-form label{
   font-size:14px;
   font-weight:600;
 }
-
 .contact-form input,
 .contact-form textarea{
   width:100%;
@@ -582,7 +460,6 @@ body.light-mode .highlight-btn:hover {
   outline:none;
   font-size:14px;
 }
-
 .send-btn{
   width:100%;
   padding:14px;
@@ -600,17 +477,11 @@ body.light-mode .highlight-btn:hover {
   transform:translateY(-2px);
   box-shadow:0 10px 24px rgba(0,0,0,0.2);
 }
-
-/* ================= LIGHT MODE SAFE ================= */
 body.light-mode .contact-card,
 body.light-mode .contact-social a{
   background:#ffffff;
   color:#111;
 }
-/* ==================================================
-   FIX: CONTACT INFO CARDS (EMAIL / PHONE / LOCATION)
-   ================================================== */
-
 .contact-card{
   background: #ffffff;
   border-radius: 20px;
@@ -655,8 +526,6 @@ body.light-mode .contact-social a{
 
   background: linear-gradient(135deg, #4f7cff, #00c6ff);
 }
-
-/* ================= DARK MODE ================= */
 body:not(.light-mode) .contact-card{
   background: #0b1220;
   border: 1.5px solid rgba(255,255,255,0.08);
@@ -668,11 +537,6 @@ body:not(.light-mode) .contact-card p{
   color: #ffffff;
   opacity: 0.85;
 }
-
-/* ==================================================
-   CONTACT CARDS – STRONG VISIBLE BORDERS
-   ================================================== */
-
 .contact-card{
   background: #ffffff;
   border-radius: 20px;
@@ -710,8 +574,6 @@ body:not(.light-mode) .contact-card p{
   background: linear-gradient(135deg, #4f7cff, #00c6ff);
 }
 
-/* ================= DARK MODE ================= */
-
 body:not(.light-mode) .contact-card{
   background: #0b1220;
   border: 2px solid rgba(255,255,255,0.15); /* visible in dark */
@@ -724,15 +586,6 @@ body:not(.light-mode) .contact-card p{
   opacity: 0.85;
 
 }
-
-/* ==================================================
-   PROJECT IMAGE – FIX FORMAT (NO DISTORTION)
-   ================================================== */
-
-/* ==================================================
-   DOWNLOAD CERTIFICATES BUTTON
-   ================================================== */
-
 .download-certificates{
   display:flex;
   justify-content:center;
@@ -776,9 +629,6 @@ body:not(.light-mode) .contact-card p{
     0 0 20px rgba(0,229,255,0.7),
     0 0 35px rgba(122,92,255,0.6);
 }
-
-/* ================= LIGHT MODE ================= */
-
 body.light-mode .download-btn{
   color:#111;
   background:
@@ -791,11 +641,6 @@ body.light-mode .download-btn{
       #00ffa6
     ) border-box;
    }
-
-/* ===============================
-   FILE SIZE TEXT
-================================ */
-
 .file-size{
   margin-top:8px;
   font-size:13px;
@@ -808,12 +653,6 @@ body.light-mode .download-btn{
 body.light-mode .file-size{
   color:#555555;
 }
-
-
-/* ==================================================
-   RESUME VIEW / DOWNLOAD BUTTONS
-   ================================================== */
-
 .resume-actions{
   display:flex;
   justify-content:center;
@@ -859,9 +698,6 @@ body.light-mode .file-size{
     0 0 18px rgba(0,229,255,0.6),
     0 0 30px rgba(122,92,255,0.55);
 }
-
-/* ================= LIGHT MODE ================= */
-
 body.light-mode .resume-btn{
   color:#111;
   background:
@@ -874,11 +710,6 @@ body.light-mode .resume-btn{
       #00ffa6
     ) border-box;
 }
-
-/* ==========================================
-   RESUME BUTTONS – SMALL SIZE
-========================================== */
-
 .resume-actions{
   gap:14px;                 /* slightly closer */
   margin:16px auto 40px;
@@ -895,12 +726,6 @@ body.light-mode .resume-btn{
 .resume-btn i{
   font-size:13px;
 }
-
-
-/* ==========================================
-   THEME TOGGLE – SMALL SIZE + BORDER
-========================================== */
-
 .theme-toggle{
   width:30px;              /* 🔽 smaller */
   height:32px;
@@ -932,19 +757,11 @@ body.light-mode .resume-btn{
   box-shadow:
     0 0 14px rgba(0,150,255,0.6);
 }
-
-/* ================= DARK MODE ================= */
-
 body:not(.light-mode) .theme-toggle{
   background:#0b1220;
   color:#ffffff;
   border:1px solid rgba(255,255,255,0.2);
 }
-
-/* ==========================================
-   THEME TOGGLE – NEON GRADIENT BORDER
-========================================== */
-
 .theme-toggle{
   width:42px;
   height:42px;
@@ -993,26 +810,6 @@ body:not(.light-mode) .theme-toggle{
     0 0 14px rgba(0,229,255,0.7),
     0 0 26px rgba(122,92,255,0.6);
 }
-
-/* ================= DARK MODE ================= *
-
-body:not(.light-mode) .theme-toggle{
-  background:
-    linear-gradient(#0b1220,#0b1220) padding-box,
-    linear-gradient(
-      120deg,
-      #00e5ff,
-      #7a5cff,
-      #ff00cc,
-      #00ffa6,
-      #00e5ff
-    ) border-box;
-
-  color:#ffffff;
-}
-/* ===== REDUCE VIEW / DETAILS BUTTON SIZE ===== */
-
-/* Gradient buttons (View / Live / Demo etc.) */
 .gradient-btn{
   padding: 10px 20px;        /* reduced padding */
   font-size: 12px;          /* smaller text */
@@ -1047,7 +844,7 @@ body:not(.light-mode) .theme-toggle{
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 35px;        /* ⬅ increase spacing here */
+  gap: 30px;        /* ⬅ increase spacing here */
   margin-top: 18px;
 }
 
@@ -1194,4 +991,5 @@ body:not(.light-mode) .theme-toggle{
 body.light-mode{
   --card-bg: #ffffff;   /* light card */
 }
+
 
