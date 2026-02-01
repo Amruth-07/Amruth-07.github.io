@@ -19,13 +19,13 @@ body{
 
 /* ================= PROFILE PHOTO ================= */
 .profile img{
-  width:200px;
-  height:200px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #7f00ff;
   box-shadow:0 0 30px rgba(127,0,255,0.6),0 0 40px rgba(0,212,255,0.35);
-  transition:transform .3s;
+  transition:transform .5s;
 }
 ..about-photo{
   display:block;
@@ -79,7 +79,7 @@ body{
 /* ================= HOBBY / SKILL PILLS ================= */
 .hobbies-wrapper{
   display:grid;
-  gap:25px;
+  gap:18px;
   margin-top:30px;
   max-width:650px;
   margin-inline:auto;
@@ -87,7 +87,7 @@ body{
 
 .hobby-pill{
   position:relative;
-  padding:16px 26px;
+  padding:20px 28px;
   border-radius:40px;
   background:#0b1220;
   color:#fff;
@@ -103,7 +103,7 @@ body{
   padding:2px;
   background:linear-gradient(90deg,#7f00ff,#00d4ff,#ff00cc,#00ffcc,#7f00ff);
   background-size:300% 100%;
-  animation:borderMove 6s linear infinite;
+  animation:borderMove 4s linear infinite;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
           mask-composite:exclude;
