@@ -76,7 +76,7 @@ body{
 
 .about-text{ line-height:1.8; opacity:.9; }
 
-/* ================= HOBBY / SKILL PILLS ================= *
+/* ================= HOBBY / SKILL PILLS ================= */
 .hobbies-wrapper{
   display:grid;
   gap:20px;
@@ -94,7 +94,7 @@ body{
   overflow:hidden;
 }
 
-/* animated neon border *
+/* animated neon border */
 .hobby-pill::before{
   content:"";
   position:absolute;
@@ -354,7 +354,7 @@ body{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:12px;
+  gap:16px;
   margin:18px 0 10px;
 }
 
