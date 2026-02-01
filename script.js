@@ -107,6 +107,23 @@ function toggleTheme() {
   icon.classList.toggle("fa-moon");
 }
 
+/* ==========================================
+   PROJECT IMAGE TOGGLE (VIEW / HIDE)
+========================================== */
+
+function toggleProjectImage(button){
+  const wrapper = button.parentElement;
+
+  wrapper.classList.toggle("expanded");
+
+  if(wrapper.classList.contains("expanded")){
+    button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Image';
+  } else {
+    button.innerHTML = '<i class="fas fa-eye"></i> View Image';
+  }
+}
+
+
 /* ===============================
    SCROLL REVEAL ANIMATION
 ================================ */
@@ -125,4 +142,5 @@ function revealOnScroll() {
 }
 
 window.addEventListener("scroll", revealOnScroll);
+
 window.addEventListener("load", revealOnScroll);
