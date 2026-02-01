@@ -947,7 +947,7 @@ project-card{
 /* Neon border layer */
 .project-card::before{
   content: "";
-  position: absolute;
+  position: ;
   inset: 0;
   border-radius: 22px;              /* same as card */
   padding: 1.2px;                   /* 🔥 VERY THIN BORDER */
@@ -988,6 +988,7 @@ body.light-mode .project-card::before{
   );
   background-size: 300% 300%;
     }
+
 
 
 
