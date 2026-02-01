@@ -1057,4 +1057,36 @@ body:not(.light-mode) .theme-toggle{
 
   color:#ffffff;
 }
+/* ===== REDUCE VIEW / DETAILS BUTTON SIZE ===== */
+
+/* Gradient buttons (View / Live / Demo etc.) */
+.gradient-btn{
+  padding: 8px 18px;        /* reduced padding */
+  font-size: 14px;          /* smaller text */
+  border-radius: 28px;      /* tighter pill */
+  gap: 10px;                /* icon/text spacing */
+}
+
+/* Neon outline buttons (Details / Code) */
+.highlight-btn,
+#copyBtn{
+  padding: 7px 16px;        /* reduced padding */
+  font-size: 14px;
+  border-radius: 26px;
+}
+
+/* Buttons container spacing */
+.project-actions{
+  gap: 18px;                /* was 40px → smaller */
+  margin-top: 14px;
+}
+
+/* Mobile extra compact */
+@media (max-width:600px){
+  .gradient-btn,
+  .highlight-btn{
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
 
