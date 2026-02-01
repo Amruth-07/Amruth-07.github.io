@@ -1156,3 +1156,16 @@ body:not(.light-mode) .theme-toggle{
   padding: 0;
 }
 
+/* ===============================
+   CERTIFICATE IMAGES – SMALL SIZE
+================================ */
+
+/* Certificate cards only */
+.certificates-grid .project-card img{
+  width: 100%;            /* fit card width */
+  max-height: 160px;      /* 🔽 SMALL IMAGE */
+  object-fit: contain;    /* full image, no crop */
+  border-radius: 12px;
+  background: #ffffff;    /* clean background */
+  padding: 6px;           /* small inner spacing */
+}
