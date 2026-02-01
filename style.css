@@ -775,3 +775,83 @@ body:not(.light-mode) .contact-card p{
   padding: 10px;         /* breathing space */
   border-radius: 18px;
 }
+
+/* ==================================================
+   DOWNLOAD CERTIFICATES BUTTON
+   ================================================== */
+
+.download-certificates{
+  display:flex;
+  justify-content:center;
+  margin:30px auto 60px;
+}
+
+.download-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:14px 28px;
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+  color:#ffffff;
+
+  border-radius:40px;
+  border:2px solid transparent;
+
+  background:
+    linear-gradient(#0b1220, #0b1220) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6
+    ) border-box;
+
+  box-shadow:
+    0 0 14px rgba(0,229,255,0.4),
+    0 0 24px rgba(122,92,255,0.35);
+
+  transition:0.3s ease;
+}
+
+.download-btn:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:
+    0 0 20px rgba(0,229,255,0.7),
+    0 0 35px rgba(122,92,255,0.6);
+}
+
+/* ================= LIGHT MODE ================= */
+
+body.light-mode .download-btn{
+  color:#111;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6
+    ) border-box;
+   }
+
+/* ===============================
+   FILE SIZE TEXT
+================================ */
+
+.file-size{
+  margin-top:8px;
+  font-size:13px;
+  opacity:0.75;
+  color:#cccccc;
+  text-align:center;
+}
+
+/* light mode */
+body.light-mode .file-size{
+  color:#555555;
+}
