@@ -227,7 +227,7 @@ body{
   max-width:1100px;
   margin:auto;
 }
-
+/*
 .project-card{
   background:#0b1220;
   border-radius:18px;
@@ -1132,10 +1132,31 @@ body:not(.light-mode) .theme-toggle{
 .project-image-wrapper.expanded{
   height:420px;              /* expand wrapper to show full image */
 }
+/* ==========================================
+   PROJECT IMAGE – FIXED SIZE & PERFECT FIT
+========================================== */
 
+/* image wrapper */
+.project-image-wrapper{
+  width: 100%;
+  height: 220px;              /* fixed preview height */
+  overflow: hidden;           /* hide extra image */
+  border-radius: 18px;
+  margin-bottom: 16px;
+  background: transparent;    /* ❌ no white box */
+}
 
+/* image itself */
+.project-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* fill without distortion */
+  object-position: top;       /* show top part */
+  display: block;             /* remove gaps */
+  border-radius: 18px;
+}
 
-
-
-
-
+/* expanded full view */
+.project-image-wrapper.expanded{
+  height: 420px;
+}
