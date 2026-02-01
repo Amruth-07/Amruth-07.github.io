@@ -1284,3 +1284,20 @@ body.light-mode .view-image-btn{
   border-radius:16px !important;
   transform:none !important;
    }
+/* ================= PROJECT BUTTONS – ONE LINE FIX ================= */
+
+.project-actions{
+  display:flex !important;
+  flex-wrap:nowrap !important;      /* ❌ stop wrapping */
+  justify-content:center;
+  gap:10px;
+}
+
+/* make all buttons equal & smaller */
+.project-actions .highlight-btn{
+  min-width:auto !important;        /* ❌ remove forcing width */
+  padding:8px 14px !important;
+  font-size:13px !important;
+  border-radius:26px;
+  white-space:nowrap;               /* keep text in one line */
+}
