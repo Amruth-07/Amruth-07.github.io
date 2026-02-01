@@ -1089,6 +1089,21 @@ body:not(.light-mode) .theme-toggle{
     font-size: 13px;
   }
 }
+/* ===== INCREASE SPACE BETWEEN PROJECT BUTTONS ===== */
+
+.project-actions{
+  display: flex;
+  justify-content: center;
+  gap: 28px;        /* ⬅ increase spacing here */
+  margin-top: 18px;
+}
+
+/* Mobile – slightly more breathing room */
+@media (max-width: 600px){
+  .project-actions{
+    gap: 24px;
+  }
+}
 
 
 
