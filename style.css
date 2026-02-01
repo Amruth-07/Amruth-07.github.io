@@ -1160,3 +1160,19 @@ body:not(.light-mode) .theme-toggle{
 .project-image-wrapper.expanded{
   height: 420px;
 }
+
+.project-image-wrapper{
+  height: 220px;
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+.project-image-wrapper.expanded{
+  height: auto;     /* ✅ FULL IMAGE */
+}
+
+.project-image{
+  object-fit: contain;
+  background: #0b1220;
+  padding: 10px;
+}
