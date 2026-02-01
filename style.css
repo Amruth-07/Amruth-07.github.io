@@ -913,9 +913,9 @@ body:not(.light-mode) .theme-toggle{
     grid-template-columns: repeat(2, 1fr);  /* 🔥 2 / 2 layout */
   }
 }
-
+/*
 .project-card{
-  background: var(--card-bg);   /* dynamic color */
+  background: var(--card-bg);   /* dynamic color *
   border-radius: 22px;
   padding: 16px;
   overflow: hidden;
@@ -988,5 +988,6 @@ body.light-mode .project-card::before{
   );
   background-size: 300% 300%;
     }
+
 
 
