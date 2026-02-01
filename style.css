@@ -1200,3 +1200,48 @@ pre[class*="language-"] {
     max-width:900px;
   }
   }
+
+
+/* ===== FINAL FORCE NEON (DO NOT MOVE) ===== */
+
+.hobby-pill.dark{
+  background:#0b1220 !important;
+  color:#fff !important;
+  position:relative;
+  border-radius:50px;
+  overflow:hidden;
+  box-shadow:
+    0 0 14px rgba(127,0,255,0.5),
+    0 0 28px rgba(0,212,255,0.35);
+}
+
+.hobby-pill.dark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:inherit;
+
+  background:linear-gradient(
+    90deg,
+    #7f00ff,
+    #00d4ff,
+    #ff00cc,
+    #00ffa6,
+    #7f00ff
+  );
+  background-size:400% 400%;
+  animation:neonSlide 6s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+@keyframes neonSlide{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
