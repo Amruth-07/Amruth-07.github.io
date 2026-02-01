@@ -965,7 +965,7 @@ body.light-mode .resume-btn{
   align-items:center;
   justify-content:center;
 
-  transition:0.3s ease;
+  transition:0.5s ease;
 }
 
 /* icon size */
@@ -1030,7 +1030,7 @@ body:not(.light-mode) .theme-toggle{
 
 /* icon size */
 .theme-toggle i{
-  font-size:18px;
+  font-size:15px;
 }
 
 /* hover effect */
@@ -1062,7 +1062,7 @@ body:not(.light-mode) .theme-toggle{
 /* Gradient buttons (View / Live / Demo etc.) */
 .gradient-btn{
   padding: 10px 20px;        /* reduced padding */
-  font-size: 14px;          /* smaller text */
+  font-size: 12px;          /* smaller text */
   border-radius: 40px;      /* tighter pill */
   gap: 25px;                /* icon/text spacing */
 }
@@ -1070,14 +1070,14 @@ body:not(.light-mode) .theme-toggle{
 /* Neon outline buttons (Details / Code) */
 .highlight-btn,
 #copyBtn{
-  padding: 10px 20px;        /* reduced padding */
-  font-size: 14px;
+  padding: 10px 10px;        /* reduced padding */
+  font-size: 12px;
   border-radius: 30px;
 }
 
 /* Buttons container spacing */
 .project-actions{
-  gap: 20px;                /* was 40px → smaller */
+  gap: 35px;                /* was 40px → smaller */
   margin-top: 16px;
 }
 
@@ -1094,16 +1094,17 @@ body:not(.light-mode) .theme-toggle{
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 28px;        /* ⬅ increase spacing here */
+  gap: 35px;        /* ⬅ increase spacing here */
   margin-top: 18px;
 }
 
 /* Mobile – slightly more breathing room */
 @media (max-width: 600px){
   .project-actions{
-    gap: 24px;
+    gap: 28px;
   }
 }
+
 
 
 
