@@ -40,7 +40,7 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
       /* ---------- DETAILS (.html) ---------- */
       else {
         modalBody.innerHTML = `
-<div class="details-text">
+<div class="details.html">
 ${data}
 </div>
         `;
@@ -125,4 +125,5 @@ function revealOnScroll() {
 }
 
 window.addEventListener("scroll", revealOnScroll);
+
 window.addEventListener("load", revealOnScroll);
