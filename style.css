@@ -220,11 +220,11 @@ body{
 
 /* =====================================================
    PROJECTS & CERTIFICATES GRID
-===================================================== */
+===================================================== *
 .projects-grid{
   display:grid;
   gap:25px;
-  max-width:1100px;
+  max-width:100px;
   margin:auto;
 }
 /*
@@ -1190,3 +1190,4 @@ body:not(.light-mode) .theme-toggle{
     grid-template-columns: repeat(2, 1fr);  /* 🔥 2 / 2 layout */
   }
 }
+
