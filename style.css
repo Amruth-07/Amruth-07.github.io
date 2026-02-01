@@ -1,16 +1,10 @@
-/* =====================================================
-   GLOBAL RESET
-===================================================== */
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Poppins', sans-serif;
 }
-
-/* =====================================================
-   BODY (DARK MODE DEFAULT)
-===================================================== */
 body{
   background:
     radial-gradient(circle at top left,#1a0033,transparent 40%),
@@ -22,10 +16,6 @@ body{
   max-width:1200px;
   margin:auto;
 }
-
-/* =====================================================
-   HERO
-===================================================== */
 #hero{
   margin-top:20px;
 }
@@ -45,10 +35,6 @@ body{
 .profile img:hover{
   transform:scale(1.05);
 }
-
-/* =====================================================
-   SECTION HEADINGS
-===================================================== */
 .section-headline{
   font-size:2.4rem;
   font-weight:600;
@@ -75,10 +61,6 @@ body{
   from{background-position:0% 50%;}
   to{background-position:300% 50%;}
 }
-
-/* =====================================================
-   INFO / ABOUT CARDS
-===================================================== */
 .card{
   background:linear-gradient(145deg,#0c1424,#121d33);
   border:1px solid rgba(255,255,255,.08);
@@ -93,10 +75,6 @@ body{
   line-height:1.8;
   opacity:.9;
 }
-
-/* =====================================================
-   ABOUT IMAGE
-===================================================== */
 .about-photo{
   display:block;
   width:420px;
@@ -111,10 +89,6 @@ body{
     0 0 20px rgba(127,0,255,0.45),
     0 0 35px rgba(0,212,255,0.25);
 }
-
-/* =====================================================
-   HERO SKILLS (TOP TAGS)
-===================================================== */
 .hero-skills{
   display:flex;
   flex-wrap:wrap;
@@ -160,14 +134,10 @@ body{
   from{background-position:0% 50%;}
   to{background-position:300% 50%;}
 }
-
-/* =====================================================
-   HOBBIES / SKILLS / INTERESTS PILLS
-===================================================== */
 .hobbies-wrapper{
   display:flex;
   flex-direction:column;
-  gap:25px;
+  gap:55px;
   max-width:700px;
   margin:30px auto;
 }
@@ -1224,3 +1194,4 @@ body:not(.light-mode) .theme-toggle{
 body.light-mode{
   --card-bg: #ffffff;   /* light card */
 }
+
