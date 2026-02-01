@@ -1104,6 +1104,34 @@ body:not(.light-mode) .theme-toggle{
     gap: 28px;
   }
 }
+/* ==========================================
+   PROJECT IMAGE – FIXED SIZE & FIT
+   This section controls how project images
+   look in normal view and when expanded
+========================================== */
+
+/* Wrapper around the project image */
+.project-image-wrapper{
+  width:100%;                /* image takes full card width */
+  height:150px;              /* fixed preview height (same for all projects) */
+  overflow:hidden;           /* hides the bottom part of image */
+  border-radius:18px;        /* rounded corners to match card */
+  margin-bottom:16px;        /* space between image and text/buttons */
+}
+
+/* Actual project image */
+.project-image{
+  width:100%;                /* fill wrapper width */
+  height:100%;               /* fill wrapper height */
+  object-fit:cover;          /* crop image without stretching */
+  object-position:top;       /* show top part of image first */
+  display:block;             /* remove inline spacing issues */
+}
+
+/* When "View" button is clicked */
+.project-image-wrapper.expanded{
+  height:420px;              /* expand wrapper to show full image */
+}
 
 
 
