@@ -1110,7 +1110,7 @@ body:not(.light-mode) .theme-toggle{
   display:block;             /* remove inline spacing issues *
 }
 
-/* When "View" button is clicked */
+/* When "View" button is clicked *
 .project-image-wrapper.expanded{
   height:420px;              /* expand wrapper to show full image */
 }
@@ -1191,4 +1191,24 @@ body:not(.light-mode) .theme-toggle{
   }
 }
 
+/* ==========================================
+   PROJECT CARD – FIX ROUND CORNERS + SPACING
+========================================== */
 
+.project-card{
+  background: #ffffff;          /* light card */
+  border-radius: 22px;          /* smooth rounded card */
+  padding: 18px 18px 26px;      /* 🔥 extra bottom space */
+  overflow: hidden;             /* 🔥 clips image corners */
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+/* Image wrapper follows card shape */
+.project-image-wrapper{
+  border-radius: 18px;
+  margin-bottom: 18px;    /* space between image & text */
+}
+/* Buttons spacing fix */
+.project-actions{
+  margin-top: 18px;
+  padding-bottom: 6px;    /* prevents tight bottom */
+}
