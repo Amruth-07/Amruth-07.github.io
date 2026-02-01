@@ -854,39 +854,6 @@ body:not(.light-mode) .theme-toggle{
     gap: 28px;
   }
 }
-/* ==========================================
-   PROJECT IMAGE – FIXED SIZE & FIT
-   This section controls how project images
-   look in normal view and when expanded
-========================================== */
-
-/* Wrapper around the project image *
-.project-image-wrapper{
-  width:100%;                /* image takes full card width *
-  height:150px;              * fixed preview heigh *
-  border-radius:18px;        ounded corners to match ca
-  margin-bottom:16px;       pace between image and text/buttons *
-}
-
-/* Actual project image 
-.project-image{
-  width:100%;                /* fill wrapper width *
-  height:100%;               /* fill wrapper height *
-  object-fit:cover;          /* crop image without stretching *
-  object-position:top;       /* show top part of image first *
-  display:block;             /* remove inline spacing issues *
-}
-
-/* When "View" button is clicked *
-.project-image-wrapper.expanded{
-  height:420px;              /* expand wrapper to show full image */
-}
-/* ==========================================
-   PROJECT IMAGE – FIXED SIZE & PERFECT FIT
-========================================== */
-/* ==========================================
-   PROJECT IMAGE – CROP + EXPAND (FINAL)
-========================================== */
 
 /* default preview (hide ~40% bottom) */
 .project-image-wrapper{
@@ -922,11 +889,6 @@ body:not(.light-mode) .theme-toggle{
   background: transparent;
   padding: 0;
 }
-
-/* ===============================
-   CERTIFICATE IMAGES – SMALL SIZE
-================================ */
-
 /* Certificate cards only */
 .certificates-grid .project-card img{
   width: 80%;            /* fit card width */
@@ -936,13 +898,7 @@ body:not(.light-mode) .theme-toggle{
   background: #ffffff;    /* clean background */
   padding: 6px;           /* small inner spacing */
 }
-/* ==========================================
-   DESKTOP MODE LAYOUT (PROJECTS + CERTIFICATES)
-   - Mobile: 1 card per row
-   - Desktop: 2 cards per row
-========================================== */
 
-/* Default (Mobile First) */
 .projects-grid,
 .certificates-grid{
   display: grid;
@@ -957,14 +913,6 @@ body:not(.light-mode) .theme-toggle{
     grid-template-columns: repeat(2, 1fr);  /* 🔥 2 / 2 layout */
   }
 }
-
-/* ==========================================
-   PROJECT CARD – FIX ROUND CORNERS + SPACING
-========================================== */
-
-/* ==================================
-   PROJECT CARD – LIGHT & DARK SAFE
-================================== */
 
 .project-card{
   background: var(--card-bg);   /* dynamic color */
@@ -991,5 +939,6 @@ body:not(.light-mode) .theme-toggle{
 body.light-mode{
   --card-bg: #ffffff;   /* light card */
 }
+
 
 
