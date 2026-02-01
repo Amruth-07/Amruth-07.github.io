@@ -987,3 +987,73 @@ body:not(.light-mode) .theme-toggle{
   color:#ffffff;
   border:2px solid rgba(255,255,255,0.2);
 }
+
+/* ==========================================
+   THEME TOGGLE – NEON GRADIENT BORDER
+========================================== */
+
+.theme-toggle{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+
+  position:fixed;
+  top:14px;
+  left:14px;
+
+  background:#ffffff;
+  color:#111;
+  border:2px solid transparent;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* neon gradient border */
+  background:
+    linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6,
+      #00e5ff
+    ) border-box;
+
+  box-shadow:
+    0 0 10px rgba(0,229,255,0.45),
+    0 0 18px rgba(122,92,255,0.35);
+
+  transition:0.3s ease;
+}
+
+/* icon size */
+.theme-toggle i{
+  font-size:16px;
+}
+
+/* hover effect */
+.theme-toggle:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 14px rgba(0,229,255,0.7),
+    0 0 26px rgba(122,92,255,0.6);
+}
+
+/* ================= DARK MODE ================= */
+
+body:not(.light-mode) .theme-toggle{
+  background:
+    linear-gradient(#0b1220,#0b1220) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6,
+      #00e5ff
+    ) border-box;
+
+  color:#ffffff;
+}
