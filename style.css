@@ -1,10 +1,16 @@
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:'Poppins', sans-serif;
 }
 
+/* =====================================================
+   BODY (DARK MODE DEFAULT)
+===================================================== */
 body{
   background:
     radial-gradient(circle at top left,#1a0033,transparent 40%),
@@ -17,53 +23,62 @@ body{
   margin:auto;
 }
 
-/* ================= PROFILE PHOTO ================= */
+/* =====================================================
+   HERO
+===================================================== */
+#hero{
+  margin-top:20px;
+}
+
 .profile img{
   width:180px;
   height:180px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #7f00ff;
-  box-shadow:0 0 30px rgba(127,0,255,0.6),0 0 40px rgba(0,212,255,0.35);
+  box-shadow:
+    0 0 25px rgba(127,0,255,0.6),
+    0 0 40px rgba(0,212,255,0.35);
   transition:transform .5s;
 }
-..about-photo{
-  display:block;
-  width:100%;
-  max-width:450px;
-  height:auto;
-  margin:25px auto;   /* center image */
-  border-radius:18px;
 
-  border:2px solid transparent;
-  background:
-    linear-gradient(#000,#000) padding-box,
-    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
+.profile img:hover{
+  transform:scale(1.05);
+}
 
-  box-shadow:
-    0 0 20px rgba(127,0,255,0.4),
-    0 0 35px rgba(0,212,255,0.25);
-  }
-
-/* ================= GRADIENT HEADLINES ================= */
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
 .section-headline{
-  font-size:2.3rem;
+  font-size:2.4rem;
   font-weight:600;
-  margin:60px 0 35px;
-  background:linear-gradient(90deg,#fff,#7f00ff,#00d4ff,#ff00cc,#00ffcc,#fff);
+  margin:70px 0 40px;
+  background:linear-gradient(
+    90deg,
+    #ffffff,
+    #7f00ff,
+    #00d4ff,
+    #ff00cc,
+    #00ffcc,
+    #ffffff
+  );
   background-size:300% 100%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   animation:headlineMove 6s linear infinite;
-  filter:drop-shadow(0 0 6px rgba(127,0,255,.4))
-         drop-shadow(0 0 14px rgba(0,212,255,.35));
+  filter:
+    drop-shadow(0 0 6px rgba(127,0,255,.4))
+    drop-shadow(0 0 14px rgba(0,212,255,.35));
 }
+
 @keyframes headlineMove{
   from{background-position:0% 50%;}
   to{background-position:300% 50%;}
 }
 
-/* ================= CARDS ================= */
+/* =====================================================
+   INFO / ABOUT CARDS
+===================================================== */
 .card{
   background:linear-gradient(145deg,#0c1424,#121d33);
   border:1px solid rgba(255,255,255,.08);
@@ -74,51 +89,142 @@ body{
   box-shadow:0 8px 25px rgba(0,0,0,.6);
 }
 
-.about-text{ line-height:1.8; opacity:.9; }
-
-/* ================= HOBBY / SKILL PILLS ================= */
-.hobbies-wrapper{
-  display:grid;
-  gap:28px;
-  margin-top:30px;
-  max-width:650px;
-  margin-inline:auto;
+.about-text{
+  line-height:1.8;
+  opacity:.9;
 }
 
-.hobby-pill{
+/* =====================================================
+   ABOUT IMAGE
+===================================================== */
+.about-photo{
+  display:block;
+  width:420px;
+  max-width:90%;
+  margin:25px auto;
+  border-radius:18px;
+  border:3px solid transparent;
+  background:
+    linear-gradient(#0b1220,#0b1220) padding-box,
+    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
+  box-shadow:
+    0 0 20px rgba(127,0,255,0.45),
+    0 0 35px rgba(0,212,255,0.25);
+}
+
+/* =====================================================
+   HERO SKILLS (TOP TAGS)
+===================================================== */
+.hero-skills{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+  margin:18px 0 10px;
+}
+
+.skill-pill{
   position:relative;
-  padding:20px 28px;
-  border-radius:40px;
-  background:#0b1220;
-  color:#fff;
+  padding:8px 16px;
+  border-radius:25px;
+  font-size:16px;
+  color:#eaf6ff;
+  background:#0b0f1a;
   overflow:hidden;
 }
 
-/* animated neon border */
-.hobby-pill::before{
+.skill-pill::before{
   content:"";
   position:absolute;
   inset:0;
+  padding:1px;
   border-radius:inherit;
-  padding:2px;
-  background:linear-gradient(90deg,#7f00ff,#00d4ff,#ff00cc,#00ffcc,#7f00ff);
-  background-size:300% 100%;
-  animation:borderMove 4s linear infinite;
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  background:linear-gradient(
+    120deg,
+    #00e5ff,
+    #7a5cff,
+    #ff00cc,
+    #00ffa6,
+    #00e5ff
+  );
+  background-size:300% 300%;
+  animation:skillGlow 3s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
           mask-composite:exclude;
-  box-shadow:0 0 8px rgba(127,0,255,.5),0 0 16px rgba(0,212,255,.35);
 }
-@keyframes borderMove{
+
+@keyframes skillGlow{
   from{background-position:0% 50%;}
   to{background-position:300% 50%;}
 }
 
-/* ================= PROJECTS ================= */
+/* =====================================================
+   HOBBIES / SKILLS / INTERESTS PILLS
+===================================================== */
+.hobbies-wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  max-width:700px;
+  margin:30px auto;
+}
+
+.hobby-pill{
+  position:relative;
+  padding:18px 28px;
+  border-radius:50px;
+  background:#0b1220;
+  color:#ffffff;
+  font-size:16px;
+  overflow:hidden;
+  box-shadow:
+    0 0 12px rgba(127,0,255,0.35),
+    0 0 20px rgba(0,212,255,0.25);
+}
+
+.hobby-pill::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:inherit;
+  background:linear-gradient(
+    90deg,
+    #7f00ff,
+    #00d4ff,
+    #ff00cc,
+    #00ffa6,
+    #7f00ff
+  );
+  background-size:400% 400%;
+  animation:neonMove 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+@keyframes neonMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.hobby-pill:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+/* =====================================================
+   PROJECTS & CERTIFICATES GRID
+===================================================== */
 .projects-grid{
   display:grid;
   gap:25px;
-  max-width:700px;
+  max-width:1100px;
   margin:auto;
 }
 
@@ -134,36 +240,27 @@ body{
   border-radius:18px;
   padding:3px;
   background:linear-gradient(135deg,#7f00ff,#00d4ff);
-  box-shadow:0 0 18px rgba(127,0,255,.5),0 0 30px rgba(0,212,255,.35);
-  transition:.5s;
+  box-shadow:
+    0 0 18px rgba(127,0,255,.5),
+    0 0 30px rgba(0,212,255,.35);
+  transition:.4s;
 }
+
 .project-card img:hover{
   transform:scale(1.03);
-  box-shadow:0 0 30px rgba(127,0,255,.8),0 0 55px rgba(0,212,255,.55);
 }
 
-/* ================= BUTTONS ================= */
-.gradient-btn{
-  display:inline-flex;
-  align-items:center;
+/* =====================================================
+   PROJECT BUTTONS
+===================================================== */
+.project-actions{
+  display:flex;
   justify-content:center;
-  gap:24px;
-  padding:14px 30px;
-  border-radius:40px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  background:linear-gradient(135deg,#7b2cff,#00c6ff);
-  box-shadow:0 0 15px rgba(123,44,255,0.5),0 0 25px rgba(0,198,255,0.35);
-  transition:.5s;
-}
-.gradient-btn:hover{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 0 25px rgba(123,44,255,.8),0 0 40px rgba(0,198,255,.6);
+  gap:40px;
+  margin-top:20px;
 }
 
-/* neon outline buttons */
-.highlight-btn,#copyBtn{
+.highlight-btn{
   position:relative;
   padding:12px 28px;
   border-radius:40px;
@@ -173,30 +270,40 @@ body{
   font-weight:600;
   overflow:hidden;
 }
-.highlight-btn::before,#copyBtn::before{
+
+.highlight-btn::before{
   content:"";
   position:absolute;
   inset:0;
-  border-radius:inherit;
   padding:2px;
-  background:linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#ffe600,#00e5ff);
+  border-radius:inherit;
+  background:linear-gradient(
+    120deg,
+    #00e5ff,
+    #7a5cff,
+    #ff00cc,
+    #00ffa6,
+    #ffe600,
+    #00e5ff
+  );
   background-size:400% 400%;
-  animation:neonBorderMove 8s linear infinite;
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  animation:neonBtn 8s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
           mask-composite:exclude;
 }
-.highlight-btn:hover,#copyBtn:hover{
-  transform:translateY(-2px) scale(1.03);
-  box-shadow:0 0 12px #7a5cff,0 0 24px #00e5ff,0 0 40px #ff00cc;
-}
-@keyframes neonBorderMove{
+
+@keyframes neonBtn{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
 
-/* ================= MODAL ================= */
+/* =====================================================
+   MODAL
+===================================================== */
 .modal{
   display:none;
   position:fixed;
@@ -215,13 +322,7 @@ body{
   box-shadow:0 0 25px rgba(180,0,255,0.7);
   max-height:80vh;
   overflow-y:auto;
-  animation:popup .5s ease;
   text-align:left;
-}
-
-@keyframes popup{
-  from{transform:scale(.8);opacity:0;}
-  to{transform:scale(1);opacity:1;}
 }
 
 .close-btn{
@@ -232,465 +333,24 @@ body{
   cursor:pointer;
   color:#ff4d4d;
 }
-/* ================= DESKTOP ================= */
-@media(min-width:1024px){
-  .section-headline{font-size:2.8rem;margin:90px 0 50px;}
-  .hobbies-wrapper{grid-template-columns:repeat(3,1fr);max-width:950px;}
-  .projects-grid{grid-template-columns:repeat(2,1fr);max-width:1100px;}
-  .modal-content{padding:40px 50px;max-width:1000px;}
-  #modalBody code{font-size:20px;}
-  }
 
-.about-photo{
-  display:block;
-  width:100%;
-  max-width:420px;     /* controls size on big screens */
-  height:auto;
-  margin:20px auto 25px;  /* center horizontally with space below */
-  border-radius:18px;
-
-  /* neon gradient border */
-  border:3px solid transparent;
-  background:
-    linear-gradient(#0b1220,#0b1220) padding-box,
-    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
-
-  /* glow */
-  box-shadow:
-    0 0 20px rgba(127,0,255,0.45),
-    0 0 35px rgba(0,212,255,0.25);
-  }
-/* FIX About Me image alignment */
-.about-card .about-photo{
-  display:block !important;
-  width:420px !important;
-  max-width:90% !important;   /* responsive on mobile */
-  height:auto !important;
-  margin:25px auto !important; /* center horizontally */
-  object-fit:cover;
-
-  border-radius:18px;
-
-  border:3px solid transparent;
-  background:
-    linear-gradient(#0b1220,#0b1220) padding-box,
-    linear-gradient(135deg,#7f00ff,#00d4ff) border-box;
-
-  box-shadow:
-    0 0 20px rgba(127,0,255,0.45),
-    0 0 35px rgba(0,212,255,0.25);
-  }
-/* .projects-grid{
-  display:grid;
-  gap:25px;          /* more space between cards *
-  max-width:700px;
-  margin:auto;
-}
-@media (max-width:600px){
-  .projects-grid{
-    gap:40px;
-  }
-}
-
-/* Project 1 – purple/blue */
-.project-card:nth-child(1) img{
-  background:linear-gradient(135deg,#7f00ff,#00d4ff);
-  box-shadow:0 0 25px rgba(127,0,255,.6),0 0 40px rgba(0,212,255,.4);
-}
-
-/* Project 2 – green/cyan */
-.project-card:nth-child(2) img{
-  background:linear-gradient(135deg,#00ffa6,#00e5ff);
-  box-shadow:0 0 25px rgba(0,255,166,.6),0 0 40px rgba(0,229,255,.4);
-}
-
-/* Project 3 – pink/orange */
-.project-card:nth-child(3) img{
-  background:linear-gradient(135deg,#ff2ed1,#ff8c00);
-  box-shadow:0 0 25px rgba(255,46,209,.6),0 0 40px rgba(255,140,0,.4);
-}
-
-/* Project 4 – yellow/blue */
-.project-card:nth-child(4) img{
-  background:linear-gradient(135deg,#ffe600,#00aaff);
-  box-shadow:0 0 25px rgba(255,230,0,.6),0 0 40px rgba(0,170,255,.4);
-}
-.project-card:nth-child(1) .highlight-btn:hover{
-  box-shadow:0 0 15px #7f00ff,0 0 30px #00d4ff;
-}
-
-.project-card:nth-child(2) .highlight-btn:hover{
-  box-shadow:0 0 15px #00ffa6,0 0 30px #00e5ff;
-}
-
-.project-card:nth-child(3) .highlight-btn:hover{
-  box-shadow:0 0 15px #ff2ed1,0 0 30px #ff8c00;
-}
-
-.project-card:nth-child(4) .highlight-btn:hover{
-  box-shadow:0 0 15px #ffe600,0 0 30px #00aaff;
-}
-
-/* container of Details & Code buttons */
-.project-actions{
-  display:flex;
-  justify-content:center;
-  gap:40px;        /* space between Details and Code */
-  margin-top:20px; /* space between description and buttons */
-}
-
-/* if you want more space below the project title */
-.project-card h3{
-  margin-top:10px;
-  margin-bottom:10px;  /* space between headline and description */
-}
-
-/* extra breathing room between description text and buttons */
-.project-card p{
-  margin-bottom:14px;
-}
-
-.hero-skills{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:16px;
-  margin:18px 0 10px;
-}
-
-/* neon gradient pill */
-.skill-pill{
-  position:relative;
-  padding:8px 16px;
-  border-radius:25px;
-  font-size:16px;
-  color:#eaf6ff;
-  background:#0b0f1a;
-  z-index:0;
-  overflow:hidden;
-}
-
-/* animated neon border */
-.skill-pill::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  padding:1px;
-
-  background:linear-gradient(
-    120deg,
-    #00e5ff,
-    #7a5cff,
-    #ff00cc,
-    #00ffa6,
-    #00e5ff
-  );
-  background-size:300% 300%;
-  animation:skillGlow 3s linear infinite;
-
-  -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-
-  z-index:-1;
-}
-
-/* soft glow */
-.skill-pill{
-  box-shadow:0 0 6px rgba(0,229,255,.25);
-}
-
-/* hover brighter */
-.skill-pill:hover{
-  box-shadow:
-    0 0 10px #7a5cff,
-    0 0 20px #00e5ff,
-    0 0 30px rgba(255,0,204,.6);
-  transform:translateY(-2px);
-}
-
-/* about image border softer */
-.light-mode .about-card img{
-  box-shadow:0 0 10px rgba(0,0,0,0.15);
-}
-
-
-/* project images remove heavy dark glow */
-.light-mode .project-card img{
-  box-shadow:0 0 10px rgba(0,0,0,0.15);
-}
-/* modal */
-.light-mode .modal-content{
-  background:#ffffff;
-  color:#111;
-  box-shadow:0 0 20px rgba(0,0,0,0.25);
-}
-
-.light-mode #modalBody pre{
-  background:#f0f0f0;
-  color:#000;
-}
-/* Light mode thin neon border effect without changing size */
-.light-mode .skill-pill{
-  position:relative;
-  background:#0b0f1a;   /* dark inside */
-  color:#fff;
-
-  /* real thin border */
-  border:1.5px solid transparent;
-  border-radius:40px;
-
-  /* gradient border using background trick */
-  background:
-    linear-gradient(#0b0f1a,#0b0f1a) padding-box,
-    linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#00e5ff) border-box;
-
-  /* soft neon glow */
-   box-shadow: 
-    0 0 4px rgba(0,229,255,0.35),
-    0 0 8px rgba(122,92,255,0.25);
-}
-
-/* Light mode neon gradient border for skill pills (no size change) */
-.light-mode .skill-pill{
-  background:#0b0f1a; 
-  color:#ffffff;
-
- border:0px solid transparent; /* thin border */
-  border-radius:40px;
-
-  /* gradient border */
-  background:
-    linear-gradient(#0b0f1a,#0b0f1a) padding-box,
-    linear-gradient(120deg,#00e5ff,#7a5cff,#ff00cc,#00ffa6,#00e5ff) border-box;
-
-  /* neon glow */
-  box-shadow:
-    0 0 0px rgba(0,229,255,0.4),
-    0 0 0px rgba(122,92,255,0.3);
-}
-/* Light mode – white pills with neon gradient border */
-.light-mode .hobby-pill.dark,
-.light-mode .skill-pill{
-  background:#ffffff;      /* white inside */
-  color:#111;              /* dark text */
-
-  border:2px solid transparent;
-  border-radius:40px;
-
-  /* gradient border only */
-  background:
-    linear-gradient(#ffffff,#ffffff) padding-box,
-    linear-gradient(120deg,#ff00cc,#7a5cff,#00e5ff,#00ffa6,#ff00cc) border-box;
-
-  /* soft outer glow */
-  box-shadow:
-    0 0 6px rgba(255,0,204,0.25),
-    0 0 10px rgba(0,229,255,0.25);
-
-}
-/* Light mode bordered cards */
-.light-mode .card{
-  background:#ffffff;
-  color:#111;
-  box-shadow:0 10px 25px rgba(0,0,0,0.12);
-  border:2px solid transparent;
-  border-radius:20px;
-
-  /* gradient light border */
-  background:
-    linear-gradient(#ffffff,#ffffff) padding-box,
-    linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
-}
-/* Small left side theme toggle button */
-.theme-toggle{
-  position:fixed;
-  top:13px;
-  left:13px;        /* move to left */
-
-  width:20px;       /* small size */
-  height:20px;
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:#070e1c;
-  color:#fff;
-  font-size:18px;
-  cursor:pointer;
-  z-index:9999;
-
-  /* thin neon gradient border */
-  background:
-    linear-gradient(#070e1c,#070e1c) padding-box,
-    linear-gradient(135deg,#00e5ff,#7a5cff,#00ffa6) border-box;
-  border:3px solid transparent;
-
-  /* soft glow */
-  box-shadow:
-    0 0 12px rgba(0,229,255,0.4),
-    0 0 20px rgba(122,92,255,0.3);
-}
-
-/* hover effect */
-.theme-toggle:hover{
-  box-shadow:
-    0 0 12px #00e5ff,
-    0 0 20px #7a5cff;
-  transform:scale(1.05);
-}
-/* Default (dark mode) */
-body{
-  background:
-    radial-gradient(circle at top left, #1a0033, transparent 40%),
-    radial-gradient(circle at bottom right, #001f33, transparent 40%),
-    linear-gradient(180deg, #050505, #000);
-  color:#ffffff;
-}
-
-/* Light mode background */
-body.light-mode{
-  background:#f4f6fb;   /* plain light background */
-  color:#111;
-}
-
-
-/* Project cards in light mode */
-.light-mode .project-card{
-  background:#ffffff;
-  color:#111;
-  box-shadow:0 10px 25px rgba(0,0,0,0.12);
-}
-
-/* project title and text */
-.light-mode .project-card h3,
-.light-mode .project-card p{
-  color:#111;
-}
-
-
-
-
-
-/* buttons inside project card */
-.light-mode .project-card .highlight-btn{
-  background:#f2f2f2;
-  color:#111;
-  border:2px solid #cfd8ff;
-}
-
-/* neon border effect still visible but lighter */
-.light-mode .project-card::before{
-  opacity:0.4;   /* reduce strong neon glow in light mode */
-}
-
-/* Default (dark mode) */
-body{
-  background:
-    radial-gradient(circle at top left, #1a0033, transparent 40%),
-    radial-gradient(circle at bottom right, #001f33, transparent 40%),
-    linear-gradient(180deg, #050505, #000);
-  color:#ffffff;
-}
-
-/* Light mode background */
-body.light-mode{
-  background:#f4f6fb;   /* plain light background */
-  color:#111;
-}
-
-/* Remove neon glow/double border in light mode for pills */
-.light-mode .skill-pill,
-.light-mode .hobby-pill,
-.light-mode .interest-pill{
-  box-shadow:none;              /* remove outer glow */
-}
-
-/* if you used pseudo border for neon effect */
-.light-mode .skill-pill::before,
-.light-mode .hobby-pill::before,
-.light-mode .interest-pill::before{
-  display:none;                 /* remove extra gradient border */
-}
-
-/* keep only single thin gradient border */
-.light-mode .skill-pill,
-.light-mode .hobby-pill,
-.light-mode .interest-pill{
-  border:2px solid transparent;
-  background:
-    linear-gradient(#ffffff,#ffffff) padding-box,
-    linear-gradient(90deg,#a855f7,#06b6d4,#22c55e) border-box;
-  color:#111;
-}
-
-/* Copy button look */
+/* =====================================================
+   COPY BUTTON
+===================================================== */
 .copy-btn{
-  background:#ddd;
-  color:#000;
-  border:1px solid #aaa;
-  padding:6px 10px;
-  border-radius:6px;
-  font-size:12px;
-  cursor:pointer;
   margin-bottom:10px;
+  padding:8px 14px;
+  border-radius:8px;
+  border:none;
+  background:linear-gradient(135deg,#7c7cff,#00ffd5);
+  font-weight:600;
+  cursor:pointer;
 }
 
-/* ===== FORCE white toggle in light mode ===== */
-body.light-mode .theme-toggle{
-  background: #ffffff !important;   /* pure white inside */
-  background-image: none !important;
-  border: none;
-  color: #000 !important;           /* dark icon */
-}
-
-/* neon border outside only */
-body.light-mode .theme-toggle::before{
-  content:"";
-  position:absolute;
-  inset:-3px;
-  border-radius:50%;
-  background:linear-gradient(45deg,#00ffd5,#7a5cff,#ff00cc);
-  z-index:-1;
-}
-
-/* keep button round and small */
-body.light-mode .theme-toggle{
-  width:45px;
-  height:45px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-
-/* ===== Theme toggle button in LIGHT MODE ===== */
-.light-mode .theme-toggle{
-  background:#ffffff !important;   /* full white inside */
-  border:2px solid #cfcfcf;         /* light border */
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* remove gradient glow inside */
-.light-mode .theme-toggle::before{
-  display:none !important;
-}
-
-/* make the icon dark and clear */
-.light-mode .theme-toggle i{
-  color:#000000 !important;
-  text-shadow:none !important;
-}
-
-
-
-/* Light mode theme button – white inside, neon ring border */
-.light-mode .theme-toggle{
+/* =====================================================
+   THEME TOGGLE
+===================================================== */
+.theme-toggle{
   position:fixed;
   top:14px;
   left:14px;
@@ -698,550 +358,405 @@ body.light-mode .theme-toggle{
   height:48px;
   border-radius:50%;
   border:none;
-  cursor:pointer;
-
-  /* white inside */
-  background:#ffffff;
-
-  /* neon ring */
-  box-shadow:
-    0 0 0 2px transparent,
-    0 0 10px rgba(0, 255, 255, 0.7),
-    0 0 18px rgba(138, 44, 255, 0.6),
-    0 0 28px rgba(0, 255, 170, 0.4);
-
-  /* gradient border using outline trick */
-  outline:2px solid transparent;
-  background-clip:padding-box;
-}
-
-/* create the colored ring */
-.light-mode .theme-toggle::before{
-  content:"";
-  position:absolute;
-  inset:-2px;              /* thickness of ring */
-  border-radius:50%;
-  background:linear-gradient(
-      135deg,
-      #00f0ff,
-      #7a5cff,
-      #ff2fd2,
-      #00ffb3
-  );
-  z-index:-1;
-  filter:blur(0.5px);       /* smooth neon */
-}
-
-/* icon in light mode */
-.light-mode .theme-toggle i{
-  color:#000;               /* black symbol */
-  font-size:18px;
-}
-
-
-/* Light mode same neon gradient, no glow */
-.light-mode .details-text h3{
-  background:linear-gradient(90deg,#0066ff,#7a5cff,#ff008c);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-.light-mode .details-text li::before{
-  background:linear-gradient(180deg,#00b3ff,#0066ff,#7a5cff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-
-/* ===== Fix neon headings in LIGHT MODE inside modal/details ===== */
-
-/* gradient neon for main headings */
-.light-mode .details-text h3{
-  background:linear-gradient(90deg,#007bff,#7b61ff,#ff00aa);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-/* gradient neon for sub headings */
-.light-mode .details-text h4{
-  background:linear-gradient(90deg,#00c3ff,#00ffa6,#7b61ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-.copy-toast{
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  padding:10px 18px;
-  border-radius:25px;
-  font-size:16px;
+  background:#070e1c;
   color:#fff;
-  background:linear-gradient(90deg,#00e5ff,#8a2be2,#ff00cc);
-  box-shadow:0 0 10px rgba(0,229,255,0.6),
-             0 0 20px rgba(138,43,226,0.6);
-  z-index:9999;
-  }
-
-
-/* ================= CODE BLOCK BASE ================= */
-#modalBody pre {
-  background: #0f1117;
-  color: #e6edf3;
-  padding: 18px;
-  border-radius: 14px;
-  overflow-x: auto;
-  font-size: 14px;
-  line-height: 1.5;
-  border: 2px solid transparent;
-}
-
-/* Light mode code background */
-.light-mode #modalBody pre {
-  background: #ffffff;
-  color: #111;
-  border: 2px solid #e0e0e0;
-}
-
-/* ================= SYNTAX COLORS ================= */
-
-/* preprocessor (#include, #define) */
-#modalBody code span.pre {
-  color: #4fc3ff;
-  font-weight: 600;
-}
-
-/* keywords (int, bool, void, const, etc.) */
-#modalBody code span.kw {
-  color: #c77dff;
-  font-weight: 600;
-}
-
-/* numbers */
-#modalBody code span.num {
-  color: #ffb86c;
-}
-
-/* strings */
-#modalBody code span.str {
-  color: #7CFF9B;
-}
-
-/* comments */
-#modalBody code span.com {
-  color: #6ee7b7;
-  font-style: italic;
-}
-
-/* ================= COPY BUTTON ================= */
-.copy-btn {
-  margin: 10px 0 14px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(135deg, #7c7cff, #00ffd5);
-  color: #000;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.copy-btn:hover {
-  opacity: 0.9;
-}
-
-/* Light mode button */
-.light-mode .copy-btn {
-  background: linear-gradient(135deg, #5b8cff, #00c9a7);
-  color: #fff;
-}
-.theme-toggle {
-  position: fixed;
-  top: 16px;
-  left: 14px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  background: #0b0f1a;
-  color: white;
-  box-shadow: 0 0 12px rgba(0,255,255,.6);
-  z-index: 9999;
-}
-
-/* LIGHT MODE */
-.light-mode .theme-toggle {
-  background: #ffffff;          /* FULL WHITE */
-  color: #000;
-  border: 2px solid #7dd3fc;
-  box-shadow: 0 0 10px rgba(0,150,255,.4);
-}
-  /* DARK MODE HEADINGS */
-.details-text h3,
-.details-text h4 {
-  background: linear-gradient(90deg,#22d3ee,#a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* LIGHT MODE HEADINGS */
-.light-mode .details-text h3,
-.light-mode .details-text h4 {
-  background: linear-gradient(90deg,#2563eb,#06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  }
-.details-text li::before {
-  content: "✦";
-  margin-right: 8px;
-  color: #22d3ee;
-}
-
-.light-mode .details-text li::before {
-  color: #2563eb;
-}
-
-#modalBody pre {
-  background: #0b0f1a;
-  color: #e5e7eb;
-  border-radius: 14px;
-  padding: 18px;
-}
-
-.light-mode #modalBody pre {
-  background: #f3f4f6;
-  color: #111;
-}
-
-.light-mode .copy-btn{
-  background: #ffffff;
-  color: #111;
-  border: 2px solid transparent;
-  background-image:
-    linear-gradient(#fff, #fff),
-    linear-gradient(135deg, #7b2cff, #00ffd5);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-  }
-
-
-.light-mode .copy-btn{
-  background: #ffffff !important;
-  color: #111 !important;
-  border-radius: 999px;
-  border: 2px solid transparent;
-  background-image:
-    linear-gradient(#fff, #fff),
-    linear-gradient(135deg, #7b2cff, #00ffd5);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-}
-
-.light-mode .copy-btn:hover{
-  transform: scale(1.03);
-}
-
-/* ===== PROGRAM COLORS : DARK MODE ===== */
-body:not(.light-mode) pre,
-body:not(.light-mode) code {
-  background: #0b0f1a !important;
-  color: #e5e7eb !important;
-}
-
-body:not(.light-mode) .token.keyword { color: #ff79c6; }
-body:not(.light-mode) .token.function,
-body:not(.light-mode) .token.class-name { color: #50fa7b; }
-body:not(.light-mode) .token.string { color: #f1fa8c; }
-body:not(.light-mode) .token.number { color: #bd93f9; }
-body:not(.light-mode) .token.comment {
-  color: #7c7f93;
-  font-style: italic;
-}
-body:not(.light-mode) .token.directive,
-body:not(.light-mode) .token.macro { color: #00eaff; }
-
-
-
-/* ===== PROGRAM COLORS : LIGHT MODE ===== */
-body.light-mode pre,
-body.light-mode code {
-  background: #ffffff !important;
-  color: #111827 !important;
-}
-
-body.light-mode .token.keyword { color: #7c3aed; }
-body.light-mode .token.function,
-body.light-mode .token.class-name { color: #059669; }
-body.light-mode .token.string { color: #b45309; }
-body.light-mode .token.number { color: #2563eb; }
-body.light-mode .token.comment {
-  color: #6b7280;
-  font-style: italic;
-}
-body.light-mode .token.directive,
-body.light-mode .token.macro { color: #0891b2; }
-
-
-body:not(.light-mode) .token.comment { color:#6272a4; font-style:italic; }
-body:not(.light-mode) .token.keyword { color:#ff79c6; }
-body:not(.light-mode) .token.string  { color:#f1fa8c; }
-body:not(.light-mode) .token.number  { color:#bd93f9; }
-body:not(.light-mode) .token.function,
-body:not(.light-mode) .token.class-name { color:#50fa7b; }
-body:not(.light-mode) .token.directive,
-body:not(.light-mode) .token.macro { color:#00eaff; }
-
-body.light-mode .token.comment { color:#6b7280; font-style:italic; }
-body.light-mode .token.keyword { color:#7c3aed; }
-body.light-mode .token.string  { color:#b45309; }
-body.light-mode .token.number  { color:#2563eb; }
-body.light-mode .token.function,
-body.light-mode .token.class-name { color:#059669; }
-body.light-mode .token.directive,
-body.light-mode .token.macro { color:#0891b2; }
-
-/* ===== PROGRAM COLORS (FORCE OVERRIDE) ===== */
-
-/* Dark mode */
-body:not(.light-mode) .token.comment{
-  color:#6272a4 !important;
-  font-style:italic;
-}
-
-body:not(.light-mode) .token.keyword{
-  color:#ff79c6 !important;
-}
-
-body:not(.light-mode) .token.string{
-  color:#f1fa8c !important;
-}
-
-body:not(.light-mode) .token.number{
-  color:#bd93f9 !important;
-}
-
-body:not(.light-mode) .token.function,
-body:not(.light-mode) .token.class-name{
-  color:#50fa7b !important;
-}
-
-body:not(.light-mode) .token.directive,
-body:not(.light-mode) .token.macro{
-  color:#00eaff !important;
-}
-/* Light mode */
-body.light-mode .token.comment{
-  color:#6b7280 !important;
-  font-style:italic;
-}
-
-body.light-mode .token.keyword{
-  color:#7c3aed !important;
-}
-
-body.light-mode .token.string{
-  color:#b45309 !important;
-}
-
-body.light-mode .token.number{
-  color:#2563eb !important;
-}
-
-body.light-mode .token.function,
-body.light-mode .token.class-name{
-  color:#059669 !important;
-}
-
-body.light-mode .token.directive,
-body.light-mode .token.macro{
-  color:#0891b2 !important;
-  }
-/* ===============================
-   PROGRAM (CODE) COLOUR OVERRIDE
-   =============================== */
-
-/* base code text */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #e6edf3 !important;
-  background: transparent !important;
-  font-family: Consolas, Monaco, "Courier New", monospace;
-}
-
-/* comments */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #7d8590 !important;
-  font-style: italic;
-}
-
-/* keywords: int, void, for, if */
-.token.keyword {
-  color: #ff79c6 !important;   /* pink */
-}
-
-/* data types */
-.token.type {
-  color: #8be9fd !important;   /* cyan */
-}
-
-/* strings */
-.token.string {
-  color: #f1fa8c !important;   /* yellow */
-}
-
-/* numbers */
-.token.number {
-  color: #bd93f9 !important;   /* violet */
-}
-
-/* functions */
-.token.function {
-  color: #50fa7b !important;   /* green */
-}
-
-/* operators */
-.token.operator {
-  color: #ffb86c !important;   /* orange */
-}
-
-/* preprocessor: #include, #define */
-.token.directive,
-.token.macro {
-  color: #00e5ff !important;   /* neon cyan */
-}
-
-/* ===============================
-   NEON MOVING PILL – SKILLS / HOBBIES / INTERESTS
-================================ */
-
-.hobbies-wrapper{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  max-width:700px;
-  margin:30px auto;
-}
-
-.hobby-pill{
-  position:relative;
-  padding:18px 28px;
-  border-radius:50px;
-  background:#0b1220;
-  color:#ffffff;
-  font-size:16px;
-  font-weight:500;
-  text-align:center;
-  overflow:hidden;
-  z-index:0;
-}
-
-/* MOVING NEON BORDER */
-.hobby-pill::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  padding:2px;
-  border-radius:inherit;
-
-  background:linear-gradient(
-    90deg,
-    #7f00ff,
-    #00d4ff,
-    #ff00cc,
-    #00ffa6,
-    #7f00ff
-  );
-  background-size:300% 300%;
-  animation:neonMove 6s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-}
-
-/* SOFT GLOW */
-.hobby-pill{
+  cursor:pointer;
   box-shadow:
-    0 0 12px rgba(127,0,255,0.35),
-    0 0 20px rgba(0,212,255,0.25);
+    0 0 12px rgba(0,229,255,0.5),
+    0 0 20px rgba(122,92,255,0.3);
 }
 
-/* ANIMATION */
-@keyframes neonMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+/* =====================================================
+   LIGHT MODE
+===================================================== */
+body.light-mode{
+  background:#f4f6fb;
+  color:#111;
 }
 
-/* HOVER */
-.hobby-pill:hover{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:
-    0 0 20px #7f00ff,
-    0 0 35px #00d4ff;
+body.light-mode .card,
+body.light-mode .project-card{
+  background:#ffffff;
+  color:#111;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
 }
 
-/* ===============================
-   DESKTOP – CENTERED WIDE PILLS
-================================ */
-@media (min-width:1024px){
+body.light-mode .modal-content{
+  background:#ffffff;
+  color:#111;
+}
+
+body.light-mode .theme-toggle{
+  background:#ffffff;
+  color:#000;
+  box-shadow:0 0 10px rgba(0,150,255,.4);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media(min-width:1024px){
+  .projects-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
   .hobbies-wrapper{
     max-width:900px;
   }
-  }
+}
+/* ==================================================
+   LIGHT MODE – PILL FIX (SAFE & VERIFIED)
+   ================================================== */
 
-
-/* ===== FINAL FORCE NEON (DO NOT MOVE) ===== */
-
-.hobby-pill.dark{
-  background:#0b1220 !important;
-  color:#fff !important;
-  position:relative;
-  border-radius:50px;
-  overflow:hidden;
-  box-shadow:
-    0 0 14px rgba(127,0,255,0.5),
-    0 0 28px rgba(0,212,255,0.35);
+/* base pill in light mode */
+body.light-mode .hobby-pill,
+body.light-mode .skill-pill {
+  background: #ffffff !important;   /* white inside */
+  color: #111111 !important;        /* dark text */
+  box-shadow: none !important;
 }
 
-.hobby-pill.dark::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  padding:2px;
-  border-radius:inherit;
+/* KEEP the neon border (do NOT remove ::before) */
+body.light-mode .hobby-pill::before,
+body.light-mode .skill-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
 
-  background:linear-gradient(
-    90deg,
-    #7f00ff,
-    #00d4ff,
+  background: linear-gradient(
+    120deg,
+    #00e5ff,
+    #7a5cff,
     #ff00cc,
     #00ffa6,
-    #7f00ff
+    #00e5ff
   );
-  background-size:400% 400%;
-  animation:neonSlide 6s linear infinite;
+  background-size: 300% 300%;
+  animation: neonMove 6s linear infinite;
 
+  /* border-only mask (CRITICAL) */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+/* ==================================================
+   LIGHT MODE – INFO CARD BORDERS (SAFE FIX)
+   ================================================== */
+
+body.light-mode .card {
+  background: #ffffff;
+  color: #111111;
+
+  /* neon gradient border */
+  border: 2px solid transparent;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(
+      135deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6
+    ) border-box;
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.12);
+}
+/* ==================================================
+   LIGHT MODE – FIX DETAILS / CODE BUTTONS
+   ================================================== */
+
+body.light-mode .highlight-btn {
+  background: #ffffff !important;   /* white inside */
+  color: #111111 !important;        /* dark text */
+
+  border: 2px solid transparent;
+  border-radius: 40px;
+
+  /* neon gradient border */
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(
+      120deg,
+      #00e5ff,
+      #7a5cff,
+      #ff00cc,
+      #00ffa6,
+      #00e5ff
+    ) border-box;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.15);
 }
 
-@keyframes neonSlide{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+/* hover stays neon but lighter */
+body.light-mode .highlight-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 0 10px rgba(0,229,255,0.6),
+    0 0 18px rgba(122,92,255,0.5);
+}
+/* ==================================================
+   FORCE SAME IMAGE SIZE (PROJECTS + CERTIFICATES)
+   ================================================== */
+
+.project-card img {
+  width: 100%;
+  height: 220px;              /* SAME HEIGHT FOR ALL */
+  object-fit: cover;          /* crop, no distortion */
+  object-position: center;    /* center crop */
+  border-radius: 18px;
+}
+
+/* ==================================================
+   GET IN TOUCH SECTION
+   ================================================== */
+
+.contact-section{
+  max-width:800px;
+  margin:80px auto;
+  text-align:center;
+}
+
+.contact-subtitle{
+  margin-top:-10px;
+  margin-bottom:30px;
+  opacity:0.8;
+}
+
+/* INFO CARDS */
+.contact-cards{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.contact-card{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 20px;
+  border-radius:18px;
+  background:#ffffff;
+  box-shadow:0 6px 16px rgba(0,0,0,0.12);
+  text-align:left;
+}
+
+.contact-card h4{
+  margin:0;
+  font-size:16px;
+}
+
+.contact-card p{
+  margin:4px 0 0;
+  font-size:14px;
+  opacity:0.8;
+}
+
+.contact-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:#fff;
+  background:linear-gradient(135deg,#7b2cff,#00d4ff);
+}
+
+/* SOCIAL ICONS */
+.contact-social{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:25px 0 35px;
+}
+
+.contact-social a{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffffff;
+  color:#333;
+  box-shadow:0 6px 16px rgba(0,0,0,0.12);
+  transition:0.3s;
+}
+
+.contact-social a:hover{
+  transform:translateY(-3px);
+  background:linear-gradient(135deg,#7b2cff,#00d4ff);
+  color:#fff;
+}
+
+/* FORM */
+.contact-form{
+  text-align:left;
+}
+
+.contact-form label{
+  font-size:14px;
+  font-weight:600;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px 14px;
+  margin:6px 0 16px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  outline:none;
+  font-size:14px;
+}
+
+.send-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:600;
+  color:#fff;
+  background:linear-gradient(135deg,#4f7cff,#9b5cff);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.send-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.2);
+}
+
+/* ================= LIGHT MODE SAFE ================= */
+body.light-mode .contact-card,
+body.light-mode .contact-social a{
+  background:#ffffff;
+  color:#111;
+}
+/* ==================================================
+   FIX: CONTACT INFO CARDS (EMAIL / PHONE / LOCATION)
+   ================================================== */
+
+.contact-card{
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  /* clear border */
+  border: 1.5px solid #e5e7eb;
+
+  /* soft shadow like reference */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* text inside card */
+.contact-card h4{
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #111;
+}
+
+.contact-card p{
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* icon box (left side) */
+.contact-icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #4f7cff, #00c6ff);
+}
+
+/* ================= DARK MODE ================= */
+body:not(.light-mode) .contact-card{
+  background: #0b1220;
+  border: 1.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+}
+
+body:not(.light-mode) .contact-card h4,
+body:not(.light-mode) .contact-card p{
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* ==================================================
+   CONTACT CARDS – STRONG VISIBLE BORDERS
+   ================================================== */
+
+.contact-card{
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  /* STRONGER BORDER */
+  border: 2px solid #d1d5db;   /* visible light grey */
+
+  /* subtle depth */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* text clarity */
+.contact-card h4{
+  color: #111111;
+}
+
+.contact-card p{
+  color: #555555;
+}
+
+/* icon box stays same */
+.contact-icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f7cff, #00c6ff);
+}
+
+/* ================= DARK MODE ================= */
+
+body:not(.light-mode) .contact-card{
+  background: #0b1220;
+  border: 2px solid rgba(255,255,255,0.15); /* visible in dark */
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+}
+
+body:not(.light-mode) .contact-card h4,
+body:not(.light-mode) .contact-card p{
+  color: #ffffff;
+  opacity: 0.85;
 }
