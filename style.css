@@ -506,13 +506,6 @@ body.light-mode .highlight-btn:hover {
    FORCE SAME IMAGE SIZE (PROJECTS + CERTIFICATES)
    ================================================== */
 
-.project-card img {
-  width: 100%;
-  height: 220px;              /* SAME HEIGHT FOR ALL */
-  object-fit: cover;          /* crop, no distortion */
-  object-position: center;    /* center crop */
-  border-radius: 18px;
-}
 
 /* ==================================================
    GET IN TOUCH SECTION
@@ -765,16 +758,6 @@ body:not(.light-mode) .contact-card p{
 /* ==================================================
    PROJECT IMAGE – FIX FORMAT (NO DISTORTION)
    ================================================== */
-
-/* image container */
-.project-card img{
-  width: 100%;
-  height: 220px;          /* consistent visual size */
-  object-fit: contain;   /* KEEP FULL IMAGE */
-  background: #f4f6fb;   /* neutral background */
-  padding: 10px;         /* breathing space */
-  border-radius: 18px;
-}
 
 /* ==================================================
    DOWNLOAD CERTIFICATES BUTTON
@@ -1110,22 +1093,21 @@ body:not(.light-mode) .theme-toggle{
    look in normal view and when expanded
 ========================================== */
 
-/* Wrapper around the project image */
+/* Wrapper around the project image *
 .project-image-wrapper{
-  width:100%;                /* image takes full card width */
-  height:150px;              /* fixed preview height (same for all projects) */
-  overflow:hidden;           /* hides the bottom part of image */
-  border-radius:18px;        /* rounded corners to match card */
-  margin-bottom:16px;        /* space between image and text/buttons */
+  width:100%;                /* image takes full card width *
+  height:150px;              * fixed preview heigh *
+  border-radius:18px;        ounded corners to match ca
+  margin-bottom:16px;       pace between image and text/buttons *
 }
 
-/* Actual project image */
+/* Actual project image 
 .project-image{
-  width:100%;                /* fill wrapper width */
-  height:100%;               /* fill wrapper height */
-  object-fit:cover;          /* crop image without stretching */
-  object-position:top;       /* show top part of image first */
-  display:block;             /* remove inline spacing issues */
+  width:100%;                /* fill wrapper width *
+  height:100%;               /* fill wrapper height *
+  object-fit:cover;          /* crop image without stretching *
+  object-position:top;       /* show top part of image first *
+  display:block;             /* remove inline spacing issues *
 }
 
 /* When "View" button is clicked */
@@ -1135,66 +1117,31 @@ body:not(.light-mode) .theme-toggle{
 /* ==========================================
    PROJECT IMAGE – FIXED SIZE & PERFECT FIT
 ========================================== */
+/* ==========================================
+   PROJECT IMAGE – CROP + EXPAND (FINAL)
+========================================== */
 
-/* image wrapper */
+/* default preview (hide ~40% bottom) */
 .project-image-wrapper{
   width: 100%;
-  height: 220px;              /* fixed preview height */
-  overflow: hidden;           /* hide extra image */
+  height: 220px;        /* shows ~60% */
+  overflow: hidden;     /* hides bottom */
   border-radius: 18px;
   margin-bottom: 16px;
-  background: transparent;    /* ❌ no white box */
-}
-
-/* image itself */
-.project-image{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* fill without distortion */
-  object-position: top;       /* show top part */
-  display: block;             /* remove gaps */
-  border-radius: 18px;
-}
-
-/* expanded full view */
-.project-image-wrapper.expanded{
-  height: 420px;
-}
-
-.project-image-wrapper{
-  height: 220px;
-  overflow: hidden;
   transition: height 0.4s ease;
 }
 
-.project-image-wrapper.expanded{
-  height: auto;     /* ✅ FULL IMAGE */
-}
-
-.project-image{
-  object-fit: contain;
-  background: #0b1220;
-  padding: 10px;
-}
-/* IMAGE WRAPPER */
-.project-image-wrapper{
-  width: 100%;
-  height: 220px;              /* shows ~60% */
-  overflow: hidden;           /* hides bottom 40% */
-  border-radius: 18px;
-  transition: height 0.4s ease;
-}
-
-/* IMAGE */
+/* image */
 .project-image{
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* fills nicely */
-  object-position: top;       /* show TOP part */
+  object-fit: cover;
+  object-position: top; /* important */
   display: block;
+  border-radius: 18px;
 }
 
-/* EXPANDED STATE – FULL IMAGE */
+/* expanded = full image */
 .project-image-wrapper.expanded{
-  height: auto;               /* 🔥 FULL IMAGE */
+  height: auto;         /* FULL IMAGE */
 }
