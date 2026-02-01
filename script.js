@@ -24,6 +24,7 @@ function openModal(title, file) {
       /* ---------- SOURCE CODE (.txt) ---------- */
       if (file.endsWith(".txt")) {
         modalBody.innerHTML = `
+        <div class="code.txt">
 <pre class="language-c">
 <code class="language-c">
 ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
@@ -127,3 +128,4 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 
 window.addEventListener("load", revealOnScroll);
+
