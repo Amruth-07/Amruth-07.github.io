@@ -131,11 +131,11 @@ body{
 
 .project-card img{
   width:100%;
-  border-radius:16px;
-  padding:4px;
+  border-radius:18px;
+  padding:3px;
   background:linear-gradient(135deg,#7f00ff,#00d4ff);
   box-shadow:0 0 18px rgba(127,0,255,.5),0 0 30px rgba(0,212,255,.35);
-  transition:.35s;
+  transition:.5s;
 }
 .project-card img:hover{
   transform:scale(1.03);
@@ -147,7 +147,7 @@ body{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:15px;
   padding:14px 30px;
   border-radius:40px;
   color:#fff;
