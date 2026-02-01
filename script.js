@@ -107,11 +107,20 @@ function toggleTheme() {
   icon.classList.toggle("fa-sun");
   icon.classList.toggle("fa-moon");
 }
+
+
+
 function toggleProjectImage(button){
   const card = button.closest(".project-card");
   const wrapper = card.querySelector(".project-image-wrapper");
 
   wrapper.classList.toggle("expanded");
+
+  if(wrapper.classList.contains("expanded")){
+    button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide';
+  } else {
+    button.innerHTML = '<i class="fas fa-eye"></i> View';
+  }
 }
 
 /* ===============================
@@ -134,5 +143,6 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 
 window.addEventListener("load", revealOnScroll);
+
 
 
