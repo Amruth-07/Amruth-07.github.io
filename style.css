@@ -1636,3 +1636,29 @@ pre[class*="language-"] {
 body.light-mode #modalBody .token {
   filter: none !important;
 }
+
+
+/* =========================
+   CERTIFICATES – DESKTOP 2x2
+========================= */
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+  }
+}
+/* =========================
+   PROJECTS – DESKTOP 2x2 GRID
+========================= */
+@media (min-width: 1024px) {
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 / 2 */
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+  }
+    }
+
