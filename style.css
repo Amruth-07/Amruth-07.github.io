@@ -1169,3 +1169,24 @@ body:not(.light-mode) .theme-toggle{
   background: #ffffff;    /* clean background */
   padding: 6px;           /* small inner spacing */
 }
+/* ==========================================
+   DESKTOP MODE LAYOUT (PROJECTS + CERTIFICATES)
+   - Mobile: 1 card per row
+   - Desktop: 2 cards per row
+========================================== */
+
+/* Default (Mobile First) */
+.projects-grid,
+.certificates-grid{
+  display: grid;
+  grid-template-columns: 1fr;   /* 1 column on mobile */
+  gap: 25px;
+}
+
+/* Desktop & Laptop screens */
+@media (min-width: 768px){
+  .projects-grid,
+  .certificates-grid{
+    grid-template-columns: repeat(2, 1fr);  /* 🔥 2 / 2 layout */
+  }
+}
