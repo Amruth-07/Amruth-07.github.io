@@ -1063,8 +1063,8 @@ body:not(.light-mode) .theme-toggle{
 .gradient-btn{
   padding: 10px 20px;        /* reduced padding */
   font-size: 14px;          /* smaller text */
-  border-radius: 30px;      /* tighter pill */
-  gap: 15px;                /* icon/text spacing */
+  border-radius: 40px;      /* tighter pill */
+  gap: 25px;                /* icon/text spacing */
 }
 
 /* Neon outline buttons (Details / Code) */
@@ -1089,5 +1089,6 @@ body:not(.light-mode) .theme-toggle{
     font-size: 13px;
   }
 }
+
 
 
