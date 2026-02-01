@@ -943,3 +943,47 @@ body.light-mode .resume-btn{
   font-size:13px;
 }
 
+
+/* ==========================================
+   THEME TOGGLE – SMALL SIZE + BORDER
+========================================== */
+
+.theme-toggle{
+  width:42px;              /* 🔽 smaller */
+  height:42px;
+  border-radius:50%;
+
+  background:#ffffff;
+  color:#111;
+
+  border:2px solid #cfd8e3;  /* visible border */
+
+  box-shadow:
+    0 0 10px rgba(0,150,255,0.35);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:0.3s ease;
+}
+
+/* icon size */
+.theme-toggle i{
+  font-size:16px;          /* 🔽 smaller icon */
+}
+
+/* hover effect */
+.theme-toggle:hover{
+  transform:scale(1.05);
+  box-shadow:
+    0 0 14px rgba(0,150,255,0.6);
+}
+
+/* ================= DARK MODE ================= */
+
+body:not(.light-mode) .theme-toggle{
+  background:#0b1220;
+  color:#ffffff;
+  border:2px solid rgba(255,255,255,0.2);
+}
