@@ -1162,8 +1162,8 @@ body:not(.light-mode) .theme-toggle{
 
 /* Certificate cards only */
 .certificates-grid .project-card img{
-  width: 100%;            /* fit card width */
-  max-height: 160px;      /* 🔽 SMALL IMAGE */
+  width: 80%;            /* fit card width */
+  max-height: 100px;      /* 🔽 SMALL IMAGE */
   object-fit: contain;    /* full image, no crop */
   border-radius: 12px;
   background: #ffffff;    /* clean background */
@@ -1190,4 +1190,5 @@ body:not(.light-mode) .theme-toggle{
     grid-template-columns: repeat(2, 1fr);  /* 🔥 2 / 2 layout */
   }
 }
+
 
