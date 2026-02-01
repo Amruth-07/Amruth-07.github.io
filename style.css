@@ -759,4 +759,19 @@ body:not(.light-mode) .contact-card h4,
 body:not(.light-mode) .contact-card p{
   color: #ffffff;
   opacity: 0.85;
+
+}
+
+/* ==================================================
+   PROJECT IMAGE – FIX FORMAT (NO DISTORTION)
+   ================================================== */
+
+/* image container */
+.project-card img{
+  width: 100%;
+  height: 220px;          /* consistent visual size */
+  object-fit: contain;   /* KEEP FULL IMAGE */
+  background: #f4f6fb;   /* neutral background */
+  padding: 10px;         /* breathing space */
+  border-radius: 18px;
 }
