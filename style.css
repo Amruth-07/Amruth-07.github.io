@@ -891,12 +891,12 @@ body:not(.light-mode) .theme-toggle{
 }
 /* Certificate cards only */
 .certificates-grid .project-card img{
-  width: 80%;            /* fit card width */
+  width: 100%;            /* fit card width */
   max-height: 100px;      /* 🔽 SMALL IMAGE */
   object-fit: contain;    /* full image, no crop */
   border-radius: 12px;
   background: #ffffff;    /* clean background */
-  padding: 6px;           /* small inner spacing */
+  padding: 8px;           /* small inner spacing */
 }
 
 .projects-grid,
@@ -988,6 +988,7 @@ body.light-mode .project-card::before{
   );
   background-size: 300% 300%;
     }
+
 
 
 
