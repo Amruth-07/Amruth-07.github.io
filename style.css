@@ -167,7 +167,7 @@ body{
 .hobbies-wrapper{
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:20px;
   max-width:700px;
   margin:30px auto;
 }
@@ -256,7 +256,7 @@ body{
 .project-actions{
   display:flex;
   justify-content:center;
-  gap:40px;
+  gap:30px;
   margin-top:20px;
 }
 
@@ -934,7 +934,7 @@ body.light-mode .resume-btn{
 .resume-btn{
   padding:8px 18px;         /* 🔽 smaller */
   font-size:13px;           /* 🔽 smaller text */
-  gap:6px;                  /* icon closer */
+  gap:8px;                  /* icon closer */
   border-radius:30px;       /* compact look */
 }
 
@@ -1150,3 +1150,4 @@ body.light-mode .view-image-btn{
   gap:16px;
   flex-wrap:wrap;
 }
+
