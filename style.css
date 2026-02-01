@@ -76,7 +76,7 @@ body{
 
 .about-text{ line-height:1.8; opacity:.9; }
 
-/* ================= HOBBY / SKILL PILLS ================= */
+/* ================= HOBBY / SKILL PILLS ================= *
 .hobbies-wrapper{
   display:grid;
   gap:20px;
@@ -94,7 +94,7 @@ body{
   overflow:hidden;
 }
 
-/* animated neon border */
+/* animated neon border *
 .hobby-pill::before{
   content:"";
   position:absolute;
@@ -412,34 +412,11 @@ body{
   transform:translateY(-2px);
 }
 
-  
-
 /* about image border softer */
 .light-mode .about-card img{
   box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
-/* hobby + skills pills (small, light, thin neon border) */
-/* light mode pills = same size as dark mode */
-.light-mode .hobby-pill.dark{
-  background:#ffffff;
-  color:#111;
-
-  padding:14px 24px;      /* increase size */
-  font-size:16px;         /* normal text size */
-  border-radius:40px;
-
-  box-shadow:0 8px 16px rgba(0,0,0,0.12);
-}
-}
-
-/* thin animated border */
-.light-mode .hobby-pill.dark::before{
-  padding:2px;
-  box-shadow:
-    0 0 3px rgba(127,0,255,.25),
-    0 0 6px rgba(0,212,255,.2);
-}
 
 /* project images remove heavy dark glow */
 .light-mode .project-card img{
