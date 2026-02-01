@@ -232,86 +232,6 @@ body{
   cursor:pointer;
   color:#ff4d4d;
 }
-
-/* inner content block for both code & details */
-/* ===== neon headings (blue-purple) ===== */
-/* Gradient neon headings (no outer glow) *
-.details-text h3{
-  background:linear-gradient(90deg,#00f0ff,#7a5cff,#ff2fd2);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  color:transparent;
-  margin:15px 0 10px;
-}
-/* ===== neon star bullets (green-cyan) ===== *
-.details-text ul{list-style:none;padding:0;margin:8px 0;}
-
-.details-text li{
-  position:relative;
-  padding-left:28px;
-  margin:6px 0;
-  color:#e6e6e6; /* normal text */
-}
-
-/* Gradient neon star bullets *
-.details-text li::before{
-  content:"★";
-  position:absolute;
-  left:0;
-  background:linear-gradient(180deg,#00ffd5,#00aaff,#a855f7);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  color:transparent;
-}
-/* star color different from heading *
-  text-shadow:
-    0 0 6px #00ffd5,
-    0 0 14px #00b3ff,
-    0 0 26px #00b3ff;
-}
-/* Gradient neon sub-headings *
-.details-text h4{
-  background:linear-gradient(90deg,#00ffa6,#00c3ff,#a855f7);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  color:transparent;
-  margin:12px 0 8px;
-  font-size:16px;
- }
-
-/* Light mode sub-headings neon *
-.light-mode .details-text h4{
-  background:linear-gradient(90deg,#0099ff,#7a5cff,#ff00aa);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  color:transparent;
-}
-/* code formatting *
-#modalBody code{
-  font-family:Consolas,monospace;
-  font-size:14px;
-  white-space:pre;
-}
-
-/* ================= LIGHT MODE ================= *
-.light-mode{
-  background:#f5f5f5;
-  color:#111;
-}
-.light-mode .modal-content{
-  background:#fff;
-  color:#000;
-}
-.light-mode .details-text,
-.light-mode #modalBody pre{
-  background:#eaeaea;
-  color:#000;
-}
-*/
 /* ================= DESKTOP ================= */
 @media(min-width:1024px){
   .section-headline{font-size:2.8rem;margin:90px 0 50px;}
@@ -415,7 +335,7 @@ body{
 .project-actions{
   display:flex;
   justify-content:center;
-  gap:35px;        /* space between Details and Code */
+  gap:40px;        /* space between Details and Code */
   margin-top:20px; /* space between description and buttons */
 }
 
@@ -434,7 +354,7 @@ body{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:16px;
+  gap:12px;
   margin:18px 0 10px;
 }
 
@@ -467,7 +387,7 @@ body{
     #00e5ff
   );
   background-size:300% 300%;
-  animation:skillGlow 6s linear infinite;
+  animation:skillGlow 3s linear infinite;
 
   -webkit-mask:
       linear-gradient(#000 0 0) content-box,
@@ -499,21 +419,14 @@ body{
   box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
-/* text inside cards *
-.light-mode .card p,
-.light-mode .project-card p,
-.light-mode .about-text{
-  color:#333;
-}
-
 /* hobby + skills pills (small, light, thin neon border) */
 /* light mode pills = same size as dark mode */
 .light-mode .hobby-pill.dark{
   background:#ffffff;
   color:#111;
 
-  padding:18px 28px;      /* increase size */
-  font-size:18px;         /* normal text size */
+  padding:14px 24px;      /* increase size */
+  font-size:16px;         /* normal text size */
   border-radius:40px;
 
   box-shadow:0 8px 16px rgba(0,0,0,0.12);
@@ -532,13 +445,6 @@ body{
 .light-mode .project-card img{
   box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
-
-/* buttons text color */
-.light-mode .highlight-btn,
-.light-mode #copyBtn{
-  color:#111;
-}
-
 /* modal */
 .light-mode .modal-content{
   background:#ffffff;
@@ -550,37 +456,6 @@ body{
   background:#f0f0f0;
   color:#000;
 }
-
-/* links */
-.light-mode a{
-  color:#0057ff;
-}
-
-
-/* smaller thin buttons in light mode (Details & Code) *
-.light-mode .highlight-btn{
-  background:#0b0f1a;      /* keep dark inside *
-  color:#ffffff;
-
-  padding:8px 18px;        /* reduce height *
-  font-size:14px;  ⅚        /* smaller text *
-  border-radius:28px;      /* slightly smaller round *
-}
-
-/* thin neon moving border *
-.light-mode .highlight-btn::before{
-  padding:1px;             /* thin border /
-}
-
-/* softer glow on hover *
-.light-mode .highlight-btn:hover{
-  box-shadow:
-    0 0 6px #7a5cff,
-    0 0 14px #00e5ff,
-    0 0 24px rgba(0,229,255,0.6);
-}
-
-
 /* Light mode thin neon border effect without changing size */
 .light-mode .skill-pill{
   position:relative;
@@ -607,7 +482,7 @@ body{
   background:#0b0f1a; 
   color:#ffffff;
 
- border:0px solid transparent; /* thin border *
+ border:0px solid transparent; /* thin border */
   border-radius:40px;
 
   /* gradient border */
@@ -653,39 +528,14 @@ body{
     linear-gradient(#ffffff,#ffffff) padding-box,
     linear-gradient(135deg,#7b2cff,#00d4ff,#00ffa6) border-box;
 }
-
-/* Light mode project buttons *
-.light-mode .highlight-btn{
-  background:#ffffff;          /* light inside *
-  color:#111;                  /* dark text *
-  border-radius:30px;
-  border:2px solid transparent;
-
-  /* thin neon gradient border *
-  background:
-    linear-gradient(#ffffff,#ffffff) padding-box,
-    linear-gradient(135deg,#00ffa6,#00d4ff,#7b2cff) border-box;
-
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-  
-}
-
- hover in light mode 
-.light-mode .highlight-btn:hover{
-  color:#000;
-  box-shadow:
-    0 0 8px rgba(0,212,255,0.5),
-    0 0 16px rgba(123,44,255,0.4);
-}
-
 /* Small left side theme toggle button */
 .theme-toggle{
   position:fixed;
   top:13px;
   left:13px;        /* move to left */
 
-  width:30px;       /* small size */
-  height:30px;
+  width:20px;       /* small size */
+  height:20px;
   border-radius:50%;
 
   display:flex;
@@ -777,9 +627,6 @@ body.light-mode{
   color:#111;
 }
 
-
-
-
 /* Remove neon glow/double border in light mode for pills */
 .light-mode .skill-pill,
 .light-mode .hobby-pill,
@@ -805,116 +652,6 @@ body.light-mode{
   color:#111;
 }
 
-
-
-
-/* Light mode modal fixes *
-.light-mode .modal-content{
-  background:#ffffff;
-  color:#111;
-}
-
-/* the scrollable text box inside modal *
-.light-mode #modalBody{
-  background:#f5f5f5;   /* light grey box *
-  color:#111;           /* dark readable text *
-}
-
-
-/* if code/pre blocks are used *
-.light-mode #modalBody pre{
-  background:#eaeaea;
-  color:#000;
-}
-
-
-
-/* ===== FORCE LIGHT MODE MODAL ===== *
-body.light-mode #modalBody{
-  background:#f2f2f2 !important;
-  color:#111 !important;
-}
-
-body.light-mode #modalBody *{
-  color:#111 !important;
-}
-
-/* if you have a dark overlay behind text *
-body.light-mode #modalBody .dark,
-body.light-mode #modalBody .code-box{
-  background:#e9e9e9 !important;
-  color:#111 !important;
-}
-
-/* modal main box *
-body.light-mode .modal-content{
-  background:#ffffff !important;
-  color:#111 !important;
-}
-
-
-
-/* ===== Modal fix for light mode ===== *
-.light-mode .modal-content{
-  background:#ffffff !important;
-  color:#111 !important;
-  box-shadow:0 15px 40px rgba(0,0,0,0.2);
-}
-
-/* inner scrolling text area *
-.light-mode #modalBody,
-.light-mode .modal-body,
-.light-mode .modal-text{
-  background:#f5f5f5 !important;
-  color:#000 !important;
-}
-
-/* if you use <pre> to show code/text *
-.light-mode #modalBody pre{
-  background:#f5f5f5 !important;
-  color:#000 !important;
-}
-
-/* remove dark overlay feeling *
-.light-mode .modal{
-  background:rgba(0,0,0,0.3);
-}
-
-
-
-
-/* ===== FORCE LIGHT MODE INSIDE MODAL TEXT ===== *
-.light-mode #modalBody{
-  background:#f2f2f2 !important;
-  color:#000 !important;
-}
-
-/* if your JS wraps text inside another div *
-.light-mode #modalBody div{
-  background:#f2f2f2 !important;
-  color:#000 !important;
-}
-
-/* if text is inside pre or code block *
-.light-mode #modalBody pre,
-.light-mode #modalBody code{
-  background:#f2f2f2 !important;
-  color:#000 !important;
-}
-
-/* ===== CODE VIEW STYLE (DARK MODE DEFAULT) ===== *
-#modalBody pre{
-  background:#111 !important;
-  color:#eaeaea !important;
-  padding:16px;
-  border-radius:12px;
-  overflow:auto;
-  font-size:14px;
-  line-height:1.5;
-  white-space:pre-wrap;
-  word-break:break-word;
-}
-
 /* Copy button look */
 .copy-btn{
   background:#ddd;
@@ -926,61 +663,6 @@ body.light-mode .modal-content{
   cursor:pointer;
   margin-bottom:10px;
 }
-
-/* ===== LIGHT MODE CODE STYLE ===== *
-.light-mode #modalBody pre{
-  background:#e9e9e9 !important;   /* light grey box *
-  color:#000 !important;           /* black text *
-  border:1px solid #d0d0d0;
-}
-
-/* light mode copy button *
-.light-mode .copy-btn{
-  background:#f5f5f5;
-  color:#000;
-  border:1px solid #bbb;
-}
-
-
-/* Theme toggle button in light mode */
-.light-mode .theme-toggle{
-  background:#ffffff;              /* remove dark inside */
-  color:#111;                       /* dark icon */
-  border:2px solid transparent;
-  border-radius:50%;
-
-  /* neon gradient border */
-  background-clip:padding-box;
-  position:fixed;
-  top:15px;
-  left:13px;                        /* move to left side */
-  width:45px;
-  height:45px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  box-shadow:
-    0 0 10px rgba(0,255,200,0.4),
-    0 0 15px rgba(180,0,255,0.3);
-}
-
-/* thin gradient ring */
-.light-mode .theme-toggle::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:50%;
-  background:linear-gradient(45deg,#00ffd5,#7a5cff,#ff00cc);
-  z-index:-1;
-}
-
-/* icon size */
-.theme-toggle i{
-  font-size:14px;
-}
-
 
 /* ===== FORCE white toggle in light mode ===== */
 body.light-mode .theme-toggle{
@@ -1098,12 +780,6 @@ body.light-mode .theme-toggle{
 
 /* ===== Fix neon headings in LIGHT MODE inside modal/details ===== */
 
-/* remove any normal text color *
-.light-mode .details-text h3,
-.light-mode .details-text h4{
-  color:transparent !important;
-}
-
 /* gradient neon for main headings */
 .light-mode .details-text h3{
   background:linear-gradient(90deg,#007bff,#7b61ff,#ff00aa);
@@ -1206,10 +882,6 @@ body.light-mode .theme-toggle{
   background: linear-gradient(135deg, #5b8cff, #00c9a7);
   color: #fff;
 }
-
-
-
-
 .theme-toggle {
   position: fixed;
   top: 16px;
@@ -1231,10 +903,6 @@ body.light-mode .theme-toggle{
   border: 2px solid #7dd3fc;
   box-shadow: 0 0 10px rgba(0,150,255,.4);
 }
-
-
-
-
   /* DARK MODE HEADINGS */
 .details-text h3,
 .details-text h4 {
@@ -1250,10 +918,6 @@ body.light-mode .theme-toggle{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   }
-
-
-
-
 .details-text li::before {
   content: "✦";
   margin-right: 8px;
@@ -1263,8 +927,6 @@ body.light-mode .theme-toggle{
 .light-mode .details-text li::before {
   color: #2563eb;
 }
-
-
 
 #modalBody pre {
   background: #0b0f1a;
@@ -1291,7 +953,6 @@ body.light-mode .theme-toggle{
   }
 
 
-
 .light-mode .copy-btn{
   background: #ffffff !important;
   color: #111 !important;
@@ -1308,96 +969,6 @@ body.light-mode .theme-toggle{
 .light-mode .copy-btn:hover{
   transform: scale(1.03);
 }
-
-
-/* =========================
-   CODE COLORS – DARK MODE
-   ========================= *
-body:not(.light-mode) pre,
-body:not(.light-mode) code {
-  background: #0e0e12 !important;
-  color: #e6e6e6 !important;
-}
-
-/* keywords *
-body:not(.light-mode) .token.keyword {
-  color: #ff79c6;
-}
-
-/* functions & classes *
-body:not(.light-mode) .token.function,
-body:not(.light-mode) .token.class-name {
-  color: #50fa7b;
-}
-
-/* strings *
-body:not(.light-mode) .token.string {
-  color: #f1fa8c;
-}
-
-/* numbers *
-body:not(.light-mode) .token.number {
-  color: #bd93f9;
-}
-
-/* comments *
-body:not(.light-mode) .token.comment {
-  color: #6272a4;
-  font-style: italic;
-}
-
-/* preprocessor (#include, #define) *
-body:not(.light-mode) .token.directive,
-body:not(.light-mode) .token.macro {
-  color: #00eaff;
-}
-
-
-/* =========================
-   CODE COLORS – LIGHT MODE
-   ========================= *
-body.light-mode pre,
-body.light-mode code {
-  background: #f3f4f6 !important;
-  color: #111827 !important;
-}
-
-/* keywords *
-body.light-mode .token.keyword {
-  color: #7c3aed;
-}
-
-/* functions & classes *
-body.light-mode .token.function,
-body.light-mode .token.class-name {
-  color: #059669;
-}
-
-/* strings *
-body.light-mode .token.string {
-  color: #b45309;
-}
-
-/* numbers *
-body.light-mode .token.number {
-  color: #2563eb;
-}
-
-/* comments *
-body.light-mode .token.comment {
-  color: #6b7280;
-  font-style: italic;
-}
-
-/* preprocessor *
-body.light-mode .token.directive,
-body.light-mode .token.macro {
-  color: #0891b2;
-}
-
-
-
-
 
 /* ===== PROGRAM COLORS : DARK MODE ===== */
 body:not(.light-mode) pre,
