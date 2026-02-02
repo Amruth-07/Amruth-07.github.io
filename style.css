@@ -178,22 +178,28 @@ body{
   transform:translateY(-2px) scale(1.02);
 }
 .project-actions{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  margin-top:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  padding: 20px 16px;   /* space inside card */
+  flex-wrap: wrap;      /* mobile safe */
 }
 .highlight-btn{
   position: relative;
-  padding: 20px 40px;
-  border-radius: 44px;
-  
-  background: transparent;   /* ❌ no fill */
-  color: #fff;
 
-  text-decoration: none;
+  padding: 16px 34px;   /* 👈 balanced size */
+  min-width: 160px;     /* 👈 not too wide */
+  font-size: 17px;
+
+  border-radius: 40px;
+  background: transparent;
+  color: #fff;
+  text-align: center;
   font-weight: 600;
-  z-index: 1;
+  overflow: visible;
+
 }
 .highlight-btn::before{
   content:"";
@@ -1447,6 +1453,7 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
 
 
