@@ -1228,3 +1228,48 @@ body.light-mode #modalBody code{
   }
   }
 
+/* ==========================================
+   COPY CODE BUTTON – NEON BORDER ONLY
+========================================== */
+
+#copyBtn{
+  position: relative;
+  background: transparent;      /* keep your current bg */
+  color: #fff;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+/* Neon animated border */
+#copyBtn::before{
+  content: "";
+  position: absolute;
+  inset: -1px;                  /* thin border */
+  border-radius: 24px;
+  padding: 1px;
+
+  background: linear-gradient(
+    120deg,
+    #00f0ff,
+    #7a5cff,
+    #ff4fd8,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: copyNeon 5s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/* animation */
+@keyframes copyNeon{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
