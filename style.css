@@ -1168,4 +1168,26 @@ body.light-mode #modalBody code{
     #ff2fb2
   );
   }
+/* ==========================================
+   PROJECT CARD BUTTONS – BIG SIZE
+========================================== */
+
+.project-card .btn,
+.project-card button{
+  padding: 12px 22px;          /* 🔥 BIGGER */
+  font-size: 15px;             /* readable */
+  border-radius: 28px;
+  min-width: 110px;            /* equal width */
+  font-weight: 600;
+}
+
+/* Buttons container spacing */
+.project-card .project-buttons,
+.project-card .btn-group{
+  display: flex;
+  gap: 14px;                   /* space between buttons */
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
 
