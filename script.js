@@ -3,6 +3,8 @@
 ================================ */
 
 function openModal(title, file) {
+
+  const copyBtn = document.getElementById("copyBtn");
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
@@ -144,6 +146,21 @@ window.addEventListener("scroll", revealOnScroll);
 
 window.addEventListener("load", revealOnScroll);
 
+function copyCode() {
+  const codeBlock = document.querySelector("#modalBody code");
+  if (!codeBlock) return;
+
+  navigator.clipboard.writeText(codeBlock.innerText)
+    .then(() => {
+      const btn = document.getElementById("copyBtn");
+      const oldText = btn.innerText;
+      btn.innerText = "Copied ✓";
+
+      setTimeout(() => {
+        btn.innerText = oldText;
+      }, 1500);
+    });
+}
 
 
 
