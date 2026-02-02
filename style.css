@@ -183,15 +183,15 @@ body{
   align-items: center;
   gap: 10px;
 
-  padding: 20px 16px;   /* space inside card */
+  padding: 10px 6px;   /* space inside card */
   flex-wrap: wrap;      /* mobile safe */
 }
 .highlight-btn{
-  padding: 12px 22px;     /* 👈 balanced */
-  font-size: 15px;        /* readable */
-  min-width: 120px;
-  border-radius: 28px;
-  font-weight: 600;
+  padding: 2px 2px;     /* 👈 balanced */
+  font-size: 5px;        /* readable */
+  min-width: 20px;
+  border-radius: 8px;
+  font-weight: 60;
   background: transparent;
 }
 .highlight-btn::before{
@@ -211,7 +211,7 @@ body{
     #00e5ff
   );
   background-size: 400% 400%;
-  animation: neonBtn 3s linear infinite;
+  animation: neonBtn 1s linear infinite;
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -221,11 +221,11 @@ body{
 
   pointer-events: none;
 }
-@media (max-width:600px){
+@media (max-width:60px){
   .highlight-btn{
-    padding: 14px 26px;
-    font-size: 16px;
-    min-width: 140px;
+    padding: 4px 6px;
+    font-size: 6px;
+    min-width: 10px;
   }
 }
 @keyframes neonBtn{
@@ -864,16 +864,16 @@ body:not(.light-mode) .theme-toggle{
     font-size: 13px;
   }
 }
-/* ===== INCREASE SPACE BETWEEN PROJECT BUTTONS ===== */
+/* ===== INCREASE SPACE BETWEEN PROJECT BUTTONS ===== /
 
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 25px;        /* ⬅ increase spacing here */
+  gap: 25px;        /* ⬅ increase spacing here *
   margin-top: 18px;
 }
 
-/* Mobile – slightly more breathing room */
+/* Mobile – slightly more breathing room *
 @media (max-width: 600px){
   .project-actions{
     gap: 28px;
@@ -1152,7 +1152,7 @@ body.light-mode #modalBody code{
    COPY CODE BUTTON – NEON STYLE
 ========================================== */
 
-#copyBtn{
+.copyBtn{
   background: linear-gradient(
     135deg,
     #00f0ff,
@@ -1169,13 +1169,13 @@ body.light-mode #modalBody code{
 }
 
 /* Hover effect */
-#copyBtn:hover{
+.copyBtn:hover{
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
 }
 
 /* When copied */
-#copyBtn:active{
+.copyBtn:active{
   transform: scale(0.95);
 }
   body.light-mode #copyBtn{
@@ -1189,7 +1189,7 @@ body.light-mode #modalBody code{
   }
 /* ==========================================
    PROJECT CARD BUTTONS – BIG SIZE
-========================================== */
+========================================== /
 
 .project-card{
   position: relative;
@@ -1198,12 +1198,12 @@ body.light-mode #modalBody code{
   overflow: hidden;
 }
 
-/* neon border only */
+/* neon border only *
 .project-card::before{
   content: "";
   position: absolute;
   inset: 0;
-  padding: 1px;              /* very thin */
+  padding: 1px;              /* very thin *
   border-radius: inherit;
 
   background: linear-gradient(
@@ -1309,7 +1309,7 @@ body.light-mode #modalBody code{
   pointer-events: none;
 } */
 
-/* Animation */
+/* Animation *
 @keyframes copyNeon{
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -1450,6 +1450,7 @@ body.light-mode .highlight-btn{
     gap: 14px;
   }
                   }
+
 
 
 
