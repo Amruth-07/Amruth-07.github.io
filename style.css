@@ -1098,7 +1098,11 @@ body.light-mode #modalBody ul li{
   background-size: 300% 300%;
   animation: neonCode 6s linear infinite;
   z-index: -1;              /* 🔥 move behind */
-}
+#modalBody pre{
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+  background-clip: padding-box;
 }
 
 /* Code text */
@@ -1124,4 +1128,5 @@ body.light-mode #modalBody pre{
 body.light-mode #modalBody code{
   color: #222;
 }
+
 
