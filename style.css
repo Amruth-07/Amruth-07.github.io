@@ -181,7 +181,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 
   padding: 20px 16px;   /* space inside card */
   flex-wrap: wrap;      /* mobile safe */
@@ -1453,6 +1453,7 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
 
 
