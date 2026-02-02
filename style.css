@@ -1319,3 +1319,14 @@ body.light-mode #modalBody code{
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
   }
+
+body.light-mode .copy-btn::before{
+  background: linear-gradient(
+    120deg,
+    #00bcd4,
+    #6a5cff,
+    #ff77c6,
+    #00bcd4
+  );
+  background-size: 300% 300%;
+}
