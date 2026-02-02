@@ -187,18 +187,22 @@ body{
   position: relative;
   padding: 14px 28px;
   border-radius: 40px;
-  background: #070e1c;
+  
+  background: transparent;   /* ❌ no fill */
   color: #fff;
+
   text-decoration: none;
   font-weight: 600;
   z-index: 1;
-} 
+}
 .highlight-btn::before{
   content:"";
   position:absolute;
-  inset:-1px;
-  border-radius:inherit;
-  background:linear-gradient(
+  inset: 0;
+  padding: 1.5px;              /* 🔥 thin border */
+  border-radius: inherit;
+
+  background: linear-gradient(
     120deg,
     #00e5ff,
     #7a5cff,
@@ -207,9 +211,16 @@ body{
     #ffe600,
     #00e5ff
   );
-  background-size:400% 400%;
-  animation:neonBtn 4s linear infinite;
-  z-index:-1;                /* 🔥 KEY FIX */
+  background-size: 400% 400%;
+  animation: neonBtn 4s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
 }
 @keyframes neonBtn{
   0%{background-position:0% 50%}
@@ -1415,6 +1426,7 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
 
 
