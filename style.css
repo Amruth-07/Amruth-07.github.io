@@ -1362,5 +1362,62 @@ body.light-mode .copy-btn::before{
     min-width: 150px;
   }
   }
+/* ==========================================
+   NEON GRADIENT ANIMATED BUTTON BORDER
+========================================== */
 
+.highlight-btn{
+  position: relative;
+  background: transparent;
+  color: inherit;
+  border-radius: 30px;
+  padding: 14px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 130px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* animated neon border */
+.highlight-btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;                 /* 🔥 thin border */
+  border-radius: 30px;
+  background: linear-gradient(
+    120deg,
+    #00f0ff,
+    #8a5cff,
+    #ff4fd8,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: btnNeon 6s linear infinite;
+  pointer-events: none;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* animation */
+@keyframes btnNeon{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+  }
+body.light-mode .highlight-btn::before{
+  background: linear-gradient(
+    120deg,
+    #00c6ff,
+    #6a5cff,
+    #ff77c6,
+    #00c6ff
+  );
+  background-size: 300% 300%;
+  }
 
