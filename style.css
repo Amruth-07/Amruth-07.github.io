@@ -1409,6 +1409,47 @@ body.light-mode .highlight-btn::before{
   background-size: 300% 300%;
   }
 
+/* ===============================
+   FINAL BUTTON FIX – SAFE OVERRIDE
+   ONLY COLOR + ALIGNMENT
+================================ */
+
+/* Button container – clean center alignment */
+.project-actions{
+  display: flex;
+  justify-content: center;   /* ✅ center */
+  align-items: center;
+  gap: 18px;                 /* balanced spacing */
+  flex-wrap: wrap;           /* mobile safe */
+  margin-top: 18px;
+}
+
+/* Button text & inner color ONLY */
+.highlight-btn{
+  background: transparent;   /* keep border-only look */
+  color: #ffffff;            /* 🔥 button text color */
+  text-decoration: none;
+}
+
+/* Light mode button text color */
+body.light-mode .highlight-btn{
+  color: #111111;            /* readable in light mode */
+}
+
+/* Remove underline from Details / Code links */
+.highlight-btn,
+.highlight-btn:hover,
+.highlight-btn:focus{
+  text-decoration: none;
+}
+
+/* Mobile: keep centered & clean */
+@media (max-width: 600px){
+  .project-actions{
+    flex-direction: column;  /* stack neatly */
+    gap: 14px;
+  }
+                  }
 
 
 
