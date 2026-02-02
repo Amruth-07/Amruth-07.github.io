@@ -1065,3 +1065,68 @@ body.light-mode #modalBody p,
 body.light-mode #modalBody ul li{
   color: #333;
   }
+
+/* ==========================================
+   MODAL CODE BLOCK – NEON STYLE
+========================================== */
+
+/* Code container */
+#modalBody pre{
+  background: rgba(15, 20, 35, 0.95);   /* dark glass */
+  border-radius: 14px;
+  padding: 18px;
+  overflow-x: auto;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+}
+
+/* Neon border glow */
+#modalBody pre::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    #00f0ff,
+    #8a5cff,
+    #ff4fd8,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: neonCode 6s linear infinite;
+  pointer-events: none;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* Code text */
+#modalBody code{
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #eaeaea;
+}
+
+/* Animation */
+@keyframes neonCode{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Light mode code styling */
+body.light-mode #modalBody pre{
+  background: #f6f8ff;
+  border: 1px solid rgba(120, 120, 255, 0.35);
+}
+
+body.light-mode #modalBody code{
+  color: #222;
+}
