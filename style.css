@@ -225,8 +225,8 @@ body{
 @media (max-width: 600px){
   .highlight-btn{
     padding: 15px 30px;
-    min-width: 190px;
-    font-size: 19px;
+    min-width: 150px;
+    font-size: 16px;
   }
 }
 @keyframes neonBtn{
@@ -1447,6 +1447,7 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
 
 
