@@ -1129,4 +1129,43 @@ body.light-mode #modalBody code{
   color: #222;
 }
 
+/* ==========================================
+   COPY CODE BUTTON – NEON STYLE
+========================================== */
+
+#copyBtn{
+  background: linear-gradient(
+    135deg,
+    #00f0ff,
+    #7a5cff,
+    #ff4fd8
+  );
+  color: #000;
+  border: none;
+  border-radius: 22px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+#copyBtn:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+/* When copied */
+#copyBtn:active{
+  transform: scale(0.95);
+}
+  body.light-mode #copyBtn{
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #0066ff,
+    #7b2cff,
+    #ff2fb2
+  );
+  }
 
