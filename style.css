@@ -177,72 +177,7 @@ body{
 .hobby-pill:hover{
   transform:translateY(-2px) scale(1.02);
 }
-.project-actions{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 
-  padding: 20px 16px;   /* space inside card */
-  flex-wrap: wrap;      /* mobile safe */
-}
-.highlight-btn{
-  position: relative;
-
-  padding: 16px 34px;   /* 👈 balanced size */
-  min-width: 160px;     /* 👈 not too wide */
-  font-size: 17px;
-
-  border-radius: 40px;
-  background: transparent;
-  color: #fff;
-  text-align: center;
-  font-weight: 600;
-  overflow: visible;
-
-}
-.highlight-btn::before{
-  content:"";
-  position:absolute;
-  inset: 0;
-  padding: 0.75px;              /* 🔥 thin border */
-  border-radius: inherit;
-
-  background: linear-gradient(
-    120deg,
-    #00e5ff,
-    #7a5cff,
-    #ff00cc,
-    #00ffa6,
-    #ffe600,
-    #00e5ff
-  );
-  background-size: 400% 400%;
-  animation: neonBtn 3s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-}
-@media (max-width: 600px){
-  .highlight-btn{
-    padding: 22px 46px;
-    min-width: 210px;
-    font-size: 20px;
-  }
-}
-@keyframes neonBtn{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-body.light-mode .highlight-btn{
-  color: #111;
-}
 
 body.light-mode .highlight-btn::before{
   background: linear-gradient(
@@ -281,15 +216,6 @@ body.light-mode .highlight-btn::before{
   cursor:pointer;
   color:#ff4d4d;
 }
-/*.copy-btn{
-  margin-bottom:10px;
-  padding:8px 14px;
-  border-radius:8px;
-  border:none;
-  background:linear-gradient(135deg,#7c7cff,#00ffd5);
-  font-weight:600;
-  cursor:pointer;
-} */
 .theme-toggle{
   position:fixed;
   top:14px;
@@ -339,7 +265,6 @@ body.light-mode .skill-pill {
   color: #111111 !important;        /* dark text */
   box-shadow: none !important;
 }
-/* KEEP the neon border (do NOT remove ::before) */
 body.light-mode .hobby-pill::before,
 body.light-mode .skill-pill::before {
   content: "";
@@ -631,55 +556,6 @@ body:not(.light-mode) .contact-card p{
 
   padding:14px 28px;
   font-size:16px;
-  font-weight:600;
-  text-decoration:none;
-  color:#ffffff;
-
-  border-radius:40px;
-  border:2px solid transparent;
-
-  background:
-    linear-gradient(#0b1220, #0b1220) padding-box,
-    linear-gradient(
-      120deg,
-      #00e5ff,
-      #7a5cff,
-      #ff00cc,
-      #00ffa6
-    ) border-box;
-
-  box-shadow:
-    0 0 14px rgba(0,229,255,0.4),
-    0 0 24px rgba(122,92,255,0.35);
-
-  transition:0.3s ease;
-}
-
-.download-btn:hover{
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:
-    0 0 20px rgba(0,229,255,0.7),
-    0 0 35px rgba(122,92,255,0.6);
-}
-body.light-mode .download-btn{
-  color:#111;
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(
-      120deg,
-      #00e5ff,
-      #7a5cff,
-      #ff00cc,
-      #00ffa6
-    ) border-box;
-   }
-.file-size{
-  margin-top:8px;
-  font-size:13px;
-  opacity:0.75;
-  color:#cccccc;
-  text-align:center;
-}
 
 /* light mode */
 body.light-mode .file-size{
@@ -849,10 +725,10 @@ body:not(.light-mode) .theme-toggle{
   gap: 25px;                /* icon/text spacing */
 }
 
-/* Neon outline buttons (Details / Code) */
+/* Neon outline buttons (Details / Code) *
 .highlight-btn,
 #copyBtn{
-  padding: 10px 10px;        /* reduced padding */
+  padding: 10px 10px;        /* reduced padding 
   font-size: 12px;
   border-radius: 30px;
 }
@@ -940,68 +816,3 @@ body:not(.light-mode) .theme-toggle{
   overflow: auto;
   background-clip: padding-box;
 }
-
-/* Code text */
-#modalBody code{
-  font-family: "Fira Code", monospace;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #eaeaea;
-}
-
-/* Animation */
-@keyframes neonCode{
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* Light mode code styling */
-body.light-mode #modalBody pre{
-  background: #f6f8ff;
-  border: 1px solid rgba(120, 120, 255, 0.35);
-}
-
-body.light-mode #modalBody code{
-  color: #222;
-}
-
-/* ==========================================
-   COPY CODE BUTTON – NEON STYLE
-========================================== */
-
-#copyBtn{
-  background: linear-gradient(
-    135deg,
-    #00f0ff,
-    #7a5cff,
-    #ff4fd8
-  );
-  color: #000;
-  border: none;
-  border-radius: 22px;
-  padding: 8px 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect */
-#copyBtn:hover{
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
-}
-
-/* When copied */
-#copyBtn:active{
-  transform: scale(0.95);
-}
-  body.light-mode #copyBtn{
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    #0066ff,
-    #7b2cff,
-    #ff2fb2
-  );
-  }
-
