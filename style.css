@@ -203,9 +203,8 @@ body{
 }
 
 .highlight-btn{
-  position: relative;
-  padding: 10px 26px;
-  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 14px;
   background: #0b1324;     /* dark inside */
   color: #ffffff;
   font-size: 14px;
@@ -338,3 +337,10 @@ body.light-mode .highlight-btn::before{
   100%{background-position:0% 50%}
 }
 
+.project-actions{
+  display: flex;
+  justify-content: center;
+  gap: 14px;           /* 👈 THIS creates space */
+  flex-wrap: wrap;    /* mobile safe */
+  margin-top: 18px;
+}
