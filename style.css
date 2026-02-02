@@ -185,8 +185,8 @@ body{
 }
 .highlight-btn{
   position: relative;
-  padding: 14px 28px;
-  border-radius: 40px;
+  padding: 18px 36px;
+  border-radius: 42px;
   
   background: transparent;   /* ❌ no fill */
   color: #fff;
@@ -221,6 +221,13 @@ body{
           mask-composite: exclude;
 
   pointer-events: none;
+}
+@media (max-width: 600px){
+  .highlight-btn{
+    padding: 20px 40px;
+    min-width: 190px;
+    font-size: 19px;
+  }
 }
 @keyframes neonBtn{
   0%{background-position:0% 50%}
@@ -1440,6 +1447,7 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
 
 
