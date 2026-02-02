@@ -78,7 +78,7 @@ window.addEventListener("click", function (event) {
    COPY CODE BUTTON
 ================================ */
 
-function copyCode() {
+function copyBtn() {
   const codeBlock = document.querySelector("#modalBody code");
   if (!codeBlock) return;
 
@@ -143,6 +143,7 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 
 window.addEventListener("load", revealOnScroll);
+
 
 
 
