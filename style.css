@@ -343,15 +343,4 @@ body.light-mode .highlight-btn::before{
   gap: 14px;           /* 👈 THIS creates space */
   flex-wrap: wrap;    /* mobile safe */
   margin-top: 18px;
-}
-.project-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: nowrap;
-}
-
-.project-actions .highlight-btn {
-  white-space: nowrap;
-}
+  }
