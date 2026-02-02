@@ -1190,4 +1190,41 @@ body.light-mode #modalBody code{
   flex-wrap: wrap;
   margin-top: 16px;
 }
+/* ==========================================
+   PROJECT CARD BUTTONS – FORCE BIG SIZE
+========================================== */
+
+/* target ALL project buttons */
+.project-card a,
+.project-card .view-btn,
+.project-card .details-btn,
+.project-card .code-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 26px !important;   /* BIG */
+  font-size: 16px !important;
+  min-width: 130px;
+  border-radius: 30px;
+
+  font-weight: 600;
+}
+
+/* button group spacing */
+.project-card .project-buttons,
+.project-card .btn-group{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+  @media (max-width: 600px){
+  .project-card a{
+    padding: 16px 30px !important;
+    font-size: 17px !important;
+    min-width: 140px;
+  }
+  }
 
