@@ -187,19 +187,12 @@ body{
   flex-wrap: wrap;      /* mobile safe */
 }
 .highlight-btn{
-  position: relative;
-
-  padding: 16px 34px;   /* 👈 balanced size */
-  min-width: 160px;     /* 👈 not too wide */
-  font-size: 17px;
-
-  border-radius: 40px;
-  background: transparent;
-  color: #fff;
-  text-align: center;
+  padding: 12px 22px;     /* 👈 balanced */
+  font-size: 15px;        /* readable */
+  min-width: 120px;
+  border-radius: 28px;
   font-weight: 600;
-  overflow: visible;
-
+  background: transparent;
 }
 .highlight-btn::before{
   content:"";
@@ -228,11 +221,11 @@ body{
 
   pointer-events: none;
 }
-@media (max-width: 600px){
+@media (max-width:600px){
   .highlight-btn{
-    padding: 22px 46px;
-    min-width: 210px;
-    font-size: 20px;
+    padding: 14px 26px;
+    font-size: 16px;
+    min-width: 140px;
   }
 }
 @keyframes neonBtn{
@@ -1204,62 +1197,39 @@ body.light-mode #modalBody code{
    PROJECT CARD BUTTONS – BIG SIZE
 ========================================== */
 
-.project-card .btn,
-.project-card button{
-  padding: 12px 22px;          /* 🔥 BIGGER */
-  font-size: 15px;             /* readable */
-  border-radius: 28px;
-  min-width: 110px;            /* equal width */
-  font-weight: 600;
+.project-card{
+  position: relative;
+  border-radius: 22px;
+  background: var(--card-bg);
+  overflow: hidden;
 }
 
-/* Buttons container spacing */
-.project-card .project-buttons,
-.project-card .btn-group{
-  display: flex;
-  gap: 14px;                   /* space between buttons */
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 16px;
+/* neon border only */
+.project-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;              /* very thin */
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    #00f0ff,
+    #7a5cff,
+    #ff4fd8,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: neonMove 4s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
 }
-/* ==========================================
-   PROJECT CARD BUTTONS – FORCE BIG SIZE
-========================================== */
-
-/* target ALL project buttons */
-.project-card a,
-.project-card .view-btn,
-.project-card .details-btn,
-.project-card .code-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 14px 26px !important;   /* BIG */
-  font-size: 16px !important;
-  min-width: 130px;
-  border-radius: 30px;
-
-  font-weight: 600;
-}
-
-/* button group spacing */
-.project-card .project-buttons,
-.project-card .btn-group{
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-  @media (max-width: 600px){
-  .project-card a{
-    padding: 16px 30px !important;
-    font-size: 17px !important;
-    min-width: 140px;
-  }
-  }
-
 /* ==========================================
    COPY CODE BUTTON – NEON BORDER ONLY
 ========================================== *
@@ -1364,7 +1334,7 @@ body.light-mode .copy-btn::before{
 }
 /* ==========================================
    PROJECT ACTION BUTTONS – BIG SIZE (FIX)
-========================================== */
+========================================== *
 
 .project-actions{
   display: flex;
@@ -1374,16 +1344,16 @@ body.light-mode .copy-btn::before{
   flex-wrap: wrap;
 }
 
-/* MAIN BUTTON STYLE */
+/* MAIN BUTTON STYLE *
 .highlight-btn{
-  padding: 14px 26px;          /* 🔥 BIGGER */
-  font-size: 16px;             /* bigger text */
+  padding: 14px 26px;          /* 🔥 BIGGER *
+  font-size: 16px;             /* bigger text *
   border-radius: 30px;
-  min-width: 130px;            /* equal width */
+  min-width: 130px;            /* equal width *
   font-weight: 600;
 }
 
-/* Icon spacing */
+/* Icon spacing *
 .highlight-btn i{
   margin-right: 8px;
   font-size: 16px;
@@ -1397,7 +1367,7 @@ body.light-mode .copy-btn::before{
   }
 /* ==========================================
    NEON GRADIENT ANIMATED BUTTON BORDER
-========================================== */
+========================================== *
 
 .highlight-btn{
   position: relative;
@@ -1412,12 +1382,12 @@ body.light-mode .copy-btn::before{
   overflow: hidden;
 }
 
-/* animated neon border */
+/* animated neon border *
 .highlight-btn::before{
   content: "";
   position: absolute;
   inset: 0;
-  padding: 1.5px;                 /* 🔥 thin border */
+  padding: 1.5px;                 /* 🔥 thin border *
   border-radius: 30px;
   background: linear-gradient(
     120deg,
@@ -1436,8 +1406,7 @@ body.light-mode .copy-btn::before{
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 }
-
-/* animation */
+ animation *
 @keyframes btnNeon{
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -1452,8 +1421,7 @@ body.light-mode .highlight-btn::before{
     #00c6ff
   );
   background-size: 300% 300%;
-  }
-
+  }*/
 
 
 
