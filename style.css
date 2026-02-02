@@ -1330,4 +1330,36 @@ body.light-mode .copy-btn::before{
   );
   background-size: 300% 300%;
 }
+/* ==========================================
+   PROJECT ACTION BUTTONS – BIG SIZE (FIX)
+========================================== */
 
+.project-actions{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* MAIN BUTTON STYLE */
+.highlight-btn{
+  padding: 14px 26px;          /* 🔥 BIGGER */
+  font-size: 16px;             /* bigger text */
+  border-radius: 30px;
+  min-width: 130px;            /* equal width */
+  font-weight: 600;
+}
+
+/* Icon spacing */
+.highlight-btn i{
+  margin-right: 8px;
+  font-size: 16px;
+  }
+  @media (max-width: 600px){
+  .highlight-btn{
+    padding: 16px 30px;
+    font-size: 17px;
+    min-width: 150px;
+  }
+  }
