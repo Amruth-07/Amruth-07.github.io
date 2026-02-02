@@ -131,7 +131,7 @@ body{
 .hobbies-wrapper{
   display:flex;
   flex-direction:column;
-  gap:45px;
+  gap:40px;
   max-width:700px;
   margin:30px auto;
 }
@@ -184,20 +184,19 @@ body{
   margin-top:20px;
 }
 .highlight-btn{
-  position:relative;
-  padding:12px 28px;
-  border-radius:40px;
-  background:#070e1c;
-  color:#fff;
-  text-decoration:none;
-  font-weight:500;
-  overflow:hidden;
+  position: relative;
+  padding: 14px 28px;
+  border-radius: 40px;
+  background: #070e1c;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 1;
 } 
 .highlight-btn::before{
   content:"";
   position:absolute;
   inset:-1px;
-  padding:1px;
   border-radius:inherit;
   background:linear-gradient(
     120deg,
@@ -209,17 +208,13 @@ body{
     #00e5ff
   );
   background-size:400% 400%;
-  animation:neonBtn 3s linear infinite;
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-} 
+  animation:neonBtn 4s linear infinite;
+  z-index:-1;                /* 🔥 KEY FIX */
+}
 @keyframes neonBtn{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 .modal{
   display:none;
@@ -1420,6 +1415,7 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
 
 
