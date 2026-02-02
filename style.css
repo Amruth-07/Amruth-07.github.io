@@ -1111,3 +1111,41 @@ body:not(.light-mode) .theme-toggle {
 
   color: #ffffff;
    }
+.project-card img,
+.project-image img {
+  width: 100%;
+  height: 180px;          /* adjust if you want taller */
+  object-fit: cover;      /* crops nicely, no distortion */
+  border-radius: 14px;
+  display: block;
+}
+.project-buttons {
+  display: flex;
+  know-gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-buttons button,
+.project-buttons a {
+  min-width: 110px;
+  height: 42px;
+  padding: 0 18px;
+  font-size: 14px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  .project-card img {
+    height: 160px;
+  }
+
+  .project-buttons button,
+  .project-buttons a {
+    min-width: 100px;
+    height: 40px;
+    font-size: 13px;
+  }
+}
