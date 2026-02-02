@@ -336,11 +336,3 @@ body.light-mode .highlight-btn::before{
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-
-.project-actions{
-  display: flex;
-  justify-content: center;
-  gap: 14px;           /* 👈 THIS creates space */
-  flex-wrap: wrap;    /* mobile safe */
-  margin-top: 18px;
-  }
