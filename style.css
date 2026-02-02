@@ -235,7 +235,6 @@ body.light-mode{
   background:#f4f6fb;
   color:#111;
 }
-body.light-mode .card,
 body.light-mode .project-card{
   background:#ffffff;
   color:#111;
@@ -725,28 +724,6 @@ body:not(.light-mode) .theme-toggle{
   gap: 25px;                /* icon/text spacing */
 }
 
-/* Neon outline buttons (Details / Code) *
-.highlight-btn,
-#copyBtn{
-  padding: 10px 10px;        /* reduced padding 
-  font-size: 12px;
-  border-radius: 30px;
-}
-
-/* Buttons container spacing *
-.project-actions{
-  gap: 45px;                /* was 40px → smaller *
-  margin-top: 16px;
-}
-
-/* Mobile extra compact *
-@media (max-width:600px){
-  .gradient-btn,
-  .highlight-btn{
-    padding: 56px 54px;
-    font-size: 50px;
-  }
-
 /* Mobile – slightly more breathing room */
 @media (max-width: 600px){
   .project-actions{
@@ -816,3 +793,4 @@ body:not(.light-mode) .theme-toggle{
   overflow: auto;
   background-clip: padding-box;
 }
+
