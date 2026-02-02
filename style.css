@@ -183,7 +183,7 @@ body{
   gap:40px;
   margin-top:20px;
 }
-/*.highlight-btn{
+.highlight-btn{
   position:relative;
   padding:12px 28px;
   border-radius:40px;
@@ -215,7 +215,7 @@ body{
     linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
           mask-composite:exclude;
-} */
+} 
 @keyframes neonBtn{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
@@ -1229,21 +1229,21 @@ body.light-mode #modalBody code{
 
 /* ==========================================
    COPY CODE BUTTON – NEON BORDER ONLY
-========================================== */
+========================================== *
 
 .copyBtn{
   position: relative;
-  background: transparent;      /* keep your current bg */
+  background: transparent;      /* keep your current bg *
   color: #fff;
   border-radius: 24px;
   z-index: 1;
 }
 
-/* Neon animated border */
+/* Neon animated border *
 .copyBtn::before{
   content: "";
   position: absolute;
-  inset: -1px;                  /* thin border */
+  inset: -1px;                  /* thin border *
   border-radius: 24px;
   padding: 1px;
 
@@ -1266,7 +1266,7 @@ body.light-mode #modalBody code{
   pointer-events: none;
 }
 
-/* animation */
+/* animation *
 @keyframes copyNeon{
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -1420,4 +1420,5 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+
 
