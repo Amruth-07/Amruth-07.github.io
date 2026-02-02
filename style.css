@@ -943,3 +943,55 @@ project-card{
   z-index: 1;
 }
 
+/* ==========================================
+   NEON GRADIENT ANIMATED BORDER (THIN & SAFE)
+========================================== */
+
+.project-card{
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* neon border */
+.project-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  padding: 1px;                 /* 🔥 VERY THIN */
+  background: linear-gradient(
+    120deg,
+    #00f0ff,
+    #7a5cff,
+    #ff4fd8,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: neonMove 6s linear infinite;
+  pointer-events: none;
+
+  /* cut center to make border */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* animation */
+@keyframes neonMove{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body.light-mode .project-card::before{
+  background: linear-gradient(
+    120deg,
+    #00c6ff,
+    #6a5cff,
+    #ff77c6,
+    #00c6ff
+  );
+  background-size: 300% 300%;
+}
