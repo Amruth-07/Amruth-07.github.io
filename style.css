@@ -1273,3 +1273,49 @@ body.light-mode #modalBody code{
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+/* ==========================================
+   COPY CODE BUTTON – NEON GRADIENT BORDER
+========================================== */
+
+.copy-btn{
+  position: relative;
+  background: transparent;        /* keep original */
+  color: #fff;
+  border: none;                   /* remove default border */
+  border-radius: 22px;
+  z-index: 1;
+}
+
+/* Neon animated border */
+.copy-btn::before{
+  content: "";
+  position: absolute;
+  inset: -1px;                    /* thin border */
+  border-radius: 22px;
+  padding: 1px;
+
+  background: linear-gradient(
+    120deg,
+    #00f0ff,
+    #7a5cff,
+    #ff4fd8,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  animation: copyNeon 6s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/* Animation */
+@keyframes copyNeon{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+  }
