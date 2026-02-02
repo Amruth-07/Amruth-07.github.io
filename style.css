@@ -995,4 +995,73 @@ body.light-mode .project-card::before{
   );
   background-size: 300% 300%;
 }
+/* ==========================================
+   MODAL TEXT – NEON GRADIENT STYLING
+========================================== */
 
+/* Main heading (project title) */
+#modalBody h1,
+#modalBody h2{
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #00f0ff,
+    #8a5cff,
+    #ff4fd8
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+/* Sub headings (like Working Principle) */
+#modalBody h3,
+#modalBody h4{
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    #6affd6,
+    #4fc3ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+/* Normal paragraph text */
+#modalBody p{
+  line-height: 1.6;
+  color: #d8d8d8;
+}
+
+/* ==========================================
+   STAR POINTS (REPLACE BULLETS)
+========================================== */
+
+#modalBody ul{
+  list-style: none;       /* remove default bullets */
+  padding-left: 0;
+}
+
+#modalBody ul li{
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  color: #eaeaea;
+}
+
+/* Star icon */
+#modalBody ul li::before{
+  content: "★";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffd84d;         /* gold star */
+  font-size: 16px;
+}
+/* Light mode readability */
+body.light-mode #modalBody p,
+body.light-mode #modalBody ul li{
+  color: #333;
+  }
