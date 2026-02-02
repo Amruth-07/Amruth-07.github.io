@@ -517,13 +517,13 @@ body.light-mode .contact-social a{
 .contact-card{
   background: #ffffff;
   border-radius: 20px;
-  padding: 18px 22px;
+  padding: 28px 62px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 8px;
 
   /* clear border */
-  border: 1.5px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
 
   /* soft shadow like reference */
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
@@ -531,15 +531,15 @@ body.light-mode .contact-social a{
 
 /* text inside card */
 .contact-card h4{
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 25px;
+  font-weight: 500;
   margin: 0;
   color: #111;
 }
 
 .contact-card p{
-  margin: 4px 0 0;
-  font-size: 14px;
+  margin: 8px 0 0;
+  font-size: 24px;
   color: #555;
 }
 
@@ -857,28 +857,19 @@ body:not(.light-mode) .theme-toggle{
   border-radius: 30px;
 }
 
-/* Buttons container spacing */
+/* Buttons container spacing *
 .project-actions{
-  gap: 45px;                /* was 40px → smaller */
+  gap: 45px;                /* was 40px → smaller *
   margin-top: 16px;
 }
 
-/* Mobile extra compact */
+/* Mobile extra compact *
 @media (max-width:600px){
   .gradient-btn,
   .highlight-btn{
-    padding: 6px 14px;
-    font-size: 13px;
+    padding: 56px 54px;
+    font-size: 50px;
   }
-}
-/* ===== INCREASE SPACE BETWEEN PROJECT BUTTONS ===== */
-
-.project-actions{
-  display: flex;
-  justify-content: center;
-  gap: 25px;        /* ⬅ increase spacing here */
-  margin-top: 18px;
-}
 
 /* Mobile – slightly more breathing room */
 @media (max-width: 600px){
@@ -921,117 +912,7 @@ body:not(.light-mode) .theme-toggle{
   background: transparent;
   padding: 0;
 }
-/* Certificate cards only */
-.certificates-grid .project-card img{
-  width: 100%;            /* fit card width */
-  max-height: 100px;      /* 🔽 SMALL IMAGE */
-  object-fit: contain;    /* full image, no crop */
-  border-radius: 18px;
-  background: #ffffff;    /* clean background */
-  padding: 6px;           /* small inner spacing */
-}
-
-.projects-grid,
-.certificates-grid{
-  display: grid;
-  grid-template-columns: 1fr;   /* 1 column on mobile */
-  gap: 25px;
-}
-
-/* Desktop & Laptop screens */
-@media (min-width: 768px){
-  .projects-grid,
-  .certificates-grid{
-    grid-template-columns: repeat(2, 1fr);  /* 🔥 2 / 2 layout */
-  }
-}
-.project-card{
-  background: var(--card-bg);   /* dynamic color */
-  border-radius: 22px;
-  padding: 16px;
-  overflow: hidden;
-}
-/* Image wrapper follows card shape */
-.project-image-wrapper{
-  border-radius: 18px;
-  margin-bottom: 18px;    /* space between image & text */
-}
-/* Buttons spacing fix */
-.project-actions{
-  margin-top: 18px;
-  padding-bottom: 6px;    /* prevents tight bottom */
-}
-/* Default = DARK MODE */
-:root{
-  --card-bg: #0e1525;    /* dark card */
-}
-
-/* Light Mode */
-body.light-mode{
-  --card-bg: #ffffff;   /* light card */
-}
-project-card{
-  position: relative;
-  z-index: 1;
-}
-
-
-
-
-
-.  -webkit-text-fill-color: transparent;
-  margin-top: 18px;
-  margin-bottom: 10px;
-}
-
-/* Normal paragraph text */
-#modalBody p{
-  line-height: 1.6;
-  color: #d8d8d8;
-}
-
-/* ==========================================
-   STAR POINTS (REPLACE BULLETS)
-========================================== */
-
-#modalBody ul{
-  list-style: none;       /* remove default bullets */
-  padding-left: 0;
-}
-
-#modalBody ul li{
-  position: relative;
-  padding-left: 28px;
-  margin-bottom: 10px;
-  color: #eaeaea;
-}
-
-/* Star icon */
-#modalBody ul li::before{
-  content: "★";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #ffd84d;         /* gold star */
-  font-size: 16px;
-}
-/* Light mode readability */
-body.light-mode #modalBody p,
-body.light-mode #modalBody ul li{
-  color: #333;
-  }
-
-/* ==========================================
-   MODAL CODE BLOCK – NEON STYLE
-========================================== */
-
-/* Code container */
-#modalBody pre{
-  background: rgba(15, 20, 35, 0.95);   /* dark glass */
-  border-radius: 14px;
-  padding: 18px;
-  overflow-x: auto;
-  margin-top: 16px;
+/  margin-top: 16px;
   margin-bottom: 20px;
   position: relative;
   border: 1px solid rgba(0, 240, 255, 0.35);
@@ -1123,3 +1004,4 @@ body.light-mode #modalBody code{
     #ff2fb2
   );
   }
+
