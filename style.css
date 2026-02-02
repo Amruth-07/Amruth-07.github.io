@@ -894,9 +894,9 @@ body:not(.light-mode) .theme-toggle{
   width: 100%;            /* fit card width */
   max-height: 100px;      /* 🔽 SMALL IMAGE */
   object-fit: contain;    /* full image, no crop */
-  border-radius: 12px;
+  border-radius: 18px;
   background: #ffffff;    /* clean background */
-  padding: 8px;           /* small inner spacing */
+  padding: 6px;           /* small inner spacing */
 }
 
 .projects-grid,
@@ -942,54 +942,4 @@ project-card{
   position: relative;
   z-index: 1;
 }
-
-/* Neon border layer */
-.project-card::before{
-  content: "";
-  position: ;
-  inset: 0;
-  border-radius: 22px;              /* same as card */
-  padding: 1.2px;                   /* 🔥 VERY THIN BORDER */
-  background: linear-gradient(
-    120deg,
-    #00f0ff,
-    #8a2be2,
-    #ff2fd0,
-    #00f0ff
-  );
-  background-size: 300% 300%;
-  animation: neonBorder 6s linear infinite;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Neon animation */
-@keyframes neonBorder{
-  0%{ background-position: 0% 50%; }
-  50%{ background-position: 100% 50%; }
-  100%{ background-position: 0% 50%; }
-}
-/* ==========================================
-   LIGHT MODE – SOFT NEON BORDER COLORS
-========================================== */
-
-body.light-mode .project-card::before{
-  background: linear-gradient(
-    120deg,
-    #00c6ff,   /* soft cyan */
-    #6a5cff,   /* soft indigo */
-    #ff77c6,   /* soft pink */
-    #00c6ff
-  );
-  background-size: 300% 300%;
-    }
-
-
-
-
-
 
