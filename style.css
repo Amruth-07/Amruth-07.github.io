@@ -968,7 +968,7 @@ project-card{
     #00f0ff
   );
   background-size: 300% 300%;
-  animation: neonMove 6s linear infinite;
+  animation: neonMove 3s linear infinite;
   pointer-events: none;
 
   /* cut center to make border */
@@ -995,3 +995,4 @@ body.light-mode .project-card::before{
   );
   background-size: 300% 300%;
 }
+
