@@ -1086,9 +1086,8 @@ body.light-mode #modalBody ul li{
 #modalBody pre::before{
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;              /* 🔥 KEY FIX */
   border-radius: 14px;
-  padding: 1px;
   background: linear-gradient(
     120deg,
     #00f0ff,
@@ -1098,13 +1097,8 @@ body.light-mode #modalBody ul li{
   );
   background-size: 300% 300%;
   animation: neonCode 6s linear infinite;
-  pointer-events: none;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  z-index: -1;              /* 🔥 move behind */
+}
 }
 
 /* Code text */
@@ -1130,3 +1124,4 @@ body.light-mode #modalBody pre{
 body.light-mode #modalBody code{
   color: #222;
 }
+
