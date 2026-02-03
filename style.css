@@ -1439,6 +1439,54 @@ body.light-mode .highlight-btn::before{
   animation: imageReveal 0.8s ease-out both;
 }
   
+/* SMALL GAP + CENTER ALIGN */
+.project-actions{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* NEON BORDER ONLY */
+.highlight-btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    #00ffcc,
+    #7cff00,
+    #ffee00,
+    #00ffcc
+  );
+
+  background-size: 300% 300%;
+  animation: neonMove 3s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@keyframes neonMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.project-actions{
+  display: flex;
+  justify-content: center;
+  gap: 14px;           /* ðŸ‘ˆ THIS creates space */
+  flex-wrap: wrap;    /* mobile safe */
+  margin-top: 18px;
+  }
 
 
 
