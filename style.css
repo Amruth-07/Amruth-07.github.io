@@ -1338,7 +1338,107 @@ body.light-mode .highlight-btn::before{
   );
   background-size: 300% 300%;
   }
+.project-card .project-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center 20%; /* top ~60% visible */
+  border-radius: 14px;
+  display: block;
+  }
+  @media (max-width: 480px) {
+  .project-card .project-image img {
+    height: 160px;
+    object-position: center 20%;
+  }
+  }
+/* Project image container */
+.project-card .project-image {
+  width: 100%;
+  height: 200px;              /* banner height */
+  overflow: hidden;
+  border-radius: 18px 18px 0 0; /* rounded top only */
+}
 
+/* Project image */
+.project-card .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* shows top ~60% */
+  display: block;
+}
+  @media (max-width: 480px) {
+  .project-card .project-image {
+    height: 180px;
+  }
+
+  .project-card .project-image img {
+    object-position: center 15%;
+  }
+  }
+  /* ===== PROJECT IMAGE WRAPPER ===== */
+.project-card .project-image {
+  position: relative;
+  width: 100%;
+  height: 200px;                 /* 🔒 SAME HEIGHT FOR ALL */
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+}
+
+/* ===== PROJECT IMAGE ===== */
+.project-card .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;   /* top ~60% visible */
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+/* 🔍 ZOOM ON HOVER */
+.project-card:hover .project-image img {
+  transform: scale(1.08);
+}
+
+/* ✨ GRADIENT FADE OVER IMAGE */
+.project-card .project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+  @media (max-width: 480px) {
+  .project-card .project-image {
+    height: 180px;
+  }
+
+  .project-card .project-image img {
+    object-position: center 15%;
+  }
+  }
+  /* ===== IMAGE REVEAL ANIMATION ===== */
+@keyframes imageReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.05) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Apply ONLY to project images */
+.project-card .project-image img {
+  animation: imageReveal 0.8s ease-out both;
+}
+  
 
 
 
