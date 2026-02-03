@@ -1181,4 +1181,8 @@ body:not(.light-mode) .theme-toggle {
 .project-card .project-image img {
   animation: imageReveal 0.8s ease-out both;
 }
+.project-card .project-image {
+  box-shadow: inset 0 -40px 40px rgba(0,0,0,0.25);
+}
+
 
