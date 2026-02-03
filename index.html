@@ -128,30 +128,31 @@
 
     <div class="project-actions">
 
-      <button class="highlight-btn" onclick="toggleProjectImage(this)">
-        <i class="fas fa-eye"></i> View
-      </button>
-
+      <button class="highlight-btn icon-btn"
+        title="View Image"
+        onclick="toggleProjectImage(this)">
+  <i class="fas fa-eye"></i>
+</button>
       <!-- DETAILS -->
 <a href="#"
-   class="highlight-btn"
+   class="highlight-btn icon-btn"
+   title="Project Details"
    onclick="openModal(
-     'Portable Oscilloscope Details',
-     'oscilloscopeDetails.html'
+     'Component Tester Details',
+     'testerDetails.html'
    )">
-   Details
+  <i class="fas fa-circle-info"></i>
 </a>
-
 <!-- CODE -->
 <a href="#"
-   class="highlight-btn"
+   class="highlight-btn icon-btn"
+   title="Source Code"
    onclick="openModal(
-     'Portable Oscilloscope Code',
-     'oscilloscopeCode.txt'
+     'Component Tester Code',
+     'Tester.txt'
    )">
-   Code
+  <i class="fas fa-code"></i>
 </a>
-
     </div>
   </div>
 
@@ -444,6 +445,7 @@
 </body>
 
 </html>
+
 
 
 
