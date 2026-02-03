@@ -1546,7 +1546,6 @@ body.light-mode .highlight-btn::before{
 /* ===============================
    ICON-ONLY PROJECT BUTTONS
 ================================ */
-
 .project-actions {
   display: flex !important;
   justify-content: center;
@@ -1595,8 +1594,39 @@ body.light-mode .highlight-btn::before{
     font-size: 0.9rem;
   }
 }
+.project-actions {
+  opacity: 0;
+}
 
+.project-card:hover .project-actions {
+  opacity: 1;
+}
 
+/* ===============================
+   PROJECT ACTION VISIBILITY FIX
+================================ */
+
+/* Desktop: hide until hover */
+@media (hover: hover) {
+  .project-actions {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+  }
+
+  .project-card:hover .project-actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile: always visible */
+@media (hover: none) {
+  .project-actions {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 
 
