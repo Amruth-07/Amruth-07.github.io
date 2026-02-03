@@ -1632,12 +1632,11 @@ body.light-mode .highlight-btn::before{
    FIX PROJECT ACTION POSITION
 ================================ */
 
-/* Make card a positioning context */
+/* Make card a positioning context *
 .project-card {
   position: relative;
-}
 
-/* Place buttons on image */
+/* Place buttons on image *
 .project-actions {
   position: absolute;
   bottom: 16px;
@@ -1648,7 +1647,7 @@ body.light-mode .highlight-btn::before{
   z-index: 5;
 }
 
-/* Desktop: show on hover */
+/* Desktop: show on hover *
 @media (hover: hover) {
   .project-actions {
     opacity: 0;
@@ -1662,7 +1661,7 @@ body.light-mode .highlight-btn::before{
   }
 }
 
-/* Mobile: always visible */
+/* Mobile: always visible *
 @media (hover: none) {
   .project-actions {
     opacity: 1 !important;
@@ -1672,8 +1671,8 @@ body.light-mode .highlight-btn::before{
 
 
 /* ===============================
-   PROJECT GRID
-================================ */
+   PROJECT GRI
+================================ *
 
 .projects-grid {
   display: grid;
@@ -1683,7 +1682,7 @@ body.light-mode .highlight-btn::before{
 
 /* ===============================
    PROJECT CARD
-================================ */
+================================ *
 
 .project-card {
   background: linear-gradient(180deg, #0b1024, #070b18);
@@ -1695,7 +1694,7 @@ body.light-mode .highlight-btn::before{
 
 /* ===============================
    PROJECT IMAGE
-================================ */
+================================ *
 
 .project-image {
   position: relative;
@@ -1710,14 +1709,14 @@ body.light-mode .highlight-btn::before{
   transition: transform 0.4s ease;
 }
 
-/* Image expand (for eye toggle) */
+/* Image expand (for eye toggle) *
 .project-image.expanded img {
   transform: scale(1.08);
 }
 
 /* ===============================
    PROJECT ACTION ICONS
-================================ */
+================================ *
 
 .project-actions {
   position: absolute;
@@ -1729,7 +1728,7 @@ body.light-mode .highlight-btn::before{
   z-index: 10;
 }
 
-/* Desktop hover behavior */
+/* Desktop hover behavior *
 @media (hover: hover) {
   .project-actions {
     opacity: 0;
@@ -1743,7 +1742,7 @@ body.light-mode .highlight-btn::before{
   }
 }
 
-/* Mobile: always visible */
+/* Mobile: always visible *
 @media (hover: none) {
   .project-actions {
     opacity: 1 !important;
@@ -1753,7 +1752,7 @@ body.light-mode .highlight-btn::before{
 
 /* ===============================
    ICON BUTTON STYLE
-================================ */
+================================ *
 
 .icon-btn {
   width: 42px;
@@ -1770,21 +1769,20 @@ body.light-mode .highlight-btn::before{
   transition: all 0.25s ease;
 }
 
-/* Hover glow */
+/* Hover glow *
 .icon-btn:hover {
   background: linear-gradient(45deg, #8f00ff, #00f2ff);
   box-shadow: 0 0 14px rgba(140, 0, 255, 0.6);
   transform: translateY(-2px);
 }
-
-/* Active (eye open) state */
+/* Active (eye open) state /
 .icon-btn.active {
   background: linear-gradient(45deg, #00f2ff, #8f00ff);
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.8);
   border-color: transparent;
 }
 
-/* Remove underline for <a> icons */
+/* Remove underline for <a> icons *
 .icon-btn,
 .icon-btn:link,
 .icon-btn:visited {
@@ -1794,7 +1792,7 @@ body.light-mode .highlight-btn::before{
 
 /* ===============================
    PROJECT TEXT
-================================ */
+================================ *
 
 .project-card h3 {
   margin-top: 16px;
@@ -1813,7 +1811,7 @@ body.light-mode .highlight-btn::before{
 
 /* ===============================
    MOBILE ADJUSTMENT
-================================ */
+================================ *
 
 @media (max-width: 480px) {
   .icon-btn {
@@ -1825,9 +1823,9 @@ body.light-mode .highlight-btn::before{
 
 /* ===============================
    FIX PROJECT HEADING VISIBILITY
-================================ */
+================================ *
 
-/* Ensure text area is clearly separated */
+/* Ensure text area is clearly separated *
 .project-card h3 {
   margin-top: 20px;
   padding-top: 8px;
@@ -1838,7 +1836,7 @@ body.light-mode .highlight-btn::before{
   z-index: 2;
 }
 
-/* Improve contrast on dark background */
+/* Improve contrast on dark background *
 .project-card p {
   margin-top: 10px;
   color: #d6d6d6;
@@ -1846,10 +1844,11 @@ body.light-mode .highlight-btn::before{
   z-index: 2;
 }
 
-/* Give breathing space below image */
+/* Give breathing space below image *
 .project-image {
   margin-bottom: 12px;
-}
+} */
+
 
 
 
