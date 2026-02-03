@@ -125,16 +125,66 @@ body {
   align-items: center;
   text-align: center;
 }
+/* =====================================
+   SECTION HEADLINES – BASE STYLE
+===================================== */
 
-/* About section heading */
 .section-headline {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 16px;
-  color: #00f2ff;
   text-align: center;
+  margin: 50px 0 24px;
+  letter-spacing: 0.5px;
+
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: headlineGlow 6s linear infinite;
 }
 
+.section-headline:nth-of-type(1) {
+  background-image: linear-gradient(
+    90deg,
+    #00f2ff,
+    #00bfff,
+    #00f2ff
+  );
+}
+.section-headline:nth-of-type(2) {
+  background-image: linear-gradient(
+    90deg,
+    #8f00ff,
+    #ff4ecd,
+    #8f00ff
+  );
+}
+.section-headline:nth-of-type(3) {
+  background-image: linear-gradient(
+    90deg,
+    #00ff9d,
+    #00f2ff,
+    #00ff9d
+  );
+}
+.section-headline:nth-of-type(4) {
+  background-image: linear-gradient(
+    90deg,
+    #ffd700,
+    #ff8c00,
+    #ffd700
+  );
+}
+@keyframes headlineGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+.section-headline {
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.35);
+}
 /* About image */
 .about-photo {
   width: 240px;
@@ -718,5 +768,6 @@ body.light-mode .modal-content {
     background-position: 300% 50%;
   }
    }
+
 
 
