@@ -139,7 +139,7 @@ body {
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: headlineGlow 6s linear infinite;
+  animation: headlineGlow 3s linear infinite;
 }
 
 .section-headline:nth-of-type(1) {
@@ -627,10 +627,10 @@ body {
 
 .theme-toggle {
   position: fixed;
-  bottom: 18px;
-  right:  18px;
-  width: 40px;
-  height: 40px;
+  bottom: 20px;
+  right:  20px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -820,5 +820,6 @@ body.light-mode .modal-content {
     box-shadow: 0 0 26px rgba(143, 0, 255, 0.6);
   }
 }
+
 
 
