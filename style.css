@@ -1823,6 +1823,33 @@ body.light-mode .highlight-btn::before{
   }
   }
 
+/* ===============================
+   FIX PROJECT HEADING VISIBILITY
+================================ */
+
+/* Ensure text area is clearly separated */
+.project-card h3 {
+  margin-top: 20px;
+  padding-top: 8px;
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+/* Improve contrast on dark background */
+.project-card p {
+  margin-top: 10px;
+  color: #d6d6d6;
+  position: relative;
+  z-index: 2;
+}
+
+/* Give breathing space below image */
+.project-image {
+  margin-bottom: 12px;
+}
 
 
 
