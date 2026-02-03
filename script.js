@@ -1,4 +1,4 @@
-7
+
 function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
@@ -139,4 +139,5 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
 
