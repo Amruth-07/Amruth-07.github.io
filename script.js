@@ -106,20 +106,23 @@ function toggleTheme() {
 }
 
 
-
 function toggleProjectImage(button){
   const card = button.closest(".project-card");
-  const wrapper = card.querySelector(".project-image-wrapper");
+  const image = card.querySelector(".project-image");
+  const icon = button.querySelector("i");
 
-  wrapper.classList.toggle("expanded");
+  image.classList.toggle("expanded");
 
-  if(wrapper.classList.contains("expanded")){
-    button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide';
+  if (image.classList.contains("expanded")) {
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+    button.classList.add("active");
   } else {
-    button.innerHTML = '<i class="fas fa-eye"></i> View';
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+    button.classList.remove("active");
   }
 }
-
 /* ===============================
    SCROLL REVEAL ANIMATION
 ================================ */
@@ -139,5 +142,6 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
 
 
