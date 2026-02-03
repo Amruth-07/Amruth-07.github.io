@@ -1,13 +1,13 @@
-
+7
 function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
-  const copyBtn = document.getElementById("copyBtn");
+  const copyCode = document.getElementById("copyBtn");
 
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
-  copyBtn.style.display = "none";
+  copyCode.style.display = "none";
 
   fetch(file)
     .then(response => {
@@ -28,7 +28,7 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 </code>
 </pre>
         `;
-        copyBtn.style.display = "inline-block";
+        copyCode.style.display = "inline-block";
 
         if (window.Prism) {
           Prism.highlightAllUnder(modalBody);
@@ -42,12 +42,12 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 ${data}
 </div>
         `;
-        copyBtn.style.display = "none";
+        copyCode.style.display = "none";
       }
     })
     .catch(error => {
       modalBody.innerHTML = "❌ File not found!";
-      copyBtn.style.display = "none";
+      copyCode.style.display = "none";
       console.error(error);
     });
 
@@ -139,3 +139,4 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
