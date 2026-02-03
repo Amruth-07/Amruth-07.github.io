@@ -867,14 +867,14 @@ body:not(.light-mode) .theme-toggle{
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 25px;        /* ⬅ increase spacing here */
-  margin-top: 18px;
+  gap: 5px;        /* ⬅ increase spacing here */
+  margin-top: 20px;
 }
 
 /* Mobile – slightly more breathing room */
 @media (max-width: 600px){
   .project-actions{
-    gap: 28px;
+    gap: 2px;
   }
 }
 
@@ -1543,6 +1543,7 @@ body.light-mode .highlight-btn::before{
     padding: 6px 12px;
   }
 }
+
 
 
 
