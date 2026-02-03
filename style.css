@@ -1489,6 +1489,60 @@ body.light-mode .highlight-btn::before{
   }
 
 
+/* ===============================
+   PROJECT ACTION BUTTONS (FINAL)
+================================ */
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* Common button style */
+.highlight-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;           /* NOT pill */
+  border: 1px solid rgba(140, 0, 255, 0.6);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Hover effect */
+.highlight-btn:hover {
+  background: linear-gradient(45deg, #8f00ff, #00f2ff);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(140, 0, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Remove underline completely */
+.highlight-btn:link,
+.highlight-btn:visited {
+  text-decoration: none;
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  .project-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .highlight-btn {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}
 
 
 
