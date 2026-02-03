@@ -181,7 +181,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 
   padding: 20px 16px;   /* space inside card */
   flex-wrap: wrap;      /* mobile safe */
@@ -627,7 +627,7 @@ body:not(.light-mode) .contact-card p{
   color:#ffffff;
 
   border-radius:40px;
-  border:2px solid transparent;
+  border:1px solid transparent;
 
   background:
     linear-gradient(#0b1220, #0b1220) padding-box,
@@ -679,7 +679,7 @@ body.light-mode .file-size{
 .resume-actions{
   display:flex;
   justify-content:center;
-  gap:20px;
+  gap:25px;
   margin:20px auto 50px;
   flex-wrap:wrap;
 }
@@ -687,7 +687,7 @@ body.light-mode .file-size{
 .resume-btn{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:15px;
 
   padding:12px 26px;
   font-size:15px;
@@ -734,20 +734,20 @@ body.light-mode .resume-btn{
     ) border-box;
 }
 .resume-actions{
-  gap:14px;                 /* slightly closer */
+  gap:16px;                 /* slightly closer */
   margin:16px auto 40px;
 }
 
 .resume-btn{
   padding:8px 18px;         /* 🔽 smaller */
   font-size:13px;           /* 🔽 smaller text */
-  gap:6px;                  /* icon closer */
+  gap:8px;                  /* icon closer */
   border-radius:30px;       /* compact look */
 }
 
 /* icon size smaller */
 .resume-btn i{
-  font-size:13px;
+  font-size:12px;
 }
 .theme-toggle{
   width:30px;              /* 🔽 smaller */
@@ -850,7 +850,7 @@ body:not(.light-mode) .theme-toggle{
 
 /* Buttons container spacing */
 .project-actions{
-  gap: 45px;                /* was 40px → smaller */
+  gap: 55px;                /* was 40px → smaller */
   margin-top: 16px;
 }
 
@@ -867,7 +867,7 @@ body:not(.light-mode) .theme-toggle{
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 5px;        /* ⬅ increase spacing here */
+  gap: 10px;        /* ⬅ increase spacing here */
   margin-top: 20px;
 }
 
@@ -1436,7 +1436,7 @@ body.light-mode .highlight-btn::before{
 
 /* Apply ONLY to project images */
 .project-card .project-image img {
-  animation: imageReveal 0.8s ease-out both;
+  animation: imageReveal 0.5s ease-out both;
 }
   
 /* SMALL GAP + CENTER ALIGN */
@@ -1483,7 +1483,7 @@ body.light-mode .highlight-btn::before{
 .project-actions{
   display: flex;
   justify-content: center;
-  gap: 14px;           /* ðŸ‘ˆ THIS creates space */
+  gap: 16px;           /* ðŸ‘ˆ THIS creates space */
   flex-wrap: wrap;    /* mobile safe */
   margin-top: 18px;
   }
@@ -1496,7 +1496,7 @@ body.light-mode .highlight-btn::before{
 .project-actions {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 15px;
   margin-top: 14px;
 }
 
@@ -1627,231 +1627,3 @@ body.light-mode .highlight-btn::before{
     transform: none !important;
   }
 }
-
-/* ===============================
-   FIX PROJECT ACTION POSITION
-================================ */
-
-/* Make card a positioning context *
-.project-card {
-  position: relative;
-
-/* Place buttons on image *
-.project-actions {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 14px;
-  z-index: 5;
-}
-
-/* Desktop: show on hover *
-@media (hover: hover) {
-  .project-actions {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-    transition: 0.3s ease;
-  }
-
-  .project-card:hover .project-actions {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* Mobile: always visible *
-@media (hover: none) {
-  .project-actions {
-    opacity: 1 !important;
-    transform: translateX(-50%) !important;
-  }
-    }
-
-
-/* ===============================
-   PROJECT GRI
-================================ *
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-/* ===============================
-   PROJECT CARD
-================================ *
-
-.project-card {
-  background: linear-gradient(180deg, #0b1024, #070b18);
-  border-radius: 22px;
-  padding: 16px;
-  box-shadow: 0 0 18px rgba(140, 0, 255, 0.25);
-  overflow: hidden;
-}
-
-/* ===============================
-   PROJECT IMAGE
-================================ *
-
-.project-image {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.project-image img {
-  width: 100%;
-  display: block;
-  border-radius: 18px;
-  transition: transform 0.4s ease;
-}
-
-/* Image expand (for eye toggle) *
-.project-image.expanded img {
-  transform: scale(1.08);
-}
-
-/* ===============================
-   PROJECT ACTION ICONS
-================================ *
-
-.project-actions {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 14px;
-  z-index: 10;
-}
-
-/* Desktop hover behavior *
-@media (hover: hover) {
-  .project-actions {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-    transition: 0.3s ease;
-  }
-
-  .project-card:hover .project-actions {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* Mobile: always visible *
-@media (hover: none) {
-  .project-actions {
-    opacity: 1 !important;
-    transform: translateX(-50%) !important;
-  }
-}
-
-/* ===============================
-   ICON BUTTON STYLE
-================================ *
-
-.icon-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(140, 0, 255, 0.6);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #ffffff;
-  font-size: 1rem;
-  transition: all 0.25s ease;
-}
-
-/* Hover glow *
-.icon-btn:hover {
-  background: linear-gradient(45deg, #8f00ff, #00f2ff);
-  box-shadow: 0 0 14px rgba(140, 0, 255, 0.6);
-  transform: translateY(-2px);
-}
-/* Active (eye open) state /
-.icon-btn.active {
-  background: linear-gradient(45deg, #00f2ff, #8f00ff);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.8);
-  border-color: transparent;
-}
-
-/* Remove underline for <a> icons *
-.icon-btn,
-.icon-btn:link,
-.icon-btn:visited {
-  text-decoration: none;
-  color: #fff;
-}
-
-/* ===============================
-   PROJECT TEXT
-================================ *
-
-.project-card h3 {
-  margin-top: 16px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.project-card p {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #d0d0d0;
-  text-align: center;
-}
-
-/* ===============================
-   MOBILE ADJUSTMENT
-================================ *
-
-@media (max-width: 480px) {
-  .icon-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 0.9rem;
-  }
-  }
-
-/* ===============================
-   FIX PROJECT HEADING VISIBILITY
-================================ *
-
-/* Ensure text area is clearly separated *
-.project-card h3 {
-  margin-top: 20px;
-  padding-top: 8px;
-  color: #ffffff;
-  font-size: 1.15rem;
-  font-weight: 600;
-  position: relative;
-  z-index: 2;
-}
-
-/* Improve contrast on dark background *
-.project-card p {
-  margin-top: 10px;
-  color: #d6d6d6;
-  position: relative;
-  z-index: 2;
-}
-
-/* Give breathing space below image *
-.project-image {
-  margin-bottom: 12px;
-} */
-
-
-
-
-
-
-
