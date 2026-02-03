@@ -1100,7 +1100,7 @@ body:not(.light-mode) .theme-toggle {
   width: 100%;
   height: 200px;              /* banner height */
   overflow: hidden;
-  border-radius: 18px 18px 0 0; /* rounded top only */
+  border-radius: 18px 18px 0 18; /* rounded top only */
 }
 
 /* Project image */
@@ -1115,18 +1115,13 @@ body:not(.light-mode) .theme-toggle {
   .project-card .project-image {
     height: 180px;
   }
-
-  .project-card .project-image img {
-    object-position: center 15%;
-  }
-}
 /* ===== PROJECT IMAGE WRAPPER ===== */
 .project-card .project-image {
   position: relative;
   width: 100%;
   height: 200px;                 /* 🔒 SAME HEIGHT FOR ALL */
   overflow: hidden;
-  border-radius: 18px 18px 0 0;
+  border-radius: 18px 18px 0 18;
 }
 
 /* ===== PROJECT IMAGE ===== */
@@ -1134,7 +1129,7 @@ body:not(.light-mode) .theme-toggle {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;   /* top ~60% visible */
+  object-position: center 40%;   /* top ~60% visible */
   transition: transform 0.5s ease;
   display: block;
 }
@@ -1184,5 +1179,6 @@ body:not(.light-mode) .theme-toggle {
 .project-card .project-image {
   box-shadow: inset 0 -40px 40px rgba(0,0,0,0.25);
 }
+
 
 
