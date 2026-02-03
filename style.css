@@ -1543,6 +1543,58 @@ body.light-mode .highlight-btn::before{
     padding: 6px 12px;
   }
 }
+/* ===============================
+   ICON-ONLY PROJECT BUTTONS
+================================ */
+
+.project-actions {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* Icon button */
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(140, 0, 255, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* Hover effect */
+.icon-btn:hover {
+  background: linear-gradient(45deg, #8f00ff, #00f2ff);
+  box-shadow: 0 0 12px rgba(140, 0, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Remove underline from <a> */
+.icon-btn,
+.icon-btn:link,
+.icon-btn:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Mobile adjustment */
+@media (max-width: 480px) {
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+}
 
 
 
