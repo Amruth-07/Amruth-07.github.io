@@ -1,454 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Amrut Hanamapure | Portfolio</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Prism CSS -->
+  <!-- Prism Code Highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 
-  <!-- Main CSS -->
+  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= HERO ================= -->
-<section id="hero">
-  <div class="profile reveal">
-    <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
-  </div>
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero">
 
-  <h2 class="reveal">Hi ! I'm</h2>
-  <h1 class="reveal"><span>Amrut Hanamapure</span></h1>
-  <p class="reveal">Electronics & Communication Engineering Student</p>
-</section>
-
-<!-- ================= SKILL TAGS ================= -->
-<div class="hero-skills">
-  <span class="skill-pill">Embedded Systems</span>
-  <span class="skill-pill">VLSI Basics</span>
-  <span class="skill-pill">Verilog</span>
-  <span class="skill-pill">PCB Design</span>
-  <span class="skill-pill">Python</span>
-</div>
-
-<!-- ================= INFO CARDS ================= -->
-<div class="card reveal">📍 <b>Location</b><br>Bengaluru, Karnataka, India</div>
-
-<div class="card reveal">
-  💼 <b>Expertise</b><br>
-  Embedded Systems, VLSI Basics, Circuit Design, PCB Design
-</div>
-
-<div class="card reveal">
-  🛠 <b>Experience</b><br>
-  Robotics Training – GTTC, Belagavi<br>
-  <small>Jan–Feb 2023</small>
-</div>
-
-<div class="card reveal">
-  🎓 <b>Education</b><br>
-  BE – ECE<br>
-  City Engineering College, Bengaluru<br>
-  <small>SGPA: 7.2</small>
-</div>
-
-<!-- ================= ABOUT ================= -->
-<div class="card reveal about-card">
-  <h2 class="section-headline">About Me</h2>
-
-  <img src="about-me.jpg" alt="About Me" class="about-photo">
-
-  <p class="about-text">
-    I am an Electronics and Communication Engineering student with a strong
-    interest in Embedded Systems, Arduino-based projects, and IoT applications.
-    I enjoy building practical hardware projects and converting ideas into
-    working prototypes using microcontrollers and sensors.
-    <br><br>
-    I am continuously learning new technologies related to electronics,
-    programming, and system design, and I am actively looking for opportunities
-    to grow as an embedded systems engineer.
-  </p>
-</div>
-
-<!-- ================= HOBBIES ================= -->
-<h2 class="section-headline reveal">Hobbies</h2>
-<div class="hobbies-wrapper">
-  <div class="hobby-pill dark">🎧 Listening to Music</div>
-  <div class="hobby-pill dark">📷 Photography</div>
-  <div class="hobby-pill dark">🎮 Gaming</div>
-  <div class="hobby-pill dark">🏀 Sports</div>
-  <div class="hobby-pill dark">💪🏻 Fitness</div>
-</div>
-
-<!-- ================= SKILLS ================= -->
-<h2 class="section-headline reveal">Skills</h2>
-<div class="hobbies-wrapper">
-  <div class="hobby-pill dark">💻 VLSI Design Basics</div>
-  <div class="hobby-pill dark">🧩 Verilog</div>
-  <div class="hobby-pill dark">⚡ Embedded Systems</div>
-  <div class="hobby-pill dark">🐍 Python</div>
-  <div class="hobby-pill dark">🔌 PCB Design</div>
-</div>
-
-<!-- ================= INTERESTS ================= -->
-<h2 class="section-headline reveal">My Interests</h2>
-<div class="hobbies-wrapper">
-  <div class="hobby-pill dark">📈 Stock Market</div>
-  <div class="hobby-pill dark">🌐 Web Building</div>
-  <div class="hobby-pill dark">🔍 Deep Learning</div>
-  <div class="hobby-pill dark">🏍️ Travelling</div>
-</div>
-<!-- ================= PROJECTS ================= -->
-<h2 class="section-headline reveal">My Projects</h2>
-
-<div class="projects-grid">
-
-  <!-- ===== Project 1 ===== -->
-  <div class="project-card reveal">
-
-    <div class="project-image-wrapper">
-      <img src="portable.png" alt="Portable Oscilloscope" class="project-image">
+    <div class="profile reveal">
+      <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
     </div>
-</button>
-    <h3>Portable Oscilloscope using Arduino</h3>
 
-    <p>
-      Low-cost portable oscilloscope using Arduino capable of displaying
-      sine, square, and triangle waveforms.
+    <h2 class="reveal">Hi ! I'm</h2>
+
+    <h1 class="reveal">
+      <span>Amrut Hanamapure</span>
+    </h1>
+
+    <p class="reveal">
+      Electronics & Communication Engineering Student
     </p>
 
-    <div class="project-actions">
+  </section>
+  <!-- ================= SKILL TAGS ================= -->
+  <div class="hero-skills">
 
-      <button class="highlight-btn" onclick="toggleProjectImage(this)">
-        <i class="fas fa-eye"></i> View
-      </button>
-
-      <!-- DETAILS -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'Portable Oscilloscope Details',
-     'oscilloscopeDetails.html'
-   )">
-   Details
-</a>
-
-<!-- CODE -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'Portable Oscilloscope Code',
-     'oscilloscopeCode.txt'
-   )">
-   Code
-</a>
-
-    </div>
-  </div>
-
-  <!-- ===== Project 2 ===== -->
-  <div class="project-card reveal">
-
-    <div class="project-image-wrapper">
-      <img src="smart.png" alt="AgriGuard" class="project-image">
-    </div>
-
-    <h3>AgriGuard – Smart IoT System</h3>
-
-    <p>
-      IoT-based smart farming system using ESP32 for automated irrigation,
-      fire detection, and enhanced farm security.
-    </p>
-
-    <div class="project-actions">
-
-      <button class="highlight-btn" onclick="toggleProjectImage(this)">
-        <i class="fas fa-eye"></i> View
-      </button>
-
-      <!-- DETAILS -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'AgriGuard Details',
-     'agriguardDetails.html'
-   )">
-   Details
-</a>
-
-<!-- CODE -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'AgriGuard Code',
-     'Agriculture.txt'
-   )">
-   Code
-</a>
-    </div>
-  </div>
-
-  <!-- ===== Project 3 ===== -->
-  <div class="project-card reveal">
-
-    <div class="project-image-wrapper">
-      <img src="component-tester.png" alt="Component Tester" class="project-image">
-    </div>
-
-    <h3>All-in-One Component Tester</h3>
-
-    <p>
-      Electronic component tester for resistors, capacitors, diodes,
-      transistors, and continuity checking.
-    </p>
-
-    <div class="project-actions">
-
-      <button class="highlight-btn" onclick="toggleProjectImage(this)">
-        <i class="fas fa-eye"></i> View
-      </button>
-
-      <!-- DETAILS -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'Component Tester Details',
-     'testerDetails.html'
-   )">
-   Details
-</a>
-
-<!-- CODE -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'Component Tester Code',
-     'Tester.txt'
-   )">
-   Code
-</a>
-    </div>
-  </div>
-
-  <!-- ===== Project 4 ===== -->
-  <div class="project-card reveal">
-
-    <div class="project-image-wrapper">
-      <img src="led-pattern.png" alt="LED Pattern" class="project-image">
-    </div>
-
-    <h3>Generating LED Patterns Using Arduino</h3>
-
-    <p>
-      Arduino-based project to generate different LED lighting patterns
-      using multiple LEDs mounted on a dot matrix.
-    </p>
-
-    <div class="project-actions">
-
-      <button class="highlight-btn" onclick="toggleProjectImage(this)">
-        <i class="fas fa-eye"></i> View
-      </button>
-
-      <!-- DETAILS -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'LED Pattern Details',
-     'ledPatternDetails.html'
-   )">
-   Details
-</a>
-
-<!-- CODE -->
-<a href="#"
-   class="highlight-btn"
-   onclick="openModal(
-     'LED Pattern Code',
-     'LED_Pattern.txt'
-   )">
-   Code
-</a>
-
-    </div>
-  </div>
+    <span class="skill-pill">Embedded Systems</span>
+    <span class="skill-pill">VLSI Basics</span>
+    <span class="skill-pill">Verilog</span>
+    <span class="skill-pill">PCB Design</span>
+    <span class="skill-pill">Python</span>
 
   </div>
-<!-- ================= CERTIFICATES ================= -->
-<h2 class="section-headline reveal">Certificates</h2>
-<div class="projects-grid reveal">
 
-  <div class="project-card">
-    <img src="cirtificate1.jpg" alt="Embedded Systems Certificate">
-    <h3>Embedded Systems Training</h3>
-    <p>Organization: GTTC, Belagavi<br>Year: 2023</p>
-    <div class="project-actions">
-      <a href="cirtificate1.jpg" target="_blank" class="highlight-btn">📄 View</a>
-    </div>
+  <!-- ================= INFO CARDS ================= -->
+  <div class="card reveal">
+    📍 <b>Location</b><br>
+    Bengaluru, Karnataka, India
   </div>
 
-  <div class="project-card">
-    <img src="cirtificate2.jpg" alt="VLSI Certificate">
-    <h3>VLSI Design Basics</h3>
-    <p>Organization: Online Certification Platform<br>Year: 2024</p>
-    <div class="project-actions">
-      <a href="cirtificate2.jpg" target="_blank" class="highlight-btn">📄 View</a>
-    </div>
+  <div class="card reveal">
+    💼 <b>Expertise</b><br>
+    Embedded Systems, VLSI Basics, Circuit Design, PCB Design
   </div>
 
-  <div class="project-card">
-    <img src="cirtificate3.jpg" alt="Workshop Certificate">
-    <h3>Technical Workshop</h3>
-    <p>Organization: Engineering Institute / Workshop<br>Year: 2023</p>
-    <div class="project-actions">
-      <a href="cirtificate3.jpg" target="_blank" class="highlight-btn">📄 View</a>
-    </div>
+  <div class="card reveal">
+    🛠 <b>Experience</b><br>
+    Robotics Training – GTTC, Belagavi<br>
+    <small>Jan–Feb 2023</small>
   </div>
 
-  <div class="project-card">
-    <img src="cirtificate4.jpg" alt="Internship Certificate">
-    <h3>Internship / Training Program</h3>
-    <p>Organization: Training Institute / Company<br>Year: 2024</p>
-    <div class="project-actions">
-      <a href="cirtificate4.jpg" target="_blank" class="highlight-btn">📄 View</a>
-    </div>
+  <div class="card reveal">
+    🎓 <b>Education</b><br>
+    BE – ECE<br>
+    City Engineering College, Bengaluru<br>
+    <small>SGPA: 7.2</small>
   </div>
-</div>
-<!-- ================= RESUME SECTION ================= -->
-<h2 class="section-headline reveal">Resume</h2>
+  <!-- ================= HOBBIES ================= -->
+  <h2 class="section-headline reveal">Hobbies</h2>
 
-<div class="resume-actions reveal">
+  <div class="hobbies-wrapper">
+    <div class="hobby-pill dark">🎧 Listening to Music</div>
+    <div class="hobby-pill dark">📷 Photography</div>
+    <div class="hobby-pill dark">🎮 Gaming</div>
+    <div class="hobby-pill dark">🏀 Sports</div>
+    <div class="hobby-pill dark">💪🏻 Fitness</div>
+  </div>
 
-  <!-- VIEW RESUME -->
-  <a href="Resume.pdf" target="_blank" class="resume-btn view-btn">
-    <i class="fas fa-eye"></i>
-    View
-  </a>
+  <!-- ================= SKILLS ================= -->
+  <h2 class="section-headline reveal">Skills</h2>
 
-  <!-- DOWNLOAD RESUME -->
-  <a href="Resume.pdf" download class="resume-btn download-btn">
-    <i class="fas fa-download"></i>
-    Download
-  </a>
+  <div class="hobbies-wrapper">
+    <div class="hobby-pill dark">💻 VLSI Design Basics</div>
+    <div class="hobby-pill dark">🧩 Verilog</div>
+    <div class="hobby-pill dark">⚡ Embedded Systems</div>
+    <div class="hobby-pill dark">🐍 Python</div>
+    <div class="hobby-pill dark">🔌 PCB Design</div>
+  </div>
 
-</div>
-<!-- ================= GET IN TOUCH ================= -->
-<section class="contact-section reveal">
+  <!-- ================= INTERESTS ================= -->
+  <h2 class="section-headline reveal">My Interests</h2>
 
-  <h2 class="section-headline">Get In Touch</h2>
-  <p class="contact-subtitle">Let’s Connect & Collaborate 🤝</p>
+  <div class="hobbies-wrapper">
+    <div class="hobby-pill dark">📈 Stock Market</div>
+    <div class="hobby-pill dark">🌐 Web Building</div>
+    <div class="hobby-pill dark">🔍 Deep Learning</div>
+    <div class="hobby-pill dark">🏍️ Travelling</div>
+  </div>
+  <!-- ================= PROJECTS ================= -->
+  <h2 class="section-headline reveal">My Projects</h2>
 
-  <!-- INFO CARDS -->
-  <div class="contact-cards">
+  <div class="projects-grid">
 
-    <div class="contact-card">
-      <div class="contact-icon">
+    <!-- ===== Project 1 ===== -->
+    <div class="project-card reveal">
+
+      <div class="project-image-wrapper">
+        <img src="portable.png"
+             alt="Portable Oscilloscope"
+             class="project-image">
+      </div>
+
+      <h3>Portable Oscilloscope using Arduino</h3>
+
+      <p>
+        Low-cost portable oscilloscope using Arduino capable of displaying
+        sine, square, and triangle waveforms.
+      </p>
+
+      <div class="project-actions">
+
+        <button class="highlight-btn"
+                onclick="toggleProjectImage(this)">
+          <i class="fas fa-eye"></i> View
+        </button>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'Portable Oscilloscope Details',
+             'oscilloscopeDetails.html'
+           )">
+          Details
+        </a>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'Portable Oscilloscope Code',
+             'oscilloscopeCode.txt'
+           )">
+          Code
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== Project 2 ===== -->
+    <div class="project-card reveal">
+
+      <div class="project-image-wrapper">
+        <img src="smart.png"
+             alt="AgriGuard"
+             class="project-image">
+      </div>
+
+      <h3>AgriGuard – Smart IoT System</h3>
+
+      <p>
+        IoT-based smart farming system using ESP32 for automated irrigation,
+        fire detection, and enhanced farm security.
+      </p>
+
+      <div class="project-actions">
+
+        <button class="highlight-btn"
+                onclick="toggleProjectImage(this)">
+          <i class="fas fa-eye"></i> View
+        </button>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'AgriGuard Details',
+             'agriguardDetails.html'
+           )">
+          Details
+        </a>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'AgriGuard Code',
+             'Agriculture.txt'
+           )">
+          Code
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== Project 3 ===== -->
+    <div class="project-card reveal">
+
+      <div class="project-image-wrapper">
+        <img src="component-tester.png"
+             alt="Component Tester"
+             class="project-image">
+      </div>
+
+      <h3>All-in-One Component Tester</h3>
+
+      <p>
+        Electronic component tester for resistors, capacitors, diodes,
+        transistors, and continuity checking.
+      </p>
+
+      <div class="project-actions">
+
+        <button class="highlight-btn"
+                onclick="toggleProjectImage(this)">
+          <i class="fas fa-eye"></i> View
+        </button>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'Component Tester Details',
+             'testerDetails.html'
+           )">
+          Details
+        </a>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'Component Tester Code',
+             'Tester.txt'
+           )">
+          Code
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== Project 4 ===== -->
+    <div class="project-card reveal">
+
+      <div class="project-image-wrapper">
+        <img src="led-pattern.png"
+             alt="LED Pattern"
+             class="project-image">
+      </div>
+
+      <h3>Generating LED Patterns Using Arduino</h3>
+
+      <p>
+        Arduino-based project to generate different LED lighting patterns
+        using multiple LEDs mounted on a dot matrix.
+      </p>
+
+      <div class="project-actions">
+
+        <button class="highlight-btn"
+                onclick="toggleProjectImage(this)">
+          <i class="fas fa-eye"></i> View
+        </button>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'LED Pattern Details',
+             'ledPatternDetails.html'
+           )">
+          Details
+        </a>
+
+        <a href="#"
+           class="highlight-btn"
+           onclick="openModal(
+             'LED Pattern Code',
+             'LED_Pattern.txt'
+           )">
+          Code
+        </a>
+
+      </div>
+    </div>
+
+    </div>
+    <!-- ================= CERTIFICATES ================= -->
+  <h2 class="section-headline reveal">Certificates</h2>
+
+  <div class="projects-grid reveal">
+
+    <div class="project-card">
+      <img src="cirtificate1.jpg" alt="Embedded Systems Certificate">
+      <h3>Embedded Systems Training</h3>
+      <p>
+        Organization: GTTC, Belagavi<br>
+        Year: 2023
+      </p>
+      <div class="project-actions">
+        <a href="cirtificate1.jpg"
+           target="_blank"
+           class="highlight-btn">
+          📄 View
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="cirtificate2.jpg" alt="VLSI Certificate">
+      <h3>VLSI Design Basics</h3>
+      <p>
+        Organization: Online Certification Platform<br>
+        Year: 2024
+      </p>
+      <div class="project-actions">
+        <a href="cirtificate2.jpg"
+           target="_blank"
+           class="highlight-btn">
+          📄 View
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="cirtificate3.jpg" alt="Workshop Certificate">
+      <h3>Technical Workshop</h3>
+      <p>
+        Organization: Engineering Institute / Workshop<br>
+        Year: 2023
+      </p>
+      <div class="project-actions">
+        <a href="cirtificate3.jpg"
+           target="_blank"
+           class="highlight-btn">
+          📄 View
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="cirtificate4.jpg" alt="Internship Certificate">
+      <h3>Internship / Training Program</h3>
+      <p>
+        Organization: Training Institute / Company<br>
+        Year: 2024
+      </p>
+      <div class="project-actions">
+        <a href="cirtificate4.jpg"
+           target="_blank"
+           class="highlight-btn">
+          📄 View
+        </a>
+      </div>
+    </div>
+
+          </div>
+          <!-- ================= RESUME ================= -->
+  <h2 class="section-headline reveal">Resume</h2>
+
+  <div class="resume-actions reveal">
+
+    <!-- VIEW RESUME -->
+    <a href="Resume.pdf"
+       target="_blank"
+       class="resume-btn view-btn">
+      <i class="fas fa-eye"></i>
+      View
+    </a>
+
+    <!-- DOWNLOAD RESUME -->
+    <a href="Resume.pdf"
+       download
+       class="resume-btn download-btn">
+      <i class="fas fa-download"></i>
+      Download
+    </a>
+
+  </div>
+  <!-- ================= GET IN TOUCH ================= -->
+  <section class="contact-section reveal">
+
+    <h2 class="section-headline">Get In Touch</h2>
+    <p class="contact-subtitle">Let’s Connect & Collaborate 🤝</p>
+
+    <!-- INFO CARDS -->
+    <div class="contact-cards">
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <p>amruthanamapure@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div>
+          <h4>Phone</h4>
+          <p>+91 6361508317</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-location-dot"></i>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <p>Bengaluru, Karnataka, India</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <div class="contact-social">
+      <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="mailto:amruthanamapure@gmail.com">
         <i class="fas fa-envelope"></i>
-      </div>
-      <div>
-        <h4>Email</h4>
-        <p>amruthanamapure@gmail.com</p>
-      </div>
+      </a>
+      <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
     </div>
 
-    <div class="contact-card">
-      <div class="contact-icon">
-        <i class="fas fa-phone"></i>
-      </div>
-      <div>
-        <h4>Phone</h4>
-        <p>+91 6361508317</p>
-      </div>
-    </div>
+    <!-- CONTACT FORM -->
+    <form class="contact-form">
 
-    <div class="contact-card">
-      <div class="contact-icon">
-        <i class="fas fa-location-dot"></i>
-      </div>
-      <div>
-        <h4>Location</h4>
-        <p>Bengaluru, Karnataka, India</p>
-      </div>
-    </div>
+      <label>Name</label>
+      <input type="text" placeholder="Your Name" required>
 
-  </div>
+      <label>Email</label>
+      <input type="email" placeholder="Your Email" required>
 
-  <!-- SOCIAL ICONS -->
-  <div class="contact-social">
-    <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:amruthanamapure@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-  </div>
+      <label>Subject</label>
+      <input type="text" placeholder="Project Discussion">
 
-  <!-- CONTACT FORM -->
-  <form class="contact-form">
+      <label>Message</label>
+      <textarea rows="4" placeholder="Tell me about your project..."></textarea>
 
-    <label>Name</label>
-    <input type="text" placeholder="Your Name" required>
+      <button type="submit" class="send-btn">
+        Send Message <i class="fas fa-paper-plane"></i>
+      </button>
 
-    <label>Email</label>
-    <input type="email" placeholder="Your Email" required>
+    </form>
 
-    <label>Subject</label>
-    <input type="text" placeholder="Project Discussion">
-
-    <label>Message</label>
-    <textarea rows="4" placeholder="Tell me about your project..."></textarea>
-
-    <button type="submit" class="send-btn">
-      Send Message <i class="fas fa-paper-plane"></i>
-    </button>
-
-  </form>
-
-</section>
-
+  </section>
 <!-- ================= MODAL ================= -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <button id="copyBtn" class="copy-btn" onclick="copyCode()">Copy Code</button>
-    <div id="modalBody"></div>
+  <div id="projectModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+
+      <h2 id="modalTitle"></h2>
+
+      <button id="copyBtn"
+              class="copy-btn"
+              onclick="copyCode()">
+        Copy Code
+      </button>
+
+      <div id="modalBody"></div>
+    </div>
+
   </div>
-</div>
 
-<!-- ================= THEME TOGGLE ================= -->
-<button onclick="toggleTheme()" class="theme-toggle">
-  <i class="fas fa-sun"></i>
-</button>
+  <!-- ================= THEME TOGGLE ================= -->
+  <button onclick="toggleTheme()" class="theme-toggle">
+    <i class="fas fa-sun"></i>
+  </button>
 
-<!-- ================= SCRIPTS ================= -->
-<script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <!-- ================= SCRIPTS ================= -->
+  <script src="script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 
 </body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>  
