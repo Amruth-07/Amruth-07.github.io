@@ -190,7 +190,7 @@ body{
   position: relative;
 
   padding: 16px 34px;   /* 👈 balanced size */
-  min-width: 160px;     /* 👈 not too wide */
+  min-width: 40px;     /* 👈 not too wide */
   font-size: 17px;
 
   border-radius: 40px;
@@ -231,7 +231,7 @@ body{
 @media (max-width: 600px){
   .highlight-btn{
     padding: 22px 46px;
-    min-width: 210px;
+    min-width: 100px;
     font-size: 20px;
   }
 }
@@ -1543,6 +1543,7 @@ body.light-mode .highlight-btn::before{
     padding: 6px 12px;
   }
 }
+
 
 
 
