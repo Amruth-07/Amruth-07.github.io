@@ -137,7 +137,7 @@ body {
 
 /* About image */
 .about-photo {
-  width: 180px;
+  width: 240px;
   height: auto;
   border-radius: 16px;
   margin-bottom: 16px;
@@ -650,4 +650,5 @@ body.light-mode .modal-content {
 .card:hover::before {
   opacity: 1;
 }
+
 
