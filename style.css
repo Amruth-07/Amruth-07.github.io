@@ -1628,6 +1628,47 @@ body.light-mode .highlight-btn::before{
   }
 }
 
+/* ===============================
+   FIX PROJECT ACTION POSITION
+================================ */
+
+/* Make card a positioning context */
+.project-card {
+  position: relative;
+}
+
+/* Place buttons on image */
+.project-actions {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 5;
+}
+
+/* Desktop: show on hover */
+@media (hover: hover) {
+  .project-actions {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    transition: 0.3s ease;
+  }
+
+  .project-card:hover .project-actions {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Mobile: always visible */
+@media (hover: none) {
+  .project-actions {
+    opacity: 1 !important;
+    transform: translateX(-50%) !important;
+  }
+    }
 
 
 
