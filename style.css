@@ -976,4 +976,29 @@ body.light-mode .hobby-pill {
 body.light-mode .hobby-pill:hover {
   box-shadow: 0 0 15px rgba(143, 0, 255, 0.25) !important;
   }
+/* ================================
+   FIX MODAL BOTTOM EXTRA SPACE
+================================ */
+
+.modal-content {
+  max-height: 85vh;   /* modal stays inside screen */
+  overflow: hidden;   /* stop extra blank area */
+}
+
+/* Scroll only inside modal body */
+#modalBody {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Smooth scrollbar */
+#modalBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+#modalBody::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 255, 0.4);
+  border-radius: 10px;
+}
 
