@@ -1759,5 +1759,51 @@ body.light-mode .resume-btn {
    END OF STYLE.CSS
 ========================================================== */
 
+/* ================================
+   LIGHT MODE - PROJECT CARD FIX
+================================ */
+body.light-mode .project-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
 
+body.light-mode .project-card h3 {
+  color: #000000 !important;
+}
+
+body.light-mode .project-card p {
+  color: #111111 !important;
+}
+
+body.light-mode .project-card strong {
+  color: #000000 !important;
+}
+
+body.light-mode .project-card .tech-used {
+  color: #111111 !important;
+}
+/* ================================
+   LIGHT MODE - PROJECT BUTTONS FIX
+================================ */
+body.light-mode .project-actions button,
+body.light-mode .project-actions a {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.25) !important;
+}
+
+body.light-mode .project-actions button:hover,
+body.light-mode .project-actions a:hover {
+  background: #f2f2f2 !important;
+  transform: scale(1.05);
+}
+/* ================================
+   DARK MODE - PROJECT CARD FIX
+================================ */
+body:not(.light-mode) .project-card {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
 
