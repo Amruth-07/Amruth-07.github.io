@@ -1116,3 +1116,49 @@ body.light-mode .project-card .tech-used span {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
+
+/* ===============================
+   LIGHT MODE - ABOUT SECTION FIX
+================================ */
+
+body.light-mode .about-section {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .about-section p {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+body.light-mode .about-section h2,
+body.light-mode .about-section h3 {
+  color: #000000 !important;
+}
+/* ===============================
+   ABOUT IMAGE NEON BORDER
+================================ */
+
+.about-image {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 4px;
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #00ff85, #00f2ff);
+  background-size: 400% 400%;
+  animation: neonMove 4s linear infinite;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.6),
+              0 0 25px rgba(143, 0, 255, 0.5);
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+}
+
+/* Neon animation */
+@keyframes neonMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
