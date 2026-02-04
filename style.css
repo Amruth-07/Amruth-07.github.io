@@ -823,3 +823,75 @@ body.light-mode #modalBody ul li {
   transform: scale(1.05);
   transition: 0.3s;
 }
+/* ================================
+   SECTION HEADINGS
+================================ */
+.section-headline {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 60px 0 25px;
+  color: #00f2ff;
+}
+
+/* ================================
+   WRAPPER (NO BORDER, NO BOX)
+================================ */
+.hobbies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+/* ================================
+   PILLS STYLE (CLEAN & PREMIUM)
+================================ */
+.hobby-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 18px;
+  border-radius: 30px;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(0, 242, 255, 0.35);
+  box-shadow: 0 0 6px rgba(0, 242, 255, 0.15);
+
+  transition: all 0.35s ease;
+  cursor: default;
+}
+
+/* Hover Glow */
+.hobby-pill:hover {
+  border-color: #8f00ff;
+  box-shadow:
+    0 0 10px rgba(143, 0, 255, 0.4),
+    0 0 20px rgba(0, 242, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* ================================
+   LIGHT MODE SUPPORT
+================================ */
+body.light-mode .hobby-pill {
+  color: #111;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 150, 180, 0.4);
+  box-shadow: 0 0 6px rgba(0, 150, 180, 0.15);
+}
+
+body.light-mode .hobby-pill:hover {
+  border-color: #6a00cc;
+  box-shadow:
+    0 0 10px rgba(106, 0, 204, 0.35),
+    0 0 18px rgba(0, 150, 180, 0.2);
+}
