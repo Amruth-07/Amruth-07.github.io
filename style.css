@@ -899,7 +899,7 @@ body.light-mode .hobby-pill:hover {
 
 .project-image {
   width: 100%;
-  height: 250px;      /* Crop height */
+  height: 180px;      /* Crop height */
   overflow: hidden;
   border-radius: 18px;
   margin-bottom: 15px;
@@ -2010,6 +2010,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
