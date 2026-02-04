@@ -107,7 +107,7 @@ body.light-mode {
   justify-content: center;           /* Center vertically */
   align-items: center;               /* Center horizontally */
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 40px;
 }
 
 
@@ -119,8 +119,8 @@ body.light-mode {
    </div>
 ================================ */
 .profile {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   padding: 4px;                      /* space for neon border */
   margin-bottom: 18px;
@@ -2010,6 +2010,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
