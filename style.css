@@ -372,7 +372,7 @@ body.light-mode .card small {
    <img class="about-photo">
 ================================ */
 .about-photo {
-  width: 200px;
+  width: 300px;
   height: auto;
   border-radius: 18px;
 
@@ -538,18 +538,15 @@ body.light-mode .about-photo {
 /* ==========================================================
    LIGHT MODE FIX (PILLS)
 ========================================================== */
-
-body.light-mode .hobby-pill {
-  color: #000000;
-  background: #ffffff;
+body.light-mode .project-actions button,
+body.light-mode .project-actions a {
+  color: black;
 }
 
-
-/* Change inner layer background in light mode */
-body.light-mode .hobby-pill::after {
-  background: #ffffff;
+body.light-mode .project-actions button::after,
+body.light-mode .project-actions a::after {
+  background: white;
 }
-
 /* ==========================================================
    PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
    ----------------------------------------------------------
@@ -1967,5 +1964,6 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
