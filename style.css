@@ -416,15 +416,12 @@ body.light-mode .about-photo {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
 }
 
-
-
 /* ==========================================================
    PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
    ----------------------------------------------------------
+   ✔ Works in all browsers (Android + GitHub Pages)
    ✔ Solid background inside
-   ✔ Only border neon gradient animated
-   ✔ Bright neon border (solid look)
-   ✔ Hover glow effect
+   ✔ Animated neon border only
    ✔ Light mode supported
 ========================================================== */
 
@@ -443,7 +440,7 @@ body.light-mode .about-photo {
 
 
 /* ================================
-   PILL STYLE (SOLID BACKGROUND + ANIMATED BORDER)
+   PILL STYLE (MAIN)
 ================================ */
 .hobby-pill {
   position: relative;
@@ -459,31 +456,25 @@ body.light-mode .about-photo {
   font-weight: 500;
 
   color: #ffffff;
-
-  /* Solid inside background */
   background: #0b0f1a;
 
-  /* Remove normal border */
-  border: none;
-
-  /* Important */
-  overflow: hidden;
   z-index: 1;
-
   transition: 0.3s ease;
 }
 
 
 /* ================================
-   ANIMATED NEON BORDER (OUTSIDE)
+   ANIMATED BORDER (WORKING METHOD)
 ================================ */
 .hobby-pill::before {
   content: "";
   position: absolute;
-  inset: 0;
-  padding: 2px; /* border thickness */
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
 
-  border-radius: 35px;
+  border-radius: 40px;
 
   background: linear-gradient(
     90deg,
@@ -496,12 +487,24 @@ body.light-mode .about-photo {
   background-size: 400% 400%;
   animation: pillBorderMove 3s linear infinite;
 
-  /* border-only trick */
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  z-index: -2;
+}
+
+
+/* ================================
+   INNER BACKGROUND LAYER
+   (this creates BORDER effect)
+================================ */
+.hobby-pill::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+
+  border-radius: 33px;
+  background: #0b0f1a;
 
   z-index: -1;
 }
@@ -525,6 +528,135 @@ body.light-mode .about-photo {
 ================================ */
 .hobby-pill:hover {
   transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 0 12px rgba(0, 242, 255, 0.6),
+    0 0 20px rgba(143, 0, 255, 0.5),
+    0 0 28px rgba(0, 255, 153, 0.35);
+}
+
+
+/* ==========================================================
+   LIGHT MODE FIX (PILLS)
+========================================================== */
+
+body.light-mode .hobby-pill {
+  color: #000000;
+  background: #ffffff;
+}
+
+
+/* Change inner layer background in light mode */
+body.light-mode .hobby-pill::after {
+  background: #ffffff;
+}
+
+/* ==========================================================
+   PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
+   ----------------------------------------------------------
+   ✔ Solid background inside
+   ✔ Only border neon gradient animated
+   ✔ Bright neon border (solid look)
+   ✔ Hover glow effect
+   ✔ Light mode supported
+========================================================== */
+
+
+/* ================================
+   WRAPPER FOR PILLS
+================================ *
+.hobbies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+
+  margin: 20px 20px 45px;
+}
+
+
+/* ================================
+   PILL STYLE (SOLID BACKGROUND + ANIMATED BORDER)
+================================ *
+.hobby-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+  border-radius: 35px;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  color: #ffffff;
+
+  /* Solid inside background *
+  background: #0b0f1a;
+
+  /* Remove normal border *
+  border: none;
+
+  /* Important *
+  overflow: hidden;
+  z-index: 1;
+
+  transition: 0.3s ease;
+}
+
+
+/* ================================
+   ANIMATED NEON BORDER (OUTSIDE)
+================================ *
+.hobby-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* border thickness *
+
+  border-radius: 35px;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #8f00ff,
+    #00ff99,
+    #00f2ff
+  );
+
+  background-size: 400% 400%;
+  animation: pillBorderMove 3s linear infinite;
+
+  /* border-only trick 
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  z-index: -1;
+}
+
+
+/* ================================
+   BORDER MOVING ANIMATION
+================================ *
+@keyframes pillBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+
+/* ================================
+   HOVER EFFECT
+================================ *
+.hobby-pill:hover {
+  transform: translateY(-3px) scale(1.05);
 
   box-shadow: 
     0 0 12px rgba(0, 242, 255, 0.6),
@@ -538,7 +670,7 @@ body.light-mode .about-photo {
    - Solid white inside
    - Black font
    - Neon border stays animated
-========================================================== */
+========================================================== 
 
 body.light-mode .hobby-pill {
   color: #000000;
@@ -1761,7 +1893,7 @@ body.light-mode .resume-btn {
 
 /* ================================
    LIGHT MODE - PROJECT CARD FIX
-================================ */
+================================ *
 body.light-mode .project-card {
   background: #ffffff !important;
   color: #000000 !important;
@@ -1786,7 +1918,7 @@ body.light-mode .project-card .tech-used {
 }
 /* ================================
    LIGHT MODE - PROJECT BUTTONS FIX
-================================ */
+================================ *
 body.light-mode .project-actions button,
 body.light-mode .project-actions a {
   background: #ffffff !important;
@@ -1801,9 +1933,10 @@ body.light-mode .project-actions a:hover {
 }
 /* ================================
    DARK MODE - PROJECT CARD FIX
-================================ */
+================================ *
 body:not(.light-mode) .project-card {
   background: #000000 !important;
   color: #ffffff !important;
 }
+*/
 
