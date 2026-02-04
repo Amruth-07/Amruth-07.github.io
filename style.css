@@ -101,7 +101,7 @@ body.light-mode {
    - Center aligned content
 ================================ */
 #hero {
-  min-height: 100vh;                 /* Full screen */
+  min-height: 70vh;                 /* Full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;           /* Center vertically */
@@ -178,7 +178,7 @@ body.light-mode {
 #hero h2 {
   font-size: 1.4rem;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   color: #ffffff;
 }
 
@@ -2010,6 +2010,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
