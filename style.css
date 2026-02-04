@@ -768,3 +768,46 @@ body.light-mode .modal-content {
 body.light-mode .neon-border::before {
   opacity: 0.6;
 }
+/* ================================
+   MODAL SUBTITLE COLOUR FIX
+================================ */
+
+#modalBody h1,
+#modalBody h2,
+#modalBody h3,
+#modalBody h4,
+#modalBody h5 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99);
+  background-size: 300% 300%;
+  animation: subtitleGlow 4s linear infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes subtitleGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* list styling inside modal */
+#modalBody ul {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+#modalBody ul li {
+  margin-bottom: 10px;
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* Light mode list */
+body.light-mode #modalBody ul li {
+  color: #222;
+}
