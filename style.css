@@ -1002,3 +1002,29 @@ body.light-mode .hobby-pill:hover {
   border-radius: 10px;
 }
 
+/* ================================
+   MODAL LIST STAR BULLETS ✨
+================================ */
+
+#modalBody ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#modalBody ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Star bullet */
+#modalBody ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 14px;
+  color: #00f2ff;
+  text-shadow: 0 0 8px #00f2ff, 0 0 12px #8f00ff;
+}
