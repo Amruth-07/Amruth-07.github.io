@@ -721,3 +721,50 @@ body.light-mode .modal-content {
 .card:hover::before {
   opacity: 1;
 }
+/* =====================================
+   NEON GRADIENT ANIMATED BORDER
+   (Dark + Light mode compatible)
+===================================== */
+
+.neon-border {
+  position: relative;
+  border-radius: 22px;
+  z-index: 1;
+}
+
+/* Thin animated border */
+.neon-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.2px;               /* VERY thin border */
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    #00f2ff,
+    #8f00ff,
+    #00f2ff,
+    transparent
+  );
+  background-size: 300% 300%;
+  animation: neonFlash 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Animation */
+@keyframes neonFlash {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Light mode tuning */
+body.light-mode .neon-border::before {
+  opacity: 0.6;
+}
