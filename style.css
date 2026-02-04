@@ -964,6 +964,9 @@ body.light-mode .project-card p {
 body.light-mode .tech-used {
   color: #007c91;
 }
+
+
+
 /* ==========================================================
    PART 7: PROJECT ICON BUTTONS (VIEW / DETAILS / CODE)
    ----------------------------------------------------------
@@ -974,77 +977,106 @@ body.light-mode .tech-used {
    4) Mobile always visible (no hover on mobile)
    5) Neon glow hover effects
 ========================================================== */
+/* ==========================================
+   PROJECT ACTION BUTTONS FIX
+   (View / Details / Code)
+========================================== */
 
-
-/* ================================
-   ACTION BUTTON WRAPPER
-   HTML:
-   <div class="project-actions">
-     <button class="icon-btn">...</button>
-   </div>
-================================ */
 .project-actions {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 12px;
-
-  margin-top: 15px;
+  gap: 18px;
+  margin-top: 18px;
 }
 
-
-/* ================================
-   ICON BUTTON BASE STYLE
-   Used for:
-   - View image (eye icon)
-   - Details (info icon)
-   - Code (code icon)
-================================ */
-.icon-btn {
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-  border: 1px solid rgba(0, 242, 255, 0.5);
-
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+/* Remove default ugly button style */
+.project-actions button,
+.project-actions a {
+  all: unset; /* removes default browser style */
+  cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+
   transition: 0.3s ease;
 }
 
-/* Icon inside */
-.icon-btn i {
-  font-size: 1.1rem;
+/* Neon Border Look */
+.project-actions button,
+.project-actions a {
+  position: relative;
+  background: #0b0f1a;
+  z-index: 1;
 }
 
-/* Hover glow */
-.icon-btn:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 12px rgba(0, 242, 255, 0.4),
-              0 0 20px rgba(143, 0, 255, 0.25);
+/* Border Gradient */
+.project-actions button::before,
+.project-actions a::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 35px;
+
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+  background-size: 400% 400%;
+  animation: btnBorderMove 3s linear infinite;
+
+  z-index: -2;
 }
+
+/* Inner background */
+.project-actions button::after,
+.project-actions a::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 30px;
+  background: #0b0f1a;
+  z-index: -1;
+}
+
+/* Hover Glow */
+.project-actions button:hover,
+.project-actions a:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.6),
+              0 0 22px rgba(143, 0, 255, 0.4);
+}
+
+/* Border Animation */
+@keyframes btnBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* Icon space */
+.project-actions i {
+  margin-right: 6px;
+}
+
 
 
 /* ==========================================================
    BUTTONS APPEAR ONLY ON CARD HOVER (DESKTOP)
    - Hidden by default
    - Visible only when project-card hovered
-========================================================== */
-
-.project-actions {
+========================================================== *
+.project-actions
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
   transition: 0.35s ease;
 }
 
-/* Show buttons when card is hovered */
+/* Show buttons when card is hovered *
 .project-card:hover .project-actions {
   opacity: 1;
   transform: translateY(0px);
@@ -1055,8 +1087,7 @@ body.light-mode .tech-used {
 /* ==========================================================
    MOBILE FIX: ALWAYS SHOW BUTTONS
    (Because mobile has no hover)
-========================================================== */
-
+========================================================== *
 @media (max-width: 768px) {
   .project-actions {
     opacity: 1;
@@ -1068,7 +1099,7 @@ body.light-mode .tech-used {
 
 /* ==========================================================
    LIGHT MODE FIX (ICON BUTTONS)
-========================================================== */
+========================================================== /
 
 body.light-mode .icon-btn {
   background: #ffffff;
@@ -1076,10 +1107,7 @@ body.light-mode .icon-btn {
   border: 1px solid rgba(0, 0, 0, 0.18);
 }
 
-body.light-mode .icon-btn:hover {
-  box-shadow: 0 0 12px rgba(0, 150, 180, 0.25),
-              0 0 18px rgba(122, 0, 255, 0.18);
-  }
+body.light-mode .icon-btn:h
 /* ==========================================================
    PART 8: SCROLL REVEAL ANIMATION
    ----------------------------------------------------------
@@ -1939,4 +1967,5 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
