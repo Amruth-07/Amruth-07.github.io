@@ -811,3 +811,15 @@ body.light-mode .neon-border::before {
 body.light-mode #modalBody ul li {
   color: #222;
 }
+
+.hobby-pill {
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+}
+
+.hobby-pill:hover {
+  border: 1px solid rgba(143, 0, 255, 0.7);
+  box-shadow: 0 0 15px rgba(143, 0, 255, 0.4);
+  transform: scale(1.05);
+  transition: 0.3s;
+}
