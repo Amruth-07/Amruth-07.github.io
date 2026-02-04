@@ -1028,3 +1028,26 @@ body.light-mode .hobby-pill:hover {
   color: #00f2ff;
   text-shadow: 0 0 8px #00f2ff, 0 0 12px #8f00ff;
 }
+/* =====================================
+   ABOUT ME - LIGHT MODE FIX
+===================================== */
+
+body.light-mode .about-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .about-card p {
+  color: #000000 !important;
+}
+
+body.light-mode .about-card h2,
+body.light-mode .about-card h3 {
+  color: #000000 !important;
+}
+
+/* Image border light mode */
+body.light-mode .about-card img {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
