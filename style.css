@@ -893,53 +893,55 @@ body.light-mode .hobby-pill:hover {
       <img src="..." alt="...">
    </div>
 ================================ */
+/* ==========================================
+   PROJECT IMAGE DEFAULT (SHOW ONLY TOP 60%)
+========================================== */
+
 .project-image {
   width: 100%;
-  height: 250px;              /* Fixed height = crop effect */
-  overflow: hidden;           /* Hide bottom part */
+  height: 250px;      /* Crop height */
+  overflow: hidden;
   border-radius: 18px;
   margin-bottom: 15px;
+  transition: 0.4s ease;
 }
 
-
-/* ================================
-   PROJECT IMAGE ITSELF
-   Shows only TOP part of image always
-================================ */
 .project-image img {
   width: 100%;
   height: 100%;
-
-  object-fit: cover;          /* Crop image */
-  object-position: top;       /* Always show TOP part */
-
-  display: block;
+  object-fit: cover;
+  object-position: top;
   border-radius: 18px;
-
-  transition: 0.3s ease;
+  display: block;
+  transition: 0.4s ease;
 }
 
 
+/* ==========================================
+   WHEN VIEW BUTTON CLICKED (SHOW FULL IMAGE)
+========================================== */
+
+.project-image.full-view {
+  height: auto;        /* Full height */
+  overflow: visible;
+}
+
+.project-image.full-view img {
+  height: auto;        /* Full image */
+  object-fit: contain; /* Show full image */
+  object-position: center;
+}
+
+/* ================================
+   PROJECT IMAGE ITSELF
+   Shows only TOP part of
 /* ================================
    REMOVE EXPAND EFFECT IF ANY
    (When user clicks View button)
 ================================ */
-.project-image img.expanded {
-  transform: none !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: top !important;
-}
-
-
 /* ================================
    MOBILE RESPONSIVE
 ================================ */
-@media (max-width: 600px) {
-  .project-image {
-    height: 230px;            /* Slight smaller for mobile */
-  }
-}
 /* ================================
    PROJECT TITLE
 ================================ */
@@ -2008,6 +2010,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
