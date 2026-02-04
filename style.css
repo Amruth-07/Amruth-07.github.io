@@ -750,7 +750,7 @@ body.light-mode .modal-content {
 .hobby-pill::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   border-radius: inherit;
   background: linear-gradient(
     120deg,
@@ -760,7 +760,7 @@ body.light-mode .modal-content {
     #00f2ff
   );
   background-size: 300% 300%;
-  animation: neonMove 6s linear infinite;
+  animation: neonMove 3s linear infinite;
   z-index: -1;
   filter: blur(1px);
 }
@@ -769,7 +769,7 @@ body.light-mode .modal-content {
 .hobby-pill::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 1px;
   border-radius: inherit;
   background: rgba(10, 12, 30, 0.95);
   z-index: -1;
@@ -820,6 +820,7 @@ body.light-mode .modal-content {
     box-shadow: 0 0 26px rgba(143, 0, 255, 0.6);
   }
 }
+
 
 
 
