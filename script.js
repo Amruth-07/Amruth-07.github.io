@@ -20,10 +20,27 @@ function revealOnScroll() {
 // Run on scroll and on page load
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+function toggleProjectImage(button) {
+  const projectCard = button.closest(".project-card");
+  const projectImage = projectCard.querySelector(".project-image");
+
+  if (!projectImage) return;
+
+  // Toggle full view class
+  projectImage.classList.toggle("full-view");
+
+  // Change icon (👁️ / 🙈)
+  if (projectImage.classList.contains("full-view")) {
+    button.innerHTML = "🙈 View";
+  } else {
+    button.innerHTML = "👁️ View";
+  }
+}
 /* =====================================
    PROJECT IMAGE TOGGLE
    Expands / collapses project image
-===================================== */
+===================================== *
 
 function toggleProjectImage(button) {
 
@@ -162,3 +179,4 @@ function toggleTheme() {
   icon.classList.toggle("fa-sun");
   icon.classList.toggle("fa-moon");
 }
+
