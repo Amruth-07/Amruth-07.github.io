@@ -1188,3 +1188,111 @@ body.light-mode .about-section h3 {
     height: 160px;
   }
 }
+/* ==========================================
+   LIGHT MODE FULL FIX (Desktop + Mobile)
+========================================== */
+
+body.light-mode {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+/* Section headings */
+body.light-mode .section-headline {
+  color: #00bcd4 !important;
+  text-shadow: none !important;
+}
+
+/* Cards (Location, Expertise, Experience, Education) */
+body.light-mode .card {
+  background: #ffffff !important;
+  color: #000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Card headings inside */
+body.light-mode .card b {
+  color: #000 !important;
+}
+
+/* About card */
+body.light-mode .about-card {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+/* About text */
+body.light-mode .about-text {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+/* Project card */
+body.light-mode .project-card {
+  background: #ffffff !important;
+  color: #000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Project text */
+body.light-mode .project-card p,
+body.light-mode .project-card h3 {
+  color: #000 !important;
+}
+
+/* Technologies line */
+body.light-mode .tech-used {
+  color: #444 !important;
+  font-weight: 500;
+}
+
+/* Pills (Hobbies / Skills / Interests) */
+body.light-mode .hobby-pill,
+body.light-mode .skill-pill {
+  background: #ffffff !important;
+  color: #000 !important;
+  border: 1px solid rgba(0, 188, 212, 0.5) !important;
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.15) !important;
+}
+
+/* Project buttons (icons) */
+body.light-mode .icon-btn {
+  background: #ffffff !important;
+  color: #000 !important;
+  border: 1px solid rgba(0, 188, 212, 0.6) !important;
+}
+
+body.light-mode .icon-btn:hover {
+  background: rgba(0, 188, 212, 0.1) !important;
+}
+
+/* Modal Light Mode */
+body.light-mode .modal-content {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+body.light-mode #modalBody {
+  color: #000 !important;
+  }
+/* ===============================
+   PROJECTS GRID (2 Columns Desktop)
+================================ */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 25px;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+/* Mobile view - 1 column */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
