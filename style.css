@@ -447,9 +447,9 @@ body.light-mode .about-photo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 
-  padding: 12px 22px;
+  padding: 8px 18px;
   border-radius: 35px;
 
   font-size: 1rem;
@@ -1964,6 +1964,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
