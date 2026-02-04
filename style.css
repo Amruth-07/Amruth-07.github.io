@@ -875,27 +875,71 @@ body.light-mode .hobby-pill:hover {
      <img class="project-image">
    </div>
 ================================ */
-.project-image-wrapper {
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  margin-bottom: 14px;
-}
+/* ==========================================================
+   PROJECT IMAGE FIX (SHOW ONLY TOP 60% ALWAYS)
+   ----------------------------------------------------------
+   REQUIREMENT:
+   ✅ Project image must show only TOP part (cropped look)
+   ✅ Only top 60% visible always
+   ✅ Even after clicking View button, image should NOT merge
+   ✅ No full expansion inside card
+========================================================== */
 
-/* Image inside wrapper */
+
+/* ================================
+   PROJECT IMAGE CONTAINER
+   HTML:
+   <div class="project-image">
+      <img src="..." alt="...">
+   </div>
+================================ */
 .project-image {
   width: 100%;
+  height: 250px;              /* Fixed height = crop effect */
+  overflow: hidden;           /* Hide bottom part */
+  border-radius: 18px;
+  margin-bottom: 15px;
+}
+
+
+/* ================================
+   PROJECT IMAGE ITSELF
+   Shows only TOP part of image always
+================================ */
+.project-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;          /* Crop image */
+  object-position: top;       /* Always show TOP part */
+
   display: block;
   border-radius: 18px;
-  transition: transform 0.4s ease;
-}
 
-/* Expand effect when JS toggles "expanded" */
-.project-image-wrapper.expanded .project-image {
-  transform: scale(1.08);
+  transition: 0.3s ease;
 }
 
 
+/* ================================
+   REMOVE EXPAND EFFECT IF ANY
+   (When user clicks View button)
+================================ */
+.project-image img.expanded {
+  transform: none !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top !important;
+}
+
+
+/* ================================
+   MOBILE RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+  .project-image {
+    height: 230px;            /* Slight smaller for mobile */
+  }
+}
 /* ================================
    PROJECT TITLE
 ================================ */
@@ -1964,6 +2008,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
