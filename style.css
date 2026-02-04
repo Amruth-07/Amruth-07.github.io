@@ -792,36 +792,3 @@ body.light-mode .modal-content {
     background-position: 300% 50%;
   }
    }
-/* =====================================
-   PULSE GLOW ON SCROLL REVEAL
-===================================== */
-
-.reveal.active {
-  animation: pulseGlow 1s ease-out;
-}
-
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 rgba(0, 242, 255, 0);
-  }
-  40% {
-    box-shadow: 0 0 24px rgba(0, 242, 255, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(0, 242, 255, 0);
-  }
-}
-.project-card.reveal.active {
-  animation: pulseGlowPurple 1s ease-out;
-}
-
-@keyframes pulseGlowPurple {
-  40% {
-    box-shadow: 0 0 26px rgba(143, 0, 255, 0.6);
-  }
-}
-
-
-
-
-
