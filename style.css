@@ -1296,3 +1296,115 @@ body.light-mode #modalBody {
     grid-template-columns: 1fr;
   }
 }
+/* ================================
+   FORCE LIGHT MODE FIX (100% WORK)
+================================ */
+
+body.light-mode {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* HERO */
+body.light-mode #hero {
+  background: #ffffff !important;
+}
+
+body.light-mode #hero h1,
+body.light-mode #hero h2,
+body.light-mode #hero p {
+  color: #000000 !important;
+}
+
+/* ALL TEXT DEFAULT */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode p,
+body.light-mode small,
+body.light-mode span,
+body.light-mode div {
+  color: #000000 !important;
+}
+
+/* SECTION HEADINGS */
+body.light-mode .section-headline {
+  color: #00bcd4 !important;
+  text-shadow: none !important;
+}
+
+/* MAIN CARD FIX */
+body.light-mode .card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0,0,0,0.15) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12) !important;
+}
+
+/* ABOUT CARD */
+body.light-mode .about-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .about-text {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* PROJECT CARD */
+body.light-mode .project-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0,0,0,0.15) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12) !important;
+}
+
+body.light-mode .project-card h3,
+body.light-mode .project-card p {
+  color: #000000 !important;
+}
+
+/* TECHNOLOGIES TEXT */
+body.light-mode .tech-used {
+  color: #222 !important;
+  font-weight: 600 !important;
+}
+
+/* PILLS FIX */
+body.light-mode .skill-pill,
+body.light-mode .hobby-pill {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0,188,212,0.6) !important;
+  box-shadow: 0 4px 10px rgba(0,188,212,0.18) !important;
+}
+
+/* ICON BUTTONS */
+body.light-mode .icon-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0,188,212,0.6) !important;
+}
+
+body.light-mode .icon-btn i {
+  color: #000000 !important;
+}
+
+/* MODAL FIX */
+body.light-mode .modal-content {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode #modalBody,
+body.light-mode #modalTitle {
+  color: #000000 !important;
+}
+
+/* COPY BUTTON */
+body.light-mode .copy-btn {
+  background: #00bcd4 !important;
+  color: #ffffff !important;
+}
