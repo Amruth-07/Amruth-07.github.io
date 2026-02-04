@@ -975,3 +975,18 @@ body.light-mode .hobby-pill i {
 .modal-body li {
   margin-bottom: 6px;
 }
+/* =====================================
+   FIX TEXT + ICONS DISAPPEARING (DARK MODE)
+===================================== */
+
+body:not(.light-mode) .hobby-pill {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+body:not(.light-mode) .hobby-pill i {
+  color: #ffffff !important;
+}
+body:not(.light-mode) .hobby-pill {
+  -webkit-text-fill-color: #ffffff !important;
+}
