@@ -1408,3 +1408,126 @@ body.light-mode .copy-btn {
   background: #00bcd4 !important;
   color: #ffffff !important;
 }
+
+/* =========================================
+   LIGHT MODE FIX (FINAL + WORKING)
+========================================= */
+
+body.light-mode {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* HERO SECTION */
+body.light-mode #hero {
+  background: #ffffff !important;
+}
+
+body.light-mode #hero h1,
+body.light-mode #hero h2,
+body.light-mode #hero p {
+  color: #000000 !important;
+}
+
+/* ALL SECTION HEADINGS */
+body.light-mode .section-headline {
+  color: #00bcd4 !important;
+  text-shadow: none !important;
+}
+
+/* INFO CARDS */
+body.light-mode .card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode .card small {
+  color: #333 !important;
+}
+
+/* SKILL PILLS */
+body.light-mode .skill-pill {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 188, 212, 0.6) !important;
+  box-shadow: 0 5px 12px rgba(0, 188, 212, 0.15) !important;
+}
+
+/* HOBBIES / SKILLS / INTEREST PILLS */
+body.light-mode .hobby-pill {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 188, 212, 0.6) !important;
+  box-shadow: 0 5px 12px rgba(0, 188, 212, 0.15) !important;
+}
+
+/* ABOUT SECTION */
+body.light-mode .about-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .about-text {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* PROJECT SECTION */
+body.light-mode .project-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode .project-card h3 {
+  color: #000000 !important;
+}
+
+body.light-mode .project-card p {
+  color: #111 !important;
+}
+
+/* TECHNOLOGIES LINE */
+body.light-mode .tech-used {
+  color: #222 !important;
+  font-weight: 600 !important;
+}
+
+/* ICON BUTTONS */
+body.light-mode .icon-btn {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 188, 212, 0.6) !important;
+  color: #000000 !important;
+}
+
+body.light-mode .icon-btn i {
+  color: #000000 !important;
+}
+
+/* MODAL LIGHT MODE */
+body.light-mode .modal-content {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode #modalTitle {
+  color: #00bcd4 !important;
+}
+
+body.light-mode #modalBody {
+  color: #000000 !important;
+}
+
+/* MODAL CLOSE BUTTON */
+body.light-mode .close-btn {
+  color: #000000 !important;
+}
+
+/* COPY BUTTON */
+body.light-mode .copy-btn {
+  background: #00bcd4 !important;
+  color: #ffffff !important;
+}
