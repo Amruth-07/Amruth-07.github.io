@@ -1162,3 +1162,29 @@ body.light-mode .about-section h3 {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
+/* ===============================
+   HERO SECTION DESKTOP FIX
+================================ */
+
+#hero {
+  min-height: 100vh;   /* full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* center vertically */
+  align-items: center;      /* center horizontally */
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero-skills {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  #hero img {
+    width: 160px;
+    height: 160px;
+  }
+}
