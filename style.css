@@ -792,3 +792,39 @@ body.light-mode .modal-content {
     background-position: 300% 50%;
   }
    }
+
+/* ===============================
+   LIGHT MODE BASE
+================================ */
+
+body.light-mode {
+  background: #f5f7fb;
+  color: #0b1024;
+   }
+body.light-mode .card {
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+body.light-mode .section-headline {
+  background-image: none !important;
+  color: #222;
+  -webkit-text-fill-color: initial;
+  text-shadow: none;
+}
+body.light-mode .hobby-pill {
+  background: #ffffff;
+  color: #222;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Disable neon border in light mode */
+body.light-mode .hobby-pill::before {
+  display: none;
+}
+
+body.light-mode .hobby-pill::after {
+  background: #ffffff;
+}
+body.light-mode .hobby-pill i {
+  color: #555;
+}
