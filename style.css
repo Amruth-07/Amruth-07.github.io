@@ -433,7 +433,7 @@ body.light-mode .about-photo {
    <div class="hobbies-wrapper">
      <div class="hobby-pill">...</div>
    </div>
-================================ */
+================================ *
 .hobbies-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -448,7 +448,7 @@ body.light-mode .about-photo {
    PILL STYLE (.hobby-pill)
    - Uses animated gradient border
    - Works for hobbies, skills, interests
-================================ */
+================================ *
 .hobby-pill {
   display: flex;
   align-items: center;
@@ -464,7 +464,7 @@ body.light-mode .about-photo {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.05);
 
-  /* Thin border animation trick */
+  /* Thin border animation trick *
   border: 1.4px solid transparent;
 
   background-image:
@@ -483,7 +483,7 @@ body.light-mode .about-photo {
 
 /* ================================
    BORDER MOVING ANIMATION
-================================ */
+================================ *
 @keyframes pillBorderMove {
   0% {
     background-position: 0% 50%;
@@ -496,7 +496,7 @@ body.light-mode .about-photo {
 
 /* ================================
    HOVER EFFECT
-================================ */
+================================ *
 .hobby-pill:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 0 15px rgba(0, 242, 255, 0.35),
@@ -508,7 +508,7 @@ body.light-mode .about-photo {
    LIGHT MODE FIX (PILLS)
    - Pure white background
    - Pure black font
-========================================================== */
+========================================================== /
 
 body.light-mode .hobby-pill {
   color: #000000;
@@ -526,6 +526,53 @@ body.light-mode .hobby-pill:hover {
   box-shadow: 0 0 12px rgba(0, 150, 180, 0.25),
               0 0 18px rgba(122, 0, 255, 0.2);
 }
+/* ================================
+   HOBBIES / SKILLS / INTERESTS CHIPS
+   (ONLY BORDER GLOW, NO FULL FILL)
+================================ */
+
+.info-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+  border-radius: 40px;
+
+  background: transparent;  /* 🔥 NO FILL */
+  color: #ffffff;
+
+  border: 1.5px solid transparent;
+  background-image: 
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00fff0, #a855f7, #00fff0);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 240, 0.3);
+}
+
+
+/* Hover glow effect */
+.info-chip:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 255, 240, 0.6);
+}
+body.light-mode .info-chip {
+  color: #000;
+  background-image: 
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #ff00ff, #00c6ff);
+}
+
+
+
+
 /* ==========================================================
    PART 6: PROJECTS SECTION (GRID + CARD DESIGN)
    ----------------------------------------------------------
@@ -1600,3 +1647,4 @@ body.light-mode .resume-btn {
 /* ==========================================================
    END OF STYLE.CSS
 ========================================================== */
+
