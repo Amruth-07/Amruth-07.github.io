@@ -1051,3 +1051,28 @@ body.light-mode .about-card h3 {
 body.light-mode .about-card img {
   border: 2px solid rgba(0, 0, 0, 0.2);
 }
+/* =====================================
+   LIGHT MODE - PROJECT TEXT FIX
+===================================== */
+
+body.light-mode .project-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .project-card h3 {
+  color: #000000 !important;
+}
+
+body.light-mode .project-card p {
+  color: #111111 !important;
+}
+
+body.light-mode .project-card .tech-used {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+body.light-mode .project-card .tech-used span {
+  color: #000000 !important;
+}
