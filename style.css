@@ -895,4 +895,85 @@ body.light-mode .hobby-pill:hover {
     0 0 10px rgba(106, 0, 204, 0.35),
     0 0 18px rgba(0, 150, 180, 0.2);
 }
+/* ==========================================
+   FIXED NEON ANIMATED BORDER FOR PILLS
+   (Guaranteed working)
+========================================== */
+
+.hobby-pill {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  padding: 12px 22px !important;
+  border-radius: 35px !important;
+
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+
+  color: white !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(8px) !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  z-index: 1 !important;
+  overflow: hidden !important;
+}
+
+/* Neon border layer */
+.hobby-pill::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  padding: 1.3px !important; /* THIN BORDER */
+  border-radius: inherit !important;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #8f00ff,
+    #00ff99,
+    #00f2ff
+  ) !important;
+
+  background-size: 300% 300% !important;
+  animation: pillBorderMove 4s linear infinite !important;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0) !important;
+
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Animation */
+@keyframes pillBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Hover glow */
+.hobby-pill:hover {
+  transform: scale(1.05) !important;
+  transition: 0.3s !important;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4) !important;
+}
+
+/* LIGHT MODE SUPPORT */
+body.light-mode .hobby-pill {
+  background: rgba(255, 255, 255, 0.7) !important;
+  color: #111 !important;
+}
+
+body.light-mode .hobby-pill:hover {
+  box-shadow: 0 0 15px rgba(143, 0, 255, 0.25) !important;
+  }
 
