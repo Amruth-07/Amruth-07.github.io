@@ -1026,7 +1026,6 @@ body.light-mode .hobby-pill:hover {
   top: 2px;
   font-size: 14px;
   color: #00f2ff;
-  text-shadow: 0 0 8px #00f2ff, 0 0 12px #8f00ff;
 }
 /* =====================================
    ABOUT ME - LIGHT MODE FIX
@@ -1076,3 +1075,4 @@ body.light-mode .project-card .tech-used {
 body.light-mode .project-card .tech-used span {
   color: #000000 !important;
 }
+
