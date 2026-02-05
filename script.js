@@ -1,6 +1,5 @@
 /* =====================================
-   SCROLL REVEAL ANIMATION
-   Reveals elements when they enter viewport
+   PART 1: SCROLL REVEAL ANIMATION
 ===================================== */
 
 function revealOnScroll() {
@@ -10,74 +9,65 @@ function revealOnScroll() {
     const windowHeight = window.innerHeight;
     const elementTop = element.getBoundingClientRect().top;
 
-    // Reveal when element is near viewport
     if (elementTop < windowHeight - 100) {
       element.classList.add("active");
     }
   });
 }
 
-// Run on scroll and on page load
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
-
-
-.project-image-wrapper.expanded {
-  height: auto;
-  overflow: visible;
-}
-
-.project-image-wrapper.expanded .project-image {
-  height: auto;
-  object-fit: contain;
-}
 /* =====================================
-   PROJECT IMAGE TOGGLE
-   Expands / collapses project image
+   PART 2: PROJECT IMAGE TOGGLE (VIEW)
+   - Default shows top 60% (CSS crop)
+   - Click expands full image
 ===================================== */
 
 function toggleProjectImage(button) {
+  const card = button.closest(".project-card");
+  if (!card) return;
 
-  // Find the parent project card
-  const projectCard = button.closest(".project-card");
+  const wrapper = card.querySelector(".project-image-wrapper");
+  if (!wrapper) return;
 
-  // Find the image wrapper inside the card
-  const imageWrapper = projectCard.querySelector(".project-image-wrapper");
+  wrapper.classList.toggle("expanded");
 
-  // Toggle expanded class (used in CSS)
-  imageWrapper.classList.toggle("expanded");
+  const icon = button.querySelector("i");
+  if (!icon) return;
+
+  if (wrapper.classList.contains("expanded")) {
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
 }
 /* =====================================
-   OPEN PROJECT MODAL
-   Loads Details (.html) or Code (.txt)
+   PART 3: OPEN MODAL (DETAILS + CODE)
 ===================================== */
 
 function openModal(title, file) {
-
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const copyBtn = document.getElementById("copyBtn");
 
-  // Set modal title
-  modalTitle.innerText = title;
+  if (!modal || !modalTitle || !modalBody || !copyBtn) return;
 
-  // Show loading text initially
+  modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
   fetch(file)
     .then(response => {
-      if (!response.ok) {
-        throw new Error("File not found");
-      }
+      if (!response.ok) throw new Error("File not found");
       return response.text();
     })
     .then(data => {
 
       /* ---------- SOURCE CODE (.txt) ---------- */
       if (file.endsWith(".txt")) {
-
         modalBody.innerHTML = `
 <pre class="language-c">
 <code class="language-c">
@@ -86,10 +76,8 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 </pre>
         `;
 
-        // Show copy button only for code
         copyBtn.style.display = "inline-block";
 
-        // Highlight code if Prism is loaded
         if (window.Prism) {
           Prism.highlightAllUnder(modalBody);
         }
@@ -97,7 +85,11 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 
       /* ---------- DETAILS (.html) ---------- */
       else {
-        modalBody.innerHTML = data;
+        modalBody.innerHTML = `
+<div class="details-box">
+${data}
+</div>
+        `;
         copyBtn.style.display = "none";
       }
     })
@@ -107,57 +99,55 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
       console.error(error);
     });
 
-  // Show modal
   modal.style.display = "block";
-      }
+}
+
 /* =====================================
-   CLOSE MODAL
+   PART 4: CLOSE MODAL
 ===================================== */
 
 function closeModal() {
   const modal = document.getElementById("projectModal");
+  if (!modal) return;
+
   modal.style.display = "none";
 }
 
-/* Close modal when clicking outside content */
+/* Click outside modal to close */
 window.addEventListener("click", function (event) {
   const modal = document.getElementById("projectModal");
+  if (!modal) return;
 
   if (event.target === modal) {
     closeModal();
   }
 });
 /* =====================================
-   COPY CODE BUTTON
-   Copies code text from modal
+   PART 5: COPY CODE BUTTON
 ===================================== */
 
 function copyCode() {
-
-  // Select the code block inside modal
   const codeBlock = document.querySelector("#modalBody code");
-
   if (!codeBlock) return;
 
   navigator.clipboard.writeText(codeBlock.innerText)
     .then(() => {
       const btn = document.getElementById("copyBtn");
-      const originalText = btn.innerText;
+      if (!btn) return;
 
-      // Temporary feedback
+      const oldText = btn.innerText;
       btn.innerText = "Copied ✓";
 
       setTimeout(() => {
-        btn.innerText = originalText;
+        btn.innerText = oldText;
       }, 1500);
     })
     .catch(err => {
       console.error("Copy failed:", err);
     });
-}
+          }
 /* =====================================
-   THEME TOGGLE
-   Switch between dark and light mode
+   PART 6: THEME TOGGLE (DARK/LIGHT)
 ===================================== */
 
 function toggleTheme() {
@@ -172,22 +162,5 @@ function toggleTheme() {
   } else {
     icon.classList.remove("fa-moon");
     icon.classList.add("fa-sun");
-  }
-}
-
-function toggleProjectImage(button) {
-  const projectCard = button.closest(".project-card");
-  const projectImage = projectCard.querySelector(".project-image");
-
-  if (!projectImage) return;
-
-  // Toggle full view class
-  projectImage.classList.toggle("full-view");
-
-  // Change icon (👁️ / 🙈)
-  if (projectImage.classList.contains("full-view")) {
-    button.innerHTML = "🙈 View";
-  } else {
-    button.innerHTML = "👁️ View";
   }
 }
