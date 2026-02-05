@@ -640,7 +640,22 @@ body.light-mode .hobby-pill span,
 body.light-mode .hobby-pill i {
   color: #000000 !important;
 }
+body.light-mode .hobby-pill {
+  color: #000000 !important;
+  background: #ffffff !important;
 
+  border: 2px solid transparent !important;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: pillBorderMove 4s linear infinite;
+}
 /* ==========================================================
    LIGHT MODE FIX (PILLS)
 ========================================================== */
@@ -2149,6 +2164,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
