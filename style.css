@@ -845,7 +845,7 @@ body.light-mode .send-btn {
     text-align: center;
   }
 }
-.modal {
+/*.modal {
   padding: 5px;
   display: none;
   position: fixed;
@@ -886,14 +886,12 @@ body.light-mode .send-btn {
 .modal-content::-webkit-scrollbar {
   width: 6px;
 }
-
 .modal-content::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .modal-content::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
+  border-radius: 10px; ******/
 }
 .modal-content h2,
 .modal-content h3,
@@ -950,21 +948,15 @@ body.light-mode .send-btn {
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 15px;
-
   position: relative;
   z-index: 1;
-
   transition: 0.3s ease;
 }
-
-/* copy neon border */
 .copy-btn::before {
   content: "";
   position: absolute;
   inset: -1px;
-
   border-radius: 60px;
-
   background: linear-gradient(
     90deg,
     #00f2ff,
@@ -972,71 +964,55 @@ body.light-mode .send-btn {
     #00ff99,
     #00f2ff
   );
-
   background-size: 400% 400%;
   animation: copyBorderMove 3s linear infinite;
-
   z-index: -1;
 }
-
 .copy-btn::after {
   content: "";
   position: absolute;
   inset: 1px;
-
   border-radius: 22px;
   background: #0b0f1a;
-
   z-index: -1;
 }
-
 @keyframes copyBorderMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 400% 50%; }
 }
-
 .copy-btn:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 0 16px rgba(0, 242, 255, 0.45),
               0 0 22px rgba(255, 0, 255, 0.25);
 }
-
-/* Prism code block fix */
 pre {
   border-radius: 14px !important;
   padding: 16px !important;
   overflow-x: auto;
   font-size: 0.9rem;
 }
-
 code {
   font-family: Consolas, monospace;
 }
 body.light-mode .modal {
   background: rgba(255, 255, 255, 0.75);
 }
-
 body.light-mode .modal-content {
   color: #000000;
-
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
-
 body.light-mode #modalTitle {
   color: #007c91;
   text-shadow: none;
 }
-
 body.light-mode .close-btn {
   color: #000000;
 }
-
 body.light-mode .copy-btn {
   color: #000000;
 }
-
 body.light-mode .copy-btn::after {
   background: #ffffff;
 }
@@ -1436,6 +1412,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
