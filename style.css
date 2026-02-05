@@ -205,7 +205,7 @@ body.light-mode #hero h1 span {
 
   color: #ffffff;
 
-  border: 1.4px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -215,9 +215,9 @@ body.light-mode #hero h1 span {
   background-clip: padding-box, border-box;
 
   background-size: 100% 100%, 300% 300%;
-  animation: skillBorderMove 4s linear infinite;
+  animation: skillBorderMove 3s linear infinite;
 
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 }
 
 @keyframes skillBorderMove {
@@ -259,7 +259,7 @@ body.light-mode .skill-pill {
   padding: 18px 18px;
 
   border-radius: 18px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -272,7 +272,7 @@ body.light-mode .skill-pill {
   animation: cardBorderMove 5s linear infinite;
 
   box-shadow: 0 0 15px rgba(0, 242, 255, 0.12);
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 }
 
 @keyframes cardBorderMove {
@@ -331,7 +331,7 @@ body.light-mode .card b {
   margin: 18px auto;
   border-radius: 18px;
 
-  border: 2px solid rgba(0, 242, 255, 0.35);
+  border: 1px solid rgba(0, 242, 255, 0.35);
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.18);
 }
 
@@ -347,7 +347,7 @@ body.light-mode .card b {
 
 /* Light mode fix */
 body.light-mode .about-photo {
-  border: 2px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
@@ -370,7 +370,7 @@ body.light-mode .about-text {
 .section-headline {
   text-align: center;
 
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 900;
 
   margin-top: 45px;
@@ -439,7 +439,7 @@ body.light-mode .section-headline {
 .hobby-pill::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   border-radius: 45px;
 
   background: linear-gradient(
@@ -453,14 +453,14 @@ body.light-mode .section-headline {
   background-size: 400% 400%;
   animation: hobbyBorderMove 3s linear infinite;
 
-  z-index: -2;
+  z-index: -1;
 }
 
 /* Inside background */
 .hobby-pill::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 1px;
   border-radius: 38px;
   background: #0b0f1a;
   z-index: -1;
@@ -515,7 +515,7 @@ body.light-mode .hobby-pill::after {
 
   color: #ffffff;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -528,7 +528,7 @@ body.light-mode .hobby-pill::after {
   animation: projectCardBorderMove 5s linear infinite;
 
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.12);
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 
   overflow: hidden;
 }
@@ -669,7 +669,7 @@ body.light-mode .project-card p {
 .project-actions a::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
 
   border-radius: 16px;
 
@@ -684,7 +684,7 @@ body.light-mode .project-card p {
   background-size: 400% 400%;
   animation: actionBorderMove 3s linear infinite;
 
-  z-index: -2;
+  z-index: -1;
 }
 
 /* INNER BACKGROUND */
@@ -692,7 +692,7 @@ body.light-mode .project-card p {
 .project-actions a::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 1px;
 
   border-radius: 12px;
   background: #0b0f1a;
@@ -787,7 +787,7 @@ body.light-mode .project-actions a::after {
 .resume-btn::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   border-radius: 35px;
 
   background: linear-gradient(
@@ -801,13 +801,13 @@ body.light-mode .project-actions a::after {
   background-size: 400% 400%;
   animation: resumeBorderMove 3s linear infinite;
 
-  z-index: -2;
+  z-index: -1;
 }
 
 .resume-btn::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 1px;
   border-radius: 28px;
 
   background: #0b0f1a;
@@ -888,7 +888,7 @@ body.light-mode .resume-btn::after {
   padding: 16px 16px;
   border-radius: 18px;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -900,7 +900,7 @@ body.light-mode .resume-btn::after {
   background-size: 100% 100%, 300% 300%;
   animation: contactBorderMove 5s linear infinite;
 
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 }
 
 @keyframes contactBorderMove {
@@ -958,7 +958,7 @@ body.light-mode .resume-btn::after {
   font-size: 1.3rem;
   color: #ffffff;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -1034,7 +1034,7 @@ body.light-mode .resume-btn::after {
   color: #ffffff;
   text-align: center;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -1160,7 +1160,7 @@ body.light-mode .send-btn {
 
   color: #ffffff;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -1264,7 +1264,7 @@ body.light-mode .send-btn {
 .copy-btn::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
 
   border-radius: 30px;
 
@@ -1279,13 +1279,13 @@ body.light-mode .send-btn {
   background-size: 400% 400%;
   animation: copyBorderMove 3s linear infinite;
 
-  z-index: -2;
+  z-index: -1;
 }
 
 .copy-btn::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 1px;
 
   border-radius: 22px;
   background: #0b0f1a;
@@ -1380,7 +1380,7 @@ body.light-mode .copy-btn::after {
   cursor: pointer;
   z-index: 99999;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
@@ -1393,7 +1393,7 @@ body.light-mode .copy-btn::after {
   animation: themeToggleMove 4s linear infinite;
 
   box-shadow: 0 0 14px rgba(0, 242, 255, 0.35);
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 }
 
 @keyframes themeToggleMove {
@@ -1539,7 +1539,7 @@ a {
   background: rgba(20, 20, 20, 0.9);
   color: #ffffff;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background-clip: padding-box;
 
   box-shadow: 
@@ -1552,7 +1552,7 @@ a {
 .modal-content::before {
   content: "";
   position: absolute;
-  inset: -3px;
+  inset: -2px;
   border-radius: 22px;
   background: linear-gradient(90deg, #00f2ff, #8f00ff, #ff00d4, #00ff99);
   background-size: 400% 400%;
@@ -1648,7 +1648,7 @@ a {
   left: 0;
   top: 0;
   color: #00f2ff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
 
@@ -1668,8 +1668,8 @@ a {
   background: rgba(0, 0, 0, 0.6);
   color: white;
 
-  border: 2px solid transparent;
-  transition: 0.3s;
+  border: 1px solid transparent;
+  transition: 0.5s;
   position: relative;
 }
 
@@ -1677,7 +1677,7 @@ a {
 .copy-btn::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   border-radius: 32px;
   background: linear-gradient(90deg, #ff00d4, #00f2ff, #8f00ff);
   background-size: 300% 300%;
@@ -1812,7 +1812,7 @@ body.light-mode .copy-btn {
   color: white;
   background: rgba(0, 0, 0, 0.75);
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   /* CLEAN NEON BORDER */
   background-image: 
@@ -1861,4 +1861,5 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
