@@ -856,6 +856,7 @@ body.light-mode .resume-btn::after {
    ✅ Light mode white + black text
 ========================================================== */
 
+
 .contact-section {
   width: 92%;
   max-width: 900px;
@@ -873,6 +874,7 @@ body.light-mode .resume-btn::after {
 /* Contact cards wrapper */
 .contact-cards {
   display: flex;
+  flex-direction: column;
   gap: 18px;
   margin-bottom: 35px;
 }
@@ -985,7 +987,7 @@ body.light-mode .resume-btn::after {
 /* Form */
 .contact-form {
   display: flex;
-  flex-direction:left;
+  flex-direction: column;
   gap: 12px;
   text-align: left;
 }
@@ -1002,7 +1004,7 @@ body.light-mode .resume-btn::after {
   padding: 12px 14px;
 
   border-radius: 12px;
-  border: 1.5px solid rgba(0, 242, 255, 0.25);
+  border: 1px solid rgba(0, 242, 255, 0.25);
 
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
@@ -1107,6 +1109,9 @@ body.light-mode .send-btn {
     text-align: center;
   }
 }
+
+
+
 /* ==========================================================
    PART 12: MODAL STYLING (DETAILS + CODE)
    ----------------------------------------------------------
@@ -1948,6 +1953,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
