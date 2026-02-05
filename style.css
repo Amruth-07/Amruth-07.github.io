@@ -1884,7 +1884,7 @@ body.light-mode .modal-content button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 65px;
+  gap: 50px;
   margin-top: 20px;
   flex-wrap: wrap;
 }
@@ -1953,6 +1953,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
