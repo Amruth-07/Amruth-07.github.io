@@ -164,3 +164,21 @@ function toggleTheme() {
     icon.classList.add("fa-sun");
   }
 }
+
+
+
+emailjs.init("TZWUr1PeHYnnlkkBN");
+
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_9uitjh4", "template_re3hdru", this)
+    .then(function () {
+      alert("Message Sent Successfully!");
+      document.getElementById("contact-form").reset();
+    })
+    .catch(function (error) {
+      alert("Message Failed! Please try again.");
+      console.log("EmailJS Error:", error);
+    });
+});
