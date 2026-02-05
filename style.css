@@ -285,30 +285,42 @@ body.light-mode #hero h1 span {
    - Education
 ================================ */
 .card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(0, 242, 255, 0.15);
+  position: relative;
+  background: rgba(20, 25, 35, 0.85);
+  border-radius: 18px;
+  padding: 18px 18px;
+  margin: 18px auto;
+  width: 90%;
+  max-width: 500px;
 
-  border-radius: 20px;
-  padding: 18px;
+  color: white;
 
-  margin: 18px 20px;
-  color: #ffffff;
+  /* remove old border */
+  border: 2px solid transparent;
 
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.08);
+  /* gradient border */
+  background-image:
+    linear-gradient(rgba(20, 25, 35, 0.95), rgba(20, 25, 35, 0.95)),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 400% 400%;
+  animation: borderMove 5s linear infinite;
+
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.18);
 }
 
-/* Bold headings inside card */
-.card b {
-  color: #00f2ff;
-  font-weight: 600;
+/* Neon border moving animation */
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
 }
-
-/* Small text inside card */
-.card small {
-  color: #ffffff;
-  opacity: 0.75;
-}
-
 
 /* ==========================================================
    LIGHT MODE FIX (Skill Pills + Cards)
@@ -2007,6 +2019,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
