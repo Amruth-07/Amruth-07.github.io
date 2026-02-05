@@ -121,8 +121,8 @@ body.light-mode {
    - Neon animated gradient border
 ================================ */
 .profile {
-  width: 190px;              /* bigger than before */
-  height: 190px;
+  width: 250px;              /* bigger than before */
+  height: 250px;
   border-radius: 50%;
   padding: 5px;              /* thin neon border space */
 
@@ -179,7 +179,7 @@ body.light-mode {
 #hero h2 {
   font-size: 1.3rem;
   font-weight: 500;
-  margin: 5px 0;             /* reduced gap */
+  margin: 10px 0;             /* reduced gap */
   color: #ffffff;
 }
 
@@ -187,7 +187,7 @@ body.light-mode {
 #hero h1 {
   font-size: 2.4rem;
   font-weight: 800;
-  margin: 4px 0 8px;         /* reduced gap */
+  margin: 4px 0 10px;         /* reduced gap */
   line-height: 1.2;
 }
 
@@ -201,7 +201,7 @@ body.light-mode {
 #hero p {
   font-size: 0.95rem;
   font-weight: 400;
-  margin: 0;                 /* remove extra gap */
+  margin: 6;                 /* remove extra gap */
   color: #ffffff;
   opacity: 0.85;
   line-height: 1.4;
@@ -2142,6 +2142,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
