@@ -235,52 +235,12 @@ body.light-mode .profile {
   box-shadow: 0 0 18px rgba(0, 120, 150, 0.35),
               0 0 26px rgba(120, 0, 255, 0.25);
 }
-
-
-
-
-/* ==========================================================
-   PART 2: HERO SECTION + PROFILE PHOTO (DARK & LIGHT MODE)
-   ----------------------------------------------------------
-   This part controls:
-   1) Hero section full screen layout
-   2) Center alignment (desktop + mobile)
-   3) Profile photo size and shape
-   4) Neon animated gradient border for profile image
-   5) Text styling (Hi I'm, Name, Subtitle)
-========================================================== */
-
-
-/* ==========================================================
-   PART 2: HERO SECTION + PROFILE PHOTO (DARK & LIGHT MODE)
-   ----------------------------------------------------------
-   This part controls:
-   1) Hero section full screen layout
-   2) Center alignment (desktop + mobile)
-   3) Profile photo size and shape
-   4) Neon animated gradient border for profile image
-   5) Text styling (Hi I'm, Name, Subtitle)
-========================================================== */
-
-
-/* ================================
-   HERO SECTION (#hero)
-   - Full screen height
-   - Center aligned content
-================================ */
 #hero {
   min-height, 255, 0.6);
 }
 
 /* Subtitle line */
 ;
-
-/* ==========================================================
-   LIGHT MODE FIX FOR HERO SECTION
-   - White background already in Part 1
-   - Here we force hero text to black
-========================================================== */
-
 body.light-mode #hero h2,
 body.light-mode #hero h1,
 body.light-mode #hero p {
@@ -293,25 +253,6 @@ body.light-mode #hero h1 span {
   color: #007c91;
   text-shadow: none;
   }
-/* ==========================================================
-   PART 3: SKILL TAGS + INFO CARDS
-   ----------------------------------------------------------
-   This part controls:
-   1) Skill pills below hero section
-   2) Info cards (Location, Expertise, etc.)
-   3) Proper spacing and alignment
-   4) Dark mode: black bg + white text
-   5) Light mode: white bg + black text
-========================================================== *
-
-
-/* ================================
-   HERO SKILLS WRAPPER
-   HTML:
-   <div class="hero-skills">
-     <span class="skill-pill">...</span>
-   </div>
-================================ */
 .hero-skills {
   display: flex;
   flex-wrap: wrap;
@@ -320,11 +261,6 @@ body.light-mode #hero h1 span {
 
   margin: 25px 20px 40px;
 }
-
-
-/* ================================
-   SKILL PILL STYLE
-================================ */
 .skill-pill {
   padding: 8px 16px;
   border-radius: 30px;
@@ -345,16 +281,6 @@ body.light-mode #hero h1 span {
   transform: translateY(-0.85px) scale(1.05);
   box-shadow: 0 0 12px rgba(0, 242, 255, 0.35);
 }
-
-
-/* ================================
-   INFO CARD STYLE (.card)
-   Used for:
-   - Location
-   - Expertise
-   - Experience
-   - Education
-================================ */
 .card {
   position: relative;
   background: rgba(20, 25, 35, 0);
@@ -422,23 +348,6 @@ body.light-mode .card small {
   color: #000000;
   opacity: 0.7;
 }
-/* ==========================================================
-   PART 4: ABOUT ME SECTION
-   ----------------------------------------------------------
-   This part controls:
-   1) About card layout
-   2) About image styling
-   3) About text formatting
-   4) Dark mode readability (white text)
-   5) Light mode readability (black text)
-========================================================== */
-
-
-/* ================================
-   ABOUT CARD WRAPPER
-   HTML:
-   <div class="card reveal about-card">
-================================ */
 .about-card {
   display: flex;
   flex-direction: column;
@@ -448,12 +357,6 @@ body.light-mode .card small {
   padding: 25px 20px;
 }
 
-
-/* ================================
-   ABOUT IMAGE
-   HTML:
-   <img class="about-photo">
-================================ */
 .about-photo {
   width: 300px;
   height: auto;
@@ -477,14 +380,6 @@ body.light-mode .card small {
   color: #ffffff;
   opacity: 0.9;
 }
-
-
-/* ==========================================================
-   LIGHT MODE FIX (ABOUT SECTION)
-   - background must be pure white
-   - font must be pure black
-========================================================== */
-
 body.light-mode .about-card {
   background: #ffffff !important;
   color: #000000 !important;
@@ -498,16 +393,6 @@ body.light-mode .about-text {
 body.light-mode .about-photo {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
 }
-
-/* ==========================================================
-   PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
-   ----------------------------------------------------------
-   ✔ Works in all browsers (Android + GitHub Pages)
-   ✔ Solid background inside
-   ✔ Animated neon border only
-   ✔ Light mode supported
-========================================================== */
-
 
 /* ================================
    WRAPPER FOR PILLS
@@ -573,11 +458,6 @@ body.light-mode .about-photo {
   z-index: -1;
 }
 
-
-/* ================================
-   INNER BACKGROUND LAYER
-   (this creates BORDER effect)
-================================ */
 .hobby-pill::after {
   content: "";
   position: absolute;
@@ -1864,7 +1744,7 @@ body.light-mode .close-btn {
    THEME TOGGLE BUTTON (Floating)
 ========================================================== */
 
-..theme-toggle {
+.theme-toggle {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -2237,44 +2117,6 @@ body.light-mode .theme-toggle {
 
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
