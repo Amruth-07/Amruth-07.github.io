@@ -1573,6 +1573,11 @@ a {
 /* ================================
    MODAL BACKGROUND OVERLAY
 ================================ */
+
+/* ==========================================================
+   MODAL FULL DESIGN (EXACT LIKE SCREENSHOT)
+========================================================== */
+
 .modal {
   display: none;
   position: fixed;
@@ -1581,290 +1586,231 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  padding: 30px 12px;
+  backdrop-filter: blur(8px);
+  padding: 20px;
 }
 
-
-/* ================================
-   MODAL CONTENT BOX
-================================ */
+/* MODAL BOX */
 .modal-content {
   position: relative;
-  max-width: 650px;
   width: 92%;
+  max-width: 600px;
+  max-height: 85vh;
   margin: auto;
-  padding: 25px 22px;
+  overflow-y: auto;
 
-  border-radius: 22px;
-  background: rgba(10, 10, 15, 0.92);
-  color: white;
+  padding: 25px;
+  border-radius: 20px;
 
-  box-shadow: 0 0 18px rgba(255, 0, 255, 0.25),
-              0 0 30px rgba(0, 255, 200, 0.25);
+  background: rgba(20, 20, 20, 0.9);
+  color: #ffffff;
 
-  overflow: hidden;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+
+  box-shadow: 
+    0 0 25px rgba(0, 242, 255, 0.35),
+    0 0 35px rgba(143, 0, 255, 0.35),
+    0 0 55px rgba(143, 0, 255, 0.25);
 }
 
-
-/* ================================
-   SOLID NEON ANIMATED BORDER
-   (BEST METHOD: ::before)
-================================ */
+/* Neon Gradient Border */
 .modal-content::before {
   content: "";
   position: absolute;
   inset: -3px;
   border-radius: 22px;
-  padding: 3px;
-
-  background: linear-gradient(
-    90deg,
-    #ff007a,
-    #ff6a00,
-    #ffee00,
-    #00ff99,
-    #00f2ff,
-    #7a00ff,
-    #ff007a
-  );
-
-  background-size: 500% 500%;
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #ff00d4, #00ff99);
+  background-size: 400% 400%;
   animation: modalBorderMove 5s linear infinite;
-
   z-index: -1;
 }
 
-
-/* ================================
-   BORDER ANIMATION
-================================ */
 @keyframes modalBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 500% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
 }
 
+/* ==========================================================
+   CLOSE BUTTON (RED X)
+========================================================== */
 
-/* ================================
-   CLOSE BUTTON (X)
-================================ */
 .close-btn {
   position: absolute;
-  top: 15px;
-  right: 18px;
-
-  font-size: 32px;
+  top: 18px;
+  right: 20px;
+  font-size: 30px;
   font-weight: bold;
   cursor: pointer;
-
-  color: #ffffff;
-  transition: 0.3s ease;
+  color: #ff4d4d;
+  transition: 0.2s;
 }
 
 .close-btn:hover {
-  color: #ff007a;
+  color: #ff0000;
   transform: scale(1.1);
 }
 
-
 /* ==========================================================
-   HEADINGS + SUBHEADINGS
+   MODAL HEADING STYLE
 ========================================================== */
 
-/* Main heading (Project title) */
 .modal-content h2 {
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-weight: 800;
-  text-align: center;
-  margin-bottom: 18px;
-
-  color: #00ffcc;
-
-  /* Crisp neon glow */
-  text-shadow:
-    0 0 2px rgba(0, 255, 204, 1),
-    0 0 8px rgba(0, 255, 204, 0.65),
-    0 0 16px rgba(122, 0, 255, 0.35);
-}
-
-
-/* Sub headings like Working Principle, Features, Applications */
-.modal-content h4 {
-  font-size: 1.2rem;
-  margin-top: 22px;
-  margin-bottom: 12px;
-  font-weight: 700;
-
-  color: #ffcc00;
-
-  text-shadow:
-    0 0 2px rgba(255, 204, 0, 0.9),
-    0 0 6px rgba(255, 106, 0, 0.55);
-}
-
-
-/* Paragraph text */
-.modal-content p {
-  font-size: 1rem;
-  line-height: 1.7;
-  opacity: 0.92;
+  margin-bottom: 15px;
   color: #ffffff;
 }
 
+/* Sub heading / project name */
+.modal-content h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-top: 18px;
+  margin-bottom: 10px;
+
+  background: linear-gradient(90deg, #00f2ff, #7a00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Section heading */
+.modal-content h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  color: #00f2ff;
+}
+
+/* Paragraph */
+.modal-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
 
 /* ==========================================================
-   STAR POINTS (UL LI)
+   LIST WITH STAR ICON STYLE
 ========================================================== */
 
 .modal-content ul {
-  list-style: none;
-  padding-left: 0;
   margin-top: 10px;
+  padding-left: 10px;
+  list-style: none;
 }
 
 .modal-content ul li {
   font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 10px;
-  padding-left: 30px;
+  margin: 10px 0;
+  padding-left: 25px;
   position: relative;
-
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.92);
 }
 
-
-/* Star Icon */
 .modal-content ul li::before {
-  content: "★";
+  content: "✦";
   position: absolute;
   left: 0;
   top: 0;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  color: #ff007a;
-
-  text-shadow:
-    0 0 4px rgba(255, 0, 122, 0.8),
-    0 0 10px rgba(255, 0, 122, 0.6),
-    0 0 18px rgba(255, 106, 0, 0.4);
+  color: #00f2ff;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
-
 
 /* ==========================================================
-   SCROLLBAR INSIDE MODAL
+   COPY CODE BUTTON STYLE
 ========================================================== */
 
-.modal-content {
-  max-height: 85vh;
-  overflow-y: auto;
+.copy-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 15px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  border: 2px solid transparent;
+  transition: 0.3s;
+  position: relative;
 }
 
+/* neon border effect */
+.copy-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 32px;
+  background: linear-gradient(90deg, #ff00d4, #00f2ff, #8f00ff);
+  background-size: 300% 300%;
+  animation: btnMove 3s linear infinite;
+  z-index: -1;
+}
+
+@keyframes btnMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.copy-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.6);
+}
+
+/* ==========================================================
+   SCROLLBAR STYLE (NEON)
+========================================================== */
+
 .modal-content::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff007a, #00ffcc);
+  background: linear-gradient(180deg, #00f2ff, #ff00d4);
   border-radius: 10px;
 }
 
 .modal-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-
 /* ==========================================================
-   LIGHT MODE SUPPORT
+   LIGHT MODE VERSION (AUTO MATCH)
 ========================================================== */
 
 body.light-mode .modal {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 body.light-mode .modal-content {
-  background: rgba(255, 255, 255, 0.95);
-  color: black;
-
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
-}
-
-body.light-mode .modal-content p,
-body.light-mode .modal-content ul li {
-  color: #000000;
-  opacity: 1;
-}
-
-body.light-mode .close-btn {
+  background: rgba(255, 255, 255, 0.92);
   color: #000;
-}
-
-body.light-mode .close-btn:hover {
-  color: #ff007a;
-}
-
-body.light-mode .modal-content h2 {
-  color: #007c91;
-  text-shadow: none;
-}
-
-body.light-mode .modal-content h4 {
-  color: #ff6a00;
-  text-shadow: none;
-}
-
-body.light-mode .modal-content ul li::before {
-  color: #7a00ff;
-  text-shadow: none;
-}
-/* ================================
-   LIGHT MODE MODAL PERFECT FIX
-================================ */
-
-body.light-mode .modal-content {
-  background: #ffffff !important;
-  color: #000000 !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
 }
 
 body.light-mode .modal-content p,
 body.light-mode .modal-content li {
-  color: #000000 !important;
+  color: #000;
 }
 
-/* Make heading sharp */
 body.light-mode .modal-content h2 {
-  color: #008b9a !important;
-  font-weight: 900 !important;
-  text-shadow: none !important;
+  color: #000;
 }
 
-/* Subheadings in orange solid */
 body.light-mode .modal-content h4 {
-  color: #ff6a00 !important;
-  font-weight: 800 !important;
-  text-shadow: none !important;
+  color: #007c91;
 }
 
-/* Star color in light mode */
 body.light-mode .modal-content ul li::before {
-  color: #7a00ff !important;
-  text-shadow: none !important;
+  color: #7a00ff;
 }
 
-/* Close button */
-body.light-mode .close-btn {
-  color: #000 !important;
-}
-
-body.light-mode .close-btn:hover {
-  color: #ff007a !important;
+body.light-mode .copy-btn {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
 }
