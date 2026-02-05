@@ -1,38 +1,31 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: "Poppins", sans-serif;
-  background: #000000; /* dark mode background */
-  color: #ffffff;      /* dark mode text */
+  background: #000000; 
+  color: #ffffff;      
   overflow-x: hidden;
   line-height: 1.6;
   transition: background 0.4s ease, color 0.4s ease;
 }
-
 body.light-mode {
   background: #ffffff; 
   color: #000000;
 }
-
 img {
   max-width: 100%;
   display: block;
 }
-
 a {
   text-decoration: none;
   color: inherit;
 }
-
 button {
   font-family: inherit;
   cursor: pointer;
@@ -40,49 +33,24 @@ button {
   outline: none;
   background: none;
 }
-
 h1, h2, h3, h4, h5, h6, p, span, small, label {
   color: inherit;
 }
-/* ==========================================================
-   PART 2: HERO SECTION + PROFILE PHOTO
-   ----------------------------------------------------------
-   HTML:
-   <section id="hero">
-     <div class="profile reveal">
-       <img ...>
-     </div>
-     <h2>...</h2>
-     <h1><span>...</span></h1>
-     <p>...</p>
-   </section>
-
-   REQUIREMENTS:
-   ✅ Profile photo bigger
-   ✅ Reduce extra gap
-   ✅ Neon gradient animated border
-========================================================== */
-
 #hero {
   min-height: auto;
   padding: 25px 15px 10px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
 }
-
 .profile {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-
   padding: 5px;
   margin-bottom: 10px;
-
   background: linear-gradient(
     90deg,
     #00f2ff,
@@ -90,23 +58,18 @@ h1, h2, h3, h4, h5, h6, p, span, small, label {
     #00ff99,
     #00f2ff
   );
-
   background-size: 400% 400%;
   animation: profileBorderMove 4s linear infinite;
-
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
               0 0 30px rgba(143, 0, 255, 0.45);
 }
-
 .profile img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-
   object-fit: cover;
   background: #000000;
 } 
-
 @keyframes profileBorderMove {
   0% {
     background-position: 0% 50%;
@@ -115,45 +78,35 @@ h1, h2, h3, h4, h5, h6, p, span, small, label {
     background-position: 400% 50%;
   }
 }
-
-/* HERO TEXT */
 #hero h2 {
   font-size: 1.3rem;
   font-weight: 500;
   margin: 6px 0 4px;
 }
-
 #hero h1 {
   font-size: 2.6rem;
   font-weight: 800;
   margin: 4px 0 10px;
   line-height: 1.2;
 }
-
 #hero h1 span {
   color: #00f2ff;
   text-shadow: 0 0 12px rgba(0, 242, 255, 0.75);
 }
-
 #hero p {
   font-size: 1rem;
   opacity: 0.9;
   margin-bottom: 0;
 }
-
-/* MOBILE */
 @media (max-width: 600px) {
   .profile {
     width: 190px;
     height: 190px;
   }
-
   #hero h1 {
     font-size: 2.2rem;
   }
 }
-
-/* LIGHT MODE FIX */
 body.light-mode #hero h2,
 body.light-mode #hero h1,
 body.light-mode #hero p {
@@ -165,47 +118,25 @@ body.light-mode #hero h1 span {
   color: #007c91;
   text-shadow: none;
   }
-/* ==========================================================
-   PART 3: HERO SKILL PILLS (TOP TAGS)
-   ----------------------------------------------------------
-   HTML:
-   <div class="hero-skills">
-     <span class="skill-pill">...</span>
-   </div>
-
-   REQUIREMENTS:
-   ✅ Neon animated border
-   ✅ Dark mode visible
-   ✅ Light mode visible
-========================================================== */
-
 .hero-skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   gap: 12px;
   margin: 18px 15px 30px;
 }
-
 .skill-pill {
   padding: 8px 16px;
   border-radius: 30px;
-
   font-size: 0.9rem;
   font-weight: 500;
-
   color: #ffffff;
-
   border: 1px solid transparent;
-
   background-image:
     linear-gradient(#000000, #000000),
     linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
-
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
   background-size: 100% 100%, 300% 300%;
   animation: skillBorderMove 3s linear infinite;
 
@@ -435,115 +366,80 @@ body.light-mode .hobby-pill::after {
   gap: 22px;
   padding-bottom: 30px;
 }
-
-/* PROJECT CARD */
 .project-card {
   border-radius: 14px;
   padding: 14px;
-
   color: #ffffff;
-
   border: 1px solid transparent;
-
   background-image:
     linear-gradient(#000000, #000000),
     linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
-
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
   background-size: 100% 100%, 300% 300%;
   animation: projectCardBorderMove 5s linear infinite;
-
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.12);
   transition: 0.5s ease;
-
   overflow: hidden;
 }
-
 @keyframes projectCardBorderMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
-
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 0 22px rgba(0, 242, 255, 0.35),
               0 0 30px rgba(143, 0, 255, 0.22);
 }
-
-/* IMAGE WRAPPER (CROP DEFAULT TOP 60%) */
 .project-image-wrapper {
   width: 100%;
-  height: 220px;      /* crop height */
+  height: 220px;
   overflow: hidden;
-
   border-radius: 16px;
   margin-bottom: 14px;
-
   transition: 0.4s ease;
 }
-
-/* IMAGE INSIDE */
 .project-image-wrapper img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: top;
-
   border-radius: 16px;
   transition: 0.4s ease;
 }
-
-/* EXPANDED IMAGE (VIEW CLICK) */
 .project-image-wrapper.expanded {
   height: auto;
   overflow: visible;
 }
-
 .project-image-wrapper.expanded img {
   height: auto;
   object-fit: contain;
   object-position: center;
 }
-
-/* PROJECT TITLE */
 .project-card h3 {
   font-size: 1.2rem;
   font-weight: 800;
-
   margin: 10px 0 8px;
-
   color: #00f2ff;
   text-shadow: 0 0 10px rgba(0, 242, 255, 0.45);
 }
-
-/* PROJECT DESCRIPTION */
 .project-card p {
   font-size: 0.95rem;
   line-height: 1.6;
   opacity: 0.9;
-
   margin-bottom: 14px;
 }
-
-/* LIGHT MODE FIX */
 body.light-mode .project-card {
   color: #000000;
-
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
-
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
-
 body.light-mode .project-card h3 {
   color: #007c91;
   text-shadow: none;
 }
-
 body.light-mode .project-card p {
   color: #000000;
   opacity: 0.9;
@@ -557,7 +453,6 @@ body.light-mode .project-card p {
 }
   gap: 14px;
   margin-top: 10px;
-
   flex-wrap: nowrap;
 }
 .project-actions .highlight-btn {
@@ -582,9 +477,7 @@ body.light-mode .project-card p {
   content: "";
   position: absolute;
   inset: -1px;
-
   border-radius: 16px;
-
   background: linear-gradient(
     90deg,
     #00f2ff,
@@ -592,26 +485,19 @@ body.light-mode .project-card p {
     #00ff99,
     #00f2ff
   );
-
   background-size: 400% 400%;
   animation: actionBorderMove 3s linear infinite;
-
   z-index: -1;
 }
-
-/* INNER BACKGROUND */
 .project-actions button::after,
 .project-actions a::after {
   content: "";
   position: absolute;
   inset: 1px;
-
   border-radius: 12px;
   background: #0b0f1a;
-
   z-index: -1;
 }
-
 @keyframes actionBorderMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 400% 50%; }
@@ -619,18 +505,13 @@ body.light-mode .project-card p {
 .project-actions button:hover,
 .project-actions a:hover {
   transform: translateY(-3px) scale(1.08);
-
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
               0 0 25px rgba(255, 0, 255, 0.25);
 }
-
-/* ACTIVE CLICK EFFECT */
 .project-actions button:active,
 .project-actions a:active {
   transform: scale(0.95);
 }
-
-/* LIGHT MODE FIX */
 body.light-mode .project-actions button,
 body.light-mode .project-actions a {
   color: #000000;
@@ -1159,37 +1040,28 @@ body.light-mode .copy-btn {
 body.light-mode .copy-btn::after {
   background: #ffffff;
 }
- .theme-toggle {
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  z-index: 999999;
-}
-
-  width: 35px;
-  height: 35px;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 1rem;
-  color: #ffffff;
-
-  cursor: pointer;
-  z-index: 99999;
-
-  border: 1px solid transparent;
-
-  background-image:
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 99999;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+    border: 2px solid cyan;
+    box-shadow: 0 0 15px cyan;
+    cursor: pointer;
+    z-index: 99999;
+    border: 1px solid transparent;
+    background-image:
     linear-gradient(#000000, #000000),
     linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
-
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
   background-size: 100% 100%, 300% 300%;
   animation: themeToggleMove 4s linear infinite;
 
@@ -1572,3 +1444,4 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
