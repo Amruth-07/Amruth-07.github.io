@@ -21,22 +21,7 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-function toggleProjectImage(button) {
-  const projectCard = button.closest(".project-card");
-  const projectImage = projectCard.querySelector(".project-image");
 
-  if (!projectImage) return;
-
-  // Toggle full view class
-  projectImage.classList.toggle("full-view");
-
-  // Change icon (👁️ / 🙈)
-  if (projectImage.classList.contains("full-view")) {
-    button.innerHTML = "🙈 View";
-  } else {
-    button.innerHTML = "👁️ View";
-  }
-}
 .project-image-wrapper.expanded {
   height: auto;
   overflow: visible;
@@ -49,7 +34,7 @@ function toggleProjectImage(button) {
 /* =====================================
    PROJECT IMAGE TOGGLE
    Expands / collapses project image
-===================================== *
+===================================== */
 
 function toggleProjectImage(button) {
 
@@ -187,5 +172,22 @@ function toggleTheme() {
   } else {
     icon.classList.remove("fa-moon");
     icon.classList.add("fa-sun");
+  }
+}
+
+function toggleProjectImage(button) {
+  const projectCard = button.closest(".project-card");
+  const projectImage = projectCard.querySelector(".project-image");
+
+  if (!projectImage) return;
+
+  // Toggle full view class
+  projectImage.classList.toggle("full-view");
+
+  // Change icon (👁️ / 🙈)
+  if (projectImage.classList.contains("full-view")) {
+    button.innerHTML = "🙈 View";
+  } else {
+    button.innerHTML = "👁️ View";
   }
 }
