@@ -768,8 +768,7 @@ body.light-mode .project-actions a::after {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-  padding: 10px 22px;
+  padding: 8px 20px;
   border-radius: 30px;
 
   font-size: 1rem;
@@ -842,7 +841,7 @@ body.light-mode .resume-btn::after {
   }
 
   .resume-btn {
-    width: 80%;
+    width: 30%;
     justify-content: center;
   }
 }
@@ -874,7 +873,6 @@ body.light-mode .resume-btn::after {
 /* Contact cards wrapper */
 .contact-cards {
   display: flex;
-  flex-direction: column;
   gap: 18px;
   margin-bottom: 35px;
 }
@@ -987,7 +985,7 @@ body.light-mode .resume-btn::after {
 /* Form */
 .contact-form {
   display: flex;
-  flex-direction: column;
+  flex-direction:left;
   gap: 12px;
   text-align: left;
 }
@@ -1004,7 +1002,7 @@ body.light-mode .resume-btn::after {
   padding: 12px 14px;
 
   border-radius: 12px;
-  border: 1px solid rgba(0, 242, 255, 0.25);
+  border: 1.5px solid rgba(0, 242, 255, 0.25);
 
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
@@ -1950,6 +1948,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
