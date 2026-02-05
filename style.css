@@ -2179,55 +2179,13 @@ body:not(.light-mode) .project-card {
   margin: 0 !important;
 }
 
-*/
+/
 
 
 
 body.light-mode .hobby-pill {
-  background: #ffffff !important;   /* pure white */
-  color: #000000 !important;        /* black text */
+  background: #ffffff !important;   /* pure white /
+  color: #000000 !important;        /* black text*
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
