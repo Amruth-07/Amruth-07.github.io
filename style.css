@@ -121,8 +121,8 @@ body.light-mode {
    - Neon animated gradient border
 ================================ */
 .profile {
-  width: 250px;              /* bigger than before */
-  height: 250px;
+  width: 350px;              /* bigger than before */
+  height: 350px;
   border-radius: 50%;
   padding: 5px;              /* thin neon border space */
 
@@ -2142,6 +2142,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
