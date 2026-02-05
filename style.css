@@ -634,36 +634,34 @@ body.light-mode .project-card p {
 .project-actions {
   display: flex;
   justify-content: center;
-  align-items: center;
-
+  gap: 12px;
+  flex-wrap: wrap;   /* prevents overlap */
+  margin-top: 18px;
+}
   gap: 14px;
   margin-top: 10px;
 
   flex-wrap: nowrap;
 }
-
 /* BUTTON RESET + STYLE */
-.project-actions button,
-.project-actions a {
-  all: unset;
-  cursor: pointer;
-
-  width: 44px;
-  height: 36px; /* thin */
-
+.project-actions .highlight-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
 
-  border-radius: 14px;
+  padding: 10px 16px;   /* perfect size */
+  min-width: 95px;      /* prevents shrinking */
+  font-size: 0.9rem;    /* smaller text */
+  font-weight: 600;
 
-  font-size: 1.1rem;
-  color: #ffffff;
-
-  position: relative;
-  z-index: 1;
-
-  transition: 0.3s ease;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;  /* stops breaking text */
+}
+.project-actions .highlight-btn i {
+  font-size: 1rem;
 }
 
 /* NEON BORDER */
@@ -1486,3 +1484,4 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
