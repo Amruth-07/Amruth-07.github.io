@@ -1825,3 +1825,46 @@ body.light-mode .modal-content ul li::before {
   color: #7a00ff;
   text-shadow: none;
 }
+/* ================================
+   LIGHT MODE MODAL PERFECT FIX
+================================ */
+
+body.light-mode .modal-content {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-mode .modal-content p,
+body.light-mode .modal-content li {
+  color: #000000 !important;
+}
+
+/* Make heading sharp */
+body.light-mode .modal-content h2 {
+  color: #008b9a !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+}
+
+/* Subheadings in orange solid */
+body.light-mode .modal-content h4 {
+  color: #ff6a00 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+/* Star color in light mode */
+body.light-mode .modal-content ul li::before {
+  color: #7a00ff !important;
+  text-shadow: none !important;
+}
+
+/* Close button */
+body.light-mode .close-btn {
+  color: #000 !important;
+}
+
+body.light-mode .close-btn:hover {
+  color: #ff007a !important;
+}
