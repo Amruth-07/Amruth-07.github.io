@@ -1391,7 +1391,7 @@ body.light-mode .copy-btn::after {
 ========================================================== */
 
 .theme-toggle {
-  position: fixed;
+  position: ;
   top: 12px;
   left: 12px;
 
@@ -1953,6 +1953,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
