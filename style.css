@@ -1873,14 +1873,13 @@ body.light-mode .close-btn {
    THEME TOGGLE BUTTON (Floating)
 ========================================================== */
 
-.theme-toggle {
+..theme-toggle {
   position: fixed;
-  top: 13px;
-  left: 13px;
+  bottom: 20px;
+  right: 20px;
 
-  width: 45px;
-  height: 45px;
-
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   border: none;
 
@@ -2189,6 +2188,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
