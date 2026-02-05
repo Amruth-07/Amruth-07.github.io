@@ -9,13 +9,6 @@
    5) Light mode background = full white
    6) Light mode text = full black
 ========================================================== */
-
-
-/* ================================
-   GLOBAL RESET
-   - Removes default browser spacing
-   - Keeps sizing consistent
-================================ */
 * {
   margin: 0;
   padding: 0;
@@ -103,7 +96,7 @@ body.light-mode {
    - Reduced extra spacing
 ================================ */
 #hero {
-  min-height: 1000vh;
+  min-height:70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;   /* keeps center */
@@ -177,7 +170,7 @@ body.light-mode {
 
 /* Hi I'm */
 #hero h2 {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 500;
   margin: 10px 0;             /* reduced gap */
   color: #ffffff;
@@ -201,7 +194,7 @@ body.light-mode {
 #hero p {
   font-size: 0.95rem;
   font-weight: 400;
-  margin: 6;                 /* remove extra gap */
+  margin: 10;                 /* remove extra gap */
   color: #ffffff;
   opacity: 0.85;
   line-height: 1.4;
@@ -213,8 +206,8 @@ body.light-mode {
 ========================================================== */
 @media (max-width: 600px) {
   .profile {
-    width: 170px;
-    height: 170px;
+    width: 250px;
+    height: 250px;
   }
 
   #hero h1 {
@@ -222,11 +215,11 @@ body.light-mode {
   }
 
   #hero h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   #hero p {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
@@ -353,7 +346,7 @@ body.light-mode #hero h1 span {
 
   border: 0.50px solid rgba(0, 242, 255, 0.45);
 
-  transition: 0.2s ease;
+  transition: 0.5s ease;
 }
 
 /* Hover effect for skills */
@@ -383,7 +376,7 @@ body.light-mode #hero h1 span {
   color: white;
 
   /* remove old border */
-  border: 0.75px solid transparent;
+  border: 1px solid transparent ;
 
   /* gradient border */
   background-image:
@@ -555,7 +548,7 @@ body.light-mode .about-photo {
   font-weight: 500;
 
   color: #ffffff;
-  background: #0b0f1a;
+  background:#000000;
 
   z-index: 1;
   transition: 0.8s ease;
@@ -626,14 +619,43 @@ body.light-mode .about-photo {
    HOVER EFFECT
 ================================ */
 .hobby-pill:hover {
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-2px) scale(1.05);
   box-shadow:
     0 0 12px rgba(0, 242, 255, 0.6),
     0 0 20px rgba(143, 0, 255, 0.5),
     0 0 28px rgba(0, 255, 153, 0.35);
 }
+/* ================================
+   LIGHT MODE FIX FOR HOBBY PILLS
+================================ */
+body.light-mode .hobby-pill {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #00f2ff !important;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
 
+/* icon also visible */
+body.light-mode .hobby-pill span,
+body.light-mode .hobby-pill i {
+  color: #000000 !important;
+}
+body.light-mode .hobby-pill {
+  color: #000000 !important;
+  background: #ffffff !important;
 
+  border: 2px solid transparent !important;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: pillBorderMove 4s linear infinite;
+}
 /* ==========================================================
    LIGHT MODE FIX (PILLS)
 ========================================================== */
@@ -998,7 +1020,7 @@ body.light-mode .hobby-pill:hover {
 
 .project-image {
   width: 100%;
-  height: 180px;      /* Crop height */
+  height: 150px;      /* Crop height */
   overflow: hidden;
   border-radius: 18px;
   margin-bottom: 15px;
@@ -1012,16 +1034,41 @@ body.light-mode .hobby-pill:hover {
   object-position: top;
   border-radius: 18px;
   display: block;
-  transition: 0.4s ease;
+  transition: 0.8s ease;
 }
 
+/* Crop container */
+.project-image-wrapper {
+  width: 100%;
+  height: 220px;          /* shows only top part */
+  overflow: hidden;
+  border-radius: 18px;
+}
 
+/* Image inside */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* crops image */
+  object-position: top;   /* keeps top visible */
+  display: block;
+}
+
+.project-image-wrapper.expanded {
+  height: auto;
+  overflow: visible;
+}
+
+.project-image-wrapper.expanded .project-image {
+  height: auto;
+  object-fit: contain;
+}
 /* ==========================================
    WHEN VIEW BUTTON CLICKED (SHOW FULL IMAGE)
 ========================================== */
 
 .project-image.full-view {
-  height: auto;        /* Full height */
+  height: 100%;        /* Full height */
   overflow: visible;
 }
 
@@ -1826,14 +1873,13 @@ body.light-mode .close-btn {
    THEME TOGGLE BUTTON (Floating)
 ========================================================== */
 
-.theme-toggle {
+..theme-toggle {
   position: fixed;
   bottom: 20px;
   right: 20px;
 
   width: 55px;
   height: 55px;
-
   border-radius: 50%;
   border: none;
 
@@ -2142,6 +2188,16 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
