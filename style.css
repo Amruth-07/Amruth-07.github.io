@@ -499,7 +499,7 @@ body.light-mode .about-photo {
   background-size: 400% 400%;
   animation: pillBorderMove 5s linear infinite;
 
-  z-index: -0.75;
+  z-index: -1;
 }
 
 
@@ -2019,6 +2019,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
