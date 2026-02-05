@@ -231,18 +231,6 @@ body.light-mode .skill-pill {
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
-/* ==========================================================
-   PART 4: INFO CARDS (LOCATION / EXPERTISE / EDUCATION etc.)
-   ----------------------------------------------------------
-   HTML:
-   <div class="card reveal"> ... </div>
-
-   REQUIREMENTS:
-   ✅ Neon animated gradient border
-   ✅ Dark mode = black + white text
-   ✅ Light mode = white + black text
-========================================================== */
-
 .card {
   width: 92%;
   max-width: 720px;
@@ -296,21 +284,6 @@ body.light-mode .card {
 body.light-mode .card b {
   color: #000000;
 }
-/* ==========================================================
-   PART 5: ABOUT ME SECTION
-   ----------------------------------------------------------
-   HTML:
-   <div class="card reveal about-card">
-     <h2 class="section-headline">About Me</h2>
-     <img class="about-photo">
-     <p class="about-text">...</p>
-   </div>
-
-   REQUIREMENTS:
-   ✅ Image premium style
-   ✅ Text readable in both modes
-========================================================== */
-
 .about-card {
   text-align: center;
   padding: 22px 18px;
@@ -347,18 +320,6 @@ body.light-mode .about-text {
   color: #000000;
   opacity: 1;
 }
-/* ==========================================================
-   PART 6: SECTION HEADINGS
-   ----------------------------------------------------------
-   HTML:
-   <h2 class="section-headline reveal">Hobbies</h2>
-
-   REQUIREMENTS:
-   ✅ Neon heading visible in dark mode
-   ✅ Light mode heading visible
-   ✅ Reduce unwanted extra gaps
-========================================================== */
-
 .section-headline {
   text-align: center;
 
@@ -386,21 +347,6 @@ body.light-mode .section-headline {
     margin-bottom: 18px;
   }
 }
-/* ==========================================================
-   PART 7: HOBBIES / SKILLS / INTERESTS PILLS
-   ----------------------------------------------------------
-   HTML:
-   <div class="hobbies-wrapper">
-     <div class="hobby-pill dark">...</div>
-   </div>
-
-   REQUIREMENTS:
-   ✅ Solid inside background
-   ✅ Only border neon animated
-   ✅ Dark mode white text
-   ✅ Light mode black text
-========================================================== */
-
 .hobbies-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -478,16 +424,6 @@ body.light-mode .hobby-pill {
 body.light-mode .hobby-pill::after {
   background: #ffffff;
 }
-/* ==========================================================
-   PART 8: PROJECTS SECTION
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Responsive grid
-   ✅ Neon animated border cards
-   ✅ Image shows only TOP 60% always (crop bottom 40%)
-   ✅ On View click = show full image (expanded class)
-========================================================== */
-
 .projects-grid {
   width: 92%;
   max-width: 1200px;
@@ -612,17 +548,6 @@ body.light-mode .project-card p {
   color: #000000;
   opacity: 0.9;
 }
-/* ==========================================================
-   PART 9: PROJECT ICON BUTTONS (VIEW / DETAILS / CODE)
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Icons only
-   ✅ Thin vertical height
-   ✅ Always single line
-   ✅ Neon animated border
-   ✅ Works for <button> and <a>
-========================================================== */
-
 .project-actions {
   display: flex;
   justify-content: center;
@@ -722,16 +647,6 @@ body.light-mode .project-actions button::after,
 body.light-mode .project-actions a::after {
   background: #ffffff;
 }
-/* ==========================================================
-   PART 10: CERTIFICATES + RESUME SECTION
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Certificate images proper size
-   ✅ Resume buttons neon border
-   ✅ Light mode support
-========================================================== */
-
-/* Certificate images (direct img inside project-card) */
 .project-card > img {
   width: 100%;
   height: 220px;
@@ -741,8 +656,6 @@ body.light-mode .project-actions a::after {
 
   margin-bottom: 12px;
 }
-
-/* Resume actions wrapper */
 .resume-actions {
   display: flex;
   justify-content: center;
@@ -837,18 +750,6 @@ body.light-mode .resume-btn::after {
     justify-content: center;
   }
 }
-/* ==========================================================
-   PART 11: CONTACT SECTION + SOCIAL ICONS + FORM
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Cards neon border
-   ✅ Social icons glow
-   ✅ Form clean
-   ✅ Dark mode black + white text
-   ✅ Light mode white + black text
-========================================================== */
-
-
 .contact-section {
   width: 92%;
   max-width: 900px;
@@ -1101,33 +1002,6 @@ body.light-mode .send-btn {
     text-align: center;
   }
 }
-
-
-
-/* ==========================================================
-   PART 12: MODAL STYLING (DETAILS + CODE)
-   ----------------------------------------------------------
-   HTML:
-   <div id="projectModal" class="modal">
-     <div class="modal-content">
-       <span class="close-btn">×</span>
-       <h2 id="modalTitle"></h2>
-       <button id="copyBtn" class="copy-btn">Copy Code</button>
-       <div id="modalBody"></div>
-     </div>
-   </div>
-
-   REQUIREMENTS:
-   ✅ Premium modal
-   ✅ Neon animated border
-   ✅ Dark mode black + white
-   ✅ Light mode white + black
-========================================================== */
-
-/* Modal background overlay */
-/* ================================
-   MODAL BACKDROP (FULL SCREEN)
-================================ */
 .modal {
   padding: 5px;
   display: none;
@@ -1147,12 +1021,6 @@ body.light-mode .send-btn {
   padding: 0;
   margin: 0;
 }
-/* Modal box */
-/* ================================
-   MODAL CONTENT BOX
-   - Perfect size
-   - No extra gap
-================================ */
 .modal-content{
   width: 100%;
   height: 100vh;
@@ -1161,17 +1029,9 @@ body.light-mode .send-btn {
   border-radius: 0;
 }
   overflow-y: auto;
-
-  /* PURE BLACK BACKGROUND */
   background: #000000;
-
-  /* NO ANIMATED BACKGROUND */
   background-image: none !important;
-
-  /* Smooth border */
   border: 2px solid transparent;
-
-  /* Neon border only */
   background-clip: padding-box;
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.3),
               0 0 25px rgba(143, 0, 255, 0.25);
@@ -1205,7 +1065,6 @@ body.light-mode .send-btn {
 .modal-content li {
   color: #ffffff;
 }
-/* Title */
 #modalTitle {
   font-size: 1.4rem;
   font-weight: 900;
@@ -1367,21 +1226,6 @@ body.light-mode .copy-btn {
 body.light-mode .copy-btn::after {
   background: #ffffff;
 }
-/* ==========================================================
-   PART 13: THEME TOGGLE BUTTON (TOP LEFT SMALL)
-   ----------------------------------------------------------
-   HTML:
-   <button onclick="toggleTheme()" class="theme-toggle">
-     <i class="fas fa-sun"></i>
-   </button>
-
-   REQUIREMENTS:
-   ✅ Small size
-   ✅ Top-left position
-   ✅ Neon animated border
-   ✅ Visible in dark & light mode
-========================================================== */
-
  .theme-toggle {
   position: fixed;
   top: 12px;
@@ -1465,8 +1309,6 @@ section {
 body, html {
   overflow-x: hidden;
 }
-
-/* Ensure light mode text is always visible */
 body.light-mode p,
 body.light-mode span,
 body.light-mode small,
@@ -1479,62 +1321,11 @@ body.light-mode h5,
 body.light-mode h6 {
   color: #000000;
 }
-
-/* Fix highlight tap color (mobile) */
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
-
-
-
-
-/* ==========================================================
-   DETAILS MODAL CONTENT (HEADING + SUBHEADING + STAR POINTS)
-========================================================== */
-/* ==========================================================
-   MODAL FULL DESIGN (SOLID NEON ANIMATED BORDER + SHARP TEXT)
-   ----------------------------------------------------------
-   ✔ Solid animated neon border
-   ✔ Different neon colors (pink, orange, green, cyan, violet)
-   ✔ Headings sharp (no blur)
-   ✔ Subheadings different color
-   ✔ Star points styled
-   ✔ Smooth glow + modern UI
-========================================================== */
-
-/* ================================
-   MODAL BACKGROUND OVERLAY
-================================ */
-
-/* ==========================================================
-   MODAL FULL DESIGN (EXACT LIKE SCREENSHOT)
-========================================================== */
-
-
-
-
-
-
-/* ==========================================================
-   FULL MODAL CONTENT (DARK + LIGHT MODE)
-   ----------------------------------------------------------
-   FIXES:
-   1) Perfect modal size (mobile friendly)
-   2) No extra bottom gap
-   3) Dark mode = pure black background + white text
-   4) Light mode = pure white background + black text
-   5) Neon border animated (solid)
-   6) Headings + subheadings different colors
-   7) Stars bullets neon
-   8) Clean scrollbar
-========================================================== */
-
-
-/* ================================
-   MODAL BACKGROUND OVERLAY
-================================ */
 .modal {
   display: none;
   position: fixed;
@@ -1874,3 +1665,4 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
