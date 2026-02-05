@@ -37,6 +37,15 @@ function toggleProjectImage(button) {
     button.innerHTML = "👁️ View";
   }
 }
+.project-image-wrapper.expanded {
+  height: auto;
+  overflow: visible;
+}
+
+.project-image-wrapper.expanded .project-image {
+  height: auto;
+  object-fit: contain;
+}
 /* =====================================
    PROJECT IMAGE TOGGLE
    Expands / collapses project image
@@ -179,4 +188,5 @@ function toggleTheme() {
   icon.classList.toggle("fa-sun");
   icon.classList.toggle("fa-moon");
 }
+
 
