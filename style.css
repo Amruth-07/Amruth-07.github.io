@@ -1584,21 +1584,21 @@ a {
    MODAL CONTENT BOX
 ================================ */
 .modal-content {
-  width: 92%;
-  max-width: 440px;
+  width: 100%;
+  max-width: 550px;
 
-  max-height: 85vh;
-  overflow-y: auto;
+  max-height: 95vh;
+  overflow-y: visible;
 
-  padding: 18px 16px;
-  border-radius: 22px;
+  padding: 50px 20px;
+  border-radius: 18px;
 
   background: #000000;  /* PURE BLACK */
   color: #ffffff;
 
   position: relative;
 
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   /* Animated Neon Border Only */
   background-image:
@@ -1950,6 +1950,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
