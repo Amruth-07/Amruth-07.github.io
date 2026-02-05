@@ -1,14 +1,4 @@
-/* ==========================================================
-   PART 1: GLOBAL RESET + BASE THEME COLORS (DARK & LIGHT)
-   ----------------------------------------------------------
-   This part controls:
-   1) Reset of margin/padding for all elements
-   2) Default font and smooth rendering
-   3) Dark mode (default) background = full black
-   4) Dark mode text = full white
-   5) Light mode background = full white
-   6) Light mode text = full black
-========================================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -2179,17 +2169,74 @@ body:not(.light-mode) .project-card {
 #hero p {
   margin: 0 !important;
 }
-
-*/
-
-
-
 body.light-mode .hobby-pill {
   background: #ffffff !important;   /* pure white */
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
+/* ================================
+   THEME TOGGLE BUTTON (TOP LEFT)
+================================ */
+.theme-toggle {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+  color: #ffffff;
+
+  cursor: pointer;
+  z-index: 99999;
+
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: themeBorderMove 4s linear infinite;
+
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.35);
+
+  transition: 0.3s ease;
+}
+
+/* Animation */
+@keyframes themeBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Hover effect */
+.theme-toggle:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
+              0 0 28px rgba(255, 0, 255, 0.25);
+}
+
+/* Light mode toggle style */
+body.light-mode .theme-toggle {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
 
 
 
