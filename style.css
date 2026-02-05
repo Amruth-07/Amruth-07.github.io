@@ -101,13 +101,13 @@ body.light-mode {
    - Center aligned content
 ================================ */
 #hero {
-  min-height: 70vh;                 /* Full screen */
+  min-height: 100vh;                 /* Full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;           /* Center vertically */
   align-items: center;               /* Center horizontally */
   text-align: center;
-  padding: 30px 30px;
+  padding: 50px 20px;
 }
 
 
@@ -2019,6 +2019,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
