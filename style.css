@@ -1628,28 +1628,46 @@ a {
 
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #ff00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg,
+      #00f2ff,
+      #ff00ff,
+      #00ff99,
+      #ffcc00,
+      #ff3300,
+      #8f00ff,
+      #00f2ff
+    );
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
-  background-size: 100% 100%, 400% 400%;
-  animation: modalBorderMove 5s linear infinite;
+  background-size: 100% 100%, 500% 500%;
+  animation: modalBorderMove 4s linear infinite, hueShift 3s linear infinite;
 
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.35),
-              0 0 28px rgba(143, 0, 255, 0.25);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+              0 0 28px rgba(255, 0, 255, 0.35),
+              0 0 35px rgba(0, 255, 153, 0.25);
 }
 
-/* Border moving animation */
+/* Border movement */
 @keyframes modalBorderMove {
   0% {
     background-position: 0% 50%;
   }
   100% {
-    background-position: 400% 50%;
+    background-position: 500% 50%;
   }
 }
 
+/* Colour changing animation */
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
 /* ==========================================================
    LIGHT MODE FIX FOR DETAILS MODAL
 ========================================================== */
@@ -1682,4 +1700,5 @@ body.light-mode .modal-content h4 {
 body.light-mode .modal-content ul li::before {
   filter: drop-shadow(0 0 5px rgba(255, 150, 0, 0.8));
 }
+
 
