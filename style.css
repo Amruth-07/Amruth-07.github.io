@@ -1390,10 +1390,12 @@ body.light-mode .copy-btn::after {
    ✅ Visible in dark & light mode
 ========================================================== */
 
-.theme-toggle {
-  position: ;
+ .theme-toggle {
+  position: fixed;
   top: 12px;
   left: 12px;
+  z-index: 999999;
+}
 
   width: 35px;
   height: 35px;
@@ -1953,6 +1955,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
