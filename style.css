@@ -1,127 +1,78 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* ================================
-   HTML SETTINGS
-================================ */
 html {
   scroll-behavior: smooth;
 }
 
-
-/* ================================
-   BODY DEFAULT THEME (DARK MODE)
-   Dark mode is default
-================================ */
 body {
   font-family: "Poppins", sans-serif;
-
-  background: #000000;     /* Full black background */
-  color: #ffffff;          /* Full white text */
-
+  background: #000000;
+  color: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
-
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: 0.4s ease;
 }
 
-
-/* ================================
-   LIGHT MODE THEME
-   JS adds: body.light-mode
-================================ */
 body.light-mode {
-  background: #ffffff;     /* Pure white background */
-  color: #000000;          /* Pure black text */
+  background: #ffffff;
+  color: #000000;
 }
 
-
-/* ================================
-   LINKS DEFAULT
-================================ */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-
-/* ================================
-   BUTTON DEFAULT RESET
-================================ */
-button {
-  font-family: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background: none;
-}
-
-
-/* ================================
-   IMAGE DEFAULT FIX
-================================ */
 img {
   max-width: 100%;
   display: block;
 }
 
-
-/* ================================
-   TEXT FIX (Prevent invisible fonts)
-================================ */
-h1, h2, h3, h4, h5, h6, p, span, small {
+a {
+  text-decoration: none;
   color: inherit;
 }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+h1, h2, h3, h4, p, small, span, label {
+  color: inherit;
+}
+
+
 /* ==========================================================
    PART 2: HERO SECTION + PROFILE PHOTO
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Profile photo must be bigger
-   ✅ Reduce extra gap in hero section
-   ✅ Neon gradient animated thin border around profile photo
-   ✅ Dark mode = white text
-   ✅ Light mode = black text
 ========================================================== */
 
-
-/* ================================
-   HERO SECTION
-================================ */
 #hero {
-  /* IMPORTANT: remove unwanted extra gap */
-  min-height: auto;               /* not full 100vh */
-  padding: 25px 15px 10px;        /* reduced bottom gap */
+  padding: 30px 15px 15px;
+  text-align: center;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  text-align: center;
 }
 
-
-/* ================================
-   PROFILE IMAGE CONTAINER
-================================ */
+/* Profile photo circle + neon animated border */
 .profile {
-  width: 220px;                   /* bigger photo */
+  width: 220px;
   height: 220px;
 
   border-radius: 50%;
-  padding: 5px;                   /* thin neon border space */
-  margin-bottom: 10px;            /* reduced gap */
+  padding: 5px;
 
-  /* Neon gradient border */
+  margin-bottom: 12px;
+
   background: linear-gradient(
     90deg,
     #00f2ff,
-    #8f00ff,
+    #ff00ff,
     #00ff99,
     #00f2ff
   );
@@ -129,77 +80,54 @@ h1, h2, h3, h4, h5, h6, p, span, small {
   background-size: 400% 400%;
   animation: profileBorderMove 4s linear infinite;
 
-  /* Glow effect */
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
-              0 0 28px rgba(143, 0, 255, 0.45);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+              0 0 26px rgba(255, 0, 255, 0.35);
 }
 
-
-/* ================================
-   PROFILE IMAGE INSIDE
-================================ */
 .profile img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-
   object-fit: cover;
-  display: block;
-
-  background: #000;
+  background: #000000;
 }
 
-
-/* ================================
-   PROFILE BORDER MOVING ANIMATION
-================================ */
 @keyframes profileBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
 }
 
-
-/* ================================
-   HERO TEXT STYLING
-================================ */
-
-/* Hi I'm */
+/* Hero text */
 #hero h2 {
   font-size: 1.3rem;
-  font-weight: 500;
-  margin: 6px 0 4px;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
-/* Name */
 #hero h1 {
   font-size: 2.6rem;
-  font-weight: 800;
-  margin: 4px 0 10px;
+  font-weight: 900;
+  margin-bottom: 10px;
   line-height: 1.2;
 }
 
-/* Name highlight */
 #hero h1 span {
   color: #00f2ff;
-  text-shadow: 0 0 12px rgba(0, 242, 255, 0.75);
+  text-shadow: 0 0 14px rgba(0, 242, 255, 0.7);
 }
 
-/* Subtitle */
 #hero p {
   font-size: 1rem;
-  font-weight: 400;
   opacity: 0.9;
-  margin-bottom: 0;   /* remove extra bottom gap */
 }
 
+/* Light mode fix */
+body.light-mode #hero h1 span {
+  color: #007c91;
+  text-shadow: none;
+}
 
-/* ================================
-   MOBILE RESPONSIVE HERO
-================================ */
+/* Responsive hero */
 @media (max-width: 600px) {
   .profile {
     width: 190px;
@@ -209,74 +137,36 @@ h1, h2, h3, h4, h5, h6, p, span, small {
   #hero h1 {
     font-size: 2.1rem;
   }
-
-  #hero h2 {
-    font-size: 1.2rem;
-  }
-
-  #hero p {
-    font-size: 0.95rem;
-  }
 }
 
 
 /* ==========================================================
-   LIGHT MODE FIX FOR HERO
-========================================================== */
-body.light-mode #hero h2,
-body.light-mode #hero h1,
-body.light-mode #hero p {
-  color: #000000;
-  opacity: 1;
-}
-
-body.light-mode #hero h1 span {
-  color: #007c91;
-  text-shadow: none;
-}
-/* ==========================================================
-   PART 3: HERO SKILLS TAGS (SKILL PILLS)
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Small neon bordered pills
-   ✅ Dark mode: black bg + white text
-   ✅ Light mode: white bg + black text
-   ✅ Smooth hover glow
+   PART 3: HERO SKILLS PILLS
 ========================================================== */
 
-
-/* ================================
-   HERO SKILLS WRAPPER
-================================ */
 .hero-skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
   gap: 12px;
-  margin: 18px 15px 30px;     /* reduced gap */
+  margin: 18px 15px 30px;
 }
 
-
-/* ================================
-   SKILL PILL STYLE
-================================ */
 .skill-pill {
   padding: 8px 16px;
   border-radius: 30px;
 
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
 
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
 
-  border: 1.4px solid transparent;
+  border: 1.5px solid transparent;
 
-  /* neon border gradient */
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -287,75 +177,45 @@ body.light-mode #hero h1 span {
   transition: 0.3s ease;
 }
 
-
-/* ================================
-   SKILL BORDER ANIMATION
-================================ */
 @keyframes skillBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   SKILL HOVER EFFECT
-================================ */
 .skill-pill:hover {
   transform: translateY(-2px) scale(1.05);
-
-  box-shadow: 0 0 12px rgba(0, 242, 255, 0.35),
-              0 0 18px rgba(143, 0, 255, 0.25);
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.35),
+              0 0 22px rgba(255, 0, 255, 0.25);
 }
 
-
-/* ==========================================================
-   LIGHT MODE FIX (SKILL PILLS)
-========================================================== */
+/* Light mode fix */
 body.light-mode .skill-pill {
   color: #000000;
+
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
-/* ==========================================================
-   PART 4: INFO CARDS (LOCATION / EXPERTISE / EXPERIENCE / EDUCATION)
-   ----------------------------------------------------------
-   HTML:
-   <div class="card reveal"> ... </div>
 
-   REQUIREMENTS:
-   ✅ Neon gradient animated border
-   ✅ Dark mode black + white text
-   ✅ Light mode white + black text
-   ✅ Professional card look
+
+/* ==========================================================
+   PART 4: INFO CARDS (.card)
 ========================================================== */
 
-
-/* ================================
-   CARD STYLE
-================================ */
 .card {
   width: 92%;
-  max-width: 720px;
+  max-width: 750px;
 
   margin: 18px auto;
-  padding: 18px 18px;
+  padding: 18px;
 
   border-radius: 18px;
 
-  /* border animation trick */
   border: 2px solid transparent;
-
-  /* dark background */
-  background: rgba(255, 255, 255, 0.04);
 
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -363,274 +223,100 @@ body.light-mode .skill-pill {
   background-size: 100% 100%, 300% 300%;
   animation: cardBorderMove 5s linear infinite;
 
-  /* glow */
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.12);
 
   transition: 0.3s ease;
 }
 
-
-/* ================================
-   CARD BORDER ANIMATION
-================================ */
 @keyframes cardBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   CARD HOVER EFFECT
-================================ */
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.35),
-              0 0 28px rgba(143, 0, 255, 0.22);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.3),
+              0 0 24px rgba(255, 0, 255, 0.2);
 }
 
-
-/* ================================
-   CARD TEXT STYLE
-================================ */
 .card b {
   color: #00f2ff;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-.card small {
-  opacity: 0.85;
-}
-
-
-/* ==========================================================
-   LIGHT MODE FIX FOR CARDS
-========================================================== */
 body.light-mode .card {
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 body.light-mode .card b {
   color: #000000;
-}
-
-body.light-mode .card small {
-  color: #000000;
-  opacity: 0.7;
-}
-
-
-/* ================================
-   MOBILE RESPONSIVE FIX
-================================ */
-@media (max-width: 600px) {
-  .card {
-    padding: 16px 14px;
-    border-radius: 16px;
   }
-}
-/* ==========================================================
-   PART 5: ABOUT ME SECTION
-   ----------------------------------------------------------
-   HTML:
-   <div class="card reveal about-card">...</div>
-
-   REQUIREMENTS:
-   ✅ About section should look premium
-   ✅ Image with rounded corners
-   ✅ Text readable in dark and light mode
-========================================================== */
-
-
-/* ================================
-   ABOUT CARD LAYOUT
-================================ */
-.about-card {
-  text-align: center;
-  padding: 25px 18px;
-}
-
-
-/* ================================
-   ABOUT IMAGE STYLE
-================================ */
-.about-photo {
-  width: 230px;
-  height: auto;
-
-  margin: 18px auto 18px;
-  border-radius: 18px;
-
-  border: 2px solid rgba(0, 242, 255, 0.25);
-
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.15);
-}
-
-
-/* ================================
-   ABOUT TEXT STYLE
-================================ */
-.about-text {
-  font-size: 1rem;
-  line-height: 1.8;
-  text-align: center;
-
-  max-width: 850px;
-  margin: auto;
-
-  color: #ffffff;
-  opacity: 0.95;
-}
-
-
-/* ==========================================================
-   LIGHT MODE FIX (ABOUT SECTION)
-========================================================== */
-body.light-mode .about-text {
-  color: #000000;
-  opacity: 1;
-}
-
-body.light-mode .about-photo {
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-}
-
-
-/* ================================
-   MOBILE RESPONSIVE FIX
-================================ */
-@media (max-width: 600px) {
-  .about-photo {
-    width: 200px;
-  }
-
-  .about-text {
-    font-size: 0.95rem;
-  }
-}
-/* ==========================================================
-   PART 6: SECTION HEADINGS (SECTION HEADLINE)
-   ----------------------------------------------------------
-   HTML:
-   <h2 class="section-headline reveal">...</h2>
-
-   REQUIREMENTS:
-   ✅ Neon glowing heading
-   ✅ Proper spacing (reduce extra gap)
-   ✅ Light mode visible
-========================================================== */
-
-
-/* ================================
-   SECTION HEADING STYLE
-================================ */
 .section-headline {
   text-align: center;
 
   font-size: 2.2rem;
   font-weight: 900;
 
-  margin-top: 45px;
+  margin-top: 50px;
   margin-bottom: 25px;
 
   color: #00f2ff;
-  text-shadow: 0 0 14px rgba(0, 242, 255, 0.65);
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.7);
 }
 
-
-/* ================================
-   LIGHT MODE FIX FOR HEADINGS
-================================ */
 body.light-mode .section-headline {
   color: #007c91;
   text-shadow: none;
 }
 
-
-/* ================================
-   MOBILE RESPONSIVE FIX
-================================ */
 @media (max-width: 600px) {
   .section-headline {
     font-size: 1.9rem;
-    margin-top: 35px;
-    margin-bottom: 20px;
+    margin-top: 40px;
   }
 }
-/* ==========================================================
-   PART 7: HOBBIES / SKILLS / INTERESTS PILLS
-   ----------------------------------------------------------
-   HTML:
-   <div class="hobbies-wrapper">
-     <div class="hobby-pill dark">...</div>
-   </div>
 
-   REQUIREMENTS:
-   ✅ Neon animated colorful border
-   ✅ Inside background solid (not filled gradient)
-   ✅ Dark mode white text
-   ✅ Light mode black text
-   ✅ Must work in all browsers
+
+/* ==========================================================
+   PART 6: HOBBIES / SKILLS / INTERESTS PILLS
 ========================================================== */
 
-
-/* ================================
-   WRAPPER FOR PILLS
-================================ */
 .hobbies-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
 
+  gap: 16px;
   margin: 20px 15px 40px;
 }
 
-
-/* ================================
-   PILL MAIN STYLE
-================================ */
 .hobby-pill {
   position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   padding: 12px 22px;
+
   border-radius: 40px;
 
   font-size: 1rem;
   font-weight: 600;
 
   color: #ffffff;
-  background: #0b0f1a;  /* solid inside background */
+  background: #0b0f1a;
 
-  z-index: 1;
   overflow: hidden;
+  z-index: 1;
 
   transition: 0.3s ease;
 }
 
-
-/* ================================
-   BORDER LAYER (ANIMATED)
-================================ */
+/* Neon border layer */
 .hobby-pill::before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
+  inset: -2px;
 
   border-radius: 45px;
 
@@ -648,18 +334,11 @@ body.light-mode .section-headline {
   z-index: -2;
 }
 
-
-/* ================================
-   INSIDE BACKGROUND LAYER
-   (This creates border-only effect)
-================================ */
+/* Inner fill */
 .hobby-pill::after {
   content: "";
   position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
+  inset: 2px;
 
   border-radius: 38px;
   background: #0b0f1a;
@@ -667,58 +346,61 @@ body.light-mode .section-headline {
   z-index: -1;
 }
 
-
-/* ================================
-   BORDER ANIMATION KEYFRAMES
-================================ */
 @keyframes hobbyBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
 }
 
-
-/* ================================
-   HOVER EFFECT
-================================ */
 .hobby-pill:hover {
   transform: translateY(-3px) scale(1.05);
-
-  box-shadow: 0 0 16px rgba(0, 242, 255, 0.45),
-              0 0 25px rgba(255, 0, 255, 0.35),
-              0 0 30px rgba(0, 255, 153, 0.25);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.4),
+              0 0 24px rgba(255, 0, 255, 0.3);
 }
 
-
-/* ==========================================================
-   LIGHT MODE FIX FOR PILLS
-========================================================== */
+/* Light mode */
 body.light-mode .hobby-pill {
   color: #000000;
   background: #ffffff;
 }
 
-/* light mode inside background */
 body.light-mode .hobby-pill::after {
   background: #ffffff;
 }
+
+
 /* ==========================================================
-   PART 8: PROJECTS SECTION (GRID + CARDS + IMAGE CONTROL)
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Grid layout responsive
-   ✅ Neon animated border for project cards
-   ✅ Default image = show only top 60% (crop bottom 40%)
-   ✅ On View button click = show full image
+   PART 7: ABOUT SECTION
 ========================================================== */
 
+.about-card {
+  text-align: center;
+  padding: 25px 18px;
+}
 
-/* ================================
-   PROJECT GRID LAYOUT
-================================ */
+.about-photo {
+  width: 230px;
+  margin: 18px auto 18px;
+  border-radius: 18px;
+
+  border: 2px solid rgba(0, 242, 255, 0.25);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.15);
+}
+
+.about-text {
+  max-width: 900px;
+  margin: auto;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  opacity: 0.95;
+}
+
+
+/* ==========================================================
+   PART 8: PROJECTS GRID + PROJECT CARDS
+========================================================== */
+
 .projects-grid {
   width: 92%;
   max-width: 1200px;
@@ -728,147 +410,75 @@ body.light-mode .hobby-pill::after {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   gap: 22px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
-
-/* ================================
-   PROJECT CARD STYLE
-================================ */
 .project-card {
-  border-radius: 18px;
   padding: 18px;
-
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
 
   border: 2px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
   background-size: 100% 100%, 300% 300%;
-  animation: projectCardBorderMove 5s linear infinite;
+  animation: projectBorderMove 5s linear infinite;
 
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.12);
-
   transition: 0.3s ease;
-  overflow: hidden;
 }
 
-
-/* ================================
-   PROJECT CARD BORDER ANIMATION
-================================ */
-@keyframes projectCardBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
+@keyframes projectBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   PROJECT CARD HOVER EFFECT
-================================ */
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 22px rgba(0, 242, 255, 0.35),
-              0 0 30px rgba(143, 0, 255, 0.22);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.35),
+              0 0 28px rgba(255, 0, 255, 0.2);
 }
 
-
-/* ================================
-   PROJECT IMAGE WRAPPER (CROP DEFAULT)
-   Default = show only top 60%
-================================ */
-.project-image-wrapper {
-  width: 100%;
-  height: 220px;           /* controls crop */
-  overflow: hidden;
-  border-radius: 16px;
-
-  margin-bottom: 14px;
-
-  transition: 0.4s ease;
-}
-
-
-/* ================================
-   PROJECT IMAGE INSIDE (CROPPED)
-================================ */
-.project-image-wrapper img,
-.project-image {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;       /* crop */
-  object-position: top;    /* show top part */
-
-  border-radius: 16px;
-  display: block;
-
-  transition: 0.4s ease;
-}
-
-
-/* ================================
-   WHEN VIEW BUTTON CLICKED (EXPAND FULL IMAGE)
-   JS adds class: .expanded
-================================ */
-.project-image-wrapper.expanded {
-  height: auto;             /* full height */
-  overflow: visible;
-}
-
-.project-image-wrapper.expanded img,
-.project-image-wrapper.expanded .project-image {
-  height: auto;
-  object-fit: contain;      /* show full image */
-  object-position: center;
-}
-
-
-/* ================================
-   PROJECT TITLE
-================================ */
 .project-card h3 {
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 900;
+
   margin: 10px 0 8px;
+
   color: #00f2ff;
-  text-shadow: 0 0 10px rgba(0, 242, 255, 0.45);
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.5);
 }
 
-
-/* ================================
-   PROJECT DESCRIPTION
-================================ */
 .project-card p {
   font-size: 0.95rem;
-  line-height: 1.6;
   opacity: 0.9;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
+/* Technologies used line */
+.tech-used {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  margin-bottom: 12px;
+}
 
-/* ==========================================================
-   LIGHT MODE FIX FOR PROJECT CARDS
-========================================================== */
+.tech-used b {
+  color: #00f2ff;
+}
+
+/* Light mode projects */
 body.light-mode .project-card {
-  color: #000000;
-
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  color: #000000;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 body.light-mode .project-card h3 {
@@ -876,168 +486,109 @@ body.light-mode .project-card h3 {
   text-shadow: none;
 }
 
-body.light-mode .project-card p {
-  color: #000000;
-  opacity: 0.9;
+body.light-mode .tech-used b {
+  color: #007c91;
 }
+
+
 /* ==========================================================
-   PART 9: PROJECT ACTION BUTTONS (VIEW / DETAILS / CODE)
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Single line buttons always
-   ✅ Thin height buttons
-   ✅ Icons only
-   ✅ Neon animated border
-   ✅ Hover glow
-   ✅ Works for <button> and <a>
+   PART 9: PROJECT IMAGE CROP TOP 60% + EXPAND FULL
 ========================================================== */
 
+.project-image-wrapper {
+  width: 100%;
+  height: 220px;        /* crop height (shows top part) */
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 14px;
+  transition: 0.4s ease;
+}
 
-/* ================================
-   PROJECT ACTIONS WRAPPER
-================================ */
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 16px;
+  transition: 0.4s ease;
+}
+
+/* Expand full image when button clicked */
+.project-image-wrapper.expanded {
+  height: auto;
+  overflow: visible;
+}
+
+.project-image-wrapper.expanded img {
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  }
 .project-actions {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  gap: 14px;
+  gap: 12px;
+  flex-wrap: nowrap;
   margin-top: 10px;
 }
 
-
-/* ================================
-   ICON BUTTON BASE RESET
-================================ */
-.project-actions button,
-.project-actions a {
-  all: unset;                 /* removes default ugly styles */
-  cursor: pointer;
-
-  width: 44px;
-  height: 36px;               /* thin vertical button */
-
-  display: flex;
+/* Shared style for button + anchor */
+.project-actions .highlight-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
-  border-radius: 14px;
+  padding: 6px 16px;
+  border-radius: 25px;
+
+  font-size: 0.9rem;
+  font-weight: 800;
 
   color: #ffffff;
-  font-size: 1.1rem;
 
-  position: relative;
-  z-index: 1;
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: btnMove 3s linear infinite;
 
   transition: 0.3s ease;
 }
 
-
-/* ================================
-   NEON BORDER LAYER
-================================ */
-.project-actions button::before,
-.project-actions a::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-
-  border-radius: 16px;
-
-  background: linear-gradient(
-    90deg,
-    #00f2ff,
-    #ff00ff,
-    #00ff99,
-    #00f2ff
-  );
-
-  background-size: 400% 400%;
-  animation: actionBorderMove 3s linear infinite;
-
-  z-index: -2;
+@keyframes btnMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   INNER BACKGROUND LAYER
-================================ */
-.project-actions button::after,
-.project-actions a::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-
-  border-radius: 12px;
-  background: #0b0f1a;
-
-  z-index: -1;
+.project-actions .highlight-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 16px rgba(0, 242, 255, 0.4),
+              0 0 22px rgba(255, 0, 255, 0.25);
 }
 
-
-/* ================================
-   BORDER MOVING ANIMATION
-================================ */
-@keyframes actionBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
-}
-
-
-/* ================================
-   HOVER EFFECT
-================================ */
-.project-actions button:hover,
-.project-actions a:hover {
-  transform: translateY(-3px) scale(1.08);
-
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
-              0 0 28px rgba(255, 0, 255, 0.30),
-              0 0 32px rgba(0, 255, 153, 0.20);
-}
-
-
-/* ================================
-   ACTIVE STATE (CLICK GLOW)
-================================ */
-.project-actions button:active,
-.project-actions a:active {
-  transform: scale(0.95);
-  box-shadow: 0 0 22px rgba(0, 242, 255, 0.65);
-}
-
-
-/* ==========================================================
-   LIGHT MODE FIX FOR PROJECT BUTTONS
-========================================================== */
-body.light-mode .project-actions button,
-body.light-mode .project-actions a {
+body.light-mode .project-actions .highlight-btn {
   color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
 
-body.light-mode .project-actions button::after,
-body.light-mode .project-actions a::after {
-  background: #ffffff;
-}
+
 /* ==========================================================
-   PART 10: CERTIFICATES + RESUME SECTION
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Certificate cards must look neat
-   ✅ Images should fit nicely
-   ✅ Resume buttons should be premium neon style
-   ✅ Light mode fix included
+   PART 11: CERTIFICATES IMAGE FIX (ONLY direct img)
 ========================================================== */
 
-
-/* ================================
-   CERTIFICATE IMAGE FIX
-================================ */
-.project-card img {
+.projects-grid .project-card > img {
   width: 100%;
   height: 220px;
   object-fit: cover;
@@ -1045,98 +596,20 @@ body.light-mode .project-actions a::after {
 }
 
 
-/* ================================
-   CERTIFICATE VIEW BUTTON TEXT STYLE
-   (Because certificate uses text button "📄 View")
-================================ */
-.project-card .highlight-btn {
-  all: unset;
-  cursor: pointer;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 8px 18px;
-  border-radius: 25px;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-
-  color: #ffffff;
-
-  position: relative;
-  z-index: 1;
-
-  transition: 0.3s ease;
-}
-
-
-/* ================================
-   NEON BORDER FOR CERTIFICATE VIEW BUTTON
-================================ */
-.project-card .highlight-btn::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 28px;
-
-  background: linear-gradient(
-    90deg,
-    #00f2ff,
-    #ff00ff,
-    #00ff99,
-    #00f2ff
-  );
-
-  background-size: 400% 400%;
-  animation: certBtnMove 3s linear infinite;
-
-  z-index: -2;
-}
-
-.project-card .highlight-btn::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 22px;
-  background: #0b0f1a;
-
-  z-index: -1;
-}
-
-@keyframes certBtnMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
-}
-
-.project-card .highlight-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 16px rgba(0, 242, 255, 0.4),
-              0 0 25px rgba(255, 0, 255, 0.25);
-}
-
-
 /* ==========================================================
-   RESUME BUTTON SECTION
+   PART 12: RESUME BUTTONS
 ========================================================== */
 
 .resume-actions {
   display: flex;
   justify-content: center;
   gap: 18px;
-  margin: 25px auto 40px;
+
+  margin: 25px auto 45px;
 }
 
-
-/* ================================
-   RESUME BUTTON BASE
-================================ */
 .resume-btn {
-  all: unset;
-  cursor: pointer;
-
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -1145,83 +618,44 @@ body.light-mode .project-actions a::after {
   border-radius: 30px;
 
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 900;
 
   color: #ffffff;
 
-  position: relative;
-  z-index: 1;
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: resumeMove 4s linear infinite;
 
   transition: 0.3s ease;
 }
 
-
-/* ================================
-   RESUME BUTTON BORDER
-================================ */
-.resume-btn::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 35px;
-
-  background: linear-gradient(
-    90deg,
-    #00f2ff,
-    #8f00ff,
-    #00ff99,
-    #00f2ff
-  );
-
-  background-size: 400% 400%;
-  animation: resumeBorderMove 3s linear infinite;
-
-  z-index: -2;
-}
-
-.resume-btn::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 28px;
-  background: #0b0f1a;
-
-  z-index: -1;
-}
-
-@keyframes resumeBorderMove {
+@keyframes resumeMove {
   0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   RESUME BUTTON HOVER
-================================ */
 .resume-btn:hover {
-  transform: translateY(-3px) scale(1.06);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
-              0 0 28px rgba(143, 0, 255, 0.25);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.4),
+              0 0 28px rgba(255, 0, 255, 0.25);
 }
 
-
-/* ==========================================================
-   LIGHT MODE FIX (CERTIFICATES + RESUME)
-========================================================== */
-body.light-mode .project-card .highlight-btn,
 body.light-mode .resume-btn {
   color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
 
-body.light-mode .project-card .highlight-btn::after,
-body.light-mode .resume-btn::after {
-  background: #ffffff;
-}
-
-
-/* ================================
-   MOBILE RESPONSIVE RESUME BUTTONS
-================================ */
 @media (max-width: 600px) {
   .resume-actions {
     flex-direction: column;
@@ -1230,281 +664,77 @@ body.light-mode .resume-btn::after {
 
   .resume-btn {
     width: 80%;
-    text-align: center;
   }
 }
-/* ==========================================================
-   PART 11: CONTACT SECTION + SOCIAL ICONS + FORM
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Contact cards neon border
-   ✅ Social icons glowing
-   ✅ Form clean + readable
-   ✅ Dark and Light mode support
-========================================================== */
-
-
-/* ================================
-   CONTACT SECTION
-================================ */
 .contact-section {
   width: 92%;
   max-width: 900px;
-  margin: 60px auto 60px;
+  margin: 60px auto;
   text-align: center;
 }
 
-
-/* ================================
-   CONTACT SUBTITLE
-================================ */
 .contact-subtitle {
-  font-size: 1rem;
   margin-top: -12px;
   margin-bottom: 25px;
   opacity: 0.9;
 }
 
-
-/* ================================
-   CONTACT CARD WRAPPER
-================================ */
 .contact-cards {
   display: flex;
   flex-direction: column;
   gap: 18px;
-
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
-
-/* ================================
-   SINGLE CONTACT CARD
-================================ */
 .contact-card {
   display: flex;
   align-items: center;
   gap: 14px;
 
-  padding: 16px 16px;
+  padding: 16px;
   border-radius: 18px;
 
-  background: rgba(255, 255, 255, 0.04);
   border: 2px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
   background-size: 100% 100%, 300% 300%;
-  animation: contactBorderMove 4s linear infinite;
-
-  transition: 0.3s ease;
+  animation: contactMove 5s linear infinite;
 }
 
-
-/* ================================
-   CONTACT BORDER ANIMATION
-================================ */
-@keyframes contactBorderMove {
+@keyframes contactMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   CONTACT CARD ICON CIRCLE
-================================ */
 .contact-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: rgba(0, 242, 255, 0.12);
-
-  color: #00f2ff;
   font-size: 1.3rem;
+  color: #00f2ff;
 
-  box-shadow: 0 0 12px rgba(0, 242, 255, 0.25);
+  background: rgba(0, 242, 255, 0.1);
 }
 
-
-/* ================================
-   CONTACT CARD TEXT
-================================ */
 .contact-card h4 {
   font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 2px;
+  font-weight: 900;
 }
 
 .contact-card p {
   font-size: 0.95rem;
   opacity: 0.9;
-}
-
-
-/* ================================
-   CONTACT SOCIAL ICONS WRAPPER
-================================ */
-.contact-social {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-
-  margin-bottom: 35px;
-}
-
-
-/* ================================
-   SOCIAL ICON BUTTON
-================================ */
-.contact-social a {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 1.3rem;
-  color: #ffffff;
-
-  border: 2px solid transparent;
-
-  background-image:
-    linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
-
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  background-size: 100% 100%, 300% 300%;
-  animation: socialBorderMove 4s linear infinite;
-
-  transition: 0.3s ease;
-}
-
-@keyframes socialBorderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-
-.contact-social a:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
-              0 0 28px rgba(143, 0, 255, 0.25);
-}
-
-
-/* ==========================================================
-   CONTACT FORM
-========================================================== */
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  text-align: left;
-  margin-top: 10px;
-}
-
-
-/* ================================
-   LABEL STYLE
-================================ */
-.contact-form label {
-  font-size: 0.95rem;
-  font-weight: 700;
-  opacity: 0.9;
-}
-
-
-/* ================================
-   INPUT & TEXTAREA STYLE
-================================ */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px 14px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(0, 242, 255, 0.25);
-
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-
-  font-size: 0.95rem;
-  outline: none;
-
-  transition: 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #00f2ff;
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.35);
-}
-
-
-/* ================================
-   SEND BUTTON
-================================ */
-.send-btn {
-  margin-top: 10px;
-
-  padding: 12px 20px;
-  border-radius: 30px;
-
-  font-size: 1rem;
-  font-weight: 800;
-
-  color: #ffffff;
-  text-align: center;
-
-  border: 2px solid transparent;
-
-  background-image:
-    linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
-
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  background-size: 100% 100%, 300% 300%;
-  animation: sendBtnMove 4s linear infinite;
-
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-@keyframes sendBtnMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-
-.send-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
-              0 0 28px rgba(143, 0, 255, 0.25);
-}
-
-
-/* ==========================================================
-   LIGHT MODE FIX (CONTACT SECTION)
-========================================================== */
-body.light-mode .contact-subtitle {
-  color: #000000;
 }
 
 body.light-mode .contact-card {
@@ -1513,14 +743,57 @@ body.light-mode .contact-card {
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
 
-body.light-mode .contact-card p,
-body.light-mode .contact-card h4 {
-  color: #000000;
+body.light-mode .contact-icon {
+  color: #007c91;
+  background: rgba(0, 120, 150, 0.12);
 }
 
-body.light-mode .contact-icon {
-  background: rgba(0, 120, 150, 0.12);
-  color: #007c91;
+
+/* Social icons */
+.contact-social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.contact-social a {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.3rem;
+  color: #ffffff;
+
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: socialMove 4s linear infinite;
+
+  transition: 0.3s ease;
+}
+
+@keyframes socialMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.contact-social a:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.4),
+              0 0 26px rgba(255, 0, 255, 0.25);
 }
 
 body.light-mode .contact-social a {
@@ -1531,6 +804,74 @@ body.light-mode .contact-social a {
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
 
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00f2ff;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.send-btn {
+  padding: 12px 18px;
+  border-radius: 30px;
+
+  font-weight: 900;
+  font-size: 1rem;
+
+  color: #ffffff;
+
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: sendMove 4s linear infinite;
+
+  transition: 0.3s ease;
+}
+
+@keyframes sendMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.4),
+              0 0 24px rgba(255, 0, 255, 0.25);
+}
+
+/* Light mode form */
 body.light-mode .contact-form input,
 body.light-mode .contact-form textarea {
   background: #ffffff;
@@ -1546,57 +887,25 @@ body.light-mode .send-btn {
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
 
-
-/* ================================
-   MOBILE RESPONSIVE CONTACT FIX
-================================ */
 @media (max-width: 600px) {
   .contact-card {
     flex-direction: column;
     text-align: center;
   }
-
-  .contact-form {
-    text-align: left;
-  }
 }
-/* ==========================================================
-   PART 12: MODAL STYLING (DETAILS + CODE VIEW)
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Dark mode modal background black
-   ✅ Light mode modal background white
-   ✅ Neon border animated
-   ✅ Copy button premium neon
-   ✅ Code area clean + scroll
-========================================================== */
-
-
-/* ================================
-   MODAL BACKDROP
-================================ */
 .modal {
-  display: none; /* JS will show */
+  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
+  inset: 0;
 
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(6px);
 
   z-index: 9999;
-
   padding: 25px 12px;
   overflow-y: auto;
 }
 
-
-/* ================================
-   MODAL CONTENT BOX
-================================ */
 .modal-content {
   width: 95%;
   max-width: 900px;
@@ -1606,179 +915,90 @@ body.light-mode .send-btn {
 
   border-radius: 18px;
 
-  background: rgba(0, 0, 0, 0.95);
-  color: #ffffff;
-
   border: 2px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
   background-size: 100% 100%, 300% 300%;
-  animation: modalBorderMove 5s linear infinite;
-
-  box-shadow: 0 0 25px rgba(0, 242, 255, 0.18),
-              0 0 40px rgba(143, 0, 255, 0.15);
+  animation: modalMove 5s linear infinite;
 
   position: relative;
 }
 
-
-/* ================================
-   MODAL BORDER ANIMATION
-================================ */
-@keyframes modalBorderMove {
+@keyframes modalMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   MODAL TITLE
-================================ */
-#modalTitle {
-  font-size: 1.4rem;
-  font-weight: 900;
-
-  margin-bottom: 14px;
-
-  color: #00f2ff;
-  text-shadow: 0 0 12px rgba(0, 242, 255, 0.6);
-}
-
-
-/* ================================
-   CLOSE BUTTON
-================================ */
 .close-btn {
   position: absolute;
-  top: 12px;
-  right: 18px;
+  top: 10px;
+  right: 16px;
 
   font-size: 2rem;
   font-weight: 900;
 
-  color: #ffffff;
   cursor: pointer;
-
-  transition: 0.3s ease;
+  color: #ffffff;
 }
 
 .close-btn:hover {
   color: #ff00ff;
-  transform: scale(1.2);
 }
 
+#modalTitle {
+  font-size: 1.4rem;
+  font-weight: 900;
 
-/* ================================
-   MODAL BODY CONTENT
-================================ */
+  margin-bottom: 12px;
+  color: #00f2ff;
+}
+
 #modalBody {
-  font-size: 1rem;
-  line-height: 1.7;
-  opacity: 0.95;
-
   max-height: 65vh;
   overflow-y: auto;
-
   padding-right: 6px;
 }
 
-
-/* ================================
-   SCROLLBAR STYLING (MODAL BODY)
-================================ */
-#modalBody::-webkit-scrollbar {
-  width: 6px;
-}
-
-#modalBody::-webkit-scrollbar-thumb {
-  background: rgba(0, 242, 255, 0.5);
-  border-radius: 10px;
-}
-
-
-/* ==========================================================
-   COPY BUTTON (ONLY SHOWS FOR CODE)
-========================================================== */
-
+/* Copy button */
 .copy-btn {
-  all: unset;
-  cursor: pointer;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
   padding: 8px 18px;
   border-radius: 25px;
 
+  font-weight: 900;
   font-size: 0.95rem;
-  font-weight: 800;
 
   color: #ffffff;
-
   margin-bottom: 15px;
 
-  position: relative;
-  z-index: 1;
+  border: 2px solid transparent;
 
-  transition: 0.3s ease;
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: copyMove 3s linear infinite;
 }
 
-
-/* neon border */
-.copy-btn::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-
-  border-radius: 30px;
-
-  background: linear-gradient(
-    90deg,
-    #00f2ff,
-    #ff00ff,
-    #00ff99,
-    #00f2ff
-  );
-
-  background-size: 400% 400%;
-  animation: copyBtnMove 3s linear infinite;
-
-  z-index: -2;
-}
-
-.copy-btn::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-
-  border-radius: 22px;
-  background: #0b0f1a;
-
-  z-index: -1;
-}
-
-@keyframes copyBtnMove {
+@keyframes copyMove {
   0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 .copy-btn:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 0 16px rgba(0, 242, 255, 0.45),
-              0 0 22px rgba(255, 0, 255, 0.25);
+  transform: scale(1.05);
 }
 
-
-/* ==========================================================
-   CODE BLOCK FIX (PRISM)
-========================================================== */
+/* Prism code fix */
 pre {
   border-radius: 14px !important;
   padding: 16px !important;
@@ -1790,10 +1010,7 @@ code {
   font-family: Consolas, monospace;
 }
 
-
-/* ==========================================================
-   LIGHT MODE FIX (MODAL)
-========================================================== */
+/* Light mode modal */
 body.light-mode .modal {
   background: rgba(255, 255, 255, 0.75);
 }
@@ -1802,51 +1019,35 @@ body.light-mode .modal-content {
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
-
-  color: #000000;
-}
-
-body.light-mode #modalTitle {
-  color: #007c91;
-  text-shadow: none;
 }
 
 body.light-mode .close-btn {
   color: #000000;
 }
 
+body.light-mode #modalTitle {
+  color: #007c91;
+}
+
 body.light-mode .copy-btn {
   color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
 }
 
-body.light-mode .copy-btn::after {
-  background: #ffffff;
-}
+
 /* ==========================================================
-   PART 13: THEME TOGGLE BUTTON (TOP LEFT SMALL)
-   ----------------------------------------------------------
-   HTML:
-   <button onclick="toggleTheme()" class="theme-toggle">
-     <i class="fas fa-sun"></i>
-   </button>
-
-   REQUIREMENTS:
-   ✅ Small button
-   ✅ Top-left fixed position
-   ✅ Neon border animated
-   ✅ Works in dark and light mode
+   PART 15: THEME TOGGLE (TOP LEFT SMALL)
 ========================================================== */
 
-
-/* ================================
-   THEME TOGGLE BUTTON
-================================ */
 .theme-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
 
-  width: 42px;         /* small size */
+  width: 42px;
   height: 42px;
 
   border-radius: 50%;
@@ -1858,198 +1059,53 @@ body.light-mode .copy-btn::after {
   font-size: 1.1rem;
   color: #ffffff;
 
-  cursor: pointer;
   z-index: 99999;
 
   border: 2px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
   background-size: 100% 100%, 300% 300%;
-  animation: toggleBorderMove 4s linear infinite;
+  animation: toggleMove 4s linear infinite;
 
   box-shadow: 0 0 14px rgba(0, 242, 255, 0.35);
-
   transition: 0.3s ease;
 }
 
-
-/* ================================
-   TOGGLE BORDER ANIMATION
-================================ */
-@keyframes toggleBorderMove {
+@keyframes toggleMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-
-/* ================================
-   TOGGLE HOVER EFFECT
-================================ */
 .theme-toggle:hover {
   transform: scale(1.12);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
-              0 0 26px rgba(143, 0, 255, 0.35);
 }
 
-
-/* ==========================================================
-   LIGHT MODE FIX FOR TOGGLE BUTTON
-========================================================== */
 body.light-mode .theme-toggle {
   color: #000000;
 
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
-
-  box-shadow: 0 0 12px rgba(0, 120, 150, 0.25);
 }
+
+
 /* ==========================================================
-   PART 14: SCROLL REVEAL ANIMATION
-   ----------------------------------------------------------
-   HTML:
-   <div class="reveal"> ... </div>
-
-   JS:
-   revealOnScroll() adds class "active"
-
-   REQUIREMENTS:
-   ✅ Smooth fade + slide animation
-   ✅ Works on all devices
+   PART 16: SCROLL REVEAL ANIMATION
 ========================================================== */
 
-
-/* ================================
-   DEFAULT REVEAL STATE (HIDDEN)
-================================ */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: 0.8s ease;
 }
 
-
-/* ================================
-   ACTIVE REVEAL STATE (VISIBLE)
-================================ */
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-
-/* ================================
-   EXTRA SMOOTH EFFECT FOR CARDS
-================================ */
-.project-card.reveal.active,
-.card.reveal.active {
-  transition: 0.9s ease;
-}
-/* ==========================================================
-   PART 15: FINAL OVERRIDE FIXES (IMPORTANT)
-   ----------------------------------------------------------
-   This part prevents conflicts between:
-   - Project images
-   - Certificate images
-   - Buttons
-   - Light mode visibility
-   - Gap issues
-========================================================== */
-
-
-/* ==========================================================
-   FIX 1: PROJECT IMAGE MUST CROP TOP 60% ALWAYS
-   (ONLY inside project-image-wrapper)
-========================================================== */
-.project-image-wrapper {
-  height: 220px;
-  overflow: hidden;
-  border-radius: 16px;
-}
-
-.project-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
-
-
-/* ==========================================================
-   FIX 2: WHEN EXPANDED (VIEW BUTTON) SHOW FULL IMAGE
-========================================================== */
-.project-image-wrapper.expanded {
-  height: auto;
-  overflow: visible;
-}
-
-.project-image-wrapper.expanded img {
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-}
-
-
-/* ==========================================================
-   FIX 3: CERTIFICATE IMAGES SHOULD NOT AFFECT PROJECT IMAGES
-   (Certificates are inside .projects-grid but not inside wrapper)
-========================================================== */
-.project-card > img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-
-/* ==========================================================
-   FIX 4: ALL TEXT ALWAYS VISIBLE IN LIGHT MODE
-========================================================== */
-body.light-mode p,
-body.light-mode span,
-body.light-mode h1,
-body.light-mode h2,
-body.light-mode h3,
-body.light-mode h4,
-body.light-mode h5,
-body.light-mode h6,
-body.light-mode small,
-body.light-mode label {
-  color: #000000 !important;
-}
-
-
-/* ==========================================================
-   FIX 5: REMOVE EXTRA SPACE AT BOTTOM OF PAGE
-========================================================== */
-body {
-  padding-bottom: 0;
-}
-
-section:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-
-/* ==========================================================
-   FIX 6: PROJECT ICON BUTTONS ALWAYS IN SINGLE LINE
-========================================================== */
-.project-actions {
-  flex-wrap: nowrap;
-}
-
-
-/* ==========================================================
-   FIX 7: PREVENT DEFAULT BUTTON WHITE BACKGROUND BUG
-========================================================== */
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
 }
