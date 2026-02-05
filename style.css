@@ -126,7 +126,7 @@ body.light-mode {
   border-radius: 50%;
   padding: 5px;              /* thin neon border space */
 
-  margin: 0 auto 12px;       /* reduced gap below */
+  margin: 0 auto 5px;       /* reduced gap below */
 
   background: linear-gradient(
     90deg,
@@ -233,7 +233,7 @@ body.light-mode {
 
 /* ==========================================================
    LIGHT MODE FIX FOR HERO SECTION
-========================================================== */
+========================================================== *
 body.light-mode #hero h2,
 body.light-mode #hero h1,
 body.light-mode #hero p {
@@ -241,13 +241,13 @@ body.light-mode #hero p {
   opacity: 1;
 }
 
-/* Light mode neon name */
+/* Light mode neon name *
 body.light-mode #hero h1 span {
   color: #007c91;
   text-shadow: none;
 }
 
-/* Light mode profile border glow */
+/* Light mode profile border glow *
 body.light-mode .profile {
   box-shadow: 0 0 18px rgba(0, 120, 150, 0.35),
               0 0 26px rgba(120, 0, 255, 0.25);
@@ -2108,20 +2108,20 @@ body:not(.light-mode) .project-card {
 }
 */
 
-/* FORCE HERO FIX */
+/* FORCE HERO FIX *
 #hero {
   min-height: 100vh !important;
   padding: 20px 15px !important;
 }
 
-/* FORCE PROFILE SIZE */
+/* FORCE PROFILE SIZE *
 .profile {
   width: 190px !important;
   height: 190px !important;
   margin-bottom: 12px !important;
 }
 
-/* FORCE TEXT GAP REDUCTION */
+/* FORCE TEXT GAP REDUCTION *
 #hero h2 {
   margin: 5px 0 !important;
 }
@@ -2134,6 +2134,7 @@ body:not(.light-mode) .project-card {
   margin: 0 !important;
 }
 
+*/
 
 
 
