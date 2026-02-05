@@ -101,13 +101,13 @@ body.light-mode {
    - Center aligned content
 ================================ */
 #hero {
-  min-height: 50vh;                 /* Full screen */
+  min-height: 70vh;                 /* Full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;           /* Center vertically */
   align-items: center;               /* Center horizontally */
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px 30px;
 }
 
 
@@ -119,8 +119,8 @@ body.light-mode {
    </div>
 ================================ */
 .profile {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   padding: 3px;                      /* space for neon border */
   margin-bottom: 18px;
@@ -2019,6 +2019,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
