@@ -1541,135 +1541,174 @@ a {
    MODAL FULL DESIGN (EXACT LIKE SCREENSHOT)
 ========================================================== */
 
+
+
+
+
+
+/* ==========================================================
+   FULL MODAL CONTENT (DARK + LIGHT MODE)
+   ----------------------------------------------------------
+   FIXES:
+   1) Perfect modal size (mobile friendly)
+   2) No extra bottom gap
+   3) Dark mode = pure black background + white text
+   4) Light mode = pure white background + black text
+   5) Neon border animated (solid)
+   6) Headings + subheadings different colors
+   7) Stars bullets neon
+   8) Clean scrollbar
+========================================================== */
+
+
+/* ================================
+   MODAL BACKGROUND OVERLAY
+================================ */
 .modal {
   display: none;
   position: fixed;
   z-index: 9999;
   left: 0;
   top: 0;
+
   width: 100%;
   height: 100%;
+
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  padding: 20px;
+  backdrop-filter: blur(6px);
+
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
 }
 
-/* MODAL BOX */
+
+/* ================================
+   MODAL CONTENT BOX
+================================ */
 .modal-content {
-  position: relative;
   width: 92%;
-  max-width: 600px;
+  max-width: 440px;
+
   max-height: 85vh;
-  margin: auto;
   overflow-y: auto;
 
-  padding: 25px;
-  border-radius: 20px;
-
-  background: rgba(20, 20, 20, 0.9);
-  color: #ffffff;
-
-  border: 1px solid transparent;
-  background-clip: padding-box;
-
-  box-shadow: 
-    0 0 25px rgba(0, 242, 255, 0.35),
-    0 0 35px rgba(143, 0, 255, 0.35),
-    0 0 55px rgba(143, 0, 255, 0.25);
-}
-
-/* Neon Gradient Border */
-.modal-content::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
+  padding: 18px 16px;
   border-radius: 22px;
-  background: linear-gradient(90deg, #00f2ff, #8f00ff, #ff00d4, #00ff99);
-  background-size: 400% 400%;
-  animation: modalBorderMove 5s linear infinite;
-  z-index: -1;
-}
-animation: gradientMove 4s linear infinite;
-@keyframes modalBorderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
-}
 
-/* ==========================================================
-   CLOSE BUTTON (RED X)
-========================================================== */
-
-.close-btn {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #ff4d4d;
-  transition: 0.2s;
-}
-
-.close-btn:hover {
-  color: #ff0000;
-  transform: scale(1.1);
-}
-
-/* ==========================================================
-   MODAL HEADING STYLE
-========================================================== */
-
-.modal-content h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 15px;
+  background: #000000;  /* PURE BLACK */
   color: #ffffff;
+
+  position: relative;
+
+  border: 2px solid transparent;
+
+  /* Animated Neon Border Only */
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 400% 400%;
+  animation: modalBorderMove 5s linear infinite;
+
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.25),
+              0 0 30px rgba(143, 0, 255, 0.25);
 }
 
-/* Sub heading / project name */
-.modal-content h3 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  margin-top: 18px;
-  margin-bottom: 10px;
 
-  background: linear-gradient(90deg, #00f2ff, #7a00ff);
+/* ================================
+   BORDER ANIMATION
+================================ */
+@keyframes modalBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+
+/* ================================
+   REMOVE EXTRA GAPS INSIDE CONTENT
+================================ */
+.modal-content * {
+  margin-top: 0;
+}
+
+.modal-content p {
+  margin-bottom: 14px;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+
+/* ================================
+   MAIN HEADING (TOP TITLE)
+   Example: Portable Oscilloscope Details
+================================ */
+.modal-content h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+
+  color: #00f2ff;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+
+/* ================================
+   PROJECT SUB TITLE (h3)
+   Example: Portable Oscilloscope using Arduino
+================================ */
+.modal-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Section heading */
+
+/* ================================
+   SUB HEADINGS (h4)
+   Example: Working Principle
+================================ */
 .modal-content h4 {
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   margin-top: 18px;
   margin-bottom: 10px;
-  color: #00f2ff;
+
+  color: #00ff99;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
 }
 
-/* Paragraph */
-.modal-content p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-}
 
-/* ==========================================================
-   LIST WITH STAR ICON STYLE
-========================================================== */
-
+/* ================================
+   LIST STYLE WITH STARS ✨
+================================ */
 .modal-content ul {
-  margin-top: 10px;
-  padding-left: 10px;
   list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
 }
 
 .modal-content ul li {
   font-size: 1rem;
-  margin: 10px 0;
+  line-height: 1.6;
+  margin-bottom: 10px;
   padding-left: 25px;
   position: relative;
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffff;
+  opacity: 0.95;
 }
 
 .modal-content ul li::before {
@@ -1677,139 +1716,162 @@ animation: gradientMove 4s linear infinite;
   position: absolute;
   left: 0;
   top: 0;
+
   color: #00f2ff;
-  font-size: 1rem;
-  text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
+  font-size: 1.1rem;
+
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.7),
+               0 0 18px rgba(143, 0, 255, 0.6);
 }
 
-/* ==========================================================
-   COPY CODE BUTTON STYLE
-========================================================== */
 
-.copy-btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-size: 0.95rem;
-  font-weight: 700;
+/* ================================
+   CLOSE BUTTON (X)
+================================ */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
-  margin-bottom: 15px;
 
-  background: rgba(0, 0, 0, 0.6);
+  color: #ff2fd6;
+  text-shadow: 0 0 10px rgba(255, 47, 214, 0.6);
+
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+  color: #ff0055;
+}
+
+
+/* ================================
+   COPY BUTTON INSIDE MODAL
+================================ */
+.modal-content button {
+  margin-top: 8px;
+  margin-bottom: 16px;
+
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  background: #111;
   color: white;
 
-  border: 1px solid transparent;
-  transition: 0.5s;
-  position: relative;
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#111, #111),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00ff99);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: 0.3s ease;
 }
 
-/* neon border effect */
-.copy-btn::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 32px;
-  background: linear-gradient(90deg, #ff00d4, #00f2ff, #8f00ff);
-  background-size: 300% 300%;
-  animation: btnMove 3s linear infinite;
-  z-index: -1;
-}
-
-@keyframes btnMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-
-.copy-btn:hover {
+.modal-content button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3),
+              0 0 20px rgba(255, 47, 214, 0.25);
 }
 
-/* ==========================================================
-   SCROLLBAR STYLE (NEON)
-========================================================== */
 
+/* ================================
+   SCROLLBAR (DARK MODE)
+================================ */
 .modal-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00f2ff, #ff00d4);
-  border-radius: 10px;
+  width: 6px;
 }
 
 .modal-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
 }
 
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00f2ff, #8f00ff, #ff2fd6);
+  border-radius: 10px;
+}
+
+
 /* ==========================================================
-   LIGHT MODE VERSION (AUTO MATCH)
+   LIGHT MODE MODAL FIX
+   - PURE WHITE background
+   - PURE BLACK text
 ========================================================== */
 
 body.light-mode .modal {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 body.light-mode .modal-content {
-  background: rgba(255, 255, 255, 0.92);
-  color: #000;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  color: #000000;
+
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #8f00ff, #ff2fd6, #00ff99, #00c6ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
 body.light-mode .modal-content p,
 body.light-mode .modal-content li {
-  color: #000;
-}
-
-body.light-mode .modal-content h2 {
-  color: #000;
-}
-
-body.light-mode .modal-content h4 {
-  color: #007c91;
-}
-
-body.light-mode .modal-content ul li::before {
-  color: #7a00ff;
-}
-
-body.light-mode .copy-btn {
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-}
-
-.modal-content{
-  width: 96% !important;
-  max-width: 95vw !important;
-  height: 90vh !important;
-  max-height: 90vh !important;
-
-  margin: auto !important;
-  padding: 25px !important;
-
-  border-radius: 18px !important;
-
-  background: rgba(0,0,0,0.88) !important;   /* remove purple bg */
-  color: white !important;
-
-  overflow-y: auto !important;
-}
-
-.modal-content::-webkit-scrollbar {
-  width: 0px !important;
-  display: none !important;
-}
-
-.modal-content {
-  scrollbar-width: none !important; /* Firefox */
-}
-.modal-content::before {
+  color: #000000 !important;
   opacity: 1 !important;
 }
 
-.modal {
-  background: rgba(0, 0, 0, 0.85) !important;
+body.light-mode .modal-content h2 {
+  color: #007c91;
+  text-shadow: none;
 }
+
+body.light-mode .modal-content h3 {
+  background: linear-gradient(90deg, #007c91, #8f00ff, #ff2fd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light-mode .modal-content h4 {
+  color: #ff5500;
+  text-shadow: none;
+}
+
+body.light-mode .modal-content ul li::before {
+  color: #8f00ff;
+  text-shadow: none;
+}
+
+body.light-mode .close-btn {
+  color: #ff0055;
+  text-shadow: none;
+}
+
+body.light-mode .modal-content button {
+  background: #f5f5f5;
+  color: #000;
+}
+
+
+
+
+
+
+
+
 /* ================================
    PROJECT BUTTONS (VIEW / DETAILS / CODE)
    - Neon border like screenshot
@@ -1891,6 +1953,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
