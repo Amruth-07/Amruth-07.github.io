@@ -176,17 +176,16 @@ function copyCode() {
 ===================================== */
 
 function toggleTheme() {
-
-  // Toggle light-mode class on body
   document.body.classList.toggle("light-mode");
 
-  // Change icon accordingly
   const icon = document.querySelector(".theme-toggle i");
-
   if (!icon) return;
 
-  icon.classList.toggle("fa-sun");
-  icon.classList.toggle("fa-moon");
+  if (document.body.classList.contains("light-mode")) {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+  } else {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  }
 }
-
-
