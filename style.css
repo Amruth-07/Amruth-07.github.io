@@ -9,13 +9,6 @@
    5) Light mode background = full white
    6) Light mode text = full black
 ========================================================== */
-
-
-/* ================================
-   GLOBAL RESET
-   - Removes default browser spacing
-   - Keeps sizing consistent
-================================ */
 * {
   margin: 0;
   padding: 0;
@@ -103,7 +96,7 @@ body.light-mode {
    - Reduced extra spacing
 ================================ */
 #hero {
-  min-height:100vh;
+  min-height:70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;   /* keeps center */
@@ -2142,6 +2135,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
