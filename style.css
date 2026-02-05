@@ -861,7 +861,7 @@ body.light-mode .resume-btn::after {
   width: 92%;
   max-width: 900px;
   margin: 60px auto 60px;
-  text-align: center;
+  text-align: left;
 }
 
 .contact-subtitle {
@@ -1953,6 +1953,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
