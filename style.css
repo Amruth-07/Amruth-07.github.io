@@ -2108,6 +2108,31 @@ body:not(.light-mode) .project-card {
 }
 */
 
+/* FORCE HERO FIX */
+#hero {
+  min-height: 100vh !important;
+  padding: 20px 15px !important;
+}
+
+/* FORCE PROFILE SIZE */
+.profile {
+  width: 190px !important;
+  height: 190px !important;
+  margin-bottom: 12px !important;
+}
+
+/* FORCE TEXT GAP REDUCTION */
+#hero h2 {
+  margin: 5px 0 !important;
+}
+
+#hero h1 {
+  margin: 4px 0 8px !important;
+}
+
+#hero p {
+  margin: 0 !important;
+}
 
 
 
