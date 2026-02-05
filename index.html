@@ -443,28 +443,29 @@
       </a>
     </div>
 
-    <!-- CONTACT FORM -->
-    <form class="contact-form">
 
-      <label>Name</label>
-      <input type="text" placeholder="Your Name" required>
+<form id="contact-form" class="contact-form">
 
-      <label>Email</label>
-      <input type="email" placeholder="Your Email" required>
+  <label>Name</label>
+  <input type="text" name="name" placeholder="Enter Your Name" required>
 
-      <label>Subject</label>
-      <input type="text" placeholder="Project Discussion">
+  <label>Email</label>
+  <input type="email" name="email" placeholder="Enter Your Email" required>
 
-      <label>Message</label>
-      <textarea rows="4" placeholder="Tell me about your project..."></textarea>
+  <label>Subject</label>
+  <input type="text" name="subject" placeholder="Enter Subject" required>
 
-      <button type="submit" class="send-btn">
-        Send Message <i class="fas fa-paper-plane"></i>
-      </button>
+  <label>Message</label>
+  <textarea name="message" rows="4" placeholder="Write your message..." required></textarea>
 
-    </form>
+  <button type="submit" class="send-btn">
+    Send Message <i class="fas fa-paper-plane"></i>
+  </button>
 
-  </section>
+</form>
+
+
+    
 <!-- ================= MODAL ================= -->
   <div id="projectModal" class="modal">
 
@@ -497,6 +498,7 @@
 
 </body>
 </html>  
+
 
 
 
