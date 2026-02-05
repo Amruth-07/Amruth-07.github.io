@@ -103,7 +103,7 @@ body.light-mode {
    - Reduced extra spacing
 ================================ */
 #hero {
-  min-height: auto;
+  min-height: 1000vh;
   display: flex;
   flex-direction: column;
   justify-content: center;   /* keeps center */
@@ -2142,6 +2142,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
