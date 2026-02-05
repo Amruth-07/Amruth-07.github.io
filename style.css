@@ -1441,19 +1441,6 @@ body.light-mode .theme-toggle {
 
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
-/* ==========================================================
-   PART 14: SCROLL REVEAL ANIMATION
-   ----------------------------------------------------------
-   HTML:
-   class="reveal"
-
-   JS adds:
-   class="active"
-
-   REQUIREMENTS:
-   ✅ Smooth fade in + slide up
-   ✅ Works for all cards and sections
-========================================================== */
 
 .reveal {
   opacity: 0;
@@ -1465,17 +1452,7 @@ body.light-mode .theme-toggle {
   opacity: 1;
   transform: translateY(0);
 }
-/* ==========================================================
-   PART 15: FINAL FIXES (IMPORTANT)
-   ----------------------------------------------------------
-   REQUIREMENTS:
-   ✅ Fix extra unwanted space
-   ✅ Prevent CSS conflicts
-   ✅ Ensure light mode fonts always visible
-   ✅ Prevent horizontal scroll issue
-========================================================== */
 
-/* Remove extra bottom spacing */
 body {
   padding-bottom: 0;
 }
@@ -1612,10 +1589,6 @@ a {
               0 0 30px rgba(143, 0, 255, 0.25);
 }
 
-
-/* ================================
-   BORDER ANIMATION
-================================ */
 @keyframes modalBorderMove {
   0% {
     background-position: 0% 50%;
@@ -1641,11 +1614,6 @@ a {
   opacity: 0.9;
 }
 
-
-/* ================================
-   MAIN HEADING (TOP TITLE)
-   Example: Portable Oscilloscope Details
-================================ */
 .modal-content h2 {
   font-size: 1.6rem;
   font-weight: 800;
@@ -1655,11 +1623,6 @@ a {
   text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
 }
 
-
-/* ================================
-   PROJECT SUB TITLE (h3)
-   Example: Portable Oscilloscope using Arduino
-================================ */
 .modal-content h3 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -1669,12 +1632,6 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-
-/* ================================
-   SUB HEADINGS (h4)
-   Example: Working Principle
-================================ */
 .modal-content h4 {
   font-size: 1.15rem;
   font-weight: 700;
@@ -1685,10 +1642,6 @@ a {
   text-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
 }
 
-
-/* ================================
-   LIST STYLE WITH STARS ✨
-================================ */
 .modal-content ul {
   list-style: none;
   padding-left: 0;
@@ -1718,10 +1671,6 @@ a {
                0 0 18px rgba(143, 0, 255, 0.6);
 }
 
-
-/* ================================
-   CLOSE BUTTON (X)
-================================ */
 .close-btn {
   position: absolute;
   top: 12px;
@@ -1795,13 +1744,6 @@ a {
   border-radius: 10px;
 }
 
-
-/* ==========================================================
-   LIGHT MODE MODAL FIX
-   - PURE WHITE background
-   - PURE BLACK text
-========================================================== */
-
 body.light-mode .modal {
   background: rgba(255, 255, 255, 0.75);
 }
@@ -1859,27 +1801,12 @@ body.light-mode .modal-content button {
   color: #000;
 }
 
-
-
-
-
-
-
-
-/* ================================
-   PROJECT BUTTONS (VIEW / DETAILS / CODE)
-   - Neon border like screenshot
-   - Dark inside background
-   - Smooth hover glow
-   - Mobile responsive
-================================ */
-
 .project-actions {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 45px;
-  margin-top: 22px;
+  gap: 35px;
+  margin-top: 16px;
   flex-wrap: wrap;
 }
 
@@ -1947,20 +1874,3 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
