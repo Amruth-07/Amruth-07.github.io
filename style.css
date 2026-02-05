@@ -1485,3 +1485,77 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+
+
+
+
+/* ================================
+   FIX PROJECT BUTTONS FULLY
+================================ */
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* Force apply style for both <a> and <button> */
+.project-actions a.highlight-btn,
+.project-actions button.highlight-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px;
+
+  padding: 10px 18px !important;
+  min-width: 95px;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+
+  color: white !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+
+  border: 2px solid transparent !important;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: buttonBorderMove 4s linear infinite;
+
+  transition: 0.3s ease;
+}
+
+/* Hover glow */
+.project-actions a.highlight-btn:hover,
+.project-actions button.highlight-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.45),
+              0 0 22px rgba(143, 0, 255, 0.35);
+}
+
+/* Icon fix */
+.project-actions .highlight-btn i {
+  font-size: 1rem;
+}
+
+/* Animation */
+@keyframes buttonBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
