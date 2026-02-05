@@ -517,6 +517,15 @@ body.light-mode .about-photo {
    ✔ Light mode supported
 ========================================================== */
 
+/* ==========================================================
+   PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
+   ----------------------------------------------------------
+   ✔ Works in all browsers (Android + GitHub Pages)
+   ✔ Solid background inside
+   ✔ Animated neon border only
+   ✔ Light mode supported
+========================================================== */
+
 
 /* ================================
    WRAPPER FOR PILLS
@@ -525,7 +534,7 @@ body.light-mode .about-photo {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
 
   margin: 20px 20px 45px;
 }
@@ -539,19 +548,19 @@ body.light-mode .about-photo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 10px;
 
-  padding: 8px 20px;
+  padding: 12px 22px;
   border-radius: 35px;
 
   font-size: 1rem;
   font-weight: 500;
 
   color: #ffffff;
-  background:#000000;
+  background: #0b0f1a;
 
   z-index: 1;
-  transition: 0.8s ease;
+  transition: 0.3s ease;
 }
 
 
@@ -561,10 +570,10 @@ body.light-mode .about-photo {
 .hobby-pill::before {
   content: "";
   position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
 
   border-radius: 40px;
 
@@ -577,9 +586,9 @@ body.light-mode .about-photo {
   );
 
   background-size: 400% 400%;
-  animation: pillBorderMove 5s linear infinite;
+  animation: pillBorderMove 3s linear infinite;
 
-  z-index: -1;
+  z-index: -2;
 }
 
 
@@ -590,10 +599,10 @@ body.light-mode .about-photo {
 .hobby-pill::after {
   content: "";
   position: absolute;
-  top: 1px;
-  left: 1px;
-  right: 1px;
-  bottom: 1px;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
 
   border-radius: 33px;
   background: #0b0f1a;
@@ -619,321 +628,28 @@ body.light-mode .about-photo {
    HOVER EFFECT
 ================================ */
 .hobby-pill:hover {
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-3px) scale(1.05);
   box-shadow:
     0 0 12px rgba(0, 242, 255, 0.6),
     0 0 20px rgba(143, 0, 255, 0.5),
     0 0 28px rgba(0, 255, 153, 0.35);
 }
-/* ================================
-   LIGHT MODE FIX FOR HOBBY PILLS
-================================ */
-body.light-mode .hobby-pill {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border: 2px solid #00f2ff !important;
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
-}
-
-/* icon also visible */
-body.light-mode .hobby-pill span,
-body.light-mode .hobby-pill i {
-  color: #000000 !important;
-}
-body.light-mode .hobby-pill {
-  color: #000000 !important;
-  background: #ffffff !important;
-
-  border: 2px solid transparent !important;
-
-  background-image:
-    linear-gradient(#ffffff, #ffffff),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
-
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  background-size: 100% 100%, 300% 300%;
-  animation: pillBorderMove 4s linear infinite;
-}
-/* ==========================================================
-   LIGHT MODE FIX (PILLS)
-========================================================== */
-body.light-mode .project-actions button,
-body.light-mode .project-actions a {
-  color: black;
-}
-
-body.light-mode .project-actions button::after,
-body.light-mode .project-actions a::after {
-  background: white;
-}
-/* ==========================================================
-   PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
-   ----------------------------------------------------------
-   ✔ Solid background inside
-   ✔ Only border neon gradient animated
-   ✔ Bright neon border (solid look)
-   ✔ Hover glow effect
-   ✔ Light mode supported
-========================================================== */
-
-
-/* ================================
-   WRAPPER FOR PILLS
-================================ *
-.hobbies-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-
-  margin: 20px 20px 45px;
-}
-
-
-/* ================================
-   PILL STYLE (SOLID BACKGROUND + ANIMATED BORDER)
-================================ *
-.hobby-pill {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 12px 22px;
-  border-radius: 35px;
-
-  font-size: 1rem;
-  font-weight: 500;
-
-  color: #ffffff;
-
-  /* Solid inside background *
-  background: #0b0f1a;
-
-  /* Remove normal border *
-  border: none;
-
-  /* Important *
-  overflow: hidden;
-  z-index: 1;
-
-  transition: 0.3s ease;
-}
-
-
-/* ================================
-   ANIMATED NEON BORDER (OUTSIDE)
-================================ *
-.hobby-pill::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px; /* border thickness *
-
-  border-radius: 35px;
-
-  background: linear-gradient(
-    90deg,
-    #00f2ff,
-    #8f00ff,
-    #00ff99,
-    #00f2ff
-  );
-
-  background-size: 400% 400%;
-  animation: pillBorderMove 3s linear infinite;
-
-  /* border-only trick 
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  z-index: -1;
-}
-
-
-/* ================================
-   BORDER MOVING ANIMATION
-================================ *
-@keyframes pillBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
-}
-
-
-/* ================================
-   HOVER EFFECT
-================================ *
-.hobby-pill:hover {
-  transform: translateY(-3px) scale(1.05);
-
-  box-shadow: 
-    0 0 12px rgba(0, 242, 255, 0.6),
-    0 0 20px rgba(143, 0, 255, 0.45),
-    0 0 28px rgba(0, 255, 153, 0.3);
-}
 
 
 /* ==========================================================
    LIGHT MODE FIX (PILLS)
-   - Solid white inside
-   - Black font
-   - Neon border stays animated
-========================================================== 
+========================================================== */
 
 body.light-mode .hobby-pill {
   color: #000000;
   background: #ffffff;
 }
 
-body.light-mode .hobby-pill:hover {
-  box-shadow: 
-    0 0 10px rgba(0, 180, 255, 0.4),
-    0 0 18px rgba(140, 0, 255, 0.35);
-     }
-/* ==========================================================
-   PART 5: HOBBIES / SKILLS / INTERESTS (PILLS)
-   ----------------------------------------------------------
-   ✔ Solid background inside
-   ✔ Only border neon gradient animated
-   ✔ Bright neon border (solid look)
-   ✔ Hover glow effect
-   ✔ Light mode supported
-========================================================== */
 
-
-/* ================================
-   WRAPPER FOR PILLS
-================================ *
-.hobbies-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-
-  margin: 20px 20px 45px;
-}
-
-
-/* ================================
-   PILL STYLE (SOLID BACKGROUND + ANIMATED BORDER)
-================================ *
-.hobby-pill {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 12px 22px;
-  border-radius: 35px;
-
-  font-size: 1rem;
-  font-weight: 500;
-
-  color: #ffffff;
-
-  /* Solid inside background *
-  background: #0b0f1a;
-
-  /* Remove normal border *
-  border: none;
-
-  /* Important *
-  overflow: hidden;
-  z-index: 1;
-
-  transition: 0.3s ease;
-}
-
-
-/* ================================
-   ANIMATED NEON BORDER (OUTSIDE)
-================================ *
-.hobby-pill::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px; /* border thickness *
-
-  border-radius: 35px;
-
-  background: linear-gradient(
-    90deg,
-    #00f2ff,
-    #8f00ff,
-    #00ff99,
-    #00f2ff
-  );
-
-  background-size: 400% 400%;
-  animation: pillBorderMove 3s linear infinite;
-
-  /* border-only trick *
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  z-index: -1;
-}
-
-
-/* ================================
-   BORDER MOVING ANIMATION
-================================ *
-@keyframes pillBorderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
-}
-
-
-/* ================================
-   HOVER EFFECT
-================================ 
-.hobby-pill:hover {
-  transform: translateY(-3px) scale(1.05);
-
-  box-shadow: 
-    0 0 12px rgba(0, 242, 255, 0.6),
-    0 0 20px rgba(143, 0, 255, 0.45),
-    0 0 28px rgba(0, 255, 153, 0.3);
-}
-
-
-/* ==========================================================
-   LIGHT MODE FIX (PILLS)
-   - Solid white inside
-   - Black font
-   - Neon border stays animated
-========================================================== /
-
-body.light-mode .hobby-pill {
-  color: #000000;
+/* Change inner layer background in light mode */
+body.light-mode .hobby-pill::after {
   background: #ffffff;
 }
-
-body.light-mode .hobby-pill:hover {
-  box-shadow: 
-    0 0 10px rgba(0, 180, 255, 0.4),
-    0 0 18px rgba(140, 0, 255, 0.35);
-} 
-
-
 /* ==========================================================
    PART 6: PROJECTS SECTION (GRID + CARD DESIGN)
    ----------------------------------------------------------
@@ -2189,3 +1905,4 @@ body.light-mode .hobby-pill {
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 */
+
