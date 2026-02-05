@@ -226,20 +226,21 @@ body.light-mode {
 
 /* ==========================================================
    LIGHT MODE FIX FOR HERO SECTION
-========================================================== *body.light-mode #hero h2,
+========================================================== */
+body.light-mode #hero h2,
 body.light-mode #hero h1,
 body.light-mode #hero p {
   color: #000000;
   opacity: 1;
 }
 
-/* Light mode neon name *
+/* Light mode neon name */
 body.light-mode #hero h1 span {
   color: #007c91;
   text-shadow: none;
 }
 
-/* Light mode profile border glow *
+/* Light mode profile border glow */
 body.light-mode .profile {
   box-shadow: 0 0 18px rgba(0, 120, 150, 0.35),
               0 0 26px rgba(120, 0, 255, 0.25);
@@ -276,19 +277,19 @@ body.light-mode .profile {
    HERO SECTION (#hero)
    - Full screen height
    - Center aligned content
-================================ *
+================================ */
 #hero {
   min-height, 255, 0.6);
 }
 
-/* Subtitle line *
+/* Subtitle line */
 ;
 
 /* ==========================================================
    LIGHT MODE FIX FOR HERO SECTION
    - White background already in Part 1
    - Here we force hero text to black
-========================================================== *
+========================================================== */
 
 body.light-mode #hero h2,
 body.light-mode #hero h1,
@@ -297,7 +298,7 @@ body.light-mode #hero p {
   opacity: 1;
 }
 
-/* Light mode name span stays neon but readable *
+/* Light mode name span stays neon but readable */
 body.light-mode #hero h1 span {
   color: #007c91;
   text-shadow: none;
@@ -681,7 +682,7 @@ body.light-mode .project-actions a::after {
 
 /* ================================
    WRAPPER FOR PILLS
-================================ *
+================================ */
 .hobbies-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -694,7 +695,7 @@ body.light-mode .project-actions a::after {
 
 /* ================================
    PILL STYLE (SOLID BACKGROUND + ANIMATED BORDER)
-================================ *
+================================ */
 .hobby-pill {
   position: relative;
   display: flex;
@@ -710,13 +711,13 @@ body.light-mode .project-actions a::after {
 
   color: #ffffff;
 
-  /* Solid inside background *
+  /* Solid inside background */
   background: #0b0f1a;
 
-  /* Remove normal border *
+  /* Remove normal border */
   border: none;
 
-  /* Important *
+  /* Important */
   overflow: hidden;
   z-index: 1;
 
@@ -726,12 +727,12 @@ body.light-mode .project-actions a::after {
 
 /* ================================
    ANIMATED NEON BORDER (OUTSIDE)
-================================ *
+================================ */
 .hobby-pill::before {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 2px; /* border thickness *
+  padding: 2px; /* border thickness */
 
   border-radius: 35px;
 
@@ -746,7 +747,7 @@ body.light-mode .project-actions a::after {
   background-size: 400% 400%;
   animation: pillBorderMove 3s linear infinite;
 
-  /* border-only trick 
+  /* border-only trick */
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -759,7 +760,7 @@ body.light-mode .project-actions a::after {
 
 /* ================================
    BORDER MOVING ANIMATION
-================================ *
+================================ */
 @keyframes pillBorderMove {
   0% {
     background-position: 0% 50%;
@@ -772,7 +773,7 @@ body.light-mode .project-actions a::after {
 
 /* ================================
    HOVER EFFECT
-================================ *
+================================ */
 .hobby-pill:hover {
   transform: translateY(-3px) scale(1.05);
 
@@ -788,7 +789,7 @@ body.light-mode .project-actions a::after {
    - Solid white inside
    - Black font
    - Neon border stays animated
-========================================================== 
+========================================================== */
 
 body.light-mode .hobby-pill {
   color: #000000;
@@ -813,7 +814,7 @@ body.light-mode .hobby-pill:hover {
 
 /* ================================
    WRAPPER FOR PILLS
-================================ *
+================================ */
 .hobbies-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -826,7 +827,7 @@ body.light-mode .hobby-pill:hover {
 
 /* ================================
    PILL STYLE (SOLID BACKGROUND + ANIMATED BORDER)
-================================ *
+================================ */
 .hobby-pill {
   position: relative;
   display: flex;
@@ -842,13 +843,13 @@ body.light-mode .hobby-pill:hover {
 
   color: #ffffff;
 
-  /* Solid inside background *
+  /* Solid inside background */
   background: #0b0f1a;
 
-  /* Remove normal border *
+  /* Remove normal border */
   border: none;
 
-  /* Important *
+  /* Important */
   overflow: hidden;
   z-index: 1;
 
@@ -858,12 +859,12 @@ body.light-mode .hobby-pill:hover {
 
 /* ================================
    ANIMATED NEON BORDER (OUTSIDE)
-================================ *
+================================ */
 .hobby-pill::before {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 2px; /* border thickness *
+  padding: 2px; /* border thickness */
 
   border-radius: 35px;
 
@@ -878,7 +879,7 @@ body.light-mode .hobby-pill:hover {
   background-size: 400% 400%;
   animation: pillBorderMove 3s linear infinite;
 
-  /* border-only trick *
+  /* border-only trick */
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -891,7 +892,7 @@ body.light-mode .hobby-pill:hover {
 
 /* ================================
    BORDER MOVING ANIMATION
-================================ *
+================================ */
 @keyframes pillBorderMove {
   0% {
     background-position: 0% 50%;
@@ -904,7 +905,7 @@ body.light-mode .hobby-pill:hover {
 
 /* ================================
    HOVER EFFECT
-================================ 
+================================ */
 .hobby-pill:hover {
   transform: translateY(-3px) scale(1.05);
 
@@ -920,7 +921,7 @@ body.light-mode .hobby-pill:hover {
    - Solid white inside
    - Black font
    - Neon border stays animated
-========================================================== /
+========================================================== */
 
 body.light-mode .hobby-pill {
   color: #000000;
@@ -1254,7 +1255,7 @@ body.light-mode .tech-used {
    BUTTONS APPEAR ONLY ON CARD HOVER (DESKTOP)
    - Hidden by default
    - Visible only when project-card hovered
-========================================================== *
+========================================================== */
 .project-actions
   opacity: 0;
   transform: translateY(8px);
@@ -1262,7 +1263,7 @@ body.light-mode .tech-used {
   transition: 0.35s ease;
 }
 
-/* Show buttons when card is hovered *
+/* Show buttons when card is hovered */
 .project-card:hover .project-actions {
   opacity: 1;
   transform: translateY(0px);
@@ -1273,7 +1274,7 @@ body.light-mode .tech-used {
 /* ==========================================================
    MOBILE FIX: ALWAYS SHOW BUTTONS
    (Because mobile has no hover)
-========================================================== *
+========================================================== */
 @media (max-width: 768px) {
   .project-actions {
     opacity: 1;
@@ -1285,7 +1286,7 @@ body.light-mode .tech-used {
 
 /* ==========================================================
    LIGHT MODE FIX (ICON BUTTONS)
-========================================================== /
+========================================================== */
 
 body.light-mode .icon-btn {
   background: #ffffff;
@@ -2106,7 +2107,7 @@ body.light-mode .resume-btn {
 
 /* ================================
    LIGHT MODE - PROJECT CARD FIX
-================================ *
+================================ */
 body.light-mode .project-card {
   background: #ffffff !important;
   color: #000000 !important;
@@ -2131,7 +2132,7 @@ body.light-mode .project-card .tech-used {
 }
 /* ================================
    LIGHT MODE - PROJECT BUTTONS FIX
-================================ *
+================================ */
 body.light-mode .project-actions button,
 body.light-mode .project-actions a {
   background: #ffffff !important;
@@ -2146,27 +2147,27 @@ body.light-mode .project-actions a:hover {
 }
 /* ================================
    DARK MODE - PROJECT CARD FIX
-================================ *
+================================ */
 body:not(.light-mode) .project-card {
   background: #000000 !important;
   color: #ffffff !important;
 }
 */
 
-/* FORCE HERO FIX *
+/* FORCE HERO FIX */
 #hero {
   min-height: 100vh !important;
   padding: 20px 15px !important;
 }
 
-/* FORCE PROFILE SIZE *
+/* FORCE PROFILE SIZE */
 .profile {
   width: 190px !important;
   height: 190px !important;
   margin-bottom: 12px !important;
 }
 
-/* FORCE TEXT GAP REDUCTION *
+/* FORCE TEXT GAP REDUCTION */
 #hero h2 {
   margin: 5px 0 !important;
 }
@@ -2188,6 +2189,7 @@ body.light-mode .hobby-pill {
   color: #000000 !important;        /* black text */
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
 
 
 
