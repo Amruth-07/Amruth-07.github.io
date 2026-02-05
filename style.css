@@ -1559,103 +1559,89 @@ a {
 /* ==========================================================
    DETAILS MODAL CONTENT (HEADING + SUBHEADING + STAR POINTS)
 ========================================================== */
-
-.details-content {
-  padding: 15px;
-  font-family: "Poppins", sans-serif;
-  line-height: 1.6;
-}
-
-/* Main Title */
-.details-title {
+.modal-content h3 {
   font-size: 1.8rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 
   color: #00f2ff;
-  text-shadow: 0 0 10px rgba(0, 242, 255, 0.8),
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.8),
                0 0 20px rgba(0, 242, 255, 0.5);
 }
 
-/* Subtitle */
-.details-subtitle {
+.modal-content p {
   font-size: 1rem;
   font-weight: 500;
-  text-align: center;
-  margin-bottom: 22px;
-
   color: #ffffff;
-  opacity: 0.85;
+  opacity: 0.9;
+  margin-bottom: 15px;
+  text-align: justify;
 }
 
-/* Section Subheadings */
-.details-heading {
+.modal-content h4 {
   font-size: 1.2rem;
   font-weight: 700;
   margin-top: 18px;
   margin-bottom: 10px;
 
-  color: #ff00ff; /* Different neon */
+  color: #ff00ff;
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.7),
-               0 0 20px rgba(0, 242, 255, 0.4);
+               0 0 18px rgba(0, 242, 255, 0.4);
 }
 
-/* Bullet list */
-.details-list {
+.modal-content ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding-left: 0;
+  margin-bottom: 15px;
 }
 
-/* Each bullet point */
-.details-list li {
-  position: relative;
-  padding-left: 28px;
-  margin-bottom: 10px;
-
-  font-size: 0.98rem;
+.modal-content ul li {
+  font-size: 1rem;
   font-weight: 500;
   color: #ffffff;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
-/* Star ✨ bullet */
-.details-list li::before {
+/* Star ✨ points */
+.modal-content ul li::before {
   content: "✨";
   position: absolute;
   left: 0;
   top: 0;
-
   font-size: 1.05rem;
+
   filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.9));
 }
 
 /* ==========================================================
-   SOLID MOVING NEON GRADIENT BORDER (DETAILS BOX STYLE)
+   SOLID MOVING NEON BORDER FOR MODAL CONTENT
 ========================================================== */
 
-.details-content {
+.modal-content {
   border-radius: 18px;
-  padding: 18px;
+  padding: 22px;
 
   border: 2px solid transparent;
 
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
     linear-gradient(90deg, #00f2ff, #8f00ff, #ff00ff, #00ff99, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
   background-size: 100% 100%, 400% 400%;
-  animation: detailsBorderMove 5s linear infinite;
+  animation: modalBorderMove 5s linear infinite;
 
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.35),
-              0 0 30px rgba(143, 0, 255, 0.25);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.35),
+              0 0 28px rgba(143, 0, 255, 0.25);
 }
 
-/* Border animation */
-@keyframes detailsBorderMove {
+/* Border moving animation */
+@keyframes modalBorderMove {
   0% {
     background-position: 0% 50%;
   }
@@ -1665,37 +1651,35 @@ a {
 }
 
 /* ==========================================================
-   LIGHT MODE FIX (DETAILS TEXT + BORDER)
+   LIGHT MODE FIX FOR DETAILS MODAL
 ========================================================== */
 
-body.light-mode .details-content {
+body.light-mode .modal-content {
   background-image:
     linear-gradient(#ffffff, #ffffff),
     linear-gradient(90deg, #00c6ff, #8f00ff, #ff00ff, #00ff99, #00c6ff);
 
-  box-shadow: 0 0 18px rgba(0, 140, 200, 0.25),
-              0 0 28px rgba(143, 0, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 140, 200, 0.25),
+              0 0 22px rgba(143, 0, 255, 0.2);
 }
 
-body.light-mode .details-title {
+body.light-mode .modal-content p,
+body.light-mode .modal-content ul li {
+  color: #000000;
+  opacity: 1;
+}
+
+body.light-mode .modal-content h3 {
   color: #007c91;
   text-shadow: none;
 }
 
-body.light-mode .details-subtitle {
-  color: #111111;
-  opacity: 1;
-}
-
-body.light-mode .details-heading {
+body.light-mode .modal-content h4 {
   color: #7a00ff;
   text-shadow: none;
 }
 
-body.light-mode .details-list li {
-  color: #000000;
-}
-
-body.light-mode .details-list li::before {
+body.light-mode .modal-content ul li::before {
   filter: drop-shadow(0 0 5px rgba(255, 150, 0, 0.8));
 }
+
