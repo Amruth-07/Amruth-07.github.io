@@ -112,14 +112,15 @@ body.light-mode {
    - Full screen height
    - Center aligned content
 ================================ */
+hero# {
 #hero {
-  min-height: 60vh;                 /* Full screen */
+  min-height: 100vh;                 /* Full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;           /* Center vertically */
   align-items: center;               /* Center horizontally */
   text-align: center;
-  padding: 50px 40px;
+  padding: 50px 20px;
 }
 
 
@@ -134,7 +135,7 @@ body.light-mode {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  padding: 3px;                      /* space for neon border */
+  padding: 4px;                      /* space for neon border */
   margin-bottom: 18px;
 
   /* Neon gradient animated border */
@@ -159,15 +160,13 @@ body.light-mode {
    PROFILE IMAGE INSIDE CIRCLE
 ================================ */
 .profile img {
-  width: 200%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
   display: block;
   background: #000;
 }
-
-
 /* ================================
    PROFILE BORDER ANIMATION
    - Makes gradient move smoothly
@@ -2051,6 +2050,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
