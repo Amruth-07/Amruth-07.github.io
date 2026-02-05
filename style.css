@@ -233,8 +233,7 @@ body.light-mode {
 
 /* ==========================================================
    LIGHT MODE FIX FOR HERO SECTION
-========================================================== *
-body.light-mode #hero h2,
+========================================================== *body.light-mode #hero h2,
 body.light-mode #hero h1,
 body.light-mode #hero p {
   color: #000000;
@@ -296,7 +295,7 @@ body.light-mode .profile {
    LIGHT MODE FIX FOR HERO SECTION
    - White background already in Part 1
    - Here we force hero text to black
-========================================================== */
+========================================================== *
 
 body.light-mode #hero h2,
 body.light-mode #hero h1,
@@ -305,7 +304,7 @@ body.light-mode #hero p {
   opacity: 1;
 }
 
-/* Light mode name span stays neon but readable */
+/* Light mode name span stays neon but readable *
 body.light-mode #hero h1 span {
   color: #007c91;
   text-shadow: none;
@@ -319,7 +318,7 @@ body.light-mode #hero h1 span {
    3) Proper spacing and alignment
    4) Dark mode: black bg + white text
    5) Light mode: white bg + black text
-========================================================== */
+========================================================== *
 
 
 /* ================================
@@ -2138,6 +2137,11 @@ body:not(.light-mode) .project-card {
 
 
 
+body.light-mode .hobby-pill {
+  background: #ffffff !important;   /* pure white */
+  color: #000000 !important;        /* black text */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
 
 
 
