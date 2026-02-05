@@ -286,7 +286,7 @@ body.light-mode #hero h1 span {
 ================================ */
 .card {
   position: relative;
-  background: rgba(20, 25, 35, 0.85);
+  background: rgba(20, 25, 35, 0);
   border-radius: 18px;
   padding: 18px 18px;
   margin: 18px auto;
@@ -461,7 +461,7 @@ body.light-mode .about-photo {
   justify-content: center;
   gap: 10px;
 
-  padding: 12px 22px;
+  padding: 1px 22px;
   border-radius: 35px;
 
   font-size: 1rem;
@@ -2019,6 +2019,7 @@ body:not(.light-mode) .project-card {
   color: #ffffff !important;
 }
 */
+
 
 
 
