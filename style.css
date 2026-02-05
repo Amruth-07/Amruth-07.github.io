@@ -1130,6 +1130,9 @@ body.light-mode .send-btn {
 ========================================================== */
 
 /* Modal background overlay */
+/* ================================
+   MODAL BACKDROP (FULL SCREEN)
+================================ */
 .modal {
   display: none;
   position: fixed;
@@ -1139,50 +1142,77 @@ body.light-mode .send-btn {
   width: 100%;
   height: 100%;
 
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-
+  background: rgba(0, 0, 0, 0.85);
   z-index: 9999;
 
-  padding: 25px 12px;
-  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  margin: 0;
 }
-
 /* Modal box */
+/* ================================
+   MODAL CONTENT BOX
+   - Perfect size
+   - No extra gap
+================================ */
 .modal-content {
-  width: 95%;
-  max-width: 900px;
+  width: 92%;
+  max-width: 420px;
 
-  margin: auto;
+  height: 88vh;        /* PERFECT HEIGHT */
+  max-height: 88vh;
+
   padding: 20px 18px;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
-  color: #ffffff;
+  overflow-y: auto;
 
-  border: 1px solid transparent;
+  /* PURE BLACK BACKGROUND */
+  background: #000000;
+
+  /* NO ANIMATED BACKGROUND */
+  background-image: none !important;
+
+  /* Smooth border */
+  border: 2px solid transparent;
+
+  /* Neon border only */
+  background-clip: padding-box;
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.3),
+              0 0 25px rgba(143, 0, 255, 0.25);
+}
+.modal-content {
+  border: 2px solid transparent;
 
   background-image:
     linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00f2ff);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
-  background-size: 100% 100%, 300% 300%;
-  animation: modalBorderMove 5s linear infinite;
-
-  box-shadow: 0 0 25px rgba(0, 242, 255, 0.18),
-              0 0 40px rgba(143, 0, 255, 0.15);
-
-  position: relative;
+}
+.modal-content::-webkit-scrollbar {
+  width: 6px;
 }
 
-@keyframes modalBorderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
 }
 
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content p,
+.modal-content li {
+  color: #ffffff;
+}
 /* Title */
 #modalTitle {
   font-size: 1.4rem;
@@ -1861,5 +1891,6 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
