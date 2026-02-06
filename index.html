@@ -18,9 +18,12 @@
 
   <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
-<body>
+<body class="light-mode">
 
   <!-- ================= HERO SECTION ================= -->
   <section id="hero">
@@ -106,29 +109,29 @@
   </div>
 
   <!-- ================= ABOUT ================= -->
-<div class="card reveal about-card neon-border">
+  <div class="card reveal about-card neon-border">
 
-  <h2 class="section-headline">About Me</h2>
+    <h2 class="section-headline">About Me</h2>
 
-  <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-photo">
+    <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-photo">
 
-  <p class="about-text">
-    I am an Electronics and Communication Engineering graduate with a strong
-    interest in VLSI design and Embedded Systems. I have a solid understanding
-    of core electronics subjects and hands-on experience with hardware-based
-    projects using microcontrollers.
-    <br><br>
-    I have worked on practical projects involving Arduino, ESP32, and digital
-    electronics, which helped me understand the interaction between hardware
-    and software at the system level. I am also building my foundation in VLSI
-    concepts such as digital logic design and Verilog.
-    <br><br>
-    I am actively seeking a full-time opportunity in the field of VLSI or
-    Embedded Systems where I can apply my technical knowledge, improve my
-    design skills, and grow as a core electronics engineer.
-  </p>
+    <p class="about-text">
+      I am an Electronics and Communication Engineering graduate with a strong
+      interest in VLSI design and Embedded Systems. I have a solid understanding
+      of core electronics subjects and hands-on experience with hardware-based
+      projects using microcontrollers.
+      <br><br>
+      I have worked on practical projects involving Arduino, ESP32, and digital
+      electronics, which helped me understand the interaction between hardware
+      and software at the system level. I am also building my foundation in VLSI
+      concepts such as digital logic design and Verilog.
+      <br><br>
+      I am actively seeking a full-time opportunity in the field of VLSI or
+      Embedded Systems where I can apply my technical knowledge, improve my
+      design skills, and grow as a core electronics engineer.
+    </p>
 
-</div>
+  </div>
   <!-- ================= PROJECTS ================= -->
   <h2 class="section-headline reveal">My Projects</h2>
 
@@ -138,9 +141,7 @@
     <div class="project-card reveal">
 
       <div class="project-image-wrapper">
-        <img src="portable.png"
-             alt="Portable Oscilloscope"
-             class="project-image">
+        <img src="portable.png" alt="Portable Oscilloscope" class="project-image">
       </div>
 
       <h3>Portable Oscilloscope using Arduino</h3>
@@ -148,28 +149,23 @@
       <p>
         Designed as a low-cost solution for basic signal analysis and waveform visualization in educational and laboratory applications.
       </p>
-       <p class="tech-used">
-  <b>Technologies:</b> Arduino, Embedded C, ADC, Signal Processing
-</p>
+      <p class="tech-used">
+        <b>Technologies:</b> Arduino, Embedded C, ADC, Signal Processing
+      </p>
       <div class="project-actions">
 
-        <button class="highlight-btn"
-                onclick="toggleProjectImage(this)">
+        <button class="highlight-btn" onclick="toggleProjectImage(this)">
           <i class="fas fa-eye"></i> View
         </button>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'Portable Oscilloscope Details',
              'oscilloscopeDetails.html'
            )">
           Details
         </a>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'Portable Oscilloscope Code',
              'oscilloscopeCode.txt'
            )">
@@ -183,9 +179,7 @@
     <div class="project-card reveal">
 
       <div class="project-image-wrapper">
-        <img src="smart.png"
-             alt="AgriGuard"
-             class="project-image">
+        <img src="smart.png" alt="AgriGuard" class="project-image">
       </div>
 
       <h3>AgriGuard – Smart IoT System</h3>
@@ -193,28 +187,23 @@
       <p>
         Aims to improve agricultural efficiency and safety by automating critical farming operations using IoT technology.
       </p>
-<p class="tech-used">
-  <b>Technologies:</b> ESP32, IoT, Sensors, Embedded C, Wireless Communication
-</p>
+      <p class="tech-used">
+        <b>Technologies:</b> ESP32, IoT, Sensors, Embedded C, Wireless Communication
+      </p>
       <div class="project-actions">
 
-        <button class="highlight-btn"
-                onclick="toggleProjectImage(this)">
+        <button class="highlight-btn" onclick="toggleProjectImage(this)">
           <i class="fas fa-eye"></i> View
         </button>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'AgriGuard Details',
              'agriguardDetails.html'
            )">
           Details
         </a>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'AgriGuard Code',
              'Agriculture.txt'
            )">
@@ -228,9 +217,7 @@
     <div class="project-card reveal">
 
       <div class="project-image-wrapper">
-        <img src="component-tester.png"
-             alt="Component Tester"
-             class="project-image">
+        <img src="component-tester.png" alt="Component Tester" class="project-image">
       </div>
 
       <h3>All-in-One Component Tester</h3>
@@ -238,28 +225,23 @@
       <p>
         Useful for quick identification and testing of electronic components during circuit development and troubleshooting.
       </p>
-<p class="tech-used">
-  <b>Technologies:</b> Arduino, Embedded C, Electronic Components, Circuit Testing
-</p>
+      <p class="tech-used">
+        <b>Technologies:</b> Arduino, Embedded C, Electronic Components, Circuit Testing
+      </p>
       <div class="project-actions">
 
-        <button class="highlight-btn"
-                onclick="toggleProjectImage(this)">
+        <button class="highlight-btn" onclick="toggleProjectImage(this)">
           <i class="fas fa-eye"></i> View
         </button>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'Component Tester Details',
              'testerDetails.html'
            )">
           Details
         </a>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'Component Tester Code',
              'Tester.txt'
            )">
@@ -273,9 +255,7 @@
     <div class="project-card reveal">
 
       <div class="project-image-wrapper">
-        <img src="led-pattern.png"
-             alt="LED Pattern"
-             class="project-image">
+        <img src="led-pattern.png" alt="LED Pattern" class="project-image">
       </div>
 
       <h3>Generating LED Patterns Using Arduino</h3>
@@ -283,27 +263,22 @@
       <p>
         Demonstrates microcontroller-based control logic and timing concepts through visual LED pattern generation.
       </p>
-<p class="tech-used">
-  <b>Technologies:</b> Arduino, Embedded C, LEDs, Digital I/O
-</p>
+      <p class="tech-used">
+        <b>Technologies:</b> Arduino, Embedded C, LEDs, Digital I/O
+      </p>
       <div class="project-actions">
-        <button class="highlight-btn"
-                onclick="toggleProjectImage(this)">
+        <button class="highlight-btn" onclick="toggleProjectImage(this)">
           <i class="fas fa-eye"></i> View
         </button>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'LED Pattern Details',
              'ledPatternDetails.html'
            )">
           Details
         </a>
 
-        <a href="#"
-           class="highlight-btn"
-           onclick="openModal(
+        <a href="#" class="highlight-btn" onclick="openModal(
              'LED Pattern Code',
              'LED_Pattern.txt'
            )">
@@ -313,20 +288,20 @@
       </div>
     </div>
 
-    </div>
-    <!-- ================= CERTIFICATES ================= -->
+  </div>
+  <!-- ================= CERTIFICATES ================= -->
   <h2 class="section-headline reveal">Certificates</h2>
 
   <div class="projects-grid reveal">
-      <div class="project-card">
+    <div class="project-card">
       <img src="cirtificate4.jpg" alt="Internship Certificate">
       <h3>Internship / Training Program</h3>
       <p>
         Organization: Training Institute / Company<br>
         Year: 2024
       </p>
-      </div>
-      
+    </div>
+
 
     <div class="project-card">
       <img src="cirtificate1.jpg" alt="Embedded Systems Certificate">
@@ -355,25 +330,21 @@
       </p>
     </div>
 
-    
-          </div>
-          <!-- ================= RESUME ================= -->
+
+  </div>
+  <!-- ================= RESUME ================= -->
   <h2 class="section-headline reveal">Resume</h2>
 
   <div class="resume-actions reveal">
 
     <!-- VIEW RESUME -->
-    <a href="Resume.pdf"
-       target="_blank"
-       class="resume-btn view-btn">
+    <a href="Resume.pdf" target="_blank" class="resume-btn view-btn">
       <i class="fas fa-eye"></i>
       View
     </a>
 
     <!-- DOWNLOAD RESUME -->
-    <a href="Resume.pdf"
-       download
-       class="resume-btn download-btn">
+    <a href="Resume.pdf" download class="resume-btn download-btn">
       <i class="fas fa-download"></i>
       Download
     </a>
@@ -425,34 +396,43 @@
       <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank">
         <i class="fab fa-github"></i>
       </a>
+
       <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank">
-        <i class="fab fa-linkedin-in"></i>
+        <i class class="fab fa-linkedin-in"></i>
       </a>
+
       <a href="mailto:amruthanamapure@gmail.com">
         <i class="fas fa-envelope"></i>
       </a>
+
       <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank">
         <i class="fab fa-instagram"></i>
       </a>
+
       <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank">
         <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <!-- WHATSAPP -->
+      <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank">
+        <i class="fab fa-whatsapp"></i>
       </a>
     </div>
 
     <!-- CONTACT FORM -->
-    <form class="contact-form">
+    <form id="contact-form" class="contact-form">
 
       <label>Name</label>
-      <input type="text" placeholder="Your Name" required>
+      <input type="text" name="name" placeholder="Your Name" required>
 
       <label>Email</label>
-      <input type="email" placeholder="Your Email" required>
+      <input type="email" name="email" placeholder="Your Email" required>
 
       <label>Subject</label>
-      <input type="text" placeholder="Project Discussion">
+      <input type="text" name="subject" placeholder="Project Discussion" required>
 
       <label>Message</label>
-      <textarea rows="4" placeholder="Tell me about your project..."></textarea>
+      <textarea rows="4" name="message" placeholder="Tell me about your project..." required></textarea>
 
       <button type="submit" class="send-btn">
         Send Message <i class="fas fa-paper-plane"></i>
@@ -461,7 +441,7 @@
     </form>
 
   </section>
-<!-- ================= MODAL ================= -->
+  <!-- ================= MODAL ================= -->
   <div id="projectModal" class="modal">
 
     <div class="modal-content">
@@ -469,9 +449,7 @@
 
       <h2 id="modalTitle"></h2>
 
-      <button id="copyBtn"
-              class="copy-btn"
-              onclick="copyCode()">
+      <button id="copyBtn" class="copy-btn" onclick="copyCode()">
         Copy Code
       </button>
 
@@ -482,7 +460,7 @@
 
   <!-- ================= THEME TOGGLE ================= -->
   <button onclick="toggleTheme()" class="theme-toggle">
-    <i class="fas fa-sun"></i>
+    <i class="fas fa-moon"></i>
   </button>
 
   <!-- ================= SCRIPTS ================= -->
@@ -492,18 +470,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 
 </body>
-</html>  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+          </html>
