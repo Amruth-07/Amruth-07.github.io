@@ -1954,6 +1954,54 @@ body.light-mode .highlight-btn i {
   }
 }
 
+/* ================================
+   CLICK-BASED MODAL (FINAL FIX)
+================================ */
+
+/* Overlay only */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+/* Popup box (MOVABLE) */
+.modal-content {
+  position: absolute;              /* ✅ REQUIRED */
+  width: 420px;
+  max-width: 90vw;
+  max-height: 70vh;
+
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 16px;
+
+  background: #000;
+  color: #fff;
+
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(#000, #000),
+    linear-gradient(90deg,#00f2ff,#8f00ff,#ff2fd6,#00ff99);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Light mode */
+body.light-mode .modal-content {
+  background: #fff;
+  color: #000;
+
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(90deg,#00c6ff,#7a00ff,#ff2fd6,#00ff99);
+}
+
 
 
 
