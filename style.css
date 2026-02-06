@@ -972,46 +972,54 @@ body.light-mode .theme-toggle {
    ANIMATED RAINBOW BORDERS
 ========================================================== */
 
-.neon-border, .project-card {
+/* ==========================================================
+   UNIFIED ANIMATED BORDERS (PROJECTS & CERTIFICATES)
+========================================================== */
+
+/* 1. The Container: This holds the moving gradient */
+.project-card {
   position: relative;
-  border: none; /* Remove static border */
-  padding: 1px; /* This creates the "border thickness" */
+  border: none; /* Removing the old static border */
+  padding: 3px; /* This defines the thickness of the rainbow border */
   background: linear-gradient(90deg, #00c6ff, #00ff99, #ff00ff, #00c6ff);
   background-size: 300% 100%;
-  animation: rainbow-border 3s linear infinite;
-  border-radius: 20px; /* Matches your card shape */
+  animation: rainbow-border 4s linear infinite;
+  border-radius: 20px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
 }
 
-/* This creates the inner solid area so the card isn't transparent */
-.neon-border::before, .project-card::before {
+/* 2. The Inner Mask: This creates the solid center of the card */
+.project-card::before {
   content: "";
   position: absolute;
-  inset: 1px; /* Thickness of the border */
-  background: #111; /* Matches your card background */
+  inset: 3px; /* Must match the padding above to look like a border */
+  background: #111; /* Matches your dark theme */
   border-radius: 17px;
   z-index: 0;
 }
 
-/* Ensure content stays above the background layers */
-.neon-border > *, .project-card > * {
+/* 3. Layering: Ensures images and text sit ABOVE the background mask */
+.project-card > * {
   position: relative;
   z-index: 1;
 }
 
-/* Light Mode Support */
-body.light-mode .neon-border::before, 
-body.light-mode .project-card::before {
-  background: #ffffff;
+/* 4. Hover Effect: Makes the card pop while keeping the animation */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
 }
 
-/* The Animation */
+/* 5. Light Mode Compatibility */
+body.light-mode .project-card::before {
+  background: #ffffff; /* Turns the inside of the card white */
+}
+
+/* 6. The Animation Keyframes (Matches your Theme Toggle) */
 @keyframes rainbow-border {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
-
-/* ==========================================================
-   END OF CSS FILE
-========================================================== */
-
