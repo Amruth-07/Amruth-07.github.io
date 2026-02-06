@@ -979,7 +979,7 @@ body.light-mode .send-btn {
 @media (max-width: 600px) {
   .contact-card {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 }
 /* =========================
@@ -1289,5 +1289,6 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
 
 
