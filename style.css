@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif; /* */
+  font-family: "Poppins", sans-serif;
   background: #000000;
   color: #ffffff;
   overflow-x: hidden;
@@ -22,7 +22,7 @@ body {
 }
 
 body.light-mode {
-  background: #ffffff; /* */
+  background: #ffffff;
   color: #000000;
 }
 
@@ -47,979 +47,270 @@ button {
 h1, h2, h3, h4, h5, h6, p, span, small, label {
   color: inherit;
 }
+
 /* ==========================================================
    PART 2: HERO SECTION + PROFILE PHOTO
 ========================================================== */
 
 #hero {
-  padding: 80px 20px 40px;
-  text-align: center;
+  min-height: auto;
+  padding: 25px 15px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  align-items: center;
+  text-align: center;
 }
 
 .profile {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 25px;
-  border: 4px solid transparent;
-  background-image: linear-gradient(#000, #000), 
-                    linear-gradient(90deg, #00f2ff, #00ff99);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
-  transition: transform 0.4s ease;
-}
-
-.profile:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(0, 242, 255, 0.6);
+  padding: 5px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+  background-size: 400% 400%;
+  animation: profileBorderMove 4s linear infinite;
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
+              0 0 30px rgba(143, 0, 255, 0.45);
 }
 
 .profile img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
+  background: #000000;
+}
+
+@keyframes profileBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
 }
 
 #hero h2 {
-  font-size: 1.4rem;
-  font-weight: 300;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 6px 0 4px;
 }
 
 #hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #00f2ff, #00ff99);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 4px 0 10px;
+  line-height: 1.2;
+}
+
+#hero h1 span {
+  color: #00f2ff;
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.75);
 }
 
 #hero p {
-  font-size: 1.1rem;
-  opacity: 0.85;
-  max-width: 600px;
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 0;
 }
 
-/* Light mode adjustments for Hero */
-body.light-mode #hero h1 {
-  background: linear-gradient(90deg, #0072ff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 /* ==========================================================
-   PART 3: SKILL PILLS + INFO CARDS
+   PART 3: HERO SKILL PILLS
 ========================================================== */
 
-/* Hero Skill Pills */
 .hero-skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 40px;
-  padding: 0 20px;
+  margin: 18px 15px 30px;
 }
 
 .skill-pill {
-  background: rgba(0, 242, 255, 0.1);
-  border: 1px solid rgba(0, 242, 255, 0.3);
-  padding: 8px 18px;
-  border-radius: 50px;
+  padding: 8px 16px;
+  border-radius: 30px;
   font-size: 0.9rem;
-  font-weight: 400;
-  color: #00f2ff;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #ffffff;
+  border: 1.4px solid transparent;
+  background-image: linear-gradient(#000, #000), 
+                    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: borderMove 4s linear infinite;
+  transition: 0.3s ease;
+}
+
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 .skill-pill:hover {
-  background: #00f2ff;
-  color: #000;
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
 }
 
-/* Info Cards Layout */
-.card {
-  background: #111;
-  border: 1px solid #222;
-  padding: 25px;
-  border-radius: 15px;
-  margin: 20px auto;
-  max-width: 800px;
-  width: 90%;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #00f2ff;
-}
-
-.card b {
-  color: #00f2ff;
-  font-size: 1.1rem;
-  display: inline-block;
-  margin-bottom: 5px;
-}
-
-.card small {
-  display: block;
-  margin-top: 8px;
-  opacity: 0.6;
-  font-style: italic;
-}
-
-/* Light Mode for Pills and Cards */
-body.light-mode .skill-pill {
-  background: rgba(0, 114, 255, 0.05);
-  border: 1px solid rgba(0, 114, 255, 0.2);
-  color: #0072ff;
-}
-
-body.light-mode .skill-pill:hover {
-  background: #0072ff;
-  color: #fff;
-}
-
-body.light-mode .card {
-  background: #f9f9f9;
-  border-color: #eee;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode .card b {
-  color: #0072ff;
-}
 /* ==========================================================
-   PART 4: SECTION HEADLINES + HOBBY/SKILL WRAPPERS
+   PART 4: INFO CARDS + PROJECT CARDS
 ========================================================== */
 
-.section-headline {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin: 60px 0 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.card, .project-card, .contact-card, .contact-form, .modal-content {
+  width: 92%;
+  max-width: 720px;
+  margin: 18px auto;
+  padding: 18px;
+  border-radius: 18px;
   position: relative;
-  background: linear-gradient(90deg, #00f2ff, #00ff99);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#000, #000), 
+                    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: borderMove 5s linear infinite;
+  transition: 0.3s ease;
 }
 
-/* Underline effect for headlines */
-.section-headline::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #00f2ff, #00ff99);
-  margin: 10px auto 0;
-  border-radius: 2px;
+.project-card {
+  max-width: 100%;
+  margin: 0;
 }
 
-/* Layout for Hobbies/Skills/Interests */
+.card b, .project-card h3 {
+  color: #00f2ff;
+  font-weight: 800;
+}
+
+.card:hover, .project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.3);
+}
+
+/* ==========================================================
+   PART 5: HOBBIES / SKILLS / INTERESTS PILLS
+========================================================== */
+
 .hobbies-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 0 20px;
+  gap: 16px;
+  margin: 18px 15px 40px;
 }
 
 .hobby-pill {
-  background: #111;
-  border: 1px solid #333;
-  padding: 12px 25px;
-  border-radius: 12px;
+  padding: 12px 22px;
+  border-radius: 40px;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hobby-pill:hover {
-  border-color: #00ff99;
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(0, 255, 153, 0.3);
-}
-
-/* Light mode adjustments */
-body.light-mode .section-headline {
-  background: linear-gradient(90deg, #0072ff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-body.light-mode .section-headline::after {
-  background: linear-gradient(90deg, #0072ff, #00c6ff);
-}
-
-body.light-mode .hobby-pill {
-  background: #ffffff;
-  border-color: #eee;
-  color: #333;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode .hobby-pill:hover {
-  border-color: #0072ff;
-  color: #0072ff;
-}
-
-/* ==========================================================
-   PART 5: ABOUT ME SECTION + PROJECT GRID
-========================================================== */
-
-.about-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
-  gap: 20px;
-}
-
-.about-photo {
-  width: 220px;
-  height: 220px;
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-  margin-bottom: 10px;
-}
-
-.about-text {
-  font-size: 1.05rem;
-  color: #ccc;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Specific Neon Border for About Section */
-.neon-border {
+  font-weight: 600;
+  color: #ffffff;
   border: 2px solid transparent;
-  background-image: linear-gradient(#111, #111), 
-                    linear-gradient(90deg, #00f2ff, #00ff99);
+  background-image: linear-gradient(#0b0f1a, #0b0f1a), 
+                    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
   background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-
-/* Projects Grid System */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
-}
-
-/* Light mode adjustments */
-body.light-mode .about-text {
-  color: #444;
-}
-
-body.light-mode .neon-border {
-  background-image: linear-gradient(#ffffff, #ffffff), 
-                    linear-gradient(90deg, #0072ff, #00c6ff);
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 400% 400%;
+  animation: borderMove 3s linear infinite;
+  transition: 0.3s ease;
 }
 
 /* ==========================================================
-   PART 6: PROJECT CARDS + IMAGE EXPANSION
+   PART 6: PROJECTS GRID & BUTTONS
 ========================================================== */
 
-.project-card {
-  background: #111;
-  border: 1px solid #222;
-  border-radius: 20px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.project-card:hover {
-  border-color: #00f2ff;
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2);
+.projects-grid {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  padding-bottom: 30px;
 }
 
 .project-image-wrapper {
   width: 100%;
-  height: 180px; /* Default height */
-  border-radius: 12px;
+  height: 220px;
   overflow: hidden;
-  margin-bottom: 20px;
-  transition: height 0.5s ease; /* Animation for expansion */
+  border-radius: 16px;
+  margin-bottom: 14px;
 }
 
-/* When the JS adds the 'expanded' class */
-.project-image-wrapper.expanded {
-  height: 400px;
-}
-
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  color: #00f2ff;
-}
-
-.project-card p {
-  font-size: 0.95rem;
-  color: #bbb;
-  margin-bottom: 15px;
-}
-
-.tech-used {
-  font-size: 0.85rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 8px;
-  border-left: 3px solid #00ff99;
-}
-
-/* Light mode adjustments */
-body.light-mode .project-card {
-  background: #ffffff;
-  border-color: #eee;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode .project-card h3 {
-  color: #0072ff;
-}
-
-body.light-mode .project-card p {
-  color: #555;
-}
-
-body.light-mode .tech-used {
-  background: #f0f7ff;
-  color: #333;
-}
-/* ==========================================================
-   PART 7: PROJECT ACTION BUTTONS + HIGHLIGHT EFFECTS
-========================================================== */
-
-.project-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: auto; /* Pushes buttons to the bottom of the card */
-  padding-top: 20px;
-}
-
-.highlight-btn {
-  flex: 1;
-  min-width: 80px;
-  text-align: center;
-  padding: 10px 5px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #00f2ff;
-  border: 1px solid rgba(0, 242, 255, 0.4);
-  background: rgba(0, 242, 255, 0.05);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.highlight-btn:hover {
-  background: #00f2ff;
-  color: #000;
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
-}
-
-.highlight-btn i {
-  font-size: 0.9rem;
-}
-
-/* Light mode adjustments */
-body.light-mode .highlight-btn {
-  color: #0072ff;
-  border-color: rgba(0, 114, 255, 0.3);
-  background: rgba(0, 114, 255, 0.02);
-}
-
-body.light-mode .highlight-btn:hover {
-  background: #0072ff;
-  color: #fff;
-  box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
-}
-
-/* ==========================================================
-   PART 8: CERTIFICATE GRID + RESUME ACTIONS
-========================================================== */
-
-/* Reuse grid logic for certificates */
-.projects-grid.reveal {
-  margin-top: 20px;
-}
-
-/* Certificate specific card styling */
-.project-card img {
-  border-radius: 10px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Resume Section Container */
-.resume-actions {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 40px 0 80px;
-}
-
-/* Base Resume Button Styling */
-.resume-btn {
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-/* View Button - Neon Blue */
-.view-btn {
-  border: 2px solid #00f2ff;
-  color: #00f2ff;
-  background: rgba(0, 242, 255, 0.05);
-}
-
-.view-btn:hover {
-  background: #00f2ff;
-  color: #000;
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-}
-
-/* Download Button - Neon Green */
-.download-btn {
-  border: 2px solid #00ff99;
-  color: #00ff99;
-  background: rgba(0, 255, 153, 0.05);
-}
-
-.download-btn:hover {
-  background: #00ff99;
-  color: #000;
-  box-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
-}
-
-/* Light mode adjustments for Resume */
-body.light-mode .view-btn {
-  border-color: #0072ff;
-  color: #0072ff;
-}
-
-body.light-mode .view-btn:hover {
-  background: #0072ff;
-  color: #fff;
-}
-
-body.light-mode .download-btn {
-  border-color: #00a86b;
-  color: #00a86b;
-}
-
-body.light-mode .download-btn:hover {
-  background: #00a86b;
-  color: #fff;
-}
-/* ==========================================================
-   PART 9: CONTACT SECTION + SOCIAL ICONS
-========================================================== */
-
-.contact-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.8;
-  margin-bottom: 40px;
-}
-
-/* Info Cards (Email, Phone, Location) */
-.contact-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 50px;
-}
-
-.contact-card {
-  background: #111;
-  padding: 20px;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-align: left;
-  border: 1px solid #222;
-  transition: border-color 0.3s ease;
-}
-
-.contact-card:hover {
-  border-color: #00f2ff;
-}
-
-.contact-icon {
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 242, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #00f2ff;
-  font-size: 1.2rem;
-}
-
-.contact-card h4 {
-  font-size: 1rem;
-  margin-bottom: 2px;
-}
-
-.contact-card p {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* Social Media Icons */
-.contact-social {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
-}
-
-.contact-social a {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #111;
-  border: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  transition: all 0.3s ease;
-  color: #fff;
-}
-
-.contact-social a:hover {
-  color: #00f2ff;
-  border-color: #00f2ff;
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-}
-
-/* Light mode adjustments */
-body.light-mode .contact-card {
-  background: #f9f9f9;
-  border-color: #eee;
-}
-
-body.light-mode .contact-icon {
-  background: rgba(0, 114, 255, 0.1);
-  color: #0072ff;
-}
-
-body.light-mode .contact-social a {
-  background: #fff;
-  border-color: #eee;
-  color: #333;
-}
-
-body.light-mode .contact-social a:hover {
-  color: #0072ff;
-  border-color: #0072ff;
-}
-/* ==========================================================
-   PART 10: CONTACT FORM STYLING
-========================================================== */
-
-.contact-form {
-  background: #111;
-  padding: 40px;
-  border-radius: 20px;
-  border: 1px solid #222;
-  text-align: left;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #00f2ff;
-  font-size: 0.9rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 25px;
-  background: #080808;
-  border: 1px solid #333;
-  border-radius: 10px;
-  color: #fff;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #00f2ff;
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
-  outline: none;
-}
-
-.send-btn {
-  width: 100%;
-  padding: 15px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #00f2ff, #00ff99);
-  color: #000;
+.highlight-btn, .resume-btn, .copy-btn, .send-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
   font-weight: 700;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.send-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(0, 242, 255, 0.4);
-}
-
-/* Light mode adjustments for the form */
-body.light-mode .contact-form {
-  background: #ffffff;
-  border-color: #eee;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode .contact-form label {
-  color: #0072ff;
-}
-
-body.light-mode .contact-form input,
-body.light-mode .contact-form textarea {
-  background: #fdfdfd;
-  border-color: #ddd;
-  color: #333;
-}
-
-body.light-mode .send-btn {
-  background: linear-gradient(90deg, #0072ff, #00c6ff);
   color: #fff;
-}
-/* ==========================================================
-   PART 11: PROJECT MODAL (DETAILS & CODE VIEW)
-========================================================== */
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(5px);
-  overflow-y: auto;
-}
-
-.modal-content {
-  background-color: #111;
-  margin: 5% auto;
-  padding: 30px;
-  border: 1px solid #333;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 15px;
-  position: relative;
-  box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  color: #fff;
-  font-size: 30px;
-  font-weight: bold;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#0b0f1a, #0b0f1a), 
+                    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 400% 400%;
+  animation: borderMove 3s linear infinite;
   cursor: pointer;
-  transition: color 0.3s;
-}
-
-.close-btn:hover {
-  color: #ff4d4d;
-}
-
-#modalTitle {
-  margin-bottom: 20px;
-  color: #00f2ff;
-  font-size: 1.8rem;
-}
-
-/* Copy Button inside Modal */
-.copy-btn {
-  background: #00f2ff;
-  color: #000;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  display: none; /* Only shown for code files */
-}
-
-/* Modal Body / Code Content */
-#modalBody {
-  max-height: 60vh;
-  overflow-y: auto;
-  border-radius: 8px;
-}
-
-/* Prism.js code block custom padding */
-pre[class*="language-"] {
-  margin: 0 !important;
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
-/* Light mode adjustments for Modal */
-body.light-mode .modal-content {
-  background-color: #ffffff;
-  border-color: #eee;
-  color: #333;
-}
-
-body.light-mode .close-btn {
-  color: #333;
+  transition: 0.3s ease;
 }
 
 /* ==========================================================
-   PART 12: THEME TOGGLE BUTTON + RAINBOW ANIMATION
+   PART 7: LIGHT MODE OVERRIDES
+========================================================== */
+
+body.light-mode { background: #ffffff; color: #000000; }
+
+body.light-mode .card, 
+body.light-mode .project-card, 
+body.light-mode .skill-pill,
+body.light-mode .hobby-pill,
+body.light-mode .highlight-btn,
+body.light-mode .resume-btn,
+body.light-mode .contact-card,
+body.light-mode .send-btn,
+body.light-mode .modal-content,
+body.light-mode .theme-toggle {
+  background-image: linear-gradient(#ffffff, #ffffff), 
+                    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+  color: #000000;
+}
+
+body.light-mode .card b, 
+body.light-mode .project-card h3,
+body.light-mode #hero h1 span {
+  color: #007c91;
+  text-shadow: none;
+}
+
+/* ==========================================================
+   PART 8: UTILITIES (THEME TOGGLE & REVEAL)
 ========================================================== */
 
 .theme-toggle {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 65px;
-  height: 65px;
+  top: 12px;
+  left: 12px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  z-index: 3000;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: #ffffff;
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-
-  /* Animated Rainbow Border Logic */
-  border: 4px solid transparent;
-  background-image: 
-    linear-gradient(#000000, #000000), 
-    linear-gradient(90deg, #00c6ff, #00ff99, #ff00ff, #00c6ff);
+  z-index: 99999;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#000, #000), 
+                    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
   background-origin: border-box;
-  background-clip: content-box, border-box;
-  background-size: 300% 100%;
-  animation: rainbow-border 4s linear infinite;
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: borderMove 4s linear infinite;
 }
 
-/* The spinning gradient effect */
-@keyframes rainbow-border {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-
-.theme-toggle:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55), 
-              0 0 28px rgba(255, 0, 255, 0.25);
-}
-
-/* Light mode adjustments for the toggle */
-body.light-mode .theme-toggle {
-  color: #000000;
-  background-image: 
-    linear-gradient(#ffffff, #ffffff), 
-    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ==========================================================
-   PART 13: SCROLL REVEAL ANIMATION
-========================================================== */
-
-/* Hidden state */
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s ease-out;
-  pointer-events: none; /* Prevents clicking items before they appear */
+  opacity: 1 !important; /* Fixed for visibility */
+  transform: translateY(0) !important;
 }
 
-/* Visible state (triggered by script.js) */
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* ==========================================================
-   PART 14: RESPONSIVE MEDIA QUERIES (MOBILE FIXES)
-========================================================== */
-
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .section-headline {
-    font-size: 1.8rem;
-  }
-
-  .about-card {
-    padding: 20px;
-  }
-
-  .about-photo {
-    width: 180px;
-    height: 180px;
-  }
-
-  .contact-form {
-    padding: 25px;
-  }
-
-  .resume-actions {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .resume-btn {
-    width: 80%;
-    justify-content: center;
-  }
-
-  .theme-toggle {
-    width: 55px;
-    height: 55px;
-    bottom: 20px;
-    right: 20px;
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr; /* Single column on very small phones */
-  }
-}
-/* ==========================================================
-   ANIMATED RAINBOW BORDERS
-========================================================== */
-
-/* ==========================================================
-   UNIFIED ANIMATED BORDERS (PROJECTS & CERTIFICATES)
-========================================================== */
-
-/* 1. The Container: This holds the moving gradient */
-.project-card {
-  position: relative;
-  border: none; /* Removing the old static border */
-  padding: 3px; /* This defines the thickness of the rainbow border */
-  background: linear-gradient(90deg, #00c6ff, #00ff99, #ff00ff, #00c6ff);
-  background-size: 300% 100%;
-  animation: rainbow-border 4s linear infinite;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-}
-
-/* 2. The Inner Mask: This creates the solid center of the card */
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 3px; /* Must match the padding above to look like a border */
-  background: #111; /* Matches your dark theme */
-  border-radius: 17px;
-  z-index: 0;
-}
-
-/* 3. Layering: Ensures images and text sit ABOVE the background mask */
-.project-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* 4. Hover Effect: Makes the card pop while keeping the animation */
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
-}
-
-/* 5. Light Mode Compatibility */
-body.light-mode .project-card::before {
-  background: #ffffff; /* Turns the inside of the card white */
-}
-
-/* 6. The Animation Keyframes (Matches your Theme Toggle) */
-@keyframes rainbow-border {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+@media (max-width: 600px) {
+  .profile { width: 190px; height: 190px; }
+  #hero h1 { font-size: 2.2rem; }
+  .resume-actions { flex-direction: column; align-items: center; }
 }
