@@ -1,286 +1,194 @@
-/* =====================================
-   PART 0: THEME ON PAGE LOAD
-===================================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme");
-  const icon = document.querySelector(".theme-toggle i");
-
-  if (savedTheme === "dark") {
-    document.body.classList.remove("light-mode");
-    icon.classList.replace("fa-sun", "fa-moon");
-  } else {
-    document.body.classList.add("light-mode");
-    icon.classList.replace("fa-moon", "fa-sun");
-  }
-});
 
 /* =====================================
-   PART 1: SCROLL REVEAL
+   SCROLL REVEAL ANIMATION
+   Reveals elements when they enter viewport
 ===================================== */
+
 function revealOnScroll() {
-  document.querySelectorAll(".reveal").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("active");
+  const reveals = document.querySelectorAll(".reveal");
+
+  reveals.forEach(element => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+
+    // Reveal when element is near viewport
+    if (elementTop < windowHeight - 100) {
+      element.classList.add("active");
     }
   });
 }
+
+// Run on scroll and on page load
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
+
+.project-image-wrapper.expanded {
+  height: auto;
+  overflow: visible;
+}
+
+.project-image-wrapper.expanded .project-image {
+  height: auto;
+  object-fit: contain;
+}
 /* =====================================
-   PART 2: PROJECT IMAGE TOGGLE
+   PROJECT IMAGE TOGGLE
+   Expands / collapses project image
 ===================================== */
+
 function toggleProjectImage(button) {
-  const card = button.closest(".project-card");
-  const wrapper = card.querySelector(".project-image-wrapper");
-  const icon = button.querySelector("i");
 
-  wrapper.classList.toggle("expanded");
-  icon.classList.toggle("fa-eye");
-  icon.classList.toggle("fa-eye-slash");
+  // Find the parent project card
+  const projectCard = button.closest(".project-card");
+
+  // Find the image wrapper inside the card
+  const imageWrapper = projectCard.querySelector(".project-image-wrapper");
+
+  // Toggle expanded class (used in CSS)
+  imageWrapper.classList.toggle("expanded");
 }
-
 /* =====================================
-   PART 3: OPEN MODAL NEAR CLICKED BUTTON
+   OPEN PROJECT MODAL
+   Loads Details (.html) or Code (.txt)
 ===================================== */
-const modal = document.getElementById("projectModal");
-const modalContent = modal.querySelector(".modal-content");
-const modalTitle = document.getElementById("modalTitle");
-const modalBody = document.getElementById("modalBody");
-const closeBtn = modal.querySelector(".close-btn");
 
-document.querySelectorAll(".details-btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const rect = btn.getBoundingClientRect();
-
-    modal.style.display = "block";
-
-    // position popup near clicked button
-    modalContent.style.top = window.scrollY + rect.bottom + 10 + "px";
-    modalContent.style.left = rect.left + "px";
-
-    modalTitle.innerText = btn.dataset.title || "Project Details";
-    modalBody.innerHTML = btn.dataset.details || "No details available";
-  });
-});
-
-// close popup
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// close when clicking outside
-document.addEventListener("click", (e) => {
-  if (!modalContent.contains(e.target) && !e.target.classList.contains("details-btn")) {
-    modal.style.display = "none";
-  }
-});
-
-/* =====================================
-   PART 5: COPY CODE
-===================================== */
-function copyCode() {
-  const code = document.querySelector("#modalBody code");
-  navigator.clipboard.writeText(code.innerText);
-
-  const btn = document.getElementById("copyBtn");
-  btn.innerText = "Copied ✓";
-  setTimeout(() => (btn.innerText = "Copy Code"), 1500);
-}
-
-/* =====================================
-   PART 6: THEME TOGGLE
-===================================== */
-function toggleTheme() {
-  document.body.classList.toggle("light-mode");
-  const icon = document.querySelector(".theme-toggle i");
-
-  if (document.body.classList.contains("light-mode")) {
-    icon.classList.replace("fa-moon", "fa-sun");
-    localStorage.setItem("theme", "light");
-  } else {
-    icon.classList.replace("fa-sun", "fa-moon");
-    localStorage.setItem("theme", "dark");
-  }
-}
-
-/* =====================================
-   PART 7: EMAILJS
-===================================== */
-emailjs.init("TZWUr1PeHYnnlkkBN");
-
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  emailjs.sendForm("service_9uitjh4", "template_re3hdru", this)
-    .then(() => {
-      alert("Message Sent Successfully!");
-      this.reset();
-    })
-    .catch(() => {
-      alert("Message Failed!");
-    });
-});
-/* =====================================
-   PART 0: THEME ON PAGE LOAD
-===================================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme");
-  const icon = document.querySelector(".theme-toggle i");
-
-  if (savedTheme === "dark") {
-    document.body.classList.remove("light-mode");
-    icon.classList.replace("fa-sun", "fa-moon");
-  } else {
-    document.body.classList.add("light-mode");
-    icon.classList.replace("fa-moon", "fa-sun");
-  }
-});
-
-/* =====================================
-   PART 1: SCROLL REVEAL
-===================================== */
-function revealOnScroll() {
-  document.querySelectorAll(".reveal").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-}
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-/* =====================================
-   PART 2: PROJECT IMAGE TOGGLE
-===================================== */
-function toggleProjectImage(button) {
-  const card = button.closest(".project-card");
-  const wrapper = card.querySelector(".project-image-wrapper");
-  const icon = button.querySelector("i");
-
-  wrapper.classList.toggle("expanded");
-  icon.classList.toggle("fa-eye");
-  icon.classList.toggle("fa-eye-slash");
-}
-
-/* =====================================
-   PART 3: OPEN MODAL NEAR CLICKED BUTTON
-===================================== */
-function openModal(title, file, event) {
-  event.preventDefault();
+function openModal(title, file) {
 
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const copyBtn = document.getElementById("copyBtn");
 
+  // Set modal title
   modalTitle.innerText = title;
+
+  // Show loading text initially
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
   fetch(file)
-    .then(res => {
-      if (!res.ok) throw new Error("File not found");
-      return res.text();
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+      return response.text();
     })
     .then(data => {
+
+      /* ---------- SOURCE CODE (.txt) ---------- */
       if (file.endsWith(".txt")) {
+
         modalBody.innerHTML = `
-<pre class="language-c"><code class="language-c">
+<pre class="language-c">
+<code class="language-c">
 ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-</code></pre>`;
+</code>
+</pre>
+        `;
+
+        // Show copy button only for code
         copyBtn.style.display = "inline-block";
-        Prism.highlightAllUnder(modalBody);
-      } else {
-        modalBody.innerHTML = `<div class="details-box">${data}</div>`;
+
+        // Highlight code if Prism is loaded
+        if (window.Prism) {
+          Prism.highlightAllUnder(modalBody);
+        }
+      }
+
+      /* ---------- DETAILS (.html) ---------- */
+      else {
+        modalBody.innerHTML = data;
+        copyBtn.style.display = "none";
       }
     })
-    .catch(() => {
+    .catch(error => {
       modalBody.innerHTML = "❌ File not found!";
+      copyBtn.style.display = "none";
+      console.error(error);
     });
 
-  /* POSITION NEAR BUTTON */
+  // Show modal
   modal.style.display = "block";
-  modal.style.position = "absolute";
-
-  const btnRect = event.currentTarget.getBoundingClientRect();
-  const modalRect = modal.getBoundingClientRect();
-
-  let top = btnRect.bottom + window.scrollY + 10;
-  let left = btnRect.left + window.scrollX;
-
-  if (left + modalRect.width > window.innerWidth) {
-    left = window.innerWidth - modalRect.width - 10;
-  }
-
-  if (top + modalRect.height > window.scrollY + window.innerHeight) {
-    top = btnRect.top + window.scrollY - modalRect.height - 10;
-  }
-
-  modal.style.top = `${top}px`;
-  modal.style.left = `${left}px`;
-}
-
+      }
 /* =====================================
-   PART 4: CLOSE MODAL
+   CLOSE MODAL
 ===================================== */
+
 function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
-}
-
-/* Click outside modal to close */
-window.addEventListener("click", e => {
   const modal = document.getElementById("projectModal");
-  if (e.target === modal) closeModal();
-});
-
-/* =====================================
-   PART 5: COPY CODE
-===================================== */
-function copyCode() {
-  const code = document.querySelector("#modalBody code");
-  navigator.clipboard.writeText(code.innerText);
-
-  const btn = document.getElementById("copyBtn");
-  btn.innerText = "Copied ✓";
-  setTimeout(() => (btn.innerText = "Copy Code"), 1500);
+  modal.style.display = "none";
 }
 
+/* Close modal when clicking outside content */
+window.addEventListener("click", function (event) {
+  const modal = document.getElementById("projectModal");
+
+  if (event.target === modal) {
+    closeModal();
+  }
+});
 /* =====================================
-   PART 6: THEME TOGGLE
+   COPY CODE BUTTON
+   Copies code text from modal
 ===================================== */
+
+function copyCode() {
+
+  // Select the code block inside modal
+  const codeBlock = document.querySelector("#modalBody code");
+
+  if (!codeBlock) return;
+
+  navigator.clipboard.writeText(codeBlock.innerText)
+    .then(() => {
+      const btn = document.getElementById("copyBtn");
+      const originalText = btn.innerText;
+
+      // Temporary feedback
+      btn.innerText = "Copied ✓";
+
+      setTimeout(() => {
+        btn.innerText = originalText;
+      }, 1500);
+    })
+    .catch(err => {
+      console.error("Copy failed:", err);
+    });
+}
+/* =====================================
+   THEME TOGGLE
+   Switch between dark and light mode
+===================================== */
+
 function toggleTheme() {
   document.body.classList.toggle("light-mode");
+
   const icon = document.querySelector(".theme-toggle i");
+  if (!icon) return;
 
   if (document.body.classList.contains("light-mode")) {
-    icon.classList.replace("fa-moon", "fa-sun");
-    localStorage.setItem("theme", "light");
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
   } else {
-    icon.classList.replace("fa-sun", "fa-moon");
-    localStorage.setItem("theme", "dark");
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
   }
 }
 
-/* =====================================
-   PART 7: EMAILJS
-===================================== */
-emailjs.init("TZWUr1PeHYnnlkkBN");
+function toggleProjectImage(button) {
+  const projectCard = button.closest(".project-card");
+  const projectImage = projectCard.querySelector(".project-image");
 
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+  if (!projectImage) return;
 
-  emailjs.sendForm("service_9uitjh4", "template_re3hdru", this)
-    .then(() => {
-      alert("Message Sent Successfully!");
-      this.reset();
-    })
-    .catch(() => {
-      alert("Message Failed!");
-    });
-});
+  // Toggle full view class
+  projectImage.classList.toggle("full-view");
 
-
-
+  // Change icon (👁️ / 🙈)
+  if (projectImage.classList.contains("full-view")) {
+    button.innerHTML = "🙈 View";
+  } else {
+    button.innerHTML = "👁️ View";
+  }
+}
