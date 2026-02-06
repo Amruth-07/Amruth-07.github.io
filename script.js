@@ -100,7 +100,7 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
       console.error(error);
     });
 
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 /* =====================================
@@ -179,3 +179,4 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       console.error("EmailJS Error:", error);
     });
 });
+
