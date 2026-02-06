@@ -10,16 +10,14 @@ function revealOnScroll() {
     const windowHeight = window.innerHeight;
     const elementTop = element.getBoundingClientRect().top;
 
-    if (elementTop < windowHeight - 50) {
+    if (elementTop < windowHeight - 100) {
       element.classList.add("active");
-    } else {
-      element.classList.remove("active");
     }
   });
 }
 
 window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);;
+window.addEventListener("load", revealOnScroll);
 
 /* =====================================
    PART 2: PROJECT IMAGE TOGGLE (VIEW)
@@ -204,5 +202,6 @@ window.addEventListener("load", function () {
 });
 
 setTimeout(revealOnScroll, 500);
+
 
 
