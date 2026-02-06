@@ -61,7 +61,7 @@ function toggleProjectImage(button) {
 /* =====================================
    PART 3: OPEN MODAL (DETAILS + CODE)
 ===================================== */
- function openModal(title, file) {
+function openModal(title, file, event) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
@@ -100,25 +100,32 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
       console.error(error);
     });
 
-  modal.style.display = "flex";
+  // Show modal (make sure modal CSS is 'position: absolute' or 'fixed')
+  modal.style.display = "block";
 
-  // Small timeout to trigger slide-up animation
-  setTimeout(() => {
-    modal.classList.add("show");
-  }, 10);
-}
+  // Position modal near the clicked button
+  if (event) {
+    const btnRect = event.target.getBoundingClientRect();
+    const modalRect = modal.getBoundingClientRect();
 
-function closeModal() {
-  const modal = document.getElementById("projectModal");
-  if (!modal) return;
+    // Calculate position: 
+    // e.g., just below the button with some margin
+    let top = btnRect.bottom + window.scrollY + 8;  // 8px below button
+    let left = btnRect.left + window.scrollX;
 
-  // Slide modal down first
-  modal.classList.remove("show");
+    // Prevent modal from going off right edge
+    if (left + modalRect.width > window.innerWidth) {
+      left = window.innerWidth - modalRect.width - 10; // 10px padding from edge
+    }
 
-  // Wait for animation to finish before hiding
-  setTimeout(() => {
-    modal.style.display = "none";
-  }, 300);
+    modal.style.top = `${top}px`;
+    modal.style.left = `${left}px`;
+  } else {
+    // fallback center
+    modal.style.top = "50%";
+    modal.style.left = "50%";
+    modal.style.transform = "translate(-50%, -50%)";
+  }
 }
 
 /* =====================================
@@ -197,5 +204,6 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       console.error("EmailJS Error:", error);
     });
 });
+
 
 
