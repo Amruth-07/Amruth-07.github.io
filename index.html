@@ -7,27 +7,20 @@
 
   <title>Amrut Hanamapure | Portfolio</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Prism Code Highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 
-  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body class="light-mode">
 
-  <!-- ================= HERO SECTION ================= -->
   <section id="hero">
-
     <div class="profile reveal">
       <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
     </div>
@@ -41,19 +34,16 @@
     <p class="reveal">
       Electronics & Communication Engineering Student
     </p>
-
   </section>
-  <!-- ================= SKILL TAGS ================= -->
+
   <div class="hero-skills">
     <span class="skill-pill">Embedded Systems</span>
     <span class="skill-pill">VLSI Basics</span>
     <span class="skill-pill">Verilog</span>
     <span class="skill-pill">PCB Design</span>
     <span class="skill-pill">Python</span>
-
   </div>
 
-  <!-- ================= INFO CARDS ================= -->
   <div class="card reveal">
     📍 <b>Location</b><br>
     Bengaluru, Karnataka, India
@@ -76,9 +66,8 @@
     City Engineering College, Bengaluru<br>
     <small>SGPA: 7.2</small>
   </div>
-  <!-- ================= HOBBIES ================= -->
-  <h2 class="section-headline reveal">Hobbies</h2>
 
+  <h2 class="section-headline reveal">Hobbies</h2>
   <div class="hobbies-wrapper">
     <div class="hobby-pill">🎧 Listening to Music</div>
     <div class="hobby-pill">📷 Photography</div>
@@ -87,9 +76,7 @@
     <div class="hobby-pill">💪🏻 Fitness</div>
   </div>
 
-  <!-- ================= SKILLS ================= -->
   <h2 class="section-headline reveal">Skills</h2>
-
   <div class="hobbies-wrapper">
     <div class="hobby-pill">💻 VLSI Design Basics</div>
     <div class="hobby-pill">🧩 Verilog</div>
@@ -98,9 +85,7 @@
     <div class="hobby-pill">🔌 PCB Design</div>
   </div>
 
-  <!-- ================= INTERESTS ================= -->
   <h2 class="section-headline reveal">My Interests</h2>
-
   <div class="hobbies-wrapper">
     <div class="hobby-pill">📈 Stock Market</div>
     <div class="hobby-pill">🌐 Web Building</div>
@@ -108,13 +93,9 @@
     <div class="hobby-pill">🏍️ Travelling</div>
   </div>
 
-  <!-- ================= ABOUT ================= -->
   <div class="card reveal about-card neon-border">
-
     <h2 class="section-headline">About Me</h2>
-
     <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-photo">
-
     <p class="about-text">
       I am an Electronics and Communication Engineering graduate with a strong
       interest in VLSI design and Embedded Systems. I have a solid understanding
@@ -130,345 +111,160 @@
       Embedded Systems where I can apply my technical knowledge, improve my
       design skills, and grow as a core electronics engineer.
     </p>
-
   </div>
-  <!-- ================= PROJECTS ================= -->
-  <h2 class="section-headline reveal">My Projects</h2>
 
+  <h2 class="section-headline reveal">My Projects</h2>
   <div class="projects-grid">
 
-    <!-- ===== Project 1 ===== -->
     <div class="project-card reveal">
-
       <div class="project-image-wrapper">
         <img src="portable.png" alt="Portable Oscilloscope" class="project-image">
       </div>
-
       <h3>Portable Oscilloscope using Arduino</h3>
-
-      <p>
-        Designed as a low-cost solution for basic signal analysis and waveform visualization in educational and laboratory applications.
-      </p>
-      <p class="tech-used">
-        <b>Technologies:</b> Arduino, Embedded C, ADC, Signal Processing
-      </p>
+      <p>Designed as a low-cost solution for basic signal analysis and waveform visualization.</p>
+      <p class="tech-used"><b>Technologies:</b> Arduino, Embedded C, ADC, Signal Processing</p>
       <div class="project-actions">
-
-        <button class="highlight-btn" onclick="toggleProjectImage(this)">
-          <i class="fas fa-eye"></i> View
-        </button>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'Portable Oscilloscope Details',
-             'oscilloscopeDetails.html'
-           )">
-          Details
-        </a>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'Portable Oscilloscope Code',
-             'oscilloscopeCode.txt'
-           )">
-          Code
-        </a>
-
+        <button class="highlight-btn" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
+        <a href="#" class="highlight-btn" onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')">Details</a>
+        <a href="#" class="highlight-btn" onclick="openModal('Portable Oscilloscope Code','oscilloscopeCode.txt')">Code</a>
       </div>
     </div>
 
-    <!-- ===== Project 2 ===== -->
     <div class="project-card reveal">
-
       <div class="project-image-wrapper">
         <img src="smart.png" alt="AgriGuard" class="project-image">
       </div>
-
       <h3>AgriGuard – Smart IoT System</h3>
-
-      <p>
-        Aims to improve agricultural efficiency and safety by automating critical farming operations using IoT technology.
-      </p>
-      <p class="tech-used">
-        <b>Technologies:</b> ESP32, IoT, Sensors, Embedded C, Wireless Communication
-      </p>
+      <p>Improves agricultural efficiency and safety by automating farming operations using IoT.</p>
+      <p class="tech-used"><b>Technologies:</b> ESP32, IoT, Sensors, Embedded C</p>
       <div class="project-actions">
-
-        <button class="highlight-btn" onclick="toggleProjectImage(this)">
-          <i class="fas fa-eye"></i> View
-        </button>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'AgriGuard Details',
-             'agriguardDetails.html'
-           )">
-          Details
-        </a>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'AgriGuard Code',
-             'Agriculture.txt'
-           )">
-          Code
-        </a>
-
+        <button class="highlight-btn" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
+        <a href="#" class="highlight-btn" onclick="openModal('AgriGuard Details','agriguardDetails.html')">Details</a>
+        <a href="#" class="highlight-btn" onclick="openModal('AgriGuard Code','Agriculture.txt')">Code</a>
       </div>
     </div>
 
-    <!-- ===== Project 3 ===== -->
     <div class="project-card reveal">
-
       <div class="project-image-wrapper">
         <img src="component-tester.png" alt="Component Tester" class="project-image">
       </div>
-
       <h3>All-in-One Component Tester</h3>
-
-      <p>
-        Useful for quick identification and testing of electronic components during circuit development and troubleshooting.
-      </p>
-      <p class="tech-used">
-        <b>Technologies:</b> Arduino, Embedded C, Electronic Components, Circuit Testing
-      </p>
+      <p>Useful for quick identification and testing of electronic components during development.</p>
+      <p class="tech-used"><b>Technologies:</b> Arduino, Embedded C, Circuit Testing</p>
       <div class="project-actions">
-
-        <button class="highlight-btn" onclick="toggleProjectImage(this)">
-          <i class="fas fa-eye"></i> View
-        </button>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'Component Tester Details',
-             'testerDetails.html'
-           )">
-          Details
-        </a>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'Component Tester Code',
-             'Tester.txt'
-           )">
-          Code
-        </a>
-
+        <button class="highlight-btn" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
+        <a href="#" class="highlight-btn" onclick="openModal('Component Tester Details','testerDetails.html')">Details</a>
+        <a href="#" class="highlight-btn" onclick="openModal('Component Tester Code','Tester.txt')">Code</a>
       </div>
     </div>
 
-    <!-- ===== Project 4 ===== -->
     <div class="project-card reveal">
-
       <div class="project-image-wrapper">
         <img src="led-pattern.png" alt="LED Pattern" class="project-image">
       </div>
-
       <h3>Generating LED Patterns Using Arduino</h3>
-
-      <p>
-        Demonstrates microcontroller-based control logic and timing concepts through visual LED pattern generation.
-      </p>
-      <p class="tech-used">
-        <b>Technologies:</b> Arduino, Embedded C, LEDs, Digital I/O
-      </p>
+      <p>Demonstrates microcontroller-based control logic through visual LED pattern generation.</p>
+      <p class="tech-used"><b>Technologies:</b> Arduino, Embedded C, LEDs, Digital I/O</p>
       <div class="project-actions">
-        <button class="highlight-btn" onclick="toggleProjectImage(this)">
-          <i class="fas fa-eye"></i> View
-        </button>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'LED Pattern Details',
-             'ledPatternDetails.html'
-           )">
-          Details
-        </a>
-
-        <a href="#" class="highlight-btn" onclick="openModal(
-             'LED Pattern Code',
-             'LED_Pattern.txt'
-           )">
-          Code
-        </a>
-
+        <button class="highlight-btn" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
+        <a href="#" class="highlight-btn" onclick="openModal('LED Pattern Details','ledPatternDetails.html')">Details</a>
+        <a href="#" class="highlight-btn" onclick="openModal('LED Pattern Code','LED_Pattern.txt')">Code</a>
       </div>
     </div>
-
   </div>
-  <!-- ================= CERTIFICATES ================= -->
-  <h2 class="section-headline reveal">Certificates</h2>
 
+  <h2 class="section-headline reveal">Certificates</h2>
   <div class="projects-grid reveal">
     <div class="project-card">
       <img src="cirtificate4.jpg" alt="Internship Certificate">
       <h3>Internship / Training Program</h3>
-      <p>
-        Organization: Training Institute / Company<br>
-        Year: 2024
-      </p>
+      <p>Organization: Training Institute / Company<br>Year: 2024</p>
     </div>
-
-
     <div class="project-card">
       <img src="cirtificate1.jpg" alt="Embedded Systems Certificate">
       <h3>Embedded Systems Training</h3>
-      <p>
-        Organization: GTTC, Belagavi<br>
-        Year: 2023
-      </p>
+      <p>Organization: GTTC, Belagavi<br>Year: 2023</p>
     </div>
-
     <div class="project-card">
       <img src="cirtificate2.jpg" alt="VLSI Certificate">
       <h3>VLSI Design Basics</h3>
-      <p>
-        Organization: Online Certification Platform<br>
-        Year: 2024
-      </p>
+      <p>Organization: Online Certification Platform<br>Year: 2024</p>
     </div>
-
     <div class="project-card">
       <img src="cirtificate3.jpg" alt="Workshop Certificate">
       <h3>Technical Workshop</h3>
-      <p>
-        Organization: Engineering Institute / Workshop<br>
-        Year: 2023
-      </p>
+      <p>Organization: Engineering Institute / Workshop<br>Year: 2023</p>
     </div>
-
-
   </div>
-  <!-- ================= RESUME ================= -->
+
   <h2 class="section-headline reveal">Resume</h2>
-
   <div class="resume-actions reveal">
-
-    <!-- VIEW RESUME -->
     <a href="Resume.pdf" target="_blank" class="resume-btn view-btn">
-      <i class="fas fa-eye"></i>
-      View
+      <i class="fas fa-eye"></i> View
     </a>
-
-    <!-- DOWNLOAD RESUME -->
     <a href="Resume.pdf" download class="resume-btn download-btn">
-      <i class="fas fa-download"></i>
-      Download
+      <i class="fas fa-download"></i> Download
     </a>
-
   </div>
-  <!-- ================= GET IN TOUCH ================= -->
-  <section class="contact-section reveal">
 
+  <section class="contact-section reveal">
     <h2 class="section-headline">Get In Touch</h2>
     <p class="contact-subtitle">Let’s Connect & Collaborate 🤝</p>
 
-    <!-- INFO CARDS -->
     <div class="contact-cards">
-
       <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <div>
-          <h4>Email</h4>
-          <p>amruthanamapure@gmail.com</p>
-        </div>
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div><h4>Email</h4><p>amruthanamapure@gmail.com</p></div>
       </div>
-
       <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-phone"></i>
-        </div>
-        <div>
-          <h4>Phone</h4>
-          <p>+91 6361508317</p>
-        </div>
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div><h4>Phone</h4><p>+91 6361508317</p></div>
       </div>
-
       <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-location-dot"></i>
-        </div>
-        <div>
-          <h4>Location</h4>
-          <p>Bengaluru, Karnataka, India</p>
-        </div>
+        <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+        <div><h4>Location</h4><p>Bengaluru, Karnataka, India</p></div>
       </div>
-
     </div>
 
-    <!-- SOCIAL ICONS -->
     <div class="contact-social">
-      <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank">
-        <i class class="fab fa-linkedin-in"></i>
-      </a>
-
-      <a href="mailto:amruthanamapure@gmail.com">
-        <i class="fas fa-envelope"></i>
-      </a>
-
-      <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-
-      <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-
-      <!-- WHATSAPP -->
-      <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-      </a>
+      <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:amruthanamapure@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 
-    <!-- CONTACT FORM -->
     <form id="contact-form" class="contact-form">
-
       <label>Name</label>
       <input type="text" name="name" placeholder="Your Name" required>
-
       <label>Email</label>
       <input type="email" name="email" placeholder="Your Email" required>
-
       <label>Subject</label>
       <input type="text" name="subject" placeholder="Project Discussion" required>
-
       <label>Message</label>
       <textarea rows="4" name="message" placeholder="Tell me about your project..." required></textarea>
-
-      <button type="submit" class="send-btn">
-        Send Message <i class="fas fa-paper-plane"></i>
-      </button>
-
+      <button type="submit" class="send-btn">Send Message <i class="fas fa-paper-plane"></i></button>
     </form>
-
   </section>
-  <!-- ================= MODAL ================= -->
-  <div id="projectModal" class="modal">
 
+  <div id="projectModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
-
       <h2 id="modalTitle"></h2>
-
-      <button id="copyBtn" class="copy-btn" onclick="copyCode()">
-        Copy Code
-      </button>
-
+      <button id="copyBtn" class="copy-btn" onclick="copyCode()">Copy Code</button>
       <div id="modalBody"></div>
     </div>
-
   </div>
 
-  <!-- ================= THEME TOGGLE ================= -->
   <button onclick="toggleTheme()" class="theme-toggle">
     <i class="fas fa-moon"></i>
   </button>
 
-  <!-- ================= SCRIPTS ================= -->
   <script src="script.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 
 </body>
-
-          </html>
+        </html>
+        
