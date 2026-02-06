@@ -1260,6 +1260,47 @@ a {
 }
 
 
+/* The modal's background container */
+#projectModal {
+  display: none; /* hidden by default */
+  position: fixed; /* stay in place */
+  z-index: 1000; /* above other content */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* enable scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* translucent black background */
+  
+  /* Flexbox centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content box */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh; /* prevent overflow */
+  overflow-y: auto; /* scroll inside modal if content is long */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative; /* for close button positioning */
+}
+.modal-content {
+  /* existing styles... */
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+#projectModal.show .modal-content {
+  transform: translateY(0);
+}
+
+
 
 
 
