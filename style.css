@@ -624,7 +624,7 @@ body.light-mode .resume-btn::after {
   width: 92%;
   max-width: 900px;
   margin: 60px auto 60px;
-  text-align: left;
+  text-align: center;
 }
 
 .contact-subtitle {
@@ -645,7 +645,7 @@ body.light-mode .resume-btn::after {
 /* Contact card */
 .contact-card {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 14px;
 
   padding: 16px 16px;
@@ -1426,6 +1426,7 @@ body.light-mode .highlight-btn i {
     font-size: 0.9rem;
   }
 }
+
 
 
 
