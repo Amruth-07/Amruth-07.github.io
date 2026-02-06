@@ -7,10 +7,7 @@
 
   <title>Amrut Hanamapure | Portfolio</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
   <!-- Google Font -->
-  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome Icons -->
@@ -23,8 +20,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="light-mode">
-
+<body>
 
   <!-- ================= HERO SECTION ================= -->
   <section id="hero">
@@ -166,7 +162,7 @@
            class="highlight-btn"
            onclick="openModal(
              'Portable Oscilloscope Details',
-             'oscilloscopeDetails.html', event
+             'oscilloscopeDetails.html'
            )">
           Details
         </a>
@@ -175,7 +171,7 @@
            class="highlight-btn"
            onclick="openModal(
              'Portable Oscilloscope Code',
-             'oscilloscopeCode.txt', event
+             'oscilloscopeCode.txt'
            )">
           Code
         </a>
@@ -426,10 +422,6 @@
 
     <!-- SOCIAL ICONS -->
     <div class="contact-social">
-
-       <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank">
-      <i class="fab fa-whatsapp"></i> 
-      </a>
       <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank">
         <i class="fab fa-github"></i>
       </a>
@@ -447,29 +439,28 @@
       </a>
     </div>
 
+    <!-- CONTACT FORM -->
+    <form class="contact-form">
 
-<form id="contact-form" class="contact-form">
+      <label>Name</label>
+      <input type="text" placeholder="Your Name" required>
 
-  <label>Name</label>
-  <input type="text" name="name" placeholder="Enter Your Name" required>
+      <label>Email</label>
+      <input type="email" placeholder="Your Email" required>
 
-  <label>Email</label>
-  <input type="email" name="email" placeholder="Enter Your Email" required>
+      <label>Subject</label>
+      <input type="text" placeholder="Project Discussion">
 
-  <label>Subject</label>
-  <input type="text" name="subject" placeholder="Enter Subject" required>
+      <label>Message</label>
+      <textarea rows="4" placeholder="Tell me about your project..."></textarea>
 
-  <label>Message</label>
-  <textarea name="message" rows="4" placeholder="Write your message..." required></textarea>
+      <button type="submit" class="send-btn">
+        Send Message <i class="fas fa-paper-plane"></i>
+      </button>
 
-  <button type="submit" class="send-btn">
-    Send Message <i class="fas fa-paper-plane"></i>
-  </button>
+    </form>
 
-</form>
-
-
-    
+  </section>
 <!-- ================= MODAL ================= -->
   <div id="projectModal" class="modal">
 
@@ -502,11 +493,6 @@
 
 </body>
 </html>  
-
-
-
-
-
 
 
 
