@@ -61,7 +61,7 @@ function toggleProjectImage(button) {
 /* =====================================
    PART 3: OPEN MODAL (DETAILS + CODE)
 ===================================== */
-function openModal(title, file) {
+ function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
@@ -101,6 +101,24 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
     });
 
   modal.style.display = "flex";
+
+  // Small timeout to trigger slide-up animation
+  setTimeout(() => {
+    modal.classList.add("show");
+  }, 10);
+}
+
+function closeModal() {
+  const modal = document.getElementById("projectModal");
+  if (!modal) return;
+
+  // Slide modal down first
+  modal.classList.remove("show");
+
+  // Wait for animation to finish before hiding
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 300);
 }
 
 /* =====================================
@@ -179,4 +197,5 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       console.error("EmailJS Error:", error);
     });
 });
+
 
