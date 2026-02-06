@@ -203,5 +203,6 @@ window.addEventListener("load", function () {
 
 });
 
+setTimeout(revealOnScroll, 500);
 
 
