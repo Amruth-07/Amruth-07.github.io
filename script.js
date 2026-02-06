@@ -1,10 +1,26 @@
 /* =====================================
+   PART 0: THEME ON PAGE LOAD (DEFAULT LIGHT MODE)
+===================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme"); // check saved theme
+  const icon = document.querySelector(".theme-toggle i");
+
+  if (savedTheme === "dark") {
+    document.body.classList.remove("light-mode"); // dark mode
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+  } else {
+    document.body.classList.add("light-mode"); // light mode default
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  }
+});
+
+/* =====================================
    PART 1: SCROLL REVEAL ANIMATION
 ===================================== */
-
 function revealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
-
   reveals.forEach(element => {
     const windowHeight = window.innerHeight;
     const elementTop = element.getBoundingClientRect().top;
@@ -17,12 +33,10 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
 /* =====================================
    PART 2: PROJECT IMAGE TOGGLE (VIEW)
-   - Default shows top 60% (CSS crop)
-   - Click expands full image
 ===================================== */
-
 function toggleProjectImage(button) {
   const card = button.closest(".project-card");
   if (!card) return;
@@ -43,10 +57,10 @@ function toggleProjectImage(button) {
     icon.classList.add("fa-eye");
   }
 }
+
 /* =====================================
    PART 3: OPEN MODAL (DETAILS + CODE)
 ===================================== */
-
 function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
@@ -65,8 +79,6 @@ function openModal(title, file) {
       return response.text();
     })
     .then(data => {
-
-      /* ---------- SOURCE CODE (.txt) ---------- */
       if (file.endsWith(".txt")) {
         modalBody.innerHTML = `
 <pre class="language-c">
@@ -75,21 +87,10 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 </code>
 </pre>
         `;
-
         copyBtn.style.display = "inline-block";
-
-        if (window.Prism) {
-          Prism.highlightAllUnder(modalBody);
-        }
-      }
-
-      /* ---------- DETAILS (.html) ---------- */
-      else {
-        modalBody.innerHTML = `
-<div class="details-box">
-${data}
-</div>
-        `;
+        if (window.Prism) Prism.highlightAllUnder(modalBody);
+      } else {
+        modalBody.innerHTML = `<div class="details-box">${data}</div>`;
         copyBtn.style.display = "none";
       }
     })
@@ -105,27 +106,22 @@ ${data}
 /* =====================================
    PART 4: CLOSE MODAL
 ===================================== */
-
 function closeModal() {
   const modal = document.getElementById("projectModal");
   if (!modal) return;
-
   modal.style.display = "none";
 }
 
 /* Click outside modal to close */
-window.addEventListener("click", function (event) {
+window.addEventListener("click", event => {
   const modal = document.getElementById("projectModal");
   if (!modal) return;
-
-  if (event.target === modal) {
-    closeModal();
-  }
+  if (event.target === modal) closeModal();
 });
+
 /* =====================================
    PART 5: COPY CODE BUTTON
 ===================================== */
-
 function copyCode() {
   const codeBlock = document.querySelector("#modalBody code");
   if (!codeBlock) return;
@@ -142,14 +138,12 @@ function copyCode() {
         btn.innerText = oldText;
       }, 1500);
     })
-    .catch(err => {
-      console.error("Copy failed:", err);
-    });
-          }
-/* =====================================
-   PART 6: THEME TOGGLE (DARK/LIGHT)
-===================================== */
+    .catch(err => console.error("Copy failed:", err));
+}
 
+/* =====================================
+   PART 6: THEME TOGGLE (DARK / LIGHT)
+===================================== */
 function toggleTheme() {
   document.body.classList.toggle("light-mode");
 
@@ -157,28 +151,31 @@ function toggleTheme() {
   if (!icon) return;
 
   if (document.body.classList.contains("light-mode")) {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  } else {
     icon.classList.remove("fa-moon");
     icon.classList.add("fa-sun");
+    localStorage.setItem("theme", "light");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+    localStorage.setItem("theme", "dark");
   }
 }
 
-
-
+/* =====================================
+   PART 7: EMAILJS FORM SUBMISSION
+===================================== */
 emailjs.init("TZWUr1PeHYnnlkkBN");
 
 document.getElementById("contact-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
   emailjs.sendForm("service_9uitjh4", "template_re3hdru", this)
-    .then(function () {
+    .then(() => {
       alert("Message Sent Successfully!");
-      document.getElementById("contact-form").reset();
+      this.reset();
     })
-    .catch(function (error) {
+    .catch(error => {
       alert("Message Failed! Please try again.");
-      console.log("EmailJS Error:", error);
+      console.error("EmailJS Error:", error);
     });
 });
