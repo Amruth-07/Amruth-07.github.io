@@ -1353,3 +1353,9 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* FIX BLANK SCREEN ISSUE */
+.reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
