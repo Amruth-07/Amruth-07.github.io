@@ -968,7 +968,50 @@ body.light-mode .theme-toggle {
     grid-template-columns: 1fr; /* Single column on very small phones */
   }
 }
+/* ==========================================================
+   ANIMATED RAINBOW BORDERS
+========================================================== */
+
+.neon-border, .project-card {
+  position: relative;
+  border: none; /* Remove static border */
+  padding: 1px; /* This creates the "border thickness" */
+  background: linear-gradient(90deg, #00c6ff, #00ff99, #ff00ff, #00c6ff);
+  background-size: 300% 100%;
+  animation: rainbow-border 3s linear infinite;
+  border-radius: 20px; /* Matches your card shape */
+  overflow: hidden;
+}
+
+/* This creates the inner solid area so the card isn't transparent */
+.neon-border::before, .project-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px; /* Thickness of the border */
+  background: #111; /* Matches your card background */
+  border-radius: 17px;
+  z-index: 0;
+}
+
+/* Ensure content stays above the background layers */
+.neon-border > *, .project-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Light Mode Support */
+body.light-mode .neon-border::before, 
+body.light-mode .project-card::before {
+  background: #ffffff;
+}
+
+/* The Animation */
+@keyframes rainbow-border {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
 
 /* ==========================================================
    END OF CSS FILE
 ========================================================== */
+
