@@ -47,6 +47,7 @@ function openModal(title, file, event) {
   event.preventDefault();
 
   const modal = document.getElementById("projectModal");
+  const content = modal.querySelector(".modal-content");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const copyBtn = document.getElementById("copyBtn");
@@ -55,11 +56,33 @@ function openModal(title, file, event) {
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
+  modal.style.display = "block";
+
+  /* POSITION POPUP NEAR CLICKED BUTTON */
+  const btnRect = event.currentTarget.getBoundingClientRect();
+
+  let top = btnRect.bottom + window.scrollY + 10;
+  let left = btnRect.left + window.scrollX;
+
+  content.style.top = `${top}px`;
+  content.style.left = `${left}px`;
+
+  /* KEEP INSIDE SCREEN */
+  setTimeout(() => {
+    const rect = content.getBoundingClientRect();
+
+    if (rect.right > window.innerWidth) {
+      content.style.left = `${window.innerWidth - rect.width - 15}px`;
+    }
+
+    if (rect.bottom > window.innerHeight) {
+      content.style.top = `${btnRect.top + window.scrollY - rect.height - 10}px`;
+    }
+  }, 0);
+
+  /* LOAD FILE */
   fetch(file)
-    .then(res => {
-      if (!res.ok) throw new Error("File not found");
-      return res.text();
-    })
+    .then(r => r.text())
     .then(data => {
       if (file.endsWith(".txt")) {
         modalBody.innerHTML = `
@@ -72,32 +95,21 @@ ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
         modalBody.innerHTML = `<div class="details-box">${data}</div>`;
       }
     })
-    .catch(() => {
-      modalBody.innerHTML = "❌ File not found!";
-    });
-
-  /* POSITION NEAR BUTTON */
-  modal.style.display = "block";
-  modal.style.position = "absolute";
-
-  const btnRect = event.currentTarget.getBoundingClientRect();
-  const modalRect = modal.getBoundingClientRect();
-
-  let top = btnRect.bottom + window.scrollY + 10;
-  let left = btnRect.left + window.scrollX;
-
-  if (left + modalRect.width > window.innerWidth) {
-    left = window.innerWidth - modalRect.width - 10;
-  }
-
-  if (top + modalRect.height > window.scrollY + window.innerHeight) {
-    top = btnRect.top + window.scrollY - modalRect.height - 10;
-  }
-
-  modal.style.top = `${top}px`;
-  modal.style.left = `${left}px`;
+    .catch(() => modalBody.innerHTML = "❌ File not found");
 }
 
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+
+/* Click outside popup */
+window.addEventListener("click", e => {
+  const modal = document.getElementById("projectModal");
+  const content = modal.querySelector(".modal-content");
+  if (e.target === modal) closeModal();
+});
+
+ 
 /* =====================================
    PART 4: CLOSE MODAL
 ===================================== */
@@ -314,3 +326,4 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       alert("Message Failed!");
     });
 });
+
