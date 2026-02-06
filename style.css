@@ -1001,8 +1001,8 @@ body.light-mode .send-btn {
 ========================= */
 .theme-toggle {
   position: fixed;
-  top: 15px;
-  left: 15px;
+  top: -8211px;
+  left: -7px;
   z-index: 99999;
 
   width: 25px;
@@ -1289,6 +1289,7 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
 
 
 
