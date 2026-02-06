@@ -43,63 +43,39 @@ function toggleProjectImage(button) {
 /* =====================================
    PART 3: OPEN MODAL NEAR CLICKED BUTTON
 ===================================== */
-function openModal(title, file, event) {
-  event.preventDefault();
+const modal = document.getElementById("projectModal");
+const modalContent = modal.querySelector(".modal-content");
+const modalTitle = document.getElementById("modalTitle");
+const modalBody = document.getElementById("modalBody");
+const closeBtn = modal.querySelector(".close-btn");
 
-  const modal = document.getElementById("projectModal");
-  const content = modal.querySelector(".modal-content");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBody = document.getElementById("modalBody");
-  const copyBtn = document.getElementById("copyBtn");
+document.querySelectorAll(".details-btn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  modalTitle.innerText = title;
-  modalBody.innerHTML = "Loading...";
-  copyBtn.style.display = "none";
+    const rect = btn.getBoundingClientRect();
 
-  modal.style.display = "block";
+    modal.style.display = "block";
 
-  const btn = event.currentTarget.getBoundingClientRect();
+    // position popup near clicked button
+    modalContent.style.top = window.scrollY + rect.bottom + 10 + "px";
+    modalContent.style.left = rect.left + "px";
 
-  let top = btn.bottom + window.scrollY + 8;
-  let left = btn.left + window.scrollX;
-
-  content.style.top = `${top}px`;
-  content.style.left = `${left}px`;
-
-  requestAnimationFrame(() => {
-    const rect = content.getBoundingClientRect();
-
-    if (rect.right > window.innerWidth) {
-      content.style.left = `${window.innerWidth - rect.width - 12}px`;
-    }
-
-    if (rect.bottom > window.innerHeight) {
-      content.style.top = `${btn.top + window.scrollY - rect.height - 12}px`;
-    }
+    modalTitle.innerText = btn.dataset.title || "Project Details";
+    modalBody.innerHTML = btn.dataset.details || "No details available";
   });
+});
 
-  fetch(file)
-    .then(r => r.text())
-    .then(data => {
-      if (file.endsWith(".txt")) {
-        modalBody.innerHTML = `<pre><code>${data
-          .replace(/</g,"&lt;")
-          .replace(/>/g,"&gt;")}</code></pre>`;
-        copyBtn.style.display = "inline-block";
-      } else {
-        modalBody.innerHTML = data;
-      }
-    })
-    .catch(() => modalBody.innerHTML = "❌ File not found");
-}
+// close popup
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
 
-function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
-}
-
-window.addEventListener("click", e => {
-  const modal = document.getElementById("projectModal");
-  if (e.target === modal) closeModal();
+// close when clicking outside
+document.addEventListener("click", (e) => {
+  if (!modalContent.contains(e.target) && !e.target.classList.contains("details-btn")) {
+    modal.style.display = "none";
+  }
 });
 
 /* =====================================
@@ -305,5 +281,6 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       alert("Message Failed!");
     });
 });
+
 
 
