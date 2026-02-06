@@ -58,41 +58,36 @@ function openModal(title, file, event) {
 
   modal.style.display = "block";
 
-  /* POSITION POPUP NEAR CLICKED BUTTON */
-  const btnRect = event.currentTarget.getBoundingClientRect();
+  const btn = event.currentTarget.getBoundingClientRect();
 
-  let top = btnRect.bottom + window.scrollY + 10;
-  let left = btnRect.left + window.scrollX;
+  let top = btn.bottom + window.scrollY + 8;
+  let left = btn.left + window.scrollX;
 
   content.style.top = `${top}px`;
   content.style.left = `${left}px`;
 
-  /* KEEP INSIDE SCREEN */
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     const rect = content.getBoundingClientRect();
 
     if (rect.right > window.innerWidth) {
-      content.style.left = `${window.innerWidth - rect.width - 15}px`;
+      content.style.left = `${window.innerWidth - rect.width - 12}px`;
     }
 
     if (rect.bottom > window.innerHeight) {
-      content.style.top = `${btnRect.top + window.scrollY - rect.height - 10}px`;
+      content.style.top = `${btn.top + window.scrollY - rect.height - 12}px`;
     }
-  }, 0);
+  });
 
-  /* LOAD FILE */
   fetch(file)
     .then(r => r.text())
     .then(data => {
       if (file.endsWith(".txt")) {
-        modalBody.innerHTML = `
-<pre class="language-c"><code class="language-c">
-${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-</code></pre>`;
+        modalBody.innerHTML = `<pre><code>${data
+          .replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;")}</code></pre>`;
         copyBtn.style.display = "inline-block";
-        Prism.highlightAllUnder(modalBody);
       } else {
-        modalBody.innerHTML = `<div class="details-box">${data}</div>`;
+        modalBody.innerHTML = data;
       }
     })
     .catch(() => modalBody.innerHTML = "❌ File not found");
@@ -102,22 +97,6 @@ function closeModal() {
   document.getElementById("projectModal").style.display = "none";
 }
 
-/* Click outside popup */
-window.addEventListener("click", e => {
-  const modal = document.getElementById("projectModal");
-  const content = modal.querySelector(".modal-content");
-  if (e.target === modal) closeModal();
-});
-
- 
-/* =====================================
-   PART 4: CLOSE MODAL
-===================================== */
-function closeModal() {
-  document.getElementById("projectModal").style.display = "none";
-}
-
-/* Click outside modal to close */
 window.addEventListener("click", e => {
   const modal = document.getElementById("projectModal");
   if (e.target === modal) closeModal();
@@ -326,4 +305,5 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       alert("Message Failed!");
     });
 });
+
 
