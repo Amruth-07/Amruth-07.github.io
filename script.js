@@ -1,193 +1,146 @@
 /* =====================================
-   PART 0: THEME ON PAGE LOAD (DEFAULT LIGHT MODE)
+   PART 0: THEME ON PAGE LOAD
 ===================================== */
 document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme"); // check saved theme
+  const savedTheme = localStorage.getItem("theme");
   const icon = document.querySelector(".theme-toggle i");
 
   if (savedTheme === "dark") {
-    document.body.classList.remove("light-mode"); // dark mode
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
+    document.body.classList.remove("light-mode");
+    icon.classList.replace("fa-sun", "fa-moon");
   } else {
-    document.body.classList.add("light-mode"); // light mode default
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
+    document.body.classList.add("light-mode");
+    icon.classList.replace("fa-moon", "fa-sun");
   }
 });
 
 /* =====================================
-   PART 1: SCROLL REVEAL ANIMATION
+   PART 1: SCROLL REVEAL
 ===================================== */
 function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
-  reveals.forEach(element => {
-    const windowHeight = window.innerHeight;
-    const elementTop = element.getBoundingClientRect().top;
-
-    if (elementTop < windowHeight - 100) {
-      element.classList.add("active");
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
     }
   });
 }
-
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
 /* =====================================
-   PART 2: PROJECT IMAGE TOGGLE (VIEW)
+   PART 2: PROJECT IMAGE TOGGLE
 ===================================== */
 function toggleProjectImage(button) {
   const card = button.closest(".project-card");
-  if (!card) return;
-
   const wrapper = card.querySelector(".project-image-wrapper");
-  if (!wrapper) return;
+  const icon = button.querySelector("i");
 
   wrapper.classList.toggle("expanded");
-
-  const icon = button.querySelector("i");
-  if (!icon) return;
-
-  if (wrapper.classList.contains("expanded")) {
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
-  } else {
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
-  }
+  icon.classList.toggle("fa-eye");
+  icon.classList.toggle("fa-eye-slash");
 }
 
 /* =====================================
-   PART 3: OPEN MODAL (DETAILS + CODE)
+   PART 3: OPEN MODAL NEAR CLICKED BUTTON
 ===================================== */
 function openModal(title, file, event) {
+  event.preventDefault();
+
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const copyBtn = document.getElementById("copyBtn");
-
-  if (!modal || !modalTitle || !modalBody || !copyBtn) return;
 
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
   fetch(file)
-    .then(response => {
-      if (!response.ok) throw new Error("File not found");
-      return response.text();
+    .then(res => {
+      if (!res.ok) throw new Error("File not found");
+      return res.text();
     })
     .then(data => {
       if (file.endsWith(".txt")) {
         modalBody.innerHTML = `
-<pre class="language-c">
-<code class="language-c">
+<pre class="language-c"><code class="language-c">
 ${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-</code>
-</pre>
-        `;
+</code></pre>`;
         copyBtn.style.display = "inline-block";
-        if (window.Prism) Prism.highlightAllUnder(modalBody);
+        Prism.highlightAllUnder(modalBody);
       } else {
         modalBody.innerHTML = `<div class="details-box">${data}</div>`;
-        copyBtn.style.display = "none";
       }
     })
-    .catch(error => {
+    .catch(() => {
       modalBody.innerHTML = "❌ File not found!";
-      copyBtn.style.display = "none";
-      console.error(error);
     });
 
-  // Show modal (make sure modal CSS is 'position: absolute' or 'fixed')
+  /* POSITION NEAR BUTTON */
   modal.style.display = "block";
+  modal.style.position = "absolute";
 
-  // Position modal near the clicked button
-  if (event) {
-    const btnRect = event.target.getBoundingClientRect();
-    const modalRect = modal.getBoundingClientRect();
+  const btnRect = event.currentTarget.getBoundingClientRect();
+  const modalRect = modal.getBoundingClientRect();
 
-    // Calculate position: 
-    // e.g., just below the button with some margin
-    let top = btnRect.bottom + window.scrollY + 8;  // 8px below button
-    let left = btnRect.left + window.scrollX;
+  let top = btnRect.bottom + window.scrollY + 10;
+  let left = btnRect.left + window.scrollX;
 
-    // Prevent modal from going off right edge
-    if (left + modalRect.width > window.innerWidth) {
-      left = window.innerWidth - modalRect.width - 10; // 10px padding from edge
-    }
-
-    modal.style.top = `${top}px`;
-    modal.style.left = `${left}px`;
-  } else {
-    // fallback center
-    modal.style.top = "50%";
-    modal.style.left = "50%";
-    modal.style.transform = "translate(-50%, -50%)";
+  if (left + modalRect.width > window.innerWidth) {
+    left = window.innerWidth - modalRect.width - 10;
   }
+
+  if (top + modalRect.height > window.scrollY + window.innerHeight) {
+    top = btnRect.top + window.scrollY - modalRect.height - 10;
+  }
+
+  modal.style.top = `${top}px`;
+  modal.style.left = `${left}px`;
 }
 
 /* =====================================
    PART 4: CLOSE MODAL
 ===================================== */
 function closeModal() {
-  const modal = document.getElementById("projectModal");
-  if (!modal) return;
-  modal.style.display = "none";
+  document.getElementById("projectModal").style.display = "none";
 }
 
 /* Click outside modal to close */
-window.addEventListener("click", event => {
+window.addEventListener("click", e => {
   const modal = document.getElementById("projectModal");
-  if (!modal) return;
-  if (event.target === modal) closeModal();
+  if (e.target === modal) closeModal();
 });
 
 /* =====================================
-   PART 5: COPY CODE BUTTON
+   PART 5: COPY CODE
 ===================================== */
 function copyCode() {
-  const codeBlock = document.querySelector("#modalBody code");
-  if (!codeBlock) return;
+  const code = document.querySelector("#modalBody code");
+  navigator.clipboard.writeText(code.innerText);
 
-  navigator.clipboard.writeText(codeBlock.innerText)
-    .then(() => {
-      const btn = document.getElementById("copyBtn");
-      if (!btn) return;
-
-      const oldText = btn.innerText;
-      btn.innerText = "Copied ✓";
-
-      setTimeout(() => {
-        btn.innerText = oldText;
-      }, 1500);
-    })
-    .catch(err => console.error("Copy failed:", err));
+  const btn = document.getElementById("copyBtn");
+  btn.innerText = "Copied ✓";
+  setTimeout(() => (btn.innerText = "Copy Code"), 1500);
 }
 
 /* =====================================
-   PART 6: THEME TOGGLE (DARK / LIGHT)
+   PART 6: THEME TOGGLE
 ===================================== */
 function toggleTheme() {
   document.body.classList.toggle("light-mode");
-
   const icon = document.querySelector(".theme-toggle i");
-  if (!icon) return;
 
   if (document.body.classList.contains("light-mode")) {
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
+    icon.classList.replace("fa-moon", "fa-sun");
     localStorage.setItem("theme", "light");
   } else {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
+    icon.classList.replace("fa-sun", "fa-moon");
     localStorage.setItem("theme", "dark");
   }
 }
 
 /* =====================================
-   PART 7: EMAILJS FORM SUBMISSION
+   PART 7: EMAILJS
 ===================================== */
 emailjs.init("TZWUr1PeHYnnlkkBN");
 
@@ -199,11 +152,165 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       alert("Message Sent Successfully!");
       this.reset();
     })
-    .catch(error => {
-      alert("Message Failed! Please try again.");
-      console.error("EmailJS Error:", error);
+    .catch(() => {
+      alert("Message Failed!");
     });
 });
+/* =====================================
+   PART 0: THEME ON PAGE LOAD
+===================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  const icon = document.querySelector(".theme-toggle i");
 
+  if (savedTheme === "dark") {
+    document.body.classList.remove("light-mode");
+    icon.classList.replace("fa-sun", "fa-moon");
+  } else {
+    document.body.classList.add("light-mode");
+    icon.classList.replace("fa-moon", "fa-sun");
+  }
+});
 
+/* =====================================
+   PART 1: SCROLL REVEAL
+===================================== */
+function revealOnScroll() {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
+/* =====================================
+   PART 2: PROJECT IMAGE TOGGLE
+===================================== */
+function toggleProjectImage(button) {
+  const card = button.closest(".project-card");
+  const wrapper = card.querySelector(".project-image-wrapper");
+  const icon = button.querySelector("i");
+
+  wrapper.classList.toggle("expanded");
+  icon.classList.toggle("fa-eye");
+  icon.classList.toggle("fa-eye-slash");
+}
+
+/* =====================================
+   PART 3: OPEN MODAL NEAR CLICKED BUTTON
+===================================== */
+function openModal(title, file, event) {
+  event.preventDefault();
+
+  const modal = document.getElementById("projectModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalBody = document.getElementById("modalBody");
+  const copyBtn = document.getElementById("copyBtn");
+
+  modalTitle.innerText = title;
+  modalBody.innerHTML = "Loading...";
+  copyBtn.style.display = "none";
+
+  fetch(file)
+    .then(res => {
+      if (!res.ok) throw new Error("File not found");
+      return res.text();
+    })
+    .then(data => {
+      if (file.endsWith(".txt")) {
+        modalBody.innerHTML = `
+<pre class="language-c"><code class="language-c">
+${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+</code></pre>`;
+        copyBtn.style.display = "inline-block";
+        Prism.highlightAllUnder(modalBody);
+      } else {
+        modalBody.innerHTML = `<div class="details-box">${data}</div>`;
+      }
+    })
+    .catch(() => {
+      modalBody.innerHTML = "❌ File not found!";
+    });
+
+  /* POSITION NEAR BUTTON */
+  modal.style.display = "block";
+  modal.style.position = "absolute";
+
+  const btnRect = event.currentTarget.getBoundingClientRect();
+  const modalRect = modal.getBoundingClientRect();
+
+  let top = btnRect.bottom + window.scrollY + 10;
+  let left = btnRect.left + window.scrollX;
+
+  if (left + modalRect.width > window.innerWidth) {
+    left = window.innerWidth - modalRect.width - 10;
+  }
+
+  if (top + modalRect.height > window.scrollY + window.innerHeight) {
+    top = btnRect.top + window.scrollY - modalRect.height - 10;
+  }
+
+  modal.style.top = `${top}px`;
+  modal.style.left = `${left}px`;
+}
+
+/* =====================================
+   PART 4: CLOSE MODAL
+===================================== */
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+
+/* Click outside modal to close */
+window.addEventListener("click", e => {
+  const modal = document.getElementById("projectModal");
+  if (e.target === modal) closeModal();
+});
+
+/* =====================================
+   PART 5: COPY CODE
+===================================== */
+function copyCode() {
+  const code = document.querySelector("#modalBody code");
+  navigator.clipboard.writeText(code.innerText);
+
+  const btn = document.getElementById("copyBtn");
+  btn.innerText = "Copied ✓";
+  setTimeout(() => (btn.innerText = "Copy Code"), 1500);
+}
+
+/* =====================================
+   PART 6: THEME TOGGLE
+===================================== */
+function toggleTheme() {
+  document.body.classList.toggle("light-mode");
+  const icon = document.querySelector(".theme-toggle i");
+
+  if (document.body.classList.contains("light-mode")) {
+    icon.classList.replace("fa-moon", "fa-sun");
+    localStorage.setItem("theme", "light");
+  } else {
+    icon.classList.replace("fa-sun", "fa-moon");
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+/* =====================================
+   PART 7: EMAILJS
+===================================== */
+emailjs.init("TZWUr1PeHYnnlkkBN");
+
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_9uitjh4", "template_re3hdru", this)
+    .then(() => {
+      alert("Message Sent Successfully!");
+      this.reset();
+    })
+    .catch(() => {
+      alert("Message Failed!");
+    });
+});
