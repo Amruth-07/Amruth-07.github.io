@@ -188,7 +188,7 @@ window.addEventListener("load", function () {
 
     emailjs.sendForm(
       "service_9uitjh4",
-      "template_re3hdru,
+      "template_re3hdru",
       form
     )
       .then(() => {
@@ -202,5 +202,6 @@ window.addEventListener("load", function () {
   });
 
 });
+
 
 
