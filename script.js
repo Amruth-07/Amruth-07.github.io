@@ -17,10 +17,9 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
 /* =====================================
    PART 2: PROJECT IMAGE TOGGLE (VIEW)
-   - Default shows top 60% (CSS crop)
-   - Click expands full image
 ===================================== */
 
 function toggleProjectImage(button) {
@@ -43,6 +42,7 @@ function toggleProjectImage(button) {
     icon.classList.add("fa-eye");
   }
 }
+
 /* =====================================
    PART 3: OPEN MODAL (DETAILS + CODE)
 ===================================== */
@@ -122,6 +122,7 @@ window.addEventListener("click", function (event) {
     closeModal();
   }
 });
+
 /* =====================================
    PART 5: COPY CODE BUTTON
 ===================================== */
@@ -145,7 +146,8 @@ function copyCode() {
     .catch(err => {
       console.error("Copy failed:", err);
     });
-          }
+}
+
 /* =====================================
    PART 6: THEME TOGGLE (DARK/LIGHT)
 ===================================== */
@@ -164,3 +166,36 @@ function toggleTheme() {
     icon.classList.add("fa-sun");
   }
 }
+
+/* =====================================
+   PART 7: EMAILJS CONTACT FORM
+===================================== */
+
+window.addEventListener("load", function () {
+
+  if (window.emailjs) {
+    emailjs.init("YOUR_PUBLIC_KEY"); 
+  }
+
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      form
+    )
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        form.reset();
+      })
+      .catch((error) => {
+        alert("❌ Message not sent! Check EmailJS setup.");
+        console.error("EmailJS Error:", error);
+      });
+  });
+
+});
