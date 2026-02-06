@@ -1,0 +1,1969 @@
+/* ==========================================================
+   PART 1: GLOBAL RESET + THEME BASE (DARK & LIGHT MODE)
+   ----------------------------------------------------------
+   REQUIREMENTS:
+   ✅ Dark Mode = Full black background + full white letters
+   ✅ Light Mode = Full white background + black letters
+   ✅ No default browser margin/padding
+========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000000; /* dark mode background */
+  color: #ffffff;      /* dark mode text */
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode {
+  background: #ffffff; /* light mode background */
+  color: #000000;      /* light mode text */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, small, label {
+  color: inherit;
+}
+/* ==========================================================
+   PART 2: HERO SECTION + PROFILE PHOTO
+   ----------------------------------------------------------
+   HTML:
+   <section id="hero">
+     <div class="profile reveal">
+       <img ...>
+     </div>
+     <h2>...</h2>
+     <h1><span>...</span></h1>
+     <p>...</p>
+   </section>
+
+   REQUIREMENTS:
+   ✅ Profile photo bigger
+   ✅ Reduce extra gap
+   ✅ Neon gradient animated border
+========================================================== */
+
+#hero {
+  min-height: auto;
+  padding: 25px 15px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.profile {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+
+  padding: 5px;
+  margin-bottom: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #8f00ff,
+    #00ff99,
+    #00f2ff
+  );
+
+  background-size: 400% 400%;
+  animation: profileBorderMove 4s linear infinite;
+
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
+              0 0 30px rgba(143, 0, 255, 0.45);
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  object-fit: cover;
+  background: #000000;
+}
+
+@keyframes profileBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* HERO TEXT */
+#hero h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 6px 0 4px;
+}
+
+#hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 4px 0 10px;
+  line-height: 1.2;
+}
+
+#hero h1 span {
+  color: #00f2ff;
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.75);
+}
+
+#hero p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .profile {
+    width: 190px;
+    height: 190px;
+  }
+
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* LIGHT MODE FIX */
+body.light-mode #hero h2,
+body.light-mode #hero h1,
+body.light-mode #hero p {
+  color: #000000;
+  opacity: 1;
+}
+
+body.light-mode #hero h1 span {
+  color: #007c91;
+  text-shadow: none;
+  }
+/* ==========================================================
+   PART 3: HERO SKILL PILLS (TOP TAGS)
+   ----------------------------------------------------------
+   HTML:
+   <div class="hero-skills">
+     <span class="skill-pill">...</span>
+   </div>
+
+   REQUIREMENTS:
+   ✅ Neon animated border
+   ✅ Dark mode visible
+   ✅ Light mode visible
+========================================================== */
+
+.hero-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 12px;
+  margin: 18px 15px 30px;
+}
+
+.skill-pill {
+  padding: 8px 16px;
+  border-radius: 30px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: #ffffff;
+
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: skillBorderMove 3s linear infinite;
+
+  transition: 0.5s ease;
+}
+
+@keyframes skillBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.skill-pill:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.35),
+              0 0 18px rgba(143, 0, 255, 0.25);
+}
+
+/* LIGHT MODE FIX */
+body.light-mode .skill-pill {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+}
+/* ==========================================================
+   PART 4: INFO CARDS (LOCATION / EXPERTISE / EDUCATION etc.)
+   ----------------------------------------------------------
+   HTML:
+   <div class="card reveal"> ... </div>
+
+   REQUIREMENTS:
+   ✅ Neon animated gradient border
+   ✅ Dark mode = black + white text
+   ✅ Light mode = white + black text
+========================================================== */
+
+.card {
+  width: 92%;
+  max-width: 720px;
+
+  margin: 18px auto;
+  padding: 18px 18px;
+
+  border-radius: 18px;
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: cardBorderMove 5s linear infinite;
+
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.12);
+  transition: 0.5s ease;
+}
+
+@keyframes cardBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 22px rgba(0, 242, 255, 0.35),
+              0 0 30px rgba(143, 0, 255, 0.22);
+}
+
+/* Highlight bold text */
+.card b {
+  color: #00f2ff;
+  font-weight: 800;
+}
+
+/* Light mode fix */
+body.light-mode .card {
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .card b {
+  color: #000000;
+}
+/* ==========================================================
+   PART 5: ABOUT ME SECTION
+   ----------------------------------------------------------
+   HTML:
+   <div class="card reveal about-card">
+     <h2 class="section-headline">About Me</h2>
+     <img class="about-photo">
+     <p class="about-text">...</p>
+   </div>
+
+   REQUIREMENTS:
+   ✅ Image premium style
+   ✅ Text readable in both modes
+========================================================== */
+
+.about-card {
+  text-align: center;
+  padding: 22px 18px;
+}
+
+.about-photo {
+  width: 300px;
+  max-width: 90%;
+
+  margin: 18px auto;
+  border-radius: 12px;
+
+  border: 1px solid rgba(0, 242, 255, 0.35);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.18);
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.8;
+
+  max-width: 850px;
+  margin: auto;
+
+  opacity: 0.95;
+}
+
+/* Light mode fix */
+body.light-mode .about-photo {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .about-text {
+  color: #000000;
+  opacity: 1;
+}
+/* ==========================================================
+   PART 6: SECTION HEADINGS
+   ----------------------------------------------------------
+   HTML:
+   <h2 class="section-headline reveal">Hobbies</h2>
+
+   REQUIREMENTS:
+   ✅ Neon heading visible in dark mode
+   ✅ Light mode heading visible
+   ✅ Reduce unwanted extra gaps
+========================================================== */
+
+.section-headline {
+  text-align: center;
+
+  font-size: 2rem;
+  font-weight: 900;
+
+  margin-top: 45px;
+  margin-bottom: 22px;
+
+  color: #00f2ff;
+  text-shadow: 0 0 14px rgba(0, 242, 255, 0.7);
+}
+
+/* Light mode fix */
+body.light-mode .section-headline {
+  color: #007c91;
+  text-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .section-headline {
+    font-size: 1.9rem;
+    margin-top: 35px;
+    margin-bottom: 18px;
+  }
+}
+/* ==========================================================
+   PART 7: HOBBIES / SKILLS / INTERESTS PILLS
+   ----------------------------------------------------------
+   HTML:
+   <div class="hobbies-wrapper">
+     <div class="hobby-pill dark">...</div>
+   </div>
+
+   REQUIREMENTS:
+   ✅ Solid inside background
+   ✅ Only border neon animated
+   ✅ Dark mode white text
+   ✅ Light mode black text
+========================================================== */
+
+.hobbies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 16px;
+  margin: 18px 15px 40px;
+}
+
+.hobby-pill {
+  position: relative;
+  padding: 12px 22px;
+  border-radius: 40px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: #ffffff;
+  background: #0b0f1a;
+
+  z-index: 1;
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+/* Neon border animation */
+.hobby-pill::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 45px;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #ff00ff,
+    #00ff99,
+    #00f2ff
+  );
+
+  background-size: 400% 400%;
+  animation: hobbyBorderMove 3s linear infinite;
+
+  z-index: -1;
+}
+
+/* Inside background */
+.hobby-pill::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 38px;
+  background: #0b0f1a;
+  z-index: -1;
+}
+
+@keyframes hobbyBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+.hobby-pill:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 16px rgba(0, 242, 255, 0.45),
+              0 0 25px rgba(255, 0, 255, 0.25);
+}
+
+/* Light mode fix */
+body.light-mode .hobby-pill {
+  color: #000000;
+  background: #ffffff;
+}
+
+body.light-mode .hobby-pill::after {
+  background: #ffffff;
+}
+/* ==========================================================
+   PART 8: PROJECTS SECTION
+   ----------------------------------------------------------
+   REQUIREMENTS:
+   ✅ Responsive grid
+   ✅ Neon animated border cards
+   ✅ Image shows only TOP 60% always (crop bottom 40%)
+   ✅ On View click = show full image (expanded class)
+========================================================== */
+
+.projects-grid {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 22px;
+  padding-bottom: 30px;
+}
+
+/* PROJECT CARD */
+.project-card {
+  border-radius: 14px;
+  padding: 14px;
+
+  color: #ffffff;
+
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: projectCardBorderMove 5s linear infinite;
+
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.12);
+  transition: 0.5s ease;
+
+  overflow: hidden;
+}
+
+@keyframes projectCardBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px rgba(0, 242, 255, 0.35),
+              0 0 30px rgba(143, 0, 255, 0.22);
+}
+
+/* IMAGE WRAPPER (CROP DEFAULT TOP 60%) */
+.project-image-wrapper {
+  width: 100%;
+  height: 220px;      /* crop height */
+  overflow: hidden;
+
+  border-radius: 16px;
+  margin-bottom: 14px;
+
+  transition: 0.4s ease;
+}
+
+/* IMAGE INSIDE */
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: top;
+
+  border-radius: 16px;
+  transition: 0.4s ease;
+}
+
+/* EXPANDED IMAGE (VIEW CLICK) */
+.project-image-wrapper.expanded {
+  height: auto;
+  overflow: visible;
+}
+
+.project-image-wrapper.expanded img {
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* PROJECT TITLE */
+.project-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+
+  margin: 10px 0 8px;
+
+  color: #00f2ff;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.45);
+}
+
+/* PROJECT DESCRIPTION */
+.project-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+
+  margin-bottom: 14px;
+}
+
+/* LIGHT MODE FIX */
+body.light-mode .project-card {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .project-card h3 {
+  color: #007c91;
+  text-shadow: none;
+}
+
+body.light-mode .project-card p {
+  color: #000000;
+  opacity: 0.9;
+}
+/* ==========================================================
+   PART 9: PROJECT ICON BUTTONS (VIEW / DETAILS / CODE)
+   ----------------------------------------------------------
+   REQUIREMENTS:
+   ✅ Icons only
+   ✅ Thin vertical height
+   ✅ Always single line
+   ✅ Neon animated border
+   ✅ Works for <button> and <a>
+========================================================== */
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;   /* prevents overlap */
+  margin-top: 18px;
+}
+  gap: 14px;
+  margin-top: 10px;
+
+  flex-wrap: nowrap;
+}
+/* BUTTON RESET + STYLE */
+.project-actions .highlight-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 10px 16px;   /* perfect size */
+  min-width: 95px;      /* prevents shrinking */
+  font-size: 0.9rem;    /* smaller text */
+  font-weight: 600;
+
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;  /* stops breaking text */
+}
+.project-actions .highlight-btn i {
+  font-size: 1rem;
+}
+
+/* NEON BORDER */
+.project-actions button::before,
+.project-actions a::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #ff00ff,
+    #00ff99,
+    #00f2ff
+  );
+
+  background-size: 400% 400%;
+  animation: actionBorderMove 3s linear infinite;
+
+  z-index: -1;
+}
+
+/* INNER BACKGROUND */
+.project-actions button::after,
+.project-actions a::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+
+  border-radius: 12px;
+  background: #0b0f1a;
+
+  z-index: -1;
+}
+
+@keyframes actionBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* HOVER EFFECT */
+.project-actions button:hover,
+.project-actions a:hover {
+  transform: translateY(-3px) scale(1.08);
+
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+              0 0 25px rgba(255, 0, 255, 0.25);
+}
+
+/* ACTIVE CLICK EFFECT */
+.project-actions button:active,
+.project-actions a:active {
+  transform: scale(0.95);
+}
+
+/* LIGHT MODE FIX */
+body.light-mode .project-actions button,
+body.light-mode .project-actions a {
+  color: #000000;
+}
+
+body.light-mode .project-actions button::after,
+body.light-mode .project-actions a::after {
+  background: #ffffff;
+}
+/* ==========================================================
+   PART 10: CERTIFICATES + RESUME SECTION
+   ----------------------------------------------------------
+   REQUIREMENTS:
+   ✅ Certificate images proper size
+   ✅ Resume buttons neon border
+   ✅ Light mode support
+========================================================== */
+
+/* Certificate images (direct img inside project-card) */
+.project-card > img {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+  border-radius: 16px;
+
+  margin-bottom: 12px;
+}
+
+/* Resume actions wrapper */
+.resume-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  margin: 25px auto 40px;
+}
+
+/* Resume buttons */
+.resume-btn {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border-radius: 30px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: #ffffff;
+
+  position: relative;
+  z-index: 1;
+
+  transition: 0.3s ease;
+}
+
+/* Resume neon border */
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 35px;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #ff00ff,
+    #00ff99,
+    #00f2ff
+  );
+
+  background-size: 400% 400%;
+  animation: resumeBorderMove 3s linear infinite;
+
+  z-index: -1;
+}
+
+.resume-btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 28px;
+
+  background: #0b0f1a;
+  z-index: -1;
+}
+
+@keyframes resumeBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+.resume-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+              0 0 25px rgba(255, 0, 255, 0.25);
+}
+
+/* Light mode fix */
+body.light-mode .resume-btn {
+  color: #000000;
+}
+
+body.light-mode .resume-btn::after {
+  background: #ffffff;
+}
+
+/* Mobile resume */
+@media (max-width: 600px) {
+  .resume-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resume-btn {
+    width: 30%;
+    justify-content: center;
+  }
+}
+/* ==========================================================
+   PART 11: CONTACT SECTION + SOCIAL ICONS + FORM
+   ----------------------------------------------------------
+   REQUIREMENTS:
+   ✅ Cards neon border
+   ✅ Social icons glow
+   ✅ Form clean
+   ✅ Dark mode black + white text
+   ✅ Light mode white + black text
+========================================================== */
+
+
+.contact-section {
+  width: 92%;
+  max-width: 900px;
+  margin: 60px auto 60px;
+  text-align: left;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  margin-top: -12px;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* Contact cards wrapper */
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+/* Contact card */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 16px;
+  border-radius: 18px;
+
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: contactBorderMove 5s linear infinite;
+
+  transition: 0.5s ease;
+}
+
+@keyframes contactBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Contact icon circle */
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.3rem;
+  color: #00f2ff;
+
+  background: rgba(0, 242, 255, 0.12);
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.25);
+}
+
+.contact-card h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.contact-card p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Social icons */
+.contact-social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.contact-social a {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.3rem;
+  color: #ffffff;
+
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: socialBorderMove 4s linear infinite;
+
+  transition: 0.3s ease;
+}
+
+@keyframes socialBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.contact-social a:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+              0 0 25px rgba(143, 0, 255, 0.25);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(0, 242, 255, 0.25);
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  outline: none;
+
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00f2ff;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.35);
+}
+
+/* Send button */
+.send-btn {
+  margin-top: 10px;
+
+  padding: 12px 20px;
+  border-radius: 30px;
+
+  font-size: 1rem;
+  font-weight: 800;
+
+  color: #ffffff;
+  text-align: center;
+
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: sendBtnMove 4s linear infinite;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+@keyframes sendBtnMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+              0 0 25px rgba(143, 0, 255, 0.25);
+}
+
+/* Light mode fix */
+body.light-mode .contact-card {
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+}
+
+body.light-mode .contact-card p,
+body.light-mode .contact-card h4,
+body.light-mode .contact-subtitle {
+  color: #000000;
+}
+
+body.light-mode .contact-icon {
+  color: #007c91;
+  background: rgba(0, 120, 150, 0.12);
+}
+
+body.light-mode .contact-social a {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+}
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .send-btn {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+}
+
+/* Mobile contact */
+@media (max-width: 600px) {
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+/* ==========================================================
+   PART 12: MODAL STYLING (DETAILS + CODE)
+   ----------------------------------------------------------
+   HTML:
+   <div id="projectModal" class="modal">
+     <div class="modal-content">
+       <span class="close-btn">×</span>
+       <h2 id="modalTitle"></h2>
+       <button id="copyBtn" class="copy-btn">Copy Code</button>
+       <div id="modalBody"></div>
+     </div>
+   </div>
+
+   REQUIREMENTS:
+   ✅ Premium modal
+   ✅ Neon animated border
+   ✅ Dark mode black + white
+   ✅ Light mode white + black
+========================================================== */
+
+/* Modal background overlay */
+/* ================================
+   MODAL BACKDROP (FULL SCREEN)
+================================ */
+.modal {
+  padding: 5px;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  margin: 0;
+}
+/* Modal box */
+/* ================================
+   MODAL CONTENT BOX
+   - Perfect size
+   - No extra gap
+================================ */
+.modal-content{
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100vh;
+  border-radius: 0;
+}
+  overflow-y: auto;
+
+  /* PURE BLACK BACKGROUND */
+  background: #000000;
+
+  /* NO ANIMATED BACKGROUND */
+  background-image: none !important;
+
+  /* Smooth border */
+  border: 2px solid transparent;
+
+  /* Neon border only */
+  background-clip: padding-box;
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.3),
+              0 0 25px rgba(143, 0, 255, 0.25);
+}
+.modal-content {
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content p,
+.modal-content li {
+  color: #ffffff;
+}
+/* Title */
+#modalTitle {
+  font-size: 1.4rem;
+  font-weight: 900;
+
+  margin-bottom: 14px;
+
+  color: #00f2ff;
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.6);
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+
+  font-size: 2rem;
+  font-weight: 900;
+
+  color: #ffffff;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff00ff;
+  transform: scale(1.15);
+}
+
+/* Modal body */
+#modalBody {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+
+  max-height: 65vh;
+  overflow-y: auto;
+
+  padding-right: 6px;
+}
+
+/* Scrollbar */
+#modalBody::-webkit-scrollbar {
+  width: 4px;
+}
+
+#modalBody::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 255, 0.5);
+  border-radius: 10px;
+}
+
+/* Copy Button */
+.copy-btn {
+  all: unset;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 18px;
+  border-radius: 25px;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+
+  color: #ffffff;
+  margin-bottom: 15px;
+
+  position: relative;
+  z-index: 1;
+
+  transition: 0.3s ease;
+}
+
+/* copy neon border */
+.copy-btn::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+
+  border-radius: 60px;
+
+  background: linear-gradient(
+    90deg,
+    #00f2ff,
+    #ff00ff,
+    #00ff99,
+    #00f2ff
+  );
+
+  background-size: 400% 400%;
+  animation: copyBorderMove 3s linear infinite;
+
+  z-index: -1;
+}
+
+.copy-btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+
+  border-radius: 22px;
+  background: #0b0f1a;
+
+  z-index: -1;
+}
+
+@keyframes copyBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 16px rgba(0, 242, 255, 0.45),
+              0 0 22px rgba(255, 0, 255, 0.25);
+}
+
+/* Prism code block fix */
+pre {
+  border-radius: 14px !important;
+  padding: 16px !important;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+code {
+  font-family: Consolas, monospace;
+}
+
+/* Light mode fix */
+body.light-mode .modal {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+body.light-mode .modal-content {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+}
+
+body.light-mode #modalTitle {
+  color: #007c91;
+  text-shadow: none;
+}
+
+body.light-mode .close-btn {
+  color: #000000;
+}
+
+body.light-mode .copy-btn {
+  color: #000000;
+}
+
+body.light-mode .copy-btn::after {
+  background: #ffffff;
+}
+/* ==========================================================
+   PART 13: THEME TOGGLE BUTTON (TOP LEFT SMALL)
+   ----------------------------------------------------------
+   HTML:
+   <button onclick="toggleTheme()" class="theme-toggle">
+     <i class="fas fa-sun"></i>
+   </button>
+
+   REQUIREMENTS:
+   ✅ Small size
+   ✅ Top-left position
+   ✅ Neon animated border
+   ✅ Visible in dark & light mode
+========================================================== */
+
+.theme-toggle {
+  position: ;
+  top: 12px;
+  left: 12px;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  color: #ffffff;
+
+  cursor: pointer;
+  z-index: 99999;
+
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #ff00ff, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  animation: themeToggleMove 4s linear infinite;
+
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.35);
+  transition: 0.5s ease;
+}
+
+@keyframes themeToggleMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.theme-toggle:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.55),
+              0 0 28px rgba(255, 0, 255, 0.25);
+}
+
+/* Light mode fix */
+body.light-mode .theme-toggle {
+  color: #000000;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #7a00ff, #00ff99, #00c6ff);
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+/* ==========================================================
+   PART 14: SCROLL REVEAL ANIMATION
+   ----------------------------------------------------------
+   HTML:
+   class="reveal"
+
+   JS adds:
+   class="active"
+
+   REQUIREMENTS:
+   ✅ Smooth fade in + slide up
+   ✅ Works for all cards and sections
+========================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ==========================================================
+   PART 15: FINAL FIXES (IMPORTANT)
+   ----------------------------------------------------------
+   REQUIREMENTS:
+   ✅ Fix extra unwanted space
+   ✅ Prevent CSS conflicts
+   ✅ Ensure light mode fonts always visible
+   ✅ Prevent horizontal scroll issue
+========================================================== */
+
+/* Remove extra bottom spacing */
+body {
+  padding-bottom: 0;
+}
+
+section {
+  margin-bottom: 0;
+}
+
+/* Prevent horizontal scroll */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Ensure light mode text is always visible */
+body.light-mode p,
+body.light-mode span,
+body.light-mode small,
+body.light-mode label,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6 {
+  color: #000000;
+}
+
+/* Fix highlight tap color (mobile) */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
+
+
+/* ==========================================================
+   DETAILS MODAL CONTENT (HEADING + SUBHEADING + STAR POINTS)
+========================================================== */
+/* ==========================================================
+   MODAL FULL DESIGN (SOLID NEON ANIMATED BORDER + SHARP TEXT)
+   ----------------------------------------------------------
+   ✔ Solid animated neon border
+   ✔ Different neon colors (pink, orange, green, cyan, violet)
+   ✔ Headings sharp (no blur)
+   ✔ Subheadings different color
+   ✔ Star points styled
+   ✔ Smooth glow + modern UI
+========================================================== */
+
+/* ================================
+   MODAL BACKGROUND OVERLAY
+================================ */
+
+/* ==========================================================
+   MODAL FULL DESIGN (EXACT LIKE SCREENSHOT)
+========================================================== */
+
+
+
+
+
+
+/* ==========================================================
+   FULL MODAL CONTENT (DARK + LIGHT MODE)
+   ----------------------------------------------------------
+   FIXES:
+   1) Perfect modal size (mobile friendly)
+   2) No extra bottom gap
+   3) Dark mode = pure black background + white text
+   4) Light mode = pure white background + black text
+   5) Neon border animated (solid)
+   6) Headings + subheadings different colors
+   7) Stars bullets neon
+   8) Clean scrollbar
+========================================================== */
+
+
+/* ================================
+   MODAL BACKGROUND OVERLAY
+================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
+
+
+/* ================================
+   MODAL CONTENT BOX
+================================ */
+.modal-content {
+  width: 100%;
+  max-width: 550px;
+
+  max-height: 95vh;
+  overflow-y: visible;
+
+  padding: 50px 20px;
+  border-radius: 18px;
+
+  background: #000000;  /* PURE BLACK */
+  color: #ffffff;
+
+  position: relative;
+
+  border: 1px solid transparent;
+
+  /* Animated Neon Border Only */
+  background-image:
+    linear-gradient(#000000, #000000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00ff99, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 400% 400%;
+  animation: modalBorderMove 5s linear infinite;
+
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.25),
+              0 0 30px rgba(143, 0, 255, 0.25);
+}
+
+
+/* ================================
+   BORDER ANIMATION
+================================ */
+@keyframes modalBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+
+/* ================================
+   REMOVE EXTRA GAPS INSIDE CONTENT
+================================ */
+.modal-content * {
+  margin-top: 0;
+}
+
+.modal-content p {
+  margin-bottom: 14px;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+
+/* ================================
+   MAIN HEADING (TOP TITLE)
+   Example: Portable Oscilloscope Details
+================================ */
+.modal-content h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+
+  color: #00f2ff;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+
+/* ================================
+   PROJECT SUB TITLE (h3)
+   Example: Portable Oscilloscope using Arduino
+================================ */
+.modal-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ================================
+   SUB HEADINGS (h4)
+   Example: Working Principle
+================================ */
+.modal-content h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 18px;
+  margin-bottom: 10px;
+
+  color: #00ff99;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
+}
+
+
+/* ================================
+   LIST STYLE WITH STARS ✨
+================================ */
+.modal-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+
+.modal-content ul li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+.modal-content ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #00f2ff;
+  font-size: 1.1rem;
+
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.7),
+               0 0 18px rgba(143, 0, 255, 0.6);
+}
+
+
+/* ================================
+   CLOSE BUTTON (X)
+================================ */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+
+  color: #ff2fd6;
+  text-shadow: 0 0 10px rgba(255, 47, 214, 0.6);
+
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+  color: #ff0055;
+}
+
+
+/* ================================
+   COPY BUTTON INSIDE MODAL
+================================ */
+.modal-content button {
+  margin-top: 2px;
+  margin-bottom: 16px;
+
+  padding: 6px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  background: #111;
+  color: white;
+
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#111, #111),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00ff99);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: 0.3s ease;
+}
+
+.modal-content button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3),
+              0 0 20px rgba(255, 47, 214, 0.25);
+}
+
+
+/* ================================
+   SCROLLBAR (DARK MODE)
+================================ */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00f2ff, #8f00ff, #ff2fd6);
+  border-radius: 10px;
+}
+
+
+/* ==========================================================
+   LIGHT MODE MODAL FIX
+   - PURE WHITE background
+   - PURE BLACK text
+========================================================== */
+
+body.light-mode .modal {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+body.light-mode .modal-content {
+  background: #ffffff;
+  color: #000000;
+
+  border: 2px solid transparent;
+
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #00c6ff, #8f00ff, #ff2fd6, #00ff99, #00c6ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .modal-content p,
+body.light-mode .modal-content li {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+body.light-mode .modal-content h2 {
+  color: #007c91;
+  text-shadow: none;
+}
+
+body.light-mode .modal-content h3 {
+  background: linear-gradient(90deg, #007c91, #8f00ff, #ff2fd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light-mode .modal-content h4 {
+  color: #ff5500;
+  text-shadow: none;
+}
+
+body.light-mode .modal-content ul li::before {
+  color: #8f00ff;
+  text-shadow: none;
+}
+
+body.light-mode .close-btn {
+  color: #ff0055;
+  text-shadow: none;
+}
+
+body.light-mode .modal-content button {
+  background: #f5f5f5;
+  color: #000;
+}
+
+
+
+
+
+
+
+
+/* ================================
+   PROJECT BUTTONS (VIEW / DETAILS / CODE)
+   - Neon border like screenshot
+   - Dark inside background
+   - Smooth hover glow
+   - Mobile responsive
+================================ */
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.highlight-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 28px;
+  border-radius: 30px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: white;
+  background: rgba(0, 0, 0, 0.75);
+
+  border: 1px solid transparent;
+
+  /* CLEAN NEON BORDER */
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00f2ff);
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.4),
+              0 0 18px rgba(143, 0, 255, 0.3);
+
+  transition: 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+} 
+
+.highlight-btn i {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.highlight-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.7),
+              0 0 25px rgba(255, 47, 214, 0.5);
+}
+body.light-mode .highlight-btn {
+  color: black;
+
+  background-image: 
+    linear-gradient(white, white),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00f2ff);
+
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.35);
+}
+
+body.light-mode .highlight-btn i {
+  color: black;
+}
+
+/* Mobile fix */
+@media (max-width: 600px) {
+  .highlight-btn {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
