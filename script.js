@@ -1,8 +1,6 @@
 /* =====================================
    PART 1: SCROLL REVEAL ANIMATION
 ===================================== */
-
-function revealOnScroll() {
 function revealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
 
@@ -10,19 +8,20 @@ function revealOnScroll() {
     const windowHeight = window.innerHeight;
     const elementTop = element.getBoundingClientRect().top;
 
+    // Triggers the animation when the element is 100px into the viewport
     if (elementTop < windowHeight - 100) {
       element.classList.add("active");
     }
   });
 }
 
+// Event listeners for scrolling and initial page load
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
 /* =====================================
    PART 2: PROJECT IMAGE TOGGLE (VIEW)
 ===================================== */
-
 function toggleProjectImage(button) {
   const card = button.closest(".project-card");
   if (!card) return;
@@ -35,114 +34,81 @@ function toggleProjectImage(button) {
   const icon = button.querySelector("i");
   if (!icon) return;
 
+  // Swaps the eye icon based on the expanded state
   if (wrapper.classList.contains("expanded")) {
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
+    icon.classList.replace("fa-eye", "fa-eye-slash");
   } else {
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
+    icon.classList.replace("fa-eye-slash", "fa-eye");
   }
 }
 
 /* =====================================
-   PART 3: OPEN MODAL (DETAILS + CODE)
+   PART 3: MODAL LOGIC (DETAILS & CODE)
 ===================================== */
-
 function openModal(title, file) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const copyBtn = document.getElementById("copyBtn");
 
-  if (!modal || !modalTitle || !modalBody || !copyBtn) return;
+  if (!modal || !modalTitle || !modalBody) return;
 
   modalTitle.innerText = title;
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
+  // Fetches the external content (HTML for details or TXT for code)
   fetch(file)
     .then(response => {
       if (!response.ok) throw new Error("File not found");
       return response.text();
     })
     .then(data => {
-
-      /* ---------- SOURCE CODE (.txt) ---------- */
       if (file.endsWith(".txt")) {
-        modalBody.innerHTML = `
-<pre class="language-c">
-<code class="language-c">
-${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-</code>
-</pre>
-        `;
-
+        // Formats code for Prism.js highlighting
+        modalBody.innerHTML = `<pre class="language-c"><code class="language-c">${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
         copyBtn.style.display = "inline-block";
-
-        if (window.Prism) {
-          Prism.highlightAllUnder(modalBody);
-        }
-      }
-
-      /* ---------- DETAILS (.html) ---------- */
-      else {
-        modalBody.innerHTML = `
-<div class="details-box">
-${data}
-</div>
-        `;
-        copyBtn.style.display = "none";
+        if (window.Prism) Prism.highlightAllUnder(modalBody);
+      } else {
+        // Loads standard HTML for project details
+        modalBody.innerHTML = `<div class="details-box">${data}</div>`;
       }
     })
-    .catch(error => {
-      modalBody.innerHTML = "❌ File not found!";
-      copyBtn.style.display = "none";
-      console.error(error);
+    .catch(err => {
+      modalBody.innerHTML = "❌ Error: Could not load the requested file.";
+      console.error(err);
     });
 
   modal.style.display = "block";
 }
 
-/* =====================================
-   PART 4: CLOSE MODAL
-===================================== */
-
 function closeModal() {
   const modal = document.getElementById("projectModal");
-  if (!modal) return;
-
-  modal.style.display = "none";
+  if (modal) modal.style.display = "none";
 }
 
-/* Click outside modal to close */
-window.addEventListener("click", function (event) {
+// Close modal when clicking outside of the content area
+window.onclick = (event) => {
   const modal = document.getElementById("projectModal");
-  if (!modal) return;
-
-  if (event.target === modal) {
-    closeModal();
-  }
-});
+  if (event.target === modal) closeModal();
+};
 
 /* =====================================
-   PART 5: COPY CODE BUTTON
+   PART 4: COPY CODE TO CLIPBOARD
 ===================================== */
-
 function copyCode() {
-  const codeBlock = document.querySelector("#modalBody code");
-  if (!codeBlock) return;
+  const modalBody = document.getElementById("modalBody");
+  const codeElement = modalBody.querySelector("code");
+  if (!codeElement) return;
 
-  navigator.clipboard.writeText(codeBlock.innerText)
+  const textToCopy = codeElement.innerText;
+  const btn = document.getElementById("copyBtn");
+
+  navigator.clipboard.writeText(textToCopy)
     .then(() => {
-      const btn = document.getElementById("copyBtn");
-      if (!btn) return;
-
       const oldText = btn.innerText;
       btn.innerText = "Copied ✓";
-
-      setTimeout(() => {
-        btn.innerText = oldText;
-      }, 1500);
+      setTimeout(() => { btn.innerText = oldText; }, 1500);
     })
     .catch(err => {
       console.error("Copy failed:", err);
@@ -150,30 +116,27 @@ function copyCode() {
 }
 
 /* =====================================
-   PART 6: THEME TOGGLE (DARK/LIGHT)
+   PART 5: THEME TOGGLE (DARK/LIGHT)
 ===================================== */
-
 function toggleTheme() {
   document.body.classList.toggle("light-mode");
 
   const icon = document.querySelector(".theme-toggle i");
   if (!icon) return;
 
+  // Matches the logic to your light-mode CSS classes
   if (document.body.classList.contains("light-mode")) {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
+    icon.classList.replace("fa-sun", "fa-moon");
   } else {
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
+    icon.classList.replace("fa-moon", "fa-sun");
   }
 }
 
 /* =====================================
-   PART 7: EMAILJS CONTACT FORM
+   PART 6: EMAILJS CONTACT FORM
 ===================================== */
-
 window.addEventListener("load", function () {
-
+  // Initialize EmailJS with your User ID
   if (window.emailjs) {
     emailjs.init("TZWUr1PeHYnnlkkBN"); 
   }
@@ -184,24 +147,15 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "service_9uitjh4",
-      "template_re3hdru",
-      form
-    )
+    // Uses your specific Service and Template IDs
+    emailjs.sendForm("service_9uitjh4", "template_re3hdru", form)
       .then(() => {
         alert("✅ Message sent successfully!");
         form.reset();
       })
       .catch((error) => {
-        alert("❌ Message not sent! Check EmailJS setup.");
+        alert("❌ Failed to send message. Please try again later.");
         console.error("EmailJS Error:", error);
       });
   });
-
 });
-
-setTimeout(revealOnScroll, 500);
-
-
-
