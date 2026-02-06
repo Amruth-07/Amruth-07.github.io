@@ -1136,83 +1136,37 @@ body.light-mode .send-btn {
 /* ================================
    MODAL BACKDROP (FULL SCREEN)
 ================================ */
+/* POPUP CONTAINER */
 .modal {
-  padding: 5px;
+  position: absolute;
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0, 0, 0, 0.85);
   z-index: 9999;
-
-  justify-content: center;
-  align-items: center;
-
-  padding: 0;
-  margin: 0;
 }
-/* Modal box */
-/* ================================
-   MODAL CONTENT BOX
-   - Perfect size
-   - No extra gap
-================================ */
-.modal-content{
-  width: 100%;
-  height: 100vh;
-  max-width: 100%;
-  max-height: 100vh;
-  border-radius: 0;
-}
-  overflow-y: auto;
 
-  /* PURE BLACK BACKGROUND */
-  background: #000000;
-
-  /* NO ANIMATED BACKGROUND */
-  background-image: none !important;
-
-  /* Smooth border */
-  border: 2px solid transparent;
-
-  /* Neon border only */
-  background-clip: padding-box;
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.3),
-              0 0 25px rgba(143, 0, 255, 0.25);
-}
+/* POPUP BOX */
 .modal-content {
-  border: 2px solid transparent;
+  width: 420px;
+  max-width: 90vw;
 
+  background: #000;
+  color: #fff;
+
+  border-radius: 16px;
+  padding: 20px;
+
+  position: absolute;
+
+  border: 1px solid transparent;
   background-image:
-    linear-gradient(#000000, #000000),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00f2ff);
-
+    linear-gradient(#000, #000),
+    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00ff99);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-}
-.modal-content::-webkit-scrollbar {
-  width: 6px;
+
+  box-shadow: 0 0 20px rgba(0,242,255,.4);
 }
 
-.modal-content::-webkit-scrollbar-track {
-  background: transparent;
-}
 
-.modal-content::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-}
-.modal-content h2,
-.modal-content h3,
-.modal-content h4,
-.modal-content p,
-.modal-content li {
-  color: #ffffff;
-}
 /* Title */
 #modalTitle {
   font-size: 1.4rem;
@@ -2001,6 +1955,7 @@ body.light-mode .modal-content {
     linear-gradient(#fff, #fff),
     linear-gradient(90deg,#00c6ff,#7a00ff,#ff2fd6,#00ff99);
 }
+
 
 
 
