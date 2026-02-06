@@ -174,7 +174,7 @@ function toggleTheme() {
 window.addEventListener("load", function () {
 
   if (window.emailjs) {
-    emailjs.init("YOUR_PUBLIC_KEY"); 
+    emailjs.init("TZWUr1PeHYnnlkkBN"); 
   }
 
   const form = document.getElementById("contact-form");
@@ -184,8 +184,8 @@ window.addEventListener("load", function () {
     e.preventDefault();
 
     emailjs.sendForm(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
+      "service_9uitjh4",
+      "template_re3hdru,
       form
     )
       .then(() => {
@@ -199,3 +199,4 @@ window.addEventListener("load", function () {
   });
 
 });
+
