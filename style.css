@@ -128,7 +128,7 @@ body.light-mode #hero h1 {
   justify-content: center;
   gap: 12px;
   margin-bottom: 40px;
-  padding: 0 20px;
+  padding: 0 18px;
 }
 
 .skill-pill {
@@ -996,6 +996,7 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
 
 
 
