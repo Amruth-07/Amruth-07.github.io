@@ -345,21 +345,24 @@ body.light-mode .neon-border {
   margin-bottom: 20px;
   transition: height 0.5s ease; /* Animation for expansion */
 } 
-/* Expanded state – show full image */
-.project-image-wrapper.expanded {
-  height: 300px; /* adjust as needed for full image */
-}
 
-/* When the JS adds the 'expanded' class */
-.project-image-wrapper.expanded .project-image {
-  object-position: bottom;
-}
  .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top;   /* 👈 ADD THIS */
   transition: transform 0.5s ease;
+}
+.project-image-wrapper.expanded {
+  height: auto;          /* allow full image height */
+}
+
+.project-image-wrapper.expanded .project-image {
+  object-fit: contain;   /* 👈 SHOW FULL IMAGE */
+  object-position: center;
+}
+.project-image-wrapper {
+  overflow: visible;     /* allow full image to be seen */
 }
 
 
@@ -950,6 +953,7 @@ body.light-mode .theme-toggle {
     grid-template-columns: 1fr; /* Single column on very small phones */
   }
 }
+
 
 
 
