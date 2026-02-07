@@ -842,7 +842,7 @@ body.light-mode .close-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: #ffffff;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
@@ -997,6 +997,7 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
 
 
 
