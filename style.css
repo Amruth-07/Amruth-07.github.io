@@ -1087,3 +1087,8 @@ body.light-mode #modalBody ul li::before {
 .neon-animated-border {
   overflow: visible;
 }
+
+#modalBody ul li::before {
+  z-index: 5 !important;
+  position: relative !important;
+}
