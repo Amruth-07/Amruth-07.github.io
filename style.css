@@ -1075,3 +1075,35 @@ body.light-mode #modalBody ul li::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
+#modalBody ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#modalBody ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Neon animated bullet */
+#modalBody ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 2px;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: modalNeonTextMove 4s linear infinite;
+}
