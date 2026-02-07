@@ -1086,7 +1086,7 @@ body.light-mode .neon-animated-border::before {
   padding: 15px;
   border-radius: 15px;
   overflow-x: auto;
-  font-size: 0.9rem;
+  font-size: x-small;
 }
 
 
@@ -1205,6 +1205,7 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
 
 
 
