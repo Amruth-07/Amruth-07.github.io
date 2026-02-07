@@ -306,7 +306,7 @@ body.light-mode .hobby-pill:hover {
   font-size: 1.05rem;
   color: #ccc;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 15px;
 }
 
 /* Specific Neon Border for About Section */
@@ -1348,6 +1348,7 @@ body.light-mode .modal-content {
   box-shadow: 0 0 22px rgba(0, 114, 255, 0.25),
               0 0 40px rgba(122, 0, 255, 0.15);
 }*/
+
 
 
 
