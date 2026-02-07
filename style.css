@@ -345,6 +345,10 @@ body.light-mode .neon-border {
   margin-bottom: 20px;
   transition: height 0.5s ease; /* Animation for expansion */
 } 
+/* Expanded state – show full image */
+.project-image-wrapper.expanded {
+  height: 300px; /* adjust as needed for full image */
+}
 
 /* When the JS adds the 'expanded' class */
 .project-image-wrapper.expanded .project-image {
@@ -946,6 +950,7 @@ body.light-mode .theme-toggle {
     grid-template-columns: 1fr; /* Single column on very small phones */
   }
 }
+
 
 
 
