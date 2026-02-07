@@ -970,12 +970,12 @@ body.light-mode .theme-toggle {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 1.5px; /* THIN BORDER */
-  border-radius: 15px;
+  padding: 1px; /* THIN BORDER */
+  border-radius: 18px;
 
   background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
   background-size: 300% 100%;
-  animation: neonBorderMove 4s linear infinite;
+  animation: neonBorderMove 3s linear infinite;
 
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box,
@@ -996,6 +996,7 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
 
 
 
