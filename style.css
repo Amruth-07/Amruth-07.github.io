@@ -1000,67 +1000,22 @@ body.light-mode .neon-animated-border::before {
 
 
 
-/* ================================
-   MAIN HEADING (TOP TITLE)
-   Example: Portable Oscilloscope Details
-================================ */
-.modal-content h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 12px;
+/* =========================================================
+   LIST WITH STAR ICON STYLE
+========================================================== */
 
-  color: #00f2ff;
-  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-}
-
-
-/* ================================
-   PROJECT SUB TITLE (h3)
-   Example: Portable Oscilloscope using Arduino
-================================ */
-.modal-content h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-
-  background: linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-/* ================================
-   SUB HEADINGS (h4)
-   Example: Working Principle
-================================ */
-.modal-content h4 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-top: 18px;
-  margin-bottom: 10px;
-
-  color: #00ff99;
-  text-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
-}
-
-
-/* ================================
-   LIST STYLE WITH STARS âœ¨
-================================ */
 .modal-content ul {
+  margin-top: 10px;
+  padding-left: 10px;
   list-style: none;
-  padding-left: 0;
-  margin-bottom: 15px;
 }
 
 .modal-content ul li {
   font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  margin: 10px 0;
   padding-left: 25px;
   position: relative;
-  color: #ffffff;
-  opacity: 0.95;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .modal-content ul li::before {
@@ -1068,15 +1023,10 @@ body.light-mode .neon-animated-border::before {
   position: absolute;
   left: 0;
   top: 0;
-
   color: #00f2ff;
   font-size: 1.1rem;
-
-  text-shadow: 0 0 10px rgba(0, 242, 255, 0.7),
-               0 0 18px rgba(143, 0, 255, 0.6);
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
-
-
 /* ================================
    CLOSE BUTTON (X)
 ================================ */
@@ -1099,42 +1049,3 @@ body.light-mode .neon-animated-border::before {
   transform: scale(1.15);
   color: #ff0055;
 }
-
-
-/* ================================
-   COPY BUTTON INSIDE MODAL
-================================ */
-.modal-content button {
-  margin-top: 2px;
-  margin-bottom: 16px;
-
-  padding: 6px 10px;
-  border-radius: 20px;
-  cursor: pointer;
-
-  font-size: 0.75rem;
-  font-weight: 600;
-
-  background: #111;
-  color: white;
-
-  border: 2px solid transparent;
-
-  background-image:
-    linear-gradient(#111, #111),
-    linear-gradient(90deg, #00f2ff, #8f00ff, #ff2fd6, #00ff99);
-
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  transition: 0.3s ease;
-}
-
-.modal-content button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3),
-              0 0 20px rgba(255, 47, 214, 0.25);
-}
-
-
-
