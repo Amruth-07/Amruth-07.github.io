@@ -950,10 +950,10 @@ body.light-mode .theme-toggle {
   }
 
   .theme-toggle {
-    width: 55px;
-    height: 55px;
-    top: 20px;
-    left: 20px;
+    width: 25px;
+    height: 25px;
+    top: 2px;
+    left: 5px;
     font-size: 0.5rem;
   }
 }
@@ -1348,6 +1348,7 @@ body.light-mode .modal-content {
   box-shadow: 0 0 22px rgba(0, 114, 255, 0.25),
               0 0 40px rgba(122, 0, 255, 0.15);
 }*/
+
 
 
 
