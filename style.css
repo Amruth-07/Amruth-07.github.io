@@ -1000,34 +1000,46 @@ body.light-mode .neon-animated-border::before {
 /* ==========================================================
    NEON ANIMATED HEADINGS + BULLETS (AUTO APPLY)
 ========================================================== */
+/* ==========================================================
+   MODAL DETAILS: NEON ANIMATED HEADINGS + BULLETS (CSS ONLY)
+========================================================== */
 
-/* Main headings inside modal / project content */
 #modalBody h3,
 #modalBody h4 {
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 12px;
+
   background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: neonTextMove 4s linear infinite;
-  font-weight: 700;
+  animation: modalNeonTextMove 4s linear infinite;
 }
 
-/* Bullet points style */
+#modalBody p {
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Bullet list styling */
 #modalBody ul {
-  list-style: none;
-  padding-left: 0;
+  margin-left: 18px;
+  margin-bottom: 18px;
 }
 
 #modalBody ul li {
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  list-style: none;
   position: relative;
   padding-left: 22px;
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
-/* Neon animated bullet dot */
+/* Neon bullet point */
 #modalBody ul li::before {
   content: "✦";
   position: absolute;
@@ -1038,17 +1050,25 @@ body.light-mode .neon-animated-border::before {
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: neonTextMove 4s linear infinite;
+  animation: modalNeonTextMove 4s linear infinite;
   font-weight: bold;
 }
 
 /* Animation */
-@keyframes neonTextMove {
+@keyframes modalNeonTextMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-/* Light mode fix */
+/* Light Mode */
+body.light-mode #modalBody p {
+  color: #333;
+}
+
+body.light-mode #modalBody ul li {
+  color: #222;
+}
+
 body.light-mode #modalBody h3,
 body.light-mode #modalBody h4,
 body.light-mode #modalBody ul li::before {
