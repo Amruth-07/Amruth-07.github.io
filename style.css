@@ -1052,7 +1052,7 @@ body.light-mode .project-card::before {
   overflow: hidden;
 }
 
-/* Inner background mask */
+/* Inner background mask *
 .card::before,
 .project-card::before,
 .contact-card::before,
@@ -1060,13 +1060,13 @@ body.light-mode .project-card::before {
 .modal-content::before {
   content: "";
   position: absolute;
-  inset: 2px; /* Must match padding thickness */
+  inset: 2px; /* Must match padding thickness *
   background: #111;
   border-radius: 18px;
   z-index: 0;
 }
 
-/* Keep content above mask */
+/* Keep content above mask *
 .card > *,
 .project-card > *,
 .contact-card > *,
@@ -1075,8 +1075,7 @@ body.light-mode .project-card::before {
   position: relative;
   z-index: 1;
 }
-
-/* Light mode support */
+/* Light mode support *
 body.light-mode .card::before,
 body.light-mode .project-card::before,
 body.light-mode .contact-card::before,
@@ -1090,7 +1089,7 @@ body.light-mode .modal-content::before {
    PART 2: NEON THIN ANIMATED BORDER (BUTTONS + PILLS)
 ========================================================== */
 
-/* Skill Pills + Hobby Pills */
+/* Skill Pills + Hobby Pills *
 .skill-pill,
 .hobby-pill {
   border: 1px solid transparent !important;
@@ -1103,7 +1102,7 @@ body.light-mode .modal-content::before {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Highlight Buttons */
+/* Highlight Buttons *
 .highlight-btn,
 .resume-btn {
   border: 2px solid transparent !important;
@@ -1115,8 +1114,7 @@ body.light-mode .modal-content::before {
   background-size: 300% 100%;
   animation: neonBorderMove 4s linear infinite;
 }
-
-/* Light Mode Fix */
+/* Light Mode Fix *
 body.light-mode .skill-pill,
 body.light-mode .hobby-pill {
   background-image: 
@@ -1136,7 +1134,7 @@ body.light-mode .resume-btn {
    PART 3: NEON THIN ANIMATED BORDER (PROFILE + ABOUT PHOTO)
 ========================================================== */
 
-/* Profile Photo Border Animation */
+/* Profile Photo Border Animation *
 .profile {
   border: 3px solid transparent !important;
   background-image: 
@@ -1148,7 +1146,7 @@ body.light-mode .resume-btn {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* About Photo Border Animation */
+/* About Photo Border Animation *
 .about-photo {
   border: 3px solid transparent;
   padding: 3px;
@@ -1158,12 +1156,12 @@ body.light-mode .resume-btn {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Inner photo fix */
+/* Inner photo fix *
 .about-photo {
   box-sizing: border-box;
 }
 
-/* Light Mode Fix */
+/* Light Mode Fix 
 body.light-mode .profile {
   background-image: 
     linear-gradient(#ffffff, #ffffff),
@@ -1178,16 +1176,16 @@ body.light-mode .about-photo {
 
 /* ==========================================================
    PART 4: NEON ANIMATED UNDERLINE + SOCIAL ICON BORDERS
-========================================================== */
+========================================================== *
 
-/* Animated underline for section headline */
+ Animated underline for section headline *
 .section-headline::after {
   background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff) !important;
   background-size: 300% 100%;
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Social icons animated border */
+/* Social icons animated border *
 .contact-social a {
   border: 2px solid transparent !important;
   background-image: 
@@ -1199,7 +1197,7 @@ body.light-mode .about-photo {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Light mode fix */
+/* Light mode fix *
 body.light-mode .contact-social a {
   background-image: 
     linear-gradient(#ffffff, #ffffff),
@@ -1210,8 +1208,7 @@ body.light-mode .contact-social a {
 /* ==========================================================
    PART 5: NEON ANIMATED BORDER (INPUTS + TEXTAREA + MODAL BUTTONS)
 ========================================================== */
-
-/* Input + Textarea animated border */
+/* Input + Textarea animated border *
 .contact-form input,
 .contact-form textarea {
   border: 2px solid transparent !important;
@@ -1224,7 +1221,7 @@ body.light-mode .contact-social a {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Light mode input fix */
+/* Light mode input fix *
 body.light-mode .contact-form input,
 body.light-mode .contact-form textarea {
   background-image: 
@@ -1232,7 +1229,7 @@ body.light-mode .contact-form textarea {
     linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
 }
 
-/* Copy button inside modal neon border */
+/* Copy button inside modal neon border *
 .copy-btn {
   border: 2px solid transparent !important;
   background-image: 
@@ -1244,7 +1241,7 @@ body.light-mode .contact-form textarea {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Light mode copy button */
+/* Light mode copy button *
 body.light-mode .copy-btn {
   background-image: 
     linear-gradient(#0072ff, #0072ff),
@@ -1252,7 +1249,7 @@ body.light-mode .copy-btn {
 }
 /* ==========================================================
    PART 6: NEON ANIMATED BORDER (SEND BUTTON)
-========================================================== */
+========================================================== *
 
 .send-btn {
   border: 2px solid transparent !important;
@@ -1265,13 +1262,13 @@ body.light-mode .copy-btn {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Hover glow effect (border stays animated) */
+/* Hover glow effect (border stays animated) /
 .send-btn:hover {
   box-shadow: 0 0 18px rgba(0, 242, 255, 0.6),
               0 0 30px rgba(255, 0, 255, 0.3);
 }
 
-/* Light mode send button fix */
+/* Light mode send button fix *
 body.light-mode .send-btn {
   background-image: 
     linear-gradient(#ffffff, #ffffff),
@@ -1279,7 +1276,7 @@ body.light-mode .send-btn {
 }
 /* ==========================================================
    PART 7: NEON ANIMATED BORDER (RESUME VIEW + DOWNLOAD BUTTONS)
-========================================================== */
+========================================================== *
 
 .view-btn,
 .download-btn {
@@ -1293,7 +1290,7 @@ body.light-mode .send-btn {
   animation: neonBorderMove 4s linear infinite;
 }
 
-/* Light mode fix */
+/* Light mode fix *
 body.light-mode .view-btn,
 body.light-mode .download-btn {
   background-image: 
@@ -1301,16 +1298,16 @@ body.light-mode .download-btn {
     linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
 }
 /* ==========================================================
-   PART 8: EXTRA NEON GLOW (MODAL + CARDS)
+   PART 8: EXTRA NEON GLOW (MODAL + CARDS
 ========================================================== */
 
-/* Extra glow for modal border */
+/* Extra glow for modal border *
 .modal-content {
   box-shadow: 0 0 25px rgba(0, 242, 255, 0.25),
               0 0 45px rgba(255, 0, 255, 0.15);
 }
 
-/* Extra glow for cards */
+/* Extra glow for cards *
 .card:hover,
 .project-card:hover,
 .contact-card:hover,
@@ -1322,9 +1319,7 @@ body.light-mode .download-btn {
 
 /* ==========================================================
    LIGHT MODE NEON BORDER + GLOW FIX (FINAL)
-========================================================== */
-
-body.light-mode .card,
+========================================================== *.light-mode .card,
 body.light-mode .project-card,
 body.light-mode .contact-card,
 body.light-mode .contact-form,
@@ -1342,7 +1337,7 @@ body.light-mode .modal-content::before {
   background: #ffffff;
 }
 
-/* Light mode hover glow */
+/* Light mode hover glow *
 body.light-mode .card:hover,
 body.light-mode .project-card:hover,
 body.light-mode .contact-card:hover,
@@ -1351,8 +1346,9 @@ body.light-mode .contact-form:hover {
               0 0 30px rgba(122, 0, 255, 0.18);
 }
 
-/* Light mode modal glow */
+/* Light mode modal glow *
 body.light-mode .modal-content {
   box-shadow: 0 0 22px rgba(0, 114, 255, 0.25),
               0 0 40px rgba(122, 0, 255, 0.15);
-}
+}*/
+
