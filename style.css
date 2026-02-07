@@ -1053,3 +1053,8 @@ body.light-mode .modal-content ul li::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
+@keyframes neonTextMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
