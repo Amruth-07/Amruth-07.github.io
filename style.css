@@ -135,7 +135,7 @@ body.light-mode #hero h1 {
   background: rgba(0, 242, 255, 0.1);
   border: 1px solid rgba(0, 242, 255, 0.3);
   padding: 8px 18px;
-  border-radius: 50px;
+  border-radius: 18px;
   font-size: 0.9rem;
   font-weight: 400;
   color: #00f2ff;
@@ -996,6 +996,7 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
 
 
 
