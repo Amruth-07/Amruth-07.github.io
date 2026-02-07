@@ -1319,3 +1319,40 @@ body.light-mode .download-btn {
               0 0 35px rgba(0, 255, 153, 0.15),
               0 0 50px rgba(255, 0, 255, 0.12);
 }
+
+/* ==========================================================
+   LIGHT MODE NEON BORDER + GLOW FIX (FINAL)
+========================================================== */
+
+body.light-mode .card,
+body.light-mode .project-card,
+body.light-mode .contact-card,
+body.light-mode .contact-form,
+body.light-mode .modal-content {
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
+  background-size: 300% 100%;
+  animation: neonBorderMove 4s linear infinite;
+}
+
+body.light-mode .card::before,
+body.light-mode .project-card::before,
+body.light-mode .contact-card::before,
+body.light-mode .contact-form::before,
+body.light-mode .modal-content::before {
+  background: #ffffff;
+}
+
+/* Light mode hover glow */
+body.light-mode .card:hover,
+body.light-mode .project-card:hover,
+body.light-mode .contact-card:hover,
+body.light-mode .contact-form:hover {
+  box-shadow: 0 0 18px rgba(0, 114, 255, 0.25),
+              0 0 30px rgba(122, 0, 255, 0.18);
+}
+
+/* Light mode modal glow */
+body.light-mode .modal-content {
+  box-shadow: 0 0 22px rgba(0, 114, 255, 0.25),
+              0 0 40px rgba(122, 0, 255, 0.15);
+}
