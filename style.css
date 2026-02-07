@@ -561,7 +561,7 @@ body.light-mode .download-btn:hover {
 .contact-section {
   padding: 80px 20px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: -160px auto;
   text-align: center;
 }
 
@@ -967,4 +967,5 @@ body.light-mode .theme-toggle {
     grid-template-columns: 1fr; /* Single column on very small phones */
   }
 }
+
 
