@@ -1153,3 +1153,66 @@ body.light-mode .modal-content {
   background: red !important;
   color: white !important;
 }
+
+/* ============================
+   FINAL FIX: REMOVE BLUE BARS & BLUE SQUARE BULLETS
+============================ */
+
+/* remove blue horizontal bars */
+#modalBody hr {
+  display: none !important;
+}
+
+/* remove default list bullets */
+#modalBody ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* clean li */
+#modalBody ul li {
+  list-style: none !important;
+  border: none !important;
+  background: none !important;
+  padding-left: 28px !important;
+  position: relative !important;
+  margin-bottom: 12px !important;
+  color: inherit !important;
+}
+
+/* remove any existing marker */
+#modalBody ul li::marker {
+  content: "" !important;
+}
+
+/* neon animated bullet */
+#modalBody ul li::before {
+  content: "✦" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 2px !important;
+
+  font-size: 1.2rem !important;
+  font-weight: 900 !important;
+
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff) !important;
+  background-size: 300% 100% !important;
+
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  animation: neonBulletMove 4s linear infinite !important;
+}
+
+/* animation */
+@keyframes neonBulletMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* light mode bullet */
+body.light-mode #modalBody ul li::before {
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff) !important;
+  background-size: 300% 100% !important;
+}
