@@ -1092,3 +1092,60 @@ body.light-mode #modalBody ul li::before {
   z-index: 5 !important;
   position: relative !important;
 }
+/* ===============================
+   MODAL DETAILS PERFECT FIX
+================================ */
+
+#modalBody h3,
+#modalBody h4 {
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonTextMove 4s linear infinite;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+#modalBody ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#modalBody ul li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: inherit;
+}
+
+#modalBody ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 2px;
+
+  font-weight: 900;
+  font-size: 1.1rem;
+
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: neonTextMove 4s linear infinite;
+}
+
+body.light-mode #modalBody h3,
+body.light-mode #modalBody h4,
+body.light-mode #modalBody ul li::before {
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
+  background-size: 300% 100%;
+}
+
+@keyframes neonTextMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
