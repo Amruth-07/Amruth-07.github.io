@@ -963,7 +963,7 @@ body.light-mode .theme-toggle {
 .neon-animated-border {
   position: relative;
   border-radius: 18px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1;
 }
 
@@ -1058,3 +1058,4 @@ body.light-mode .modal-content ul li::before {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
+
