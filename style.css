@@ -955,6 +955,47 @@ body.light-mode .theme-toggle {
 }
 
 
+/* ==========================================================
+   NEON ANIMATED THIN BORDER (GLOBAL USE)
+========================================================== */
+
+.neon-animated-border {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.neon-animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px; /* THIN BORDER */
+  border-radius: 15px;
+
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  animation: neonBorderMove 4s linear infinite;
+
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  z-index: -1;
+}
+
+@keyframes neonBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Light mode version */
+body.light-mode .neon-animated-border::before {
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
+  background-size: 300% 100%;
+}
 
 
 
