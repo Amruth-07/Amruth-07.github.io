@@ -1119,7 +1119,7 @@ body.light-mode .close-btn {
 
 
 code[class*=language-],pre[class*=language-] {
-    color: #ff;
+    color: revert;
     background: 0 0;
     font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
     font-size: 1em;
@@ -1205,6 +1205,7 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
 
 
 
