@@ -997,36 +997,61 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
-
 /* ==========================================================
-   NEON GRADIENT ANIMATED TEXT (HEADLINES / SUBHEADINGS)
+   NEON ANIMATED HEADINGS + BULLETS (AUTO APPLY)
 ========================================================== */
 
-.neon-text {
+/* Main headings inside modal / project content */
+#modalBody h3,
+#modalBody h4 {
   background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: neonTextMove 4s linear infinite;
+  font-weight: 700;
 }
 
+/* Bullet points style */
+#modalBody ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#modalBody ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Neon animated bullet dot */
+#modalBody ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonTextMove 4s linear infinite;
+  font-weight: bold;
+}
+
+/* Animation */
 @keyframes neonTextMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-/* Light Mode Neon Text */
-body.light-mode .neon-text {
+/* Light mode fix */
+body.light-mode #modalBody h3,
+body.light-mode #modalBody h4,
+body.light-mode #modalBody ul li::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
-
-
-
-
-
-
-
-
-
-
