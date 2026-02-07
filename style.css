@@ -1108,7 +1108,7 @@ body.light-mode .modal-content {
 }
 
 body.light-mode #modalBody {
-  color: #000000;
+  color: #000;
 }
 
 body.light-mode #modalBody pre {
@@ -1207,3 +1207,4 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
