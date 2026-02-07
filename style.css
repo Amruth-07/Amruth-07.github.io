@@ -783,7 +783,7 @@ body.light-mode .send-btn {
 
 #modalTitle {
   margin-bottom: 20px;
-  color: #00f2ff;
+  color: revert;
   font-size: 1.8rem;
 }
 
@@ -1202,6 +1202,7 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
 
 
 
