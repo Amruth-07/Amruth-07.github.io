@@ -1064,7 +1064,7 @@ body.light-mode .neon-animated-border::before {
 }
 
 .modal-content ul li::before {
-  content: "âœ¦";
+  content: "✦";
   position: absolute;
   left: 0;
   top: 0;
@@ -1135,5 +1135,6 @@ body.light-mode .neon-animated-border::before {
   box-shadow: 0 0 15px rgba(0, 242, 255, 0.3),
               0 0 20px rgba(255, 47, 214, 0.25);
 }
+
 
 
