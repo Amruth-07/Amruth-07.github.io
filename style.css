@@ -133,7 +133,7 @@ body.light-mode #hero h1 {
 
 .skill-pill {
   background: rgba(0, 242, 255, 0.1);
-  border: 1px solid rgba(0, 242, 255, 0.3);
+  border: 0px solid rgba(0, 242, 255, 0.3);
   padding: 8px 18px;
   border-radius: 18px;
   font-size: 0.9rem;
@@ -152,7 +152,7 @@ body.light-mode #hero h1 {
 /* Info Cards Layout */
 .card {
   background: #111;
-  border: 1px solid #222;
+  border: 0px solid #222;
   padding: 25px;
   border-radius: 15px;
   margin: 20px auto;
@@ -185,7 +185,7 @@ body.light-mode #hero h1 {
 /* Light Mode for Pills and Cards */
 body.light-mode .skill-pill {
   background: rgba(0, 114, 255, 0.05);
-  border: 1px solid rgba(0, 114, 255, 0.2);
+  border: 0px solid rgba(0, 114, 255, 0.2);
   color: #0072ff;
 }
 
@@ -243,7 +243,7 @@ body.light-mode .card b {
 
 .hobby-pill {
   background: #111;
-  border: 1px solid #40E;
+  border: 0px solid #40E;
   padding: 12px 25px;
   border-radius: 12px;
   font-size: 1rem;
@@ -294,8 +294,8 @@ body.light-mode .hobby-pill:hover {
 }
 
 .about-photo {
-  width: 220px;
-  height: 220px;
+  width: 250px;
+  height: 250px;
   border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
@@ -427,7 +427,7 @@ body.light-mode .tech-used {
   font-size: 0.85rem;
   font-weight: 600;
   color: #00f2ff;
-  border: 1px solid rgba(0, 242, 255, 0.4);
+  border: 0px solid rgba(0, 242, 255, 0.4);
   background: rgba(0, 242, 255, 0.05);
   transition: all 0.3s ease;
   display: flex;
@@ -472,7 +472,7 @@ body.light-mode .highlight-btn:hover {
 .project-card img {
   border-radius: 10px;
   margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 0px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Resume Section Container */
@@ -497,7 +497,7 @@ body.light-mode .highlight-btn:hover {
 
 /* View Button - Neon Blue */
 .view-btn {
-  border: 1px solid #00f2ff;
+  border: 0px solid #00f2ff;
   color: #00f2ff;
   background: rgba(0, 242, 255, 0.05);
 }
@@ -510,7 +510,7 @@ body.light-mode .highlight-btn:hover {
 
 /* Download Button - Neon Green */
 .download-btn {
-  border: 1px solid #00ff99;
+  border: 0px solid #00ff99;
   color: #00ff99;
   background: rgba(0, 255, 153, 0.05);
 }
@@ -683,7 +683,7 @@ body.light-mode .contact-social a:hover {
   padding: 15px;
   margin-bottom: 25px;
   background: #080808;
-  border: 1px solid #333;
+  border: 0px solid #333;
   border-radius: 10px;
   color: #fff;
   font-family: inherit;
@@ -795,7 +795,7 @@ body.light-mode .send-btn {
   background: #00f2ff;
   color: #000;
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 18px;
   font-size: 0.8rem;
   font-weight: 700;
   margin-bottom: 15px;
@@ -804,7 +804,7 @@ body.light-mode .send-btn {
 
 /* Modal Body / Code Content */
 #modalBody {
-  max-height: 60vh;
+  max-height: 80vh;
   overflow-y: auto;
   border-radius: 8px;
 }
@@ -842,7 +842,7 @@ body.light-mode .close-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: #ffffff;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
@@ -941,7 +941,7 @@ body.light-mode .theme-toggle {
     height: 30px;
     top: 2px;
     left: 5px;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -997,6 +997,7 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
 
 
 
