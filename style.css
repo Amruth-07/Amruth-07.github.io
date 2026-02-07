@@ -362,7 +362,8 @@ body.light-mode .neon-border {
   object-position: center;
 }
 .project-image-wrapper {
-  overflow: visible;     /* allow full image to be seen */
+  overflow: visible; 
+   transition: transform 0.5s ease /* allow full image to be seen */
 }
 
 
@@ -936,8 +937,8 @@ body.light-mode .theme-toggle {
   }
 
   .theme-toggle {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     top: 2px;
     left: 5px;
     font-size: 0.5rem;
@@ -961,7 +962,7 @@ body.light-mode .theme-toggle {
 
 .neon-animated-border {
   position: relative;
-  border-radius: 15px;
+  border-radius: 18px;
   overflow: hidden;
   z-index: 1;
 }
@@ -996,6 +997,7 @@ body.light-mode .neon-animated-border::before {
   background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
   background-size: 300% 100%;
 }
+
 
 
 
