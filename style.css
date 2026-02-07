@@ -998,54 +998,123 @@ body.light-mode .neon-animated-border::before {
   background-size: 300% 100%;
 }
 
-
-
-/* =========================================================
-   LIST WITH STAR ICON STYLE
-========================================================== */
-
-.modal-content ul {
-  margin-top: 10px;
-  padding-left: 10px;
-  list-style: none;
-}
-
-.modal-content ul li {
+/* ================================
+   MODAL BODY CONTENT
+   - Scroll inside modal
+   - No extra bottom space
+================================ */
+#modalBody {
+  color: #ffffff;
   font-size: 1rem;
-  margin: 10px 0;
-  padding-left: 25px;
-  position: relative;
-  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+
+  max-height: 65vh;       /* keeps modal inside screen */
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.modal-content ul li::before {
-  content: "✦";
+
+/* Scrollbar style */
+#modalBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+#modalBody::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 255, 0.4);
+  border-radius: 10px;
+}
+
+
+/* ================================
+   MODAL SUB HEADINGS (h1-h5)
+================================ */
+#modalBody h1,
+#modalBody h2,
+#modalBody h3,
+#modalBody h4,
+#modalBody h5 {
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #00f2ff, #8f00ff, #00ff99);
+  background-size: 300% 300%;
+  animation: subtitleGlow 4s linear infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* subtitle animation */
+@keyframes subtitleGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+
+/* ================================
+   LIST STYLE (STAR BULLETS)
+================================ */
+#modalBody ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+#modalBody ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Star bullet symbol */
+#modalBody ul li::before {
+  content: "âœ¦";
   position: absolute;
   left: 0;
-  top: 0;
+  top: 2px;
+  font-size: 14px;
   color: #00f2ff;
-  font-size: 1.1rem;
-  text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
+  text-shadow: 0 0 8px #00f2ff, 0 0 12px #8f00ff;
 }
+
+
 /* ================================
-   CLOSE BUTTON (X)
+   CODE BOX STYLE
 ================================ */
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-
-  color: #ff2fd6;
-  text-shadow: 0 0 10px rgba(255, 47, 214, 0.6);
-
-  transition: 0.2s ease;
+#modalBody pre {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 15px;
+  border-radius: 15px;
+  overflow-x: auto;
+  font-size: 0.9rem;
 }
 
-.close-btn:hover {
-  transform: scale(1.15);
-  color: #ff0055;
+
+/* ==========================================================
+   LIGHT MODE FIX (MODAL)
+   - Pure white background
+   - Pure black text
+========================================================== */
+
+body.light-mode .modal {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body.light-mode .modal-content {
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode #modalBody {
+  color: #000000;
+}
+
+body.light-mode #modalBody pre {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .close-btn {
+  color: #000000;
 }
