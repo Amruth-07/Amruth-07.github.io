@@ -1070,7 +1070,7 @@ body.light-mode .neon-animated-border::before {
 
 /* Star bullet symbol */
 #modalBody ul li::before {
-  content: "âœ¦";
+  content: "✦";
   position: absolute;
   left: 0;
   top: 2px;
@@ -1118,3 +1118,4 @@ body.light-mode #modalBody pre {
 body.light-mode .close-btn {
   color: #000000;
 }
+
