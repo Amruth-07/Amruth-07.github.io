@@ -222,7 +222,6 @@ body.light-mode .card b {
 
 /* Underline effect for headlines */
 .section-headline::after {
-  content: "";
   display: block;
   width: 60px;
   height: 3px;
@@ -244,7 +243,7 @@ body.light-mode .card b {
 
 .hobby-pill {
   background: #111;
-  border: 1px solid #333;
+  border: 1px solid #40E;
   padding: 12px 25px;
   border-radius: 12px;
   font-size: 1rem;
@@ -297,7 +296,7 @@ body.light-mode .hobby-pill:hover {
 .about-photo {
   width: 220px;
   height: 220px;
-  border-radius: 2px;
+  border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
   margin-bottom: 10px;
@@ -856,13 +855,13 @@ body.light-mode .close-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 0.6rem;
   color: #ffffff;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 
   /* Animated Rainbow Border Logic */
-  border: 4px solid transparent;
+  border: 1px solid transparent;
   background-image: 
     linear-gradient(#000000, #000000), 
     linear-gradient(90deg, #00c6ff, #00ff99, #ff00ff, #00c6ff);
@@ -927,12 +926,12 @@ body.light-mode .theme-toggle {
   }
 
   .about-card {
-    padding: 20px;
+    padding: 0px;
   }
 
   .about-photo {
-    width: 180px;
-    height: 180px;
+    width: 230px;
+    height: 230px;
   }
 
   .contact-form {
@@ -953,9 +952,9 @@ body.light-mode .theme-toggle {
   .theme-toggle {
     width: 55px;
     height: 55px;
-    bottom: 20px;
-    right: 20px;
-    font-size: 1.2rem;
+    top: 20px;
+    left: 20px;
+    font-size: 0.5rem;
   }
 }
 
@@ -1349,6 +1348,7 @@ body.light-mode .modal-content {
   box-shadow: 0 0 22px rgba(0, 114, 255, 0.25),
               0 0 40px rgba(122, 0, 255, 0.15);
 }*/
+
 
 
 
