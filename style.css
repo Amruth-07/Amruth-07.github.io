@@ -1074,3 +1074,13 @@ body.light-mode .modal-content ul li::before {
   list-style: none !important;
   color: inherit !important;
 }
+
+body.light-mode #modalBody ul li {
+  color: #111 !important;
+}
+
+body.light-mode #modalBody ul li::before {
+  -webkit-text-fill-color: transparent !important;
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff) !important;
+  background-size: 300% 100% !important;
+}
