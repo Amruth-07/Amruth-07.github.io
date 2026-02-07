@@ -1030,13 +1030,13 @@ body.light-mode .project-card::before {
    (Only border effect, nothing else changed)
 ========================================================== */
 
-/* Neon Border Animation */
+/* Neon Border Animation *
 @keyframes neonBorderMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
 
-/* Apply thin animated neon border */
+/* Apply thin animated neon border *
 .card,
 .project-card,
 .contact-card,
@@ -1044,7 +1044,7 @@ body.light-mode .project-card::before {
 .modal-content {
   position: relative;
   border: none !important;
-  padding: 2px; /* Thin border thickness */
+  padding: 2px; /* Thin border thickness *
   border-radius: 20px;
   background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
   background-size: 300% 100%;
@@ -1351,4 +1351,5 @@ body.light-mode .modal-content {
   box-shadow: 0 0 22px rgba(0, 114, 255, 0.25),
               0 0 40px rgba(122, 0, 255, 0.15);
 }*/
+
 
