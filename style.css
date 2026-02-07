@@ -998,6 +998,28 @@ body.light-mode .neon-animated-border::before {
   background-size: 300% 100%;
 }
 
+/* ==========================================================
+   NEON GRADIENT ANIMATED TEXT (HEADLINES / SUBHEADINGS)
+========================================================== */
+
+.neon-text {
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonTextMove 4s linear infinite;
+}
+
+@keyframes neonTextMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Light Mode Neon Text */
+body.light-mode .neon-text {
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
+  background-size: 300% 100%;
+}
 
 
 
