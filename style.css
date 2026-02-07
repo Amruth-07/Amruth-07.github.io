@@ -453,7 +453,6 @@ body.light-mode .highlight-btn {
 }
 
 body.light-mode .highlight-btn:hover {
-  background: #0072ff;
   color: #fff;
   box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
@@ -1205,6 +1204,7 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
 
 
 
