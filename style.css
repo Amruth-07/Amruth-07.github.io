@@ -1083,7 +1083,6 @@ body.light-mode .neon-animated-border::before {
    CODE BOX STYLE
 ================================ */
 #modalBody pre {
-  background: rgba(0, 0, 0, 0.75);
   padding: 15px;
   border-radius: 15px;
   overflow-x: auto;
@@ -1206,5 +1205,6 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
 
 
