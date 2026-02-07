@@ -248,7 +248,6 @@ body.light-mode .card b {
   border-radius: 12px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hobby-pill:hover {
@@ -1108,7 +1107,7 @@ body.light-mode .modal-content {
 }
 
 body.light-mode #modalBody {
-  color: #000;
+  color: black;
 }
 
 body.light-mode #modalBody pre {
@@ -1207,4 +1206,5 @@ pre[class*=language-] {
 .token.inserted {
     color: green
 }
+
 
