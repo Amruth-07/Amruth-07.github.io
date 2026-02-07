@@ -1107,3 +1107,55 @@ body.light-mode #modalBody ul li::before {
   -webkit-text-fill-color: transparent;
   animation: modalNeonTextMove 4s linear infinite;
 }
+/* ==========================================================
+   FORCE FIX: REMOVE BLUE BLOCK BULLETS IN MODAL
+========================================================== */
+
+#modalBody ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+#modalBody ul li {
+  list-style: none !important;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #111;
+}
+
+/* Neon animated bullet symbol */
+#modalBody ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 2px;
+
+  font-size: 1.2rem;
+  font-weight: 900;
+
+  background: linear-gradient(90deg, #00f2ff, #00ff99, #ff00ff, #00f2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: modalNeonBulletMove 4s linear infinite;
+}
+
+/* Bullet animation */
+@keyframes modalNeonBulletMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Light mode bullet */
+body.light-mode #modalBody ul li {
+  color: #111;
+}
+
+body.light-mode #modalBody ul li::before {
+  background: linear-gradient(90deg, #0072ff, #00c6ff, #7a00ff, #0072ff);
+  background-size: 300% 100%;
+}
