@@ -1,23 +1,83 @@
 /* =====================================
    PART 1: SCROLL REVEAL ANIMATION
+   Supports: .reveal, .reveal-left,
+   .reveal-right, .reveal-scale, .reveal-fade
 ===================================== */
+const REVEAL_SELECTORS = [
+  ".reveal",
+  ".reveal-left",
+  ".reveal-right",
+  ".reveal-scale",
+  ".reveal-fade"
+].join(", ");
+
 function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
+  const elements = document.querySelectorAll(REVEAL_SELECTORS);
+  const windowHeight = window.innerHeight;
 
-  reveals.forEach(element => {
-    const windowHeight = window.innerHeight;
-    const elementTop = element.getBoundingClientRect().top;
-
-    // Triggers the animation when the element is 100px into the viewport
-    if (elementTop < windowHeight - 100) {
-      element.classList.add("active");
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < windowHeight - 80) {
+      el.classList.add("active");
     }
+  });
+
+  // Section headline underline sweep — needs .active on the headline itself
+  document.querySelectorAll(".section-headline").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < windowHeight - 60) {
+      el.classList.add("active");
+    }
+  });
+
+  // Stagger hobby/skill pills inside visible wrappers
+  document.querySelectorAll(".hobbies-wrapper, .hero-skills").forEach(wrapper => {
+    const top = wrapper.getBoundingClientRect().top;
+    if (top < windowHeight - 60) {
+      wrapper.querySelectorAll(".hobby-pill, .skill-pill").forEach((pill, i) => {
+        setTimeout(() => {
+          pill.style.opacity = "1";
+          pill.style.transform = "translateY(0) scale(1)";
+        }, i * 70);
+      });
+    }
+  });
+
+  // Stagger contact social icons
+  const socialSection = document.querySelector(".contact-social");
+  if (socialSection) {
+    const top = socialSection.getBoundingClientRect().top;
+    if (top < windowHeight - 60) {
+      socialSection.querySelectorAll("a").forEach((icon, i) => {
+        setTimeout(() => {
+          icon.style.opacity = "1";
+          icon.style.transform = "translateY(0) scale(1)";
+        }, i * 60);
+      });
+    }
+  }
+}
+
+// Set initial hidden state for pills and social icons
+function initAnimations() {
+  document.querySelectorAll(".hobby-pill, .skill-pill").forEach(pill => {
+    pill.style.opacity = "0";
+    pill.style.transform = "translateY(20px) scale(0.9)";
+    pill.style.transition = "opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+  });
+
+  document.querySelectorAll(".contact-social a").forEach(icon => {
+    icon.style.opacity = "0";
+    icon.style.transform = "translateY(15px) scale(0.85)";
+    icon.style.transition = "opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease";
   });
 }
 
-// Event listeners for scrolling and initial page load
 window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+window.addEventListener("load", () => {
+  initAnimations();
+  revealOnScroll();
+});
 
 /* =====================================
    PART 2: PROJECT IMAGE TOGGLE (VIEW)
@@ -34,7 +94,6 @@ function toggleProjectImage(button) {
   const icon = button.querySelector("i");
   if (!icon) return;
 
-  // Swaps the eye icon based on the expanded state
   if (wrapper.classList.contains("expanded")) {
     icon.classList.replace("fa-eye", "fa-eye-slash");
   } else {
@@ -57,7 +116,6 @@ function openModal(title, file) {
   modalBody.innerHTML = "Loading...";
   copyBtn.style.display = "none";
 
-  // Fetches the external content (HTML for details or TXT for code)
   fetch(file)
     .then(response => {
       if (!response.ok) throw new Error("File not found");
@@ -65,12 +123,10 @@ function openModal(title, file) {
     })
     .then(data => {
       if (file.endsWith(".txt")) {
-        // Formats code for Prism.js highlighting
         modalBody.innerHTML = `<pre class="language-c"><code class="language-c">${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
         copyBtn.style.display = "inline-block";
         if (window.Prism) Prism.highlightAllUnder(modalBody);
       } else {
-        // Loads standard HTML for project details
         modalBody.innerHTML = `<div class="details-box">${data}</div>`;
       }
     })
@@ -87,7 +143,6 @@ function closeModal() {
   if (modal) modal.style.display = "none";
 }
 
-// Close modal when clicking outside of the content area
 window.onclick = (event) => {
   const modal = document.getElementById("projectModal");
   if (event.target === modal) closeModal();
@@ -124,7 +179,6 @@ function toggleTheme() {
   const icon = document.querySelector(".theme-toggle i");
   if (!icon) return;
 
-  // Matches the logic to your light-mode CSS classes
   if (document.body.classList.contains("light-mode")) {
     icon.classList.replace("fa-sun", "fa-moon");
   } else {
@@ -136,9 +190,8 @@ function toggleTheme() {
    PART 6: EMAILJS CONTACT FORM
 ===================================== */
 window.addEventListener("load", function () {
-  // Initialize EmailJS with your User ID
   if (window.emailjs) {
-    emailjs.init("TZWUr1PeHYnnlkkBN"); 
+    emailjs.init("TZWUr1PeHYnnlkkBN");
   }
 
   const form = document.getElementById("contact-form");
@@ -147,7 +200,6 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Uses your specific Service and Template IDs
     emailjs.sendForm("service_9uitjh4", "template_re3hdru", form)
       .then(() => {
         alert("✅ Message sent successfully!");
