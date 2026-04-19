@@ -191,7 +191,7 @@ function toggleTheme() {
 ===================================== */
 window.addEventListener("load", function () {
   if (window.emailjs) {
-    emailjs.init("TZWUr1PeHYnnlkkBN");
+    emailjs.init("QCGEsLLgqua_DAJev");
   }
 
   const form = document.getElementById("contact-form");
@@ -200,7 +200,7 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    emailjs.sendForm("service_9uitjh4", "template_re3hdru", form)
+    emailjs.sendForm("service_przsgia", "template_re3hdru", form)
       .then(() => {
         alert("✅ Message sent successfully!");
         form.reset();
