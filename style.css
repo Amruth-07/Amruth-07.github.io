@@ -567,7 +567,8 @@ body.light-mode .download-btn:hover {
 .contact-section {
   padding: 80px 20px;
   max-width: 900px;
-  margin: -160px auto;
+  margin: 0 auto on 
+.contact-section.
   text-align: center;
 }
 
