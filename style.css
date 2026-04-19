@@ -1,4 +1,3 @@
-
 /* ==========================================================
    PART 1: GLOBAL RESET + THEME BASE (DARK & LIGHT MODE)
 ========================================================== */
@@ -567,8 +566,7 @@ body.light-mode .download-btn:hover {
 .contact-section {
   padding: 80px 20px;
   max-width: 900px;
-  margin: 0 auto on 
-.contact-section.
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -987,22 +985,186 @@ body.light-mode .theme-toggle {
 }
 
 /* ==========================================================
-   PART 13: SCROLL REVEAL ANIMATION
+   PART 13: SCROLL REVEAL ANIMATIONS
 ========================================================== */
 
-/* Hidden state */
+/* ── Base hidden state (default: slide up) ── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s ease-out;
+  transform: translateY(50px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
 }
 
-/* Visible state (triggered by script.js) */
-.reveal.active {
+/* ── Directional variants ── */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.75s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+/* ── Active / visible state for all variants ── */
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active,
+.reveal-fade.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateX(0) scale(1);
   pointer-events: auto;
+}
+
+/* ── Stagger delay helpers ── */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* ── Cards: slide up with subtle spring ── */
+.card {
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* ── Hobby / skill pills: pop in with bounce ── */
+.hobby-pill,
+.skill-pill {
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease,
+              color 0.3s ease;
+}
+
+/* ── Project cards: slide up staggered ── */
+.project-card {
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.projects-grid .project-card:nth-child(1) { transition-delay: 0s;    }
+.projects-grid .project-card:nth-child(2) { transition-delay: 0.12s; }
+.projects-grid .project-card:nth-child(3) { transition-delay: 0.24s; }
+.projects-grid .project-card:nth-child(4) { transition-delay: 0.36s; }
+
+/* ── Contact cards: staggered slide in ── */
+.contact-card {
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+}
+
+.contact-cards .contact-card:nth-child(1) { transition-delay: 0s;    }
+.contact-cards .contact-card:nth-child(2) { transition-delay: 0.15s; }
+.contact-cards .contact-card:nth-child(3) { transition-delay: 0.3s;  }
+
+/* ── Social icons: pop in staggered ── */
+.contact-social a {
+  transition: color 0.3s ease, border-color 0.3s ease,
+              transform 0.3s ease, box-shadow 0.3s ease,
+              opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-social a:nth-child(1) { transition-delay: 0s;    }
+.contact-social a:nth-child(2) { transition-delay: 0.07s; }
+.contact-social a:nth-child(3) { transition-delay: 0.14s; }
+.contact-social a:nth-child(4) { transition-delay: 0.21s; }
+.contact-social a:nth-child(5) { transition-delay: 0.28s; }
+.contact-social a:nth-child(6) { transition-delay: 0.35s; }
+
+/* ── Section headline underline sweep animation ── */
+.section-headline::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00f2ff, #00ff99);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+
+.section-headline.active::after {
+  width: 60px;
+}
+
+/* ── Resume buttons: slide up pair ── */
+.resume-btn {
+  transition: all 0.3s ease,
+              opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.resume-actions .view-btn     { transition-delay: 0s;    }
+.resume-actions .download-btn { transition-delay: 0.15s; }
+
+/* ── Highlight buttons inside project cards ── */
+.highlight-btn {
+  transition: background 0.3s ease, color 0.3s ease,
+              box-shadow 0.3s ease,
+              opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-actions .highlight-btn:nth-child(1) { transition-delay: 0.05s; }
+.project-actions .highlight-btn:nth-child(2) { transition-delay: 0.12s; }
+.project-actions .highlight-btn:nth-child(3) { transition-delay: 0.19s; }
+
+/* ── Reduced motion: respect accessibility preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade,
+  .card,
+  .project-card,
+  .contact-card,
+  .hobby-pill,
+  .skill-pill,
+  .resume-btn,
+  .highlight-btn,
+  .contact-social a {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section-headline::after {
+    width: 60px;
+    transition: none !important;
+  }
 }
 
 /* ==========================================================
