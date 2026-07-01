@@ -1,41 +1,42 @@
 
 :root {
-  --c-blue   : #3dd5ff;
-  --c-purple : #b978ff;
-  --c-green  : #3dffa0;
-  --c-pink   : #ff7ec9;
-  --c-bg     : #0a0c14;
-  --c-card   : #12141f;
-  --c-card2  : #161826;
-  --c-border : #232741;
-  --c-text   : #e2e8f8;
-  --c-muted  : #98a4c8;
-  --glow-b   : rgba(61,213,255,0.22);
-  --glow-p   : rgba(185,120,255,0.22);
-  --glow-g   : rgba(61,255,160,0.22);
-  --glow-pk  : rgba(255,126,201,0.22);
+  --c-blue   : #00c8ff;
+  --c-purple : #a855f7;
+  --c-green  : #00ff88;
+  --c-pink   : #ff2d95;
+  --c-bg     : #000000;
+  --c-card   : #0a0a10;
+  --c-card2  : #0d0d14;
+  --c-border : #1a1a2e;
+  --c-text   : #d0d8e8;
+  --c-muted  : #8a98b8;
+  --glow-b   : rgba(0,200,255,0.18);
+  --glow-p   : rgba(168,85,247,0.18);
+  --glow-g   : rgba(0,255,136,0.18);
+  --glow-pk  : rgba(255,45,149,0.18);
   --font     : "Poppins", sans-serif;
 }
 body.light-mode {
-  --c-blue   : #0099e0;
-  --c-purple : #9645ea;
-  --c-green  : #00b877;
-  --c-pink   : #ec4899;
-  --c-bg     : #f6f8fd;
+  --c-blue   : #00a0c8;
+  --c-purple : #7828c8;
+  --c-green  : #00a050;
+  --c-pink   : #d6006e;
+  --c-bg     : #ffffff;
   --c-card   : #ffffff;
-  --c-card2  : #eef2fb;
-  --c-border : #dde5f7;
-  --c-text   : #232741;
-  --c-muted  : #64719c;
-  --glow-b   : rgba(0,140,220,0.14);
-  --glow-p   : rgba(140,50,220,0.14);
-  --glow-g   : rgba(0,180,110,0.14);
-  --glow-pk  : rgba(236,72,153,0.14);
+  --c-card2  : #f7f9fc;
+  --c-border : #e2e8f5;
+  --c-text   : #1a1a2e;
+  --c-muted  : #5a6890;
+  --glow-b   : rgba(0,140,200,0.12);
+  --glow-p   : rgba(120,40,200,0.12);
+  --glow-g   : rgba(0,160,80,0.12);
+  --glow-pk  : rgba(214,0,110,0.12);
 }
 
 /* ── RESET ──────────────────────────────────────────────── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth; scroll-padding-top: 30px; }
+#modalBody { scroll-behavior: smooth; }
 body {
   font-family: var(--font);
   background: var(--c-bg);
@@ -388,11 +389,6 @@ body.light-mode #hero::before { display:none; }
   border-radius: 16px; object-fit: cover;
   border: 1px solid var(--c-blue);
   box-shadow: 0 0 20px var(--glow-b), 0 0 40px var(--glow-p);
-  transition: transform .4s ease, box-shadow .4s ease;
-}
-.about-photo:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px var(--glow-b), 0 0 50px var(--glow-p);
 }
 .about-text {
   font-size: 1rem; color: #000000;
@@ -735,10 +731,14 @@ body.light-mode #hero::before { display:none; }
 }
 .modal-content {
   background: var(--c-card);
-  margin: 4% auto; padding: 32px;
+  margin: 4vh auto;
+  padding: 30px 32px;
   border: 1px solid var(--c-blue);
   box-shadow: 0 0 30px var(--glow-b), 0 0 60px var(--glow-p);
-  width: 90%; max-width: 800px; border-radius: 16px;
+  width: 90%; max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
   position: relative;
 }
 .close-btn {
@@ -763,7 +763,7 @@ body.light-mode #hero::before { display:none; }
 .copy-btn:hover { box-shadow: 0 0 14px var(--glow-g); }
 #modalBody {
   font-size: .95rem; line-height: 1.8;
-  max-height: 65vh; overflow-y: auto; padding-right: 8px;
+  max-height: 68vh; overflow-y: auto; padding-right: 8px;
   color: var(--c-text);
 }
 #modalBody::-webkit-scrollbar { width:4px; }
@@ -795,10 +795,10 @@ body.light-mode #hero::before { display:none; }
 ============================================================ */
 pre[class*="language-"] {
   margin:0 !important; border-radius:10px; font-size:.85rem;
-  background:#1a1a2e !important;
+  background:#1e1e1e !important;
 }
 :not(pre)>code[class*="language-"],
-pre[class*="language-"] code { background:transparent !important; color:#d0d8e8; }
+pre[class*="language-"] code { background:transparent !important; color:#d4d4d4; }
 
 body.light-mode pre[class*="language-"] {
   background:#ffffff !important;
@@ -808,45 +808,45 @@ body.light-mode pre[class*="language-"] code,
 body.light-mode :not(pre)>code[class*="language-"] {
   color:#1a1a2e !important;
 }
-/* Syntax token colors — light mode (still colorful but readable on white) */
+/* Syntax token colors — light mode (classic VS Code Light+ palette) */
 body.light-mode .token.comment,
 body.light-mode .token.block-comment,
-body.light-mode .token.prolog { color:#6b7a99; }
-body.light-mode .token.punctuation { color:#444; }
+body.light-mode .token.prolog { color:#008000; }
+body.light-mode .token.punctuation { color:#000000; }
 body.light-mode .token.tag,
 body.light-mode .token.attr-name,
-body.light-mode .token.deleted { color:#c0392b; }
+body.light-mode .token.deleted { color:#800000; }
 body.light-mode .token.function,
 body.light-mode .token.boolean,
-body.light-mode .token.number { color:#d35400; }
+body.light-mode .token.number { color:#098658; }
 body.light-mode .token.class-name,
 body.light-mode .token.constant,
-body.light-mode .token.property { color:#b8860b; }
+body.light-mode .token.property { color:#267f99; }
 body.light-mode .token.keyword,
 body.light-mode .token.atrule,
-body.light-mode .token.selector { color:#8e44ad; }
+body.light-mode .token.selector { color:#0000ff; }
 body.light-mode .token.string,
 body.light-mode .token.attr-value,
-body.light-mode .token.char { color:#27ae60; }
+body.light-mode .token.char { color:#a31515; }
 body.light-mode .token.operator,
 body.light-mode .token.entity,
-body.light-mode .token.url { color:#0099cc; }
+body.light-mode .token.url { color:#000000; }
 
-/* Dark mode token colors */
-.token.comment,.token.block-comment,.token.prolog,.token.cdata { color:#7a8aa8; }
-.token.punctuation { color:#aab; }
-.token.tag,.token.attr-name,.token.namespace,.token.deleted { color:#ff7eb6; }
-.token.function-name { color:#82d4ff; }
-.token.boolean,.token.function,.token.number { color:#ffb86c; }
-.token.class-name,.token.constant,.token.property,.token.symbol { color:#f8e555; }
-.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector { color:#bd93f9; }
-.token.attr-value,.token.char,.token.regex,.token.string,.token.variable { color:#7effc6; }
-.token.entity,.token.operator,.token.url { color:#67e8ff; }
+/* Dark mode token colors (classic VS Code Dark+ palette) */
+.token.comment,.token.block-comment,.token.prolog,.token.cdata { color:#6a9955; }
+.token.punctuation { color:#d4d4d4; }
+.token.tag,.token.attr-name,.token.namespace,.token.deleted { color:#569cd6; }
+.token.function-name { color:#dcdcaa; }
+.token.boolean,.token.function,.token.number { color:#b5cea8; }
+.token.class-name,.token.constant,.token.property,.token.symbol { color:#4ec9b0; }
+.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector { color:#569cd6; }
+.token.attr-value,.token.char,.token.regex,.token.string,.token.variable { color:#ce9178; }
+.token.entity,.token.operator,.token.url { color:#d4d4d4; }
 .token.bold,.token.important { font-weight:700; }
 .token.italic { font-style:italic; }
-.token.inserted { color:#7effc6; }
+.token.inserted { color:#b5cea8; }
 
-body.light-mode .modal-content { background: #ffffff; border-color: var(--c-blue); }
+body.light-mode .modal-content { background: linear-gradient(155deg, rgba(255,255,255,.85), rgba(255,255,255,.5)); border-color: var(--c-blue); }
 body.light-mode #modalBody { color: #1a1a2e; }
 body.light-mode .close-btn { color: #888; }
 
@@ -995,6 +995,17 @@ body.light-mode .theme-toggle::after {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
+/* About card — simple fade only, no blur/scale/zoom entrance */
+.about-card.reveal {
+  transform: none;
+  filter: none;
+  transition: opacity .8s ease;
+}
+.about-card.reveal.active {
+  transform: none;
+  filter: none;
+}
+
 /* ============================================================
    CERT MODAL
 ============================================================ */
@@ -1002,19 +1013,48 @@ body.light-mode .theme-toggle::after {
 #cert-modal.active { display:flex !important; }
 
 /* ============================================================
+   APPLE-STYLE 3D GLASS EFFECT
+   Frosted, translucent panels with depth — applied to major
+   surfaces so the drifting background blobs show through softly.
+============================================================ */
+.card,
+.project-card,
+.contact-card,
+.contact-form,
+.about-card,
+.modal-content {
+  background: linear-gradient(155deg, rgba(255,255,255,.08), rgba(255,255,255,.015) 60%);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 -1px 0 rgba(255,255,255,.03);
+  transform-style: preserve-3d;
+  transition: transform .4s cubic-bezier(.22,1,.36,1),
+              box-shadow .4s ease, border-color .3s ease;
+}
+.card:hover,
+.contact-card:hover {
+  transform: translateY(-5px) rotateX(2deg) rotateY(-1deg);
+}
+.contact-form:hover { transform: none; }
+
+/* ============================================================
    LIGHT MODE — pure white backgrounds
 ============================================================ */
-body.light-mode .card { background:linear-gradient(160deg,#ffffff,#f5f8ff); border-color:var(--c-border); box-shadow:0 2px 14px rgba(60,90,180,.06); }
-body.light-mode .card:hover { box-shadow:0 4px 24px rgba(0,140,220,.14); }
-body.light-mode .hobby-pill { background:#ffffff; border-color:var(--c-border); color:#334; }
-body.light-mode .project-card { background:linear-gradient(160deg,#ffffff,#f6f9ff); border-color:var(--c-border); box-shadow:0 2px 14px rgba(60,90,180,.06); }
-body.light-mode .about-card   { background:linear-gradient(160deg,#ffffff,#f5f8ff); }
-body.light-mode .contact-card { background:#ffffff; border-color:var(--c-border); }
-body.light-mode .contact-social a { background:#ffffff; border-color:var(--c-border); color:#333; }
-body.light-mode .contact-form { background:#ffffff; border-color:var(--c-border); }
+body.light-mode .card { background:linear-gradient(155deg, rgba(255,255,255,.75), rgba(255,255,255,.35)); border-color:rgba(255,255,255,.6); box-shadow:0 8px 28px rgba(60,90,180,.10), inset 0 1px 0 rgba(255,255,255,.7); }
+body.light-mode .card:hover { box-shadow:0 10px 32px rgba(0,100,200,.16), inset 0 1px 0 rgba(255,255,255,.8); }
+body.light-mode .hobby-pill { background:rgba(255,255,255,.6); backdrop-filter: blur(10px); border-color:#e2e8f5; color:#334; }
+body.light-mode .project-card { background:linear-gradient(155deg, rgba(255,255,255,.75), rgba(255,255,255,.35)); border-color:rgba(255,255,255,.6); box-shadow:0 8px 28px rgba(60,90,180,.10), inset 0 1px 0 rgba(255,255,255,.7); }
+body.light-mode .about-card   { background:linear-gradient(155deg, rgba(255,255,255,.8), rgba(255,255,255,.4)); }
+body.light-mode .contact-card { background:rgba(255,255,255,.65); border-color:rgba(255,255,255,.6); }
+body.light-mode .contact-social a { background:rgba(255,255,255,.65); border-color:#e2e8f5; color:#333; }
+body.light-mode .contact-form { background:rgba(255,255,255,.7); border-color:rgba(255,255,255,.6); }
 body.light-mode .contact-form input,
-body.light-mode .contact-form textarea { background:var(--c-card2); border-color:var(--c-border); }
-body.light-mode .tech-used { background:rgba(0,140,220,.06); }
+body.light-mode .contact-form textarea { background:rgba(247,249,252,.8); border-color:#e2e8f5; }
+body.light-mode .tech-used { background:rgba(0,100,200,.05); }
 body.light-mode .send-btn { border-color:#00aa66; color:#00aa66; }
 body.light-mode .send-btn:hover { background:#00aa66; color:#fff; }
 body.light-mode .resume-btn,
@@ -1039,6 +1079,8 @@ body.light-mode .highlight-btn:nth-child(3) { background:rgba(0,255,136,.04); }
   .highlight-btn { font-size: .72rem; padding: 8px 2px; }
   .contact-cards { grid-template-columns: 1fr; }
   .contact-card { padding: 14px; }
+  .modal-content { width: 94%; max-width: none; padding: 22px 18px; margin: 3vh auto; max-height: 92vh; }
+  #modalBody { max-height: 72vh; }
 }
 @media (max-width: 480px) {
   #hero h1 { font-size: 1.75rem; letter-spacing: 1px; }
