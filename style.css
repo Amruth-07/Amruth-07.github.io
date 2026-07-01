@@ -70,7 +70,7 @@ body::after {
   animation: blobDriftB 26s ease-in-out infinite;
 }
 body.light-mode::before,
-body.light-mode::after { opacity: .6; }
+body.light-mode::after { opacity: .35; }
 img { max-width:100%; display:block; }
 a { text-decoration:none; color:inherit; }
 button { font-family:inherit; cursor:pointer; border:none; outline:none; background:none; }
@@ -141,6 +141,24 @@ button { font-family:inherit; cursor:pointer; border:none; outline:none; backgro
   0%,100% { text-shadow: 0 0 18px var(--glow-b), 0 0 34px var(--glow-p); }
   50%     { text-shadow: 0 0 30px var(--glow-p), 0 0 50px var(--glow-g); }
 }
+/* Wiggle for icons / pills on hover */
+@keyframes wiggle {
+  0%,100% { transform: rotate(0deg); }
+  25%     { transform: rotate(-8deg); }
+  75%     { transform: rotate(8deg); }
+}
+/* Icon bounce */
+@keyframes bounceIcon {
+  0%,100% { transform: translateY(0); }
+  30%     { transform: translateY(-6px); }
+  55%     { transform: translateY(0); }
+  75%     { transform: translateY(-2px); }
+}
+/* Soft breathing pulse for buttons */
+@keyframes breathe {
+  0%,100% { box-shadow: 0 0 0 rgba(0,0,0,0); }
+  50%     { box-shadow: 0 0 16px var(--glow-b); }
+}
 
 /* ============================================================
    NEON BORDER MIXIN
@@ -179,12 +197,12 @@ button { font-family:inherit; cursor:pointer; border:none; outline:none; backgro
    HERO SECTION
 ============================================================ */
 #hero {
-  min-height: 52vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px 40px;
+  padding: 40px 20px 24px;
   text-align: center;
   position: relative;
 }
@@ -232,9 +250,12 @@ body.light-mode #hero::before { display:none; }
   width:100%; height:100%;
   object-fit:cover; border-radius:50%;
   position: relative; z-index:1;
-  transition: transform .4s ease;
+  border: 4px solid var(--c-bg);
+  outline: 2px solid var(--c-blue);
+  outline-offset: -2px;
+  transition: transform .4s ease, outline-color .4s ease;
 }
-.profile:hover img { transform: scale(1.05); }
+.profile:hover img { transform: scale(1.05); outline-color: var(--c-purple); }
 .profile:hover::before { animation-duration: 1.2s; }
 
 #hero h2 {
@@ -337,7 +358,7 @@ body.light-mode #hero::before { display:none; }
 .section-headline {
   text-align: center;
   font-size: 1.9rem; font-weight: 700;
-  margin: 50px 0 26px;
+  margin: 30px 0 22px;
   text-transform: uppercase; letter-spacing: 4px;
   background: linear-gradient(90deg,
     var(--c-blue), var(--c-purple), var(--c-pink), var(--c-green),
@@ -356,7 +377,7 @@ body.light-mode #hero::before { display:none; }
 .hobbies-wrapper {
   display: flex; flex-wrap: wrap;
   justify-content: center; gap: 12px;
-  max-width: 900px; margin: 0 auto 70px; padding: 0 16px;
+  max-width: 900px; margin: 0 auto 38px; padding: 0 16px;
 }
 .hobby-pill {
   background: var(--c-card2);
@@ -371,7 +392,7 @@ body.light-mode #hero::before { display:none; }
 .hobby-pill:nth-child(3n+1) { animation-delay:0s; }
 .hobby-pill:nth-child(3n+2) { animation-delay:.4s; }
 .hobby-pill:nth-child(3n+3) { animation-delay:.8s; }
-.hobby-pill:hover { animation-play-state:paused; }
+.hobby-pill:hover { animation: wiggle .5s ease; }
 .hobby-pill:nth-child(3n+1):hover { border-color:var(--c-blue);   color:var(--c-blue);   box-shadow:0 0 12px var(--glow-b); transform:translateY(-3px) scale(1.04); }
 .hobby-pill:nth-child(3n+2):hover { border-color:var(--c-purple); color:var(--c-purple); box-shadow:0 0 12px var(--glow-p); transform:translateY(-3px) scale(1.04); }
 .hobby-pill:nth-child(3n+3):hover { border-color:var(--c-green);  color:var(--c-green);  box-shadow:0 0 12px var(--glow-g); transform:translateY(-3px) scale(1.04); }
@@ -415,7 +436,7 @@ body.light-mode #hero::before { display:none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 22px; max-width: 1200px;
-  margin: 0 auto 55px; padding: 0 24px;
+  margin: 0 auto 32px; padding: 0 24px;
 }
 
 /* ── Project Card — rounded corners ─────────────────────── */
@@ -566,16 +587,16 @@ body.light-mode #hero::before { display:none; }
   border: 1px solid var(--c-border);
   transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
-.cert-card:nth-child(3n+1) .cert-img:hover { border-color:var(--c-blue);   box-shadow:0 0 16px var(--glow-b); transform:scale(1.03); }
-.cert-card:nth-child(3n+2) .cert-img:hover { border-color:var(--c-purple); box-shadow:0 0 16px var(--glow-p); transform:scale(1.03); }
-.cert-card:nth-child(3n+3) .cert-img:hover { border-color:var(--c-green);  box-shadow:0 0 16px var(--glow-g); transform:scale(1.03); }
+.cert-card:nth-child(3n+1) .cert-img:hover { border-color:var(--c-blue);   box-shadow:0 0 16px var(--glow-b); transform:scale(1.05) rotate(-1deg); }
+.cert-card:nth-child(3n+2) .cert-img:hover { border-color:var(--c-purple); box-shadow:0 0 16px var(--glow-p); transform:scale(1.05) rotate(1deg); }
+.cert-card:nth-child(3n+3) .cert-img:hover { border-color:var(--c-green);  box-shadow:0 0 16px var(--glow-g); transform:scale(1.05) rotate(-1deg); }
 
 /* ============================================================
    RESUME BUTTONS
 ============================================================ */
 .resume-actions {
   display: flex; justify-content: center;
-  gap: 16px; margin: 32px 0 60px; flex-wrap:wrap;
+  gap: 16px; margin: 24px 0 36px; flex-wrap:wrap;
 }
 .resume-btn {
   padding: 12px 38px; border-radius: 24px;
@@ -586,6 +607,7 @@ body.light-mode #hero::before { display:none; }
 .view-btn {
   color: var(--c-blue); border-color: rgba(0,200,255,.4);
   background: rgba(0,200,255,.05);
+  animation: breathe 3s ease-in-out infinite;
 }
 .view-btn:hover {
   background: var(--c-blue); color: #000;
@@ -604,7 +626,7 @@ body.light-mode #hero::before { display:none; }
    CONTACT SECTION — fixed fitting issues
 ============================================================ */
 .contact-section {
-  padding: 60px 20px;
+  padding: 36px 20px;
   max-width: 900px; margin: 0 auto; text-align: center;
 }
 .contact-subtitle {
@@ -635,7 +657,9 @@ body.light-mode #hero::before { display:none; }
   font-size: 1.05rem;
   background: rgba(0,200,255,.08);
   color: var(--c-blue); border: 1px solid rgba(0,200,255,.2);
+  transition: transform .3s ease;
 }
+.contact-card:hover .contact-icon { animation: bounceIcon .6s ease; }
 .contact-card:nth-child(2) .contact-icon { background:rgba(168,85,247,.08); color:var(--c-purple); border-color:rgba(168,85,247,.2); }
 .contact-card:nth-child(3) .contact-icon { background:rgba(0,255,136,.08);  color:var(--c-green);  border-color:rgba(0,255,136,.2);  }
 .contact-card h4 { font-size:.88rem; margin-bottom:3px; font-weight:600; }
@@ -846,7 +870,7 @@ body.light-mode .token.url { color:#000000; }
 .token.italic { font-style:italic; }
 .token.inserted { color:#b5cea8; }
 
-body.light-mode .modal-content { background: linear-gradient(155deg, rgba(255,255,255,.85), rgba(255,255,255,.5)); border-color: var(--c-blue); }
+body.light-mode .modal-content { background: #ffffff; border-color: var(--c-blue); }
 body.light-mode #modalBody { color: #1a1a2e; }
 body.light-mode .close-btn { color: #888; }
 
@@ -1013,47 +1037,31 @@ body.light-mode .theme-toggle::after {
 #cert-modal.active { display:flex !important; }
 
 /* ============================================================
-   APPLE-STYLE 3D GLASS EFFECT
-   Frosted, translucent panels with depth — applied to major
-   surfaces so the drifting background blobs show through softly.
+   CARD / PANEL HOVER MOTION (no glass — solid, colorful panels)
 ============================================================ */
 .card,
-.project-card,
-.contact-card,
-.contact-form,
-.about-card,
-.modal-content {
-  background: linear-gradient(155deg, rgba(255,255,255,.08), rgba(255,255,255,.015) 60%);
-  backdrop-filter: blur(22px) saturate(180%);
-  -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow:
-    0 8px 32px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.18),
-    inset 0 -1px 0 rgba(255,255,255,.03);
-  transform-style: preserve-3d;
+.contact-card {
   transition: transform .4s cubic-bezier(.22,1,.36,1),
               box-shadow .4s ease, border-color .3s ease;
 }
 .card:hover,
 .contact-card:hover {
-  transform: translateY(-5px) rotateX(2deg) rotateY(-1deg);
+  transform: translateY(-5px);
 }
-.contact-form:hover { transform: none; }
 
 /* ============================================================
-   LIGHT MODE — pure white backgrounds
+   LIGHT MODE — soft, colorful backgrounds
 ============================================================ */
-body.light-mode .card { background:linear-gradient(155deg, rgba(255,255,255,.75), rgba(255,255,255,.35)); border-color:rgba(255,255,255,.6); box-shadow:0 8px 28px rgba(60,90,180,.10), inset 0 1px 0 rgba(255,255,255,.7); }
-body.light-mode .card:hover { box-shadow:0 10px 32px rgba(0,100,200,.16), inset 0 1px 0 rgba(255,255,255,.8); }
-body.light-mode .hobby-pill { background:rgba(255,255,255,.6); backdrop-filter: blur(10px); border-color:#e2e8f5; color:#334; }
-body.light-mode .project-card { background:linear-gradient(155deg, rgba(255,255,255,.75), rgba(255,255,255,.35)); border-color:rgba(255,255,255,.6); box-shadow:0 8px 28px rgba(60,90,180,.10), inset 0 1px 0 rgba(255,255,255,.7); }
-body.light-mode .about-card   { background:linear-gradient(155deg, rgba(255,255,255,.8), rgba(255,255,255,.4)); }
-body.light-mode .contact-card { background:rgba(255,255,255,.65); border-color:rgba(255,255,255,.6); }
-body.light-mode .contact-social a { background:rgba(255,255,255,.65); border-color:#e2e8f5; color:#333; }
-body.light-mode .contact-form { background:rgba(255,255,255,.7); border-color:rgba(255,255,255,.6); }
+body.light-mode .card { background:linear-gradient(155deg,#ffffff,#f3f7ff); border-color:#dfe7fa; box-shadow:0 4px 16px rgba(60,90,180,.08); }
+body.light-mode .card:hover { box-shadow:0 8px 24px rgba(0,140,220,.16); border-color:var(--c-blue); }
+body.light-mode .hobby-pill { background:#ffffff; border-color:#e2e8f5; color:#334; }
+body.light-mode .project-card { background:linear-gradient(155deg,#ffffff,#f3f7ff); border-color:#dfe7fa; box-shadow:0 4px 16px rgba(60,90,180,.08); }
+body.light-mode .about-card   { background:linear-gradient(155deg,#ffffff,#f3f7ff); }
+body.light-mode .contact-card { background:#ffffff; border-color:#dfe7fa; }
+body.light-mode .contact-social a { background:#ffffff; border-color:#e2e8f5; color:#333; }
+body.light-mode .contact-form { background:#ffffff; border-color:#dfe7fa; }
 body.light-mode .contact-form input,
-body.light-mode .contact-form textarea { background:rgba(247,249,252,.8); border-color:#e2e8f5; }
+body.light-mode .contact-form textarea { background:#f7f9fc; border-color:#e2e8f5; }
 body.light-mode .tech-used { background:rgba(0,100,200,.05); }
 body.light-mode .send-btn { border-color:#00aa66; color:#00aa66; }
 body.light-mode .send-btn:hover { background:#00aa66; color:#fff; }
