@@ -1,248 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amrut Hanamapure | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amrut Hanamapure | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-<body class="light-mode">
-  <section id="hero">
-    <div class="profile reveal">
-      <img src="profile.jpg.jpg" alt="Amrut Hanamapure">
-    </div>
-    <h2 class="reveal">Hi I'm</h2>
-    <h1 class="reveal">
-      <span>Amrut Hanamapure</span>
-    </h1>
-    <p class="reveal">
-      Electronics & Communication Engineering Graduate | PCB Design & Embedded Hardware
-    </p>
+<body>
+<canvas id="swarm"></canvas>
+
+<nav class="nav">
+  <a href="#home">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certs">Certs</a><a href="#contact">Contact</a>
+  <button id="themeBtn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+</nav>
+
+<main class="bento" id="home">
+
+  <section class="tile w2 h2 hero rv">
+    <div class="avatar"><img src="profile.jpg.jpg" alt="Amrut Hanamapure"></div>
+    <span class="mono">// hello world, I'm</span>
+    <h1>Amrut<br>Hanamapure</h1>
+    <p>Electronics &amp; Communication Engineer building embedded systems, PCBs and IoT.</p>
+    <span class="status"><i></i> Open to core electronics roles · Bengaluru</span>
   </section>
-  <div class="hero-skills reveal">
-    <span class="skill-pill neon-animated-border">Embedded Systems</span>
-    <span class="skill-pill neon-animated-border">VLSI Basics</span>
-    <span class="skill-pill neon-animated-border">Verilog</span>
-    <span class="skill-pill neon-animated-border">PCB Design</span>
-    <span class="skill-pill neon-animated-border">Python</span>
-  </div>
-  <div class="card reveal neon-animated-border">
-     <b>📍Location</b><br>
-    Bengaluru, Karnataka, India
-  </div>
-  <div class="card reveal neon-animated-border">
-     <b>💼Expertise</b><br>
-    Embedded Systems, VLSI Basics, Circuit Design, PCB Design
-  </div>
-  <div class="card reveal neon-animated-border">
-     <b>🛠Experience</b><br>
-    Avalon Technologies – Production, Testing Line<br>
-    <small>April 2026 – Aug 2026</small>
-  </div>
-  <div class="card reveal neon-animated-border">
-     <b>🎓Education</b><br>
-    BE – ECE<br>
-    City Engineering College, Bengaluru<br>
-    <small>CGPA: 7.70</small>
-  </div>
-  <h2 class="section-headline reveal">Experience</h2>
-  <div class="projects-grid reveal">
-    <div class="project-card">
-      <h3>Avalon Technologies</h3>
-      <p><b>Production Department, Testing Line</b><br>April 2026 – Aug 2026</p>
-      <p>Worked in the testing line within the Production department, supporting quality and functional testing of electronic assemblies. Gained hands-on exposure to industrial production workflows, test procedures, and hardware quality checks.</p>
-    </div>
-    <div class="project-card">
-      <h3>VisionAstraa EV Academy</h3>
-      <p><b>Embedded Systems Intern</b><br>Feb 2026 – May 2026</p>
-      <p>Designed and developed a 5S Lithium-ion Battery Management System (BMS) using STM32 to monitor cell voltages, current, and temperature in real time. Collaborated with a team on embedded firmware development and hardware debugging for EV battery applications.</p>
-    </div>
-    <div class="project-card">
-      <h3>Robotics Vocational Skill Training</h3>
-      <p><b>GTTC, Belagavi</b><br>Jan 2023 – Feb 2023</p>
-      <p>Learned electronics fundamentals and worked with a robotic arm, gaining a basic understanding of circuits, components, and testing.</p>
-    </div>
-  </div>
-  <h2 class="section-headline reveal">Hobbies</h2>
-  <div class="hobbies-wrapper">
-    <div class="hobby-pill neon-animated-border">🎧 Listening to Music</div>
-    <div class="hobby-pill neon-animated-border">📷 Photography</div>
-    <div class="hobby-pill neon-animated-border">🎮 Gaming</div>
-    <div class="hobby-pill neon-animated-border">🏀 Sports</div>
-    <div class="hobby-pill neon-animated-border">💪🏻 Fitness</div>
-  </div>
-  <h2 class="section-headline reveal">Skills</h2>
-  <div class="hobbies-wrapper">
-    <div class="hobby-pill neon-animated-border">💻 VLSI Design Basics</div>
-    <div class="hobby-pill neon-animated-border">🧩 Verilog</div>
-    <div class="hobby-pill neon-animated-border">⚡ Embedded Systems</div>
-    <div class="hobby-pill neon-animated-border">🐍 Python</div>
-    <div class="hobby-pill neon-animated-border">🔌 PCB Design</div>
-  </div>
-  <h2 class="section-headline reveal">My Interests</h2>
-  <div class="hobbies-wrapper">
-    <div class="hobby-pill neon-animated-border">📈 Stock Market</div>
-    <div class="hobby-pill neon-animated-border">🌐 Web Building</div>
-    <div class="hobby-pill neon-animated-border">🔍 Deep Learning</div>
-    <div class="hobby-pill neon-animated-border">🏍️ Travelling</div>
-  </div>
-  <div class="card reveal about-card neon-border neon-animated-border">
-    <h2 class="section-headline">About Me</h2>
-    <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-photo">
-    <p class="about-text">
-      I am Amrut Hanamapure, an Electronics and Communication Engineering (ECE) graduate from City Engineering College, Bengaluru, with hands-on experience in PCB design, circuit development, and embedded systems. My background includes production and quality testing exposure at Avalon Technologies, where I supported quality and functional testing of electronic assemblies on the production testing line (April 2026 – August 2026).
-      <br><br>
-      I previously worked as an Embedded Systems Intern at VisionAstraa EV Academy, where I designed and developed a 5S Lithium-ion Battery Management System (BMS) using STM32 to monitor cell voltages, current, and temperature in real time, while collaborating on embedded firmware development and hardware debugging for EV battery applications. I also completed Robotics Vocational Skill Training at GTTC, Belagavi, gaining hands-on experience in robot assembly, programming, and troubleshooting.
-      <br><br>
-      I am skilled in PCB Designing & Fabrication, Circuit Design, VLSI design basics, Verilog, Embedded Systems, and Python programming, with project experience spanning IoT, hardware testing, and battery management systems. I am actively seeking an entry-level PCB Design, Embedded Hardware, or BMS/Power Electronics Engineering role, and I'm always looking to apply my technical expertise to real-world engineering challenges.
-    </p>
-  </div>
-  <h2 class="section-headline reveal">My Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card reveal ">
-      <div class="project-image-wrapper">
-        <img src="portable.png" alt="Portable Oscilloscope" class="project-image">
-      </div>
-      <h3>Portable Oscilloscope using Arduino & OLED</h3>
-      <p>Built a low-cost oscilloscope for real-time waveform visualization using ADC sampling and an OLED display with adjustable scaling.</p>
-      <p class="tech-used"><b>Technologies:</b> Arduino, OLED Display, ADC Sampling, Embedded C</p>
-      <div class="project-actions">
-        <button class="highlight-btn neon-animated-border" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')">Details</a>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('Portable Oscilloscope Code','oscilloscopeCode.txt')">Code</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-image-wrapper">
-        <img src="smart.png" alt="AgriGuard" class="project-image">
-      </div>
-      <h3>AgriGuard: Smart IoT Farming & Security System</h3>
-      <p>Developed an Arduino-based system for automated irrigation and field security using soil moisture, PIR, and temperature sensors with ESP8266 IoT monitoring.</p>
-      <p class="tech-used"><b>Technologies:</b> Arduino, ESP8266, IoT, Sensors, Embedded C</p>
-      <div class="project-actions">
-        <button class="highlight-btn neon-animated-border" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('AgriGuard Details','agriguardDetails.html')">Details</a>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('AgriGuard Code','Agriculture.txt')">Code</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-image-wrapper">
-        <img src="component-tester.png" alt="Component Tester" class="project-image">
-      </div>
-      <h3>All-in-One Electronic Component Tester</h3>
-      <p>Built an Arduino-based tester to identify and measure resistors, capacitors, diodes, and transistors using ADC-based analysis with OLED display output.</p>
-      <p class="tech-used"><b>Technologies:</b> Arduino, OLED Display, ADC-Based Analysis, Embedded C</p>
-      <div class="project-actions">
-        <button class="highlight-btn neon-animated-border" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('Component Tester Details','testerDetails.html')">Details</a>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('Component Tester Code','Tester.txt')">Code</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-image-wrapper">
-        <img src="led-pattern.png" alt="LED Pattern" class="project-image">
-      </div>
-      <h3>Generating LED Patterns Using Arduino</h3>
-      <p>Demonstrates microcontroller-based control logic through visual LED pattern generation.</p>
-      <p class="tech-used"><b>Technologies:</b> Arduino, Embedded C, LEDs, Digital I/O</p>
-      <div class="project-actions">
-        <button class="highlight-btn neon-animated-border" onclick="toggleProjectImage(this)"><i class="fas fa-eye"></i> View</button>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('LED Pattern Details','ledPatternDetails.html')">Details</a>
-        <a href="#" class="highlight-btn neon-animated-border" onclick="openModal('LED Pattern Code','LED_Pattern.txt')">Code</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <h3>Battery Management System (BMS) for Li-ion Battery Pack</h3>
-      <p>Designed a 5S Li-ion BMS using STM32F103C8T6 to monitor cell voltages, current, and temperature in real time — developed during the VisionAstraa internship and used as a core skill differentiator.</p>
-      <p class="tech-used"><b>Technologies:</b> STM32F103C8T6, Embedded C, BMS, Real-time Monitoring</p>
-    </div>
-  </div>
-  <h2 class="section-headline reveal">Certificates</h2>
-  <div class="projects-grid reveal">
-    <div class="project-card">
-      <img src="cirtificate4.jpg" alt="Internship Certificate">
-      <h3>Introduction to Artificial Intelligence </h3>
-      <p>Organization:– Infosys Springboard<br>Year:26 Oct 2022</p>
-    </div>
-    <div class="project-card">
-      <img src="cirtificate1.jpg" alt="Embedded Systems Certificate">
-      <h3>Placement Readiness Program</h3>
-      <p>Organization:– Wish 2 Skill LLP<br>Year:- 35 Hours, 17 Oct 2025</p>
-    </div>
-    <div class="project-card">
-      <img src="cirtificate2.jpg" alt="VLSI Certificate">
-      <h3>Robotics Vocational Skill Training</h3>
-      <p>Organization:-GTTC, Government of Karnataka<br>Year:-02 Jan 2023 – 28 Feb 2023</p>
-    </div>
-    <div class="project-card">
-      <img src="cirtificate3.jpg" alt="Workshop Certificate">
-      <h3>Next-Gen Embedded Solutions Using ARM Cortex</h3>
-      <p>Organization: Engineering Institute / Workshop<br>Year:-12 May 2025 – 16 May 2025</p>
-    </div>
-  </div>
-  <h2 class="section-headline reveal">Resume</h2>
-  <div class="resume-actions reveal">
-    <a href="Amruth Resume...pdf" target="_blank" class="resume-btn view-btn neon-animated-border">
-      <i class="fas fa-eye"></i> View
-    </a>
-    <a href="Resume.pdf" target="_blank" download class="resume-btn download-btn neon-animated-border">
-      <i class="fas fa-download"></i> Download
-    </a>
-  </div>
-  <section class="contact-section reveal">
-    <h2 class="section-headline">Get In Touch</h2>
-    <p class="contact-subtitle">Let’s Connect & Collaborate 🤝</p>
-    <div class="contact-cards">
-      <div class="contact-card neon-animated-border">
-        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-        <div><h4>Email</h4><p>amruthanamapure@gmail.com</p></div>
-      </div>
-      <div class="contact-card neon-animated-border">
-        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-        <div><h4>Phone</h4><p>+91 6361508317</p></div>
-      </div>
-      <div class="contact-card neon-animated-border">
-        <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
-        <div><h4>Location</h4><p>Bengaluru, Karnataka, India</p></div>
-      </div>
-    </div>
-    <div class="contact-social">
-      <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="mailto:amruthanamapure@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank"><i class="fab fa-facebook-f"></i></a> 
-    </div>
-    <form id="contact-form" class="contact-form">
-      <label>Name</label>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <label>Email</label>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <label>Subject</label>
-      <input type="text" name="subject" placeholder="Discussion" required>
-      <label>Message</label>
-      <textarea rows="4" name="message" placeholder="What's in your mind.... 🤔" required></textarea>
-      <button type="submit" class="send-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-    </form>
+
+  <section class="tile w2 rv">
+    <span class="mono">// education</span>
+    <h3>BE – Electronics &amp; Communication</h3>
+    <p>City Engineering College, Bengaluru · 2023–2026</p>
+    <b class="big">7.70 <small>CGPA</small></b>
+    <p class="mute">Diploma in ECE · Govt Polytechnic Athani · 8.3</p>
   </section>
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <h2 id="modalTitle"></h2>
-      <button id="copyBtn" class="copy-btn neon-animated-border" onclick="copyCode()">Copy Code</button>
-      <div id="modalBody"></div>
+
+  <section class="tile rv">
+    <span class="mono">// location</span>
+    <h3>Bengaluru</h3><p class="mute">Karnataka, India</p>
+  </section>
+
+  <section class="tile rv resume">
+    <span class="mono">// resume</span>
+    <a href="Resume.pdf" target="_blank" class="btn"><i class="fas fa-eye"></i> View</a>
+    <a href="Resume.pdf" download class="btn alt"><i class="fas fa-download"></i> Save</a>
+  </section>
+
+  <section class="tile w2 rv" id="skills">
+    <span class="mono">// skills</span>
+    <div class="chips">
+      <span>Embedded Systems</span><span>STM32</span><span>Arduino</span><span>ESP32</span><span>PCB Design (KiCad)</span>
+      <span>Circuit Design</span><span>VLSI Basics</span><span>Verilog</span><span>C / C++</span><span>Python</span>
     </div>
+  </section>
+
+  <section class="tile w2 h2 rv">
+    <span class="mono">// experience</span>
+    <ul class="timeline">
+      <li><b>Production &amp; Quality Testing</b><em>Avalon Technologies · Apr–Aug 2026</em>
+        <p>Board testing with jigs/fixtures, oscilloscope and multimeter.</p></li>
+      <li><b>Embedded Systems Intern</b><em>VisionAstraa EV Academy · Feb–May 2026</em>
+        <p>Designed an STM32-based Li-ion BMS with protection logic.</p></li>
+      <li><b>Robotics Training</b><em>GTTC, Belagavi · Jan–Feb 2023</em>
+        <p>Robot assembly, programming and troubleshooting.</p></li>
+    </ul>
+  </section>
+
+  <section class="tile w2 rv">
+    <span class="mono">// beyond the lab</span>
+    <div class="chips soft">
+      <span>🎧 Music</span><span>📷 Photography</span><span>🎮 Gaming</span><span>🏀 Sports</span><span>💪 Fitness</span>
+      <span>📈 Stock Market</span><span>🌐 Web Building</span><span>🔍 Deep Learning</span><span>🏍️ Travelling</span>
+    </div>
+  </section>
+
+  <section class="tile w4 rv">
+    <span class="mono">// about</span>
+    <p class="about">I'm an ECE graduate from City Engineering College, Bengaluru, passionate about core electronics and emerging tech. I work across embedded firmware, circuit design and PCB fabrication, with a base in VLSI and Verilog. I've trained in robotics at GTTC, completed IoT and ARM Cortex programs, and built hands-on projects from oscilloscopes to battery management systems. I learn fast, ship real hardware, and I'm looking for opportunities to grow in industry.</p>
+  </section>
+
+  <h2 class="label w4" id="projects">// projects</h2>
+
+  <article class="tile w4 proj rv">
+    <div class="pimg ph"><i class="fas fa-battery-full"></i></div>
+    <div class="pbody">
+      <h3>Li-ion Battery Management System</h3>
+      <p>STM32F103C8T6-based BMS built during my EV academy internship, with over-voltage, under-voltage, over-current and over-temperature protection.</p>
+      <div class="chips soft"><span>STM32F103C8T6</span><span>Embedded C</span><span>BMS</span><span>Protection Logic</span></div>
+    </div>
+  </article>
+
+  <article class="tile w2 proj rv">
+    <div class="pimg"><img src="portable.png" alt="Portable Oscilloscope"></div>
+    <div class="pbody">
+      <h3>Portable Oscilloscope</h3>
+      <p>Low-cost signal analysis and waveform visualization.</p>
+      <div class="chips soft"><span>Arduino</span><span>ADC</span><span>Signal Processing</span></div>
+      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')">Details</button><button onclick="openModal('Portable Oscilloscope Code','oscilloscopeCode.txt')">Code</button></div>
+    </div>
+  </article>
+
+  <article class="tile w2 proj rv">
+    <div class="pimg"><img src="smart.png" alt="AgriGuard"></div>
+    <div class="pbody">
+      <h3>AgriGuard – Smart IoT System</h3>
+      <p>Automates farming operations for efficiency and safety using IoT.</p>
+      <div class="chips soft"><span>ESP32</span><span>IoT</span><span>Sensors</span></div>
+      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('AgriGuard Details','agriguardDetails.html')">Details</button><button onclick="openModal('AgriGuard Code','Agriculture.txt')">Code</button></div>
+    </div>
+  </article>
+
+  <article class="tile w2 proj rv">
+    <div class="pimg"><img src="component-tester.png" alt="Component Tester"></div>
+    <div class="pbody">
+      <h3>All-in-One Component Tester</h3>
+      <p>Quick identification and testing of electronic components.</p>
+      <div class="chips soft"><span>Arduino</span><span>Embedded C</span><span>Circuit Testing</span></div>
+      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('Component Tester Details','testerDetails.html')">Details</button><button onclick="openModal('Component Tester Code','Tester.txt')">Code</button></div>
+    </div>
+  </article>
+
+  <article class="tile w2 proj rv">
+    <div class="pimg"><img src="led-pattern.png" alt="LED Pattern"></div>
+    <div class="pbody">
+      <h3>LED Patterns Using Arduino</h3>
+      <p>Microcontroller control logic shown through LED patterns.</p>
+      <div class="chips soft"><span>Arduino</span><span>Digital I/O</span><span>LEDs</span></div>
+      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('LED Pattern Details','ledPatternDetails.html')">Details</button><button onclick="openModal('LED Pattern Code','LED_Pattern.txt')">Code</button></div>
+    </div>
+  </article>
+
+  <h2 class="label w4" id="certs">// certificates</h2>
+
+  <article class="tile cert rv"><img src="cirtificate4.jpg" alt="AI certificate"><h4>Introduction to Artificial Intelligence</h4><p>Infosys Springboard · 26 Oct 2022</p></article>
+  <article class="tile cert rv"><img src="cirtificate1.jpg" alt="Placement certificate"><h4>Placement Readiness Program</h4><p>Wish 2 Skill LLP · 35 hrs, 17 Oct 2025</p></article>
+  <article class="tile cert rv"><img src="cirtificate2.jpg" alt="Robotics certificate"><h4>Robotics Vocational Skill Training</h4><p>GTTC, Govt of Karnataka · Jan–Feb 2023</p></article>
+  <article class="tile cert rv"><img src="cirtificate3.jpg" alt="ARM Cortex certificate"><h4>Next-Gen Embedded Solutions (ARM Cortex)</h4><p>Workshop · 12–16 May 2025</p></article>
+
+  <h2 class="label w4" id="contact">// get in touch</h2>
+
+  <section class="tile w2 rv">
+    <ul class="info">
+      <li><i class="fas fa-envelope"></i><div><b>Email</b><span>amruthanamapure@gmail.com</span></div></li>
+      <li><i class="fas fa-phone"></i><div><b>Phone</b><span>+91 6361508317</span></div></li>
+      <li><i class="fas fa-location-dot"></i><div><b>Location</b><span>Bengaluru, Karnataka, India</span></div></li>
+    </ul>
+    <div class="social">
+      <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:amruthanamapure@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </section>
+
+  <form id="contact-form" class="tile w2 form rv">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <input type="text" name="subject" placeholder="Project discussion" required>
+    <textarea rows="4" name="message" placeholder="Tell me about your project..." required></textarea>
+    <button type="submit" class="btn">Send message <i class="fas fa-paper-plane"></i></button>
+  </form>
+</main>
+
+<footer>© 2026 Amrut Hanamapure · Built with circuits &amp; code</footer>
+
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <button id="copyBtn" class="btn" onclick="copyCode()">Copy code</button>
+    <div id="modalBody"></div>
   </div>
-  <button onclick="toggleTheme()" class="theme-toggle">
-    <i class="fas fa-moon"></i>
-  </button>
-  <script src="script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 </body>
-        </html>
+</html>
