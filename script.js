@@ -1,6 +1,23 @@
-
+/* =====================================
+   1. CIRCUIT SWARM CURSOR
+   Dots drift, link to each other, and swarm
+   + connect to the cursor / finger.
+===================================== */
 const cv = document.getElementById("swarm"), cx = cv.getContext("2d");
-const COLORS = ["0,200,255", "168,85,247", "0,255,136"];
+const COLORS = ["0,200,255", "168,85,247", "0,255,136"];      // dark mode
+const COLORS_LIGHT = ["0,134,179", "138,43,226", "0,163,92"];   // light mode
+let pal = COLORS;
+
+/* THEME TOGGLE (pure white / full black) */
+const root = document.documentElement, themeBtn = document.getElementById("themeBtn");
+function applyTheme(t) {
+  root.setAttribute("data-theme", t);
+  pal = t === "light" ? COLORS_LIGHT : COLORS;
+  themeBtn.innerHTML = `<i class="fas fa-${t === "light" ? "moon" : "sun"}"></i>`;
+  try { localStorage.setItem("theme", t); } catch (e) {}
+}
+themeBtn.onclick = () => applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+applyTheme(root.getAttribute("data-theme") || "dark");
 const mouse = { x: -999, y: -999, on: false };
 let W, H, nodes = [];
 
@@ -13,7 +30,7 @@ function resize() {
   nodes = Array.from({ length: n }, (_, i) => {
     const bx = (Math.random() - 0.5) * 0.55, by = (Math.random() - 0.5) * 0.55;
     return { x: Math.random() * W, y: Math.random() * H, vx: bx, vy: by, bx, by,
-             c: COLORS[i % 3], r: 1.5 + Math.random() * 1.8 };
+             k: i % 3, r: 1.5 + Math.random() * 1.8 };
   });
 }
 
@@ -39,27 +56,27 @@ function frame() {
     for (let j = i + 1; j < nodes.length; j++) {   // node-to-node circuit lines
       const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
       if (d < 120) {
-        cx.strokeStyle = `rgba(${a.c},${(1 - d / 120) * 0.32})`;
+        cx.strokeStyle = `rgba(${pal[a.k]},${(1 - d / 120) * 0.32})`;
         cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke();
       }
     }
     if (mouse.on) {                                 // node-to-cursor lines
       const d = Math.hypot(a.x - mouse.x, a.y - mouse.y);
       if (d < 200) {
-        cx.strokeStyle = `rgba(${a.c},${(1 - d / 200) * 0.85})`;
+        cx.strokeStyle = `rgba(${pal[a.k]},${(1 - d / 200) * 0.85})`;
         cx.lineWidth = 1.4;
         cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(mouse.x, mouse.y); cx.stroke();
       }
     }
-    cx.shadowBlur = 8; cx.shadowColor = `rgb(${a.c})`;
-    cx.fillStyle = `rgba(${a.c},.95)`;
+    cx.shadowBlur = root.getAttribute("data-theme") === "light" ? 0 : 8; cx.shadowColor = `rgb(${pal[a.k]})`;
+    cx.fillStyle = `rgba(${pal[a.k]},.95)`;
     cx.beginPath(); cx.arc(a.x, a.y, a.r, 0, Math.PI * 2); cx.fill();
     cx.shadowBlur = 0;
   }
   if (mouse.on) {                                   // cursor core
-    cx.strokeStyle = "rgba(0,255,136,.95)"; cx.lineWidth = 1.5;
+    cx.strokeStyle = `rgba(${pal[2]},.95)`; cx.lineWidth = 1.5;
     cx.beginPath(); cx.arc(mouse.x, mouse.y, 8, 0, Math.PI * 2); cx.stroke();
-    cx.fillStyle = "rgba(0,200,255,1)";
+    cx.fillStyle = `rgb(${pal[0]})`;
     cx.beginPath(); cx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2); cx.fill();
   }
   requestAnimationFrame(frame);
