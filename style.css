@@ -166,3 +166,16 @@ footer{position:relative;z-index:1;text-align:center;padding:20px 20px 30px;colo
 .theme-btn{position:fixed;top:14px;right:14px;z-index:70;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
   font-size:1.1rem;color:#000;background:var(--grad);box-shadow:0 0 18px var(--glow);transition:transform .3s}
 .theme-btn:hover{transform:rotate(20deg) scale(1.08)}
+
+/* RESUME BUTTONS: thin border with moving gradient animation (no fill) */
+#resume .btn,
+#resume .btn.ghost{position:relative;background:transparent;color:var(--ink);border:0;overflow:hidden;isolation:isolate}
+#resume .btn::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;
+  background:linear-gradient(90deg,var(--b),var(--p),var(--g),var(--b));background-size:300% 100%;
+  animation:borderRun 3s linear infinite;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;z-index:-1}
+#resume .btn:hover,
+#resume .btn.ghost:hover{background:transparent;color:var(--ink);box-shadow:0 0 20px var(--glow)}
+#resume .btn:hover::before{animation-duration:1.2s}
+@keyframes borderRun{to{background-position:300% 50%}}
