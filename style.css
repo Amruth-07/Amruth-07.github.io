@@ -179,3 +179,25 @@ footer{position:relative;z-index:1;text-align:center;padding:20px 20px 30px;colo
 #resume .btn.ghost:hover{background:transparent;color:var(--ink);box-shadow:0 0 20px var(--glow)}
 #resume .btn:hover::before{animation-duration:1.2s}
 @keyframes borderRun{to{background-position:300% 50%}}
+
+/* OUTLINE-ONLY BUTTONS: theme toggle, active dock tab, hero buttons
+   thin moving gradient border, no color fill */
+.theme-btn,
+.dock a.on,
+#home .btn,
+#home .btn.ghost{position:relative;isolation:isolate;overflow:hidden;border:0}
+.theme-btn{background:var(--bg);color:var(--ink);box-shadow:0 0 14px var(--glow)}
+.dock a.on{background:transparent;color:var(--b);box-shadow:0 0 14px var(--glow)}
+#home .btn,
+#home .btn.ghost{background:transparent;color:var(--ink)}
+.theme-btn::before,
+.dock a.on::before,
+#home .btn::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;
+  background:linear-gradient(90deg,var(--b),var(--p),var(--g),var(--b));background-size:300% 100%;
+  animation:borderRun 3s linear infinite;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;z-index:-1}
+.theme-btn:hover{transform:rotate(20deg) scale(1.08)}
+#home .btn:hover,
+#home .btn.ghost:hover{background:transparent;color:var(--ink);box-shadow:0 0 20px var(--glow)}
+#home .btn:hover::before{animation-duration:1.2s}
