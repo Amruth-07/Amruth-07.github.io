@@ -30,6 +30,7 @@ I enjoy working with hardware, troubleshooting electronic systems, learning new 
 ---
 
 🎯 Career Interests
+🎯 Career Interests
 
 I am interested in entry-level opportunities in:
 
@@ -39,13 +40,11 @@ Role| Focus
 🔌 Embedded Systems Engineer| Microcontrollers & embedded applications
 🖥️ PCB Design Engineer| PCB design & fabrication
 ⚡ Electronics Engineer| Circuit design & troubleshooting
-🔋 BMS / Power Electronics| Battery monitoring & protection
-🧠 VLSI / Verification| Digital design & verification
-👨‍💻 GET / Graduate Engineer Trainee| Core engineering roles
+🔋 BMS / Power Electronics Engineer| Battery systems & power electronics
+🧠 VLSI / Verification Engineer| Digital design & verification
+🚀 Graduate Engineer Trainee (GET)| Core electronics & engineering roles
 
-Preferred location: Bengaluru / Bangalore, Karnataka, India
-
----
+Preferred Location: Bengaluru, Karnataka, India
 
 🛠️ Technical Skills
 
