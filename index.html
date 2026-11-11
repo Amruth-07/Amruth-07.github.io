@@ -1,69 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amrut Hanamapure | Embedded Systems &amp; PCB Design Portfolio</title>
-<meta name="description" content="Amrut Hanamapure – ECE graduate from Bengaluru. Embedded systems (STM32), PCB design (KiCad), circuit design, IoT and BMS projects. Open to entry-level core electronics roles.">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
-<meta property="og:title" content="Amrut Hanamapure | Portfolio">
-<meta property="og:description" content="Embedded Systems · PCB Design · IoT · Battery Management Systems">
+<title>Amrut Hanamapure | Embedded Systems &amp; PCB Design</title>
+<meta name="description" content="Amrut Hanamapure, ECE graduate from Bengaluru. Embedded systems (STM32), PCB design (KiCad), IoT and BMS projects. Open to entry-level core electronics roles.">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})()</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-<canvas id="swarm"></canvas>
-<div class="progress"><i id="bar"></i></div>
-<button id="themeBtn" class="theme-btn" aria-label="Toggle light / dark mode"><i class="fas fa-moon"></i></button>
+<div class="shell">
 
-<!-- BOTTOM DOCK -->
-<nav class="dock">
-  <a href="#home" class="on"><i class="fas fa-house"></i><span>Home</span></a>
-  <a href="#about"><i class="fas fa-user"></i><span>About</span></a>
-  <a href="#projects"><i class="fas fa-microchip"></i><span>Work</span></a>
-  <a href="#certs"><i class="fas fa-award"></i><span>Certs</span></a>
-  <a href="#contact"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
+<nav class="nav" id="nav">
+  <a href="#home" class="brand"><i></i>Amrut Hanamapure</a>
+  <div class="links">
+    <a href="#home" class="on">Home</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#play">Play</a><a href="#contact">Contact</a>
+  </div>
+  <div class="nav-r">
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+    <a href="Resume.pdf" target="_blank" class="btn">Download Resume</a>
+    <button class="icon-btn burger" id="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </div>
 </nav>
 
-<!-- HERO -->
 <header id="home" class="hero">
-  <p class="boot mono">&gt; status.open_to_work = <b>true</b></p>
-  <div class="chip-photo"><img src="profile.jpg.jpg" alt="Amrut Hanamapure"><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i><i class="pin p4"></i></div>
-  <p class="hi">Hi, I'm</p>
-  <h1>Amrut <span>Hanamapure</span></h1>
-  <p class="role mono"><span id="typed"></span><b class="caret">|</b></p>
-  <p class="lead">BE Electronics &amp; Communication graduate from Bengaluru. I design PCBs in KiCad, program STM32 and Arduino boards, and build real hardware, from battery management systems to IoT and test equipment.</p>
-  <div class="hero-btns">
-    <a href="#projects" class="btn"><i class="fas fa-microchip"></i> View Projects</a>
-    <a href="Resume.pdf" target="_blank" class="btn ghost"><i class="fas fa-file-lines"></i> Resume</a>
+  <div>
+    <span class="badge">Available for new opportunities</span><br>
+    <img class="avatar" src="profile.jpg.jpg" alt="Amrut Hanamapure">
+    <h1>Hi, I'm Amrut Hanamapure</h1>
+    <p class="role"><b>Embedded Systems Developer</b> · PCB Designer · IoT Builder</p>
+    <p class="lead">BE Electronics &amp; Communication graduate from Bengaluru. I design PCBs in KiCad, program STM32 and Arduino boards, and build real hardware, from battery management systems to IoT and test equipment. Previously tested production boards at Avalon Technologies.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="Resume.pdf" download class="btn ghost">Download Resume</a>
+    </div>
+    <div class="links-sm"><a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+    <div class="stats">
+      <div><b data-n="6">0</b><small>Projects</small></div>
+      <div><b data-n="3">0</b><small>Experiences</small></div>
+      <div><b data-n="5">0</b><small>Certificates</small></div>
+    </div>
   </div>
-  <div class="stats">
-    <div><b data-n="6">0</b><small>Projects</small></div>
-    <div><b data-n="3">0</b><small>Experiences</small></div>
-    <div><b data-n="5">0</b><small>Certificates</small></div>
-    <div><b data-n="4">0</b><small>Languages</small></div>
+  <div class="term">
+    <div class="dots"><i></i><i></i><i></i><span>~/portfolio</span></div>
+    <div><span class="c2">$</span> whoami</div>
+    <div class="c1">amrut · ece engineer · bengaluru</div>
+    <div><span class="c2">$</span> stack --list</div>
+    <div class="c3">c embedded-c stm32 arduino esp32 kicad python verilog</div>
+    <div><span class="c2">$</span> experience --recent</div>
+    <div class="dim">VisionAstraa EV Academy · embedded intern</div>
+    <div class="dim">Avalon Technologies · production &amp; quality testing</div>
+    <div><span class="c2">$</span> status</div>
+    <div class="c1">open to core electronics roles <span class="cur">_</span></div>
   </div>
 </header>
 
-<main class="trace">
+<section id="projects" class="sec rv">
+  <div class="sec-head"><div><h2>Featured projects</h2><p>Embedded systems, IoT and electronics builds with details and source code.</p></div></div>
+  <div class="grid3">
+<article class="pcard rv"><div class="pimg ph"><i class="fas fa-battery-full"></i></div><h3>Li-ion Battery Management System <small>STM32</small></h3><p>STM32F103C8T6-based BMS built during my EV academy internship. Protects the pack against over-voltage, under-voltage, over-current and over-temperature faults.</p><div class="tags"><span>STM32F103C8T6</span><span>Embedded C</span><span>BMS</span></div></article>
+<article class="pcard rv"><div class="pimg"><img src="portable.png" alt="Portable Oscilloscope"></div><h3>Portable Oscilloscope <small>Arduino</small></h3><p>Low-cost portable oscilloscope built with Arduino and an OLED display, visualizing sine, square and triangle waveforms.</p><div class="tags"><span>Arduino</span><span>OLED</span><span>ADC</span></div><div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')">Details</button><button onclick="openModal('Portable Oscilloscope Code','oscilloscopeCode.txt')">Code</button></div></article>
+<article class="pcard rv"><div class="pimg"><img src="smart.png" alt="AgriGuard – Smart IoT System"></div><h3>AgriGuard – Smart IoT System <small>ESP32</small></h3><p>Improves agricultural efficiency and safety by automating farming operations using IoT.</p><div class="tags"><span>ESP32</span><span>IoT</span><span>Sensors</span></div><div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('AgriGuard Details','agriguardDetails.html')">Details</button><button onclick="openModal('AgriGuard Code','Agriculture.txt')">Code</button></div></article>
+<article class="pcard rv"><div class="pimg"><img src="component-tester.png" alt="All-in-One Component Tester"></div><h3>All-in-One Component Tester <small>Arduino</small></h3><p>Quick identification and testing of electronic components during development and repair work.</p><div class="tags"><span>Arduino</span><span>Embedded C</span><span>Testing</span></div><div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('Component Tester Details','testerDetails.html')">Details</button><button onclick="openModal('Component Tester Code','Tester.txt')">Code</button></div></article>
+<article class="pcard rv"><div class="pimg"><img src="led-pattern.png" alt="LED Patterns Using Arduino"></div><h3>LED Patterns Using Arduino <small>Arduino</small></h3><p>Microcontroller-based control logic shown through visual LED pattern generation.</p><div class="tags"><span>Arduino</span><span>Digital I/O</span><span>LEDs</span></div><div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('LED Pattern Details','ledPatternDetails.html')">Details</button><button onclick="openModal('LED Pattern Code','LED_Pattern.txt')">Code</button></div></article>
+<article class="pcard rv"><div class="pimg ph"><i class="fas fa-chart-line"></i></div><h3>Indian Market Live Dashboard <small>React</small></h3><p>React dashboard with live index cards, FII/DII flows and an auto-refreshing Recharts chart. Includes a NIFTY 50 / BANK NIFTY analysis (0.93 daily return correlation).</p><div class="tags"><span>React</span><span>Recharts</span><span>Data Analysis</span></div></article>
+  </div>
+</section>
 
-<!-- ABOUT -->
-<section id="about" class="mod rv">
-  <h2><em>U1</em> About Me</h2>
-  <div class="about-grid">
+<section id="skills" class="sec rv">
+  <div class="sec-head"><div><h2>Skills</h2><p>Hardware, firmware and test tools I work with.</p></div></div>
+  <div class="grid2">
+    <div class="skill-groups">
+    <div><h3><i class="fas fa-microchip"></i> Hardware &amp; Design</h3><div class="tags"><span>Embedded Systems</span><span>Circuit Design</span><span>PCB Design &amp; Fabrication</span><span>KiCad</span><span>VLSI Design Basics</span></div></div>
+    <div><h3><i class="fas fa-code"></i> Programming</h3><div class="tags"><span>C / C++</span><span>Embedded C</span><span>Python</span><span>Verilog</span><span>JavaScript</span><span>React</span></div></div>
+    <div><h3><i class="fas fa-memory"></i> Platforms &amp; Domains</h3><div class="tags"><span>STM32</span><span>Arduino</span><span>ESP32</span><span>ARM Cortex</span><span>IoT</span><span>Battery Management Systems</span></div></div>
+    <div><h3><i class="fas fa-vial"></i> Testing &amp; Lab</h3><div class="tags"><span>Test Jigs &amp; Fixtures</span><span>Oscilloscope</span><span>Multimeter</span><span>Production Testing</span><span>Quality Testing</span></div></div>
+  </div>
+    <div class="learn"><h3><i class="fas fa-book-open"></i> Currently learning</h3><div class="tags"><span>UART</span><span>I2C</span><span>SPI</span><span>CAN</span><span>Test Case Writing</span><span>Bug Reporting (JIRA)</span><span>Python Test Automation</span><span>Logic Analyzer</span><span>Git &amp; GitHub</span></div></div>
+  </div>
+</section>
+
+<section id="about" class="sec rv">
+  <div class="sec-head"><div><h2>About me</h2><p>ECE graduate, hands-on builder, always learning.</p></div></div>
+  <div class="about">
     <img src="about-me.jpg" alt="Amrut Hanamapure" class="about-img">
     <div>
       <p>I am Amrut Hanamapure, an Electronics and Communication Engineering (ECE) graduate from City Engineering College, Bengaluru (2023–2026). I have a strong interest in core electronics and emerging technologies, with skills in VLSI design basics, Verilog, Embedded Systems, Circuit Design, Python programming, and PCB Designing &amp; Fabrication using KiCad.</p>
       <p>I have hands-on industry exposure: I worked in production and quality testing at Avalon Technologies, and I completed an Embedded Systems internship at VisionAstraa EV Academy, where I built an STM32-based Li-ion Battery Management System. Before that, I completed Robotics Training at Govt. Tool Room &amp; Training Centre (GTTC), Belagavi, gaining experience in robot assembly, programming, and troubleshooting.</p>
       <p>I have completed certifications in IoT &amp; Its Applications and participated in a workshop on Next-Gen Embedded Solutions using ARM Cortex. Outside of coursework, I have built many electronics and embedded projects for junior college students, which sharpened both my practical skills and the way I explain technical ideas.</p>
       <p>I am a dedicated and motivated learner, focused on building strong technical expertise and applying my knowledge to real-world engineering challenges. I am actively seeking entry-level opportunities in core electronics to grow through projects and industry experience.</p>
-    </div>
-  </div>
-  <ul class="facts">
+    
+      <ul class="facts">
     <li><i class="fas fa-location-dot"></i><div><small>Location</small>Bengaluru, Karnataka, India</div></li>
     <li><i class="fas fa-graduation-cap"></i><div><small>Education</small>BE ECE · City Engineering College · CGPA 7.70</div></li>
     <li><i class="fas fa-bolt"></i><div><small>Expertise</small>Embedded Systems, PCB Design, Circuit Design, VLSI Basics</div></li>
@@ -71,25 +102,15 @@
     <li><i class="fas fa-language"></i><div><small>Languages</small>Kannada, English, Hindi, Marathi</div></li>
     <li><i class="fas fa-briefcase"></i><div><small>Availability</small>Open to entry-level core electronics roles</div></li>
   </ul>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="mod rv">
-  <h2><em>U2</em> Skills</h2>
-  <div class="skill-groups">
-    <div><h3><i class="fas fa-microchip"></i> Hardware &amp; Design</h3><div class="tags"><span>Embedded Systems</span><span>Circuit Design</span><span>PCB Design &amp; Fabrication</span><span>KiCad</span><span>VLSI Design Basics</span></div></div>
-    <div><h3><i class="fas fa-code"></i> Programming</h3><div class="tags"><span>C / C++</span><span>Embedded C</span><span>Python</span><span>Verilog</span><span>JavaScript</span><span>React</span></div></div>
-    <div><h3><i class="fas fa-memory"></i> Platforms &amp; Domains</h3><div class="tags"><span>STM32</span><span>Arduino</span><span>ESP32</span><span>ARM Cortex</span><span>IoT</span><span>Battery Management Systems</span></div></div>
-    <div><h3><i class="fas fa-vial"></i> Testing &amp; Lab</h3><div class="tags"><span>Test Jigs &amp; Fixtures</span><span>Oscilloscope</span><span>Multimeter</span><span>Production Testing</span><span>Quality Testing</span></div></div>
+      <h3 class="sub">Hobbies</h3><div class="tags" style="margin:0"><span>🎧 Listening to Music</span><span>📷 Photography</span><span>🎮 Gaming</span><span>🏀 Sports</span><span>💪🏻 Fitness</span></div>
+      <h3 class="sub">Interests</h3><div class="tags" style="margin:0"><span>📈 Stock Market &amp; Technical Analysis</span><span>🌐 Web Building</span><span>🔍 Deep Learning</span><span>🏍️ Travelling</span></div>
+    </div>
   </div>
-  <h3 class="mini">Currently Learning</h3>
-  <div class="tags"><span>UART</span><span>I2C</span><span>SPI</span><span>CAN</span><span>Test Case Writing</span><span>Bug Reporting (JIRA)</span><span>Python Test Automation</span><span>Logic Analyzer</span><span>Git &amp; GitHub</span></div>
 </section>
 
-<!-- EXPERIENCE + EDUCATION -->
-<section id="experience" class="mod rv">
-  <h2><em>U3</em> Experience</h2>
-  <ul class="timeline">
+<section id="experience" class="sec rv">
+  <div class="cols">
+    <div><div class="sec-head"><div><h2>Experience</h2></div></div><ul class="timeline">
     <li><small class="mono">Apr 2026 – Aug 2026</small><h3>Production &amp; Quality Testing</h3><span class="org">Avalon Technologies</span>
       <p>Worked on the electronics testing line, checking boards for functionality and quality before they moved ahead in production. Used test jigs and fixtures, an oscilloscope and a multimeter to verify and troubleshoot boards.</p>
       <div class="tags"><span>Test Jigs</span><span>Fixtures</span><span>Oscilloscope</span><span>Multimeter</span></div></li>
@@ -99,75 +120,18 @@
     <li><small class="mono">Jan 2023 – Feb 2023</small><h3>Robotics Training</h3><span class="org">GTTC, Belagavi</span>
       <p>Vocational skill training with hands-on robot assembly, programming and troubleshooting, certified as a Robotics Technician.</p>
       <div class="tags"><span>Robotics</span><span>Assembly</span><span>Programming</span><span>Troubleshooting</span></div></li>
-  </ul>
-  <h2 class="sub"><em>U4</em> Education</h2>
-  <ul class="timeline">
+  </ul></div>
+    <div><div class="sec-head"><div><h2>Education</h2></div></div><ul class="timeline">
     <li><small class="mono">2023 – 2026</small><h3>BE – Electronics &amp; Communication Engineering</h3><span class="org">City Engineering College, Bengaluru</span><p>CGPA: 7.70</p>
       <div class="tags"><span>Embedded Systems</span><span>VLSI Basics</span><span>Verilog</span><span>Circuit Design</span><span>Python</span></div></li>
     <li><small class="mono">2020 – 2023</small><h3>Diploma – Electronics &amp; Communication Engineering</h3><span class="org">Government Polytechnic, Athani</span><p>CGPA: 8.3</p></li>
-  </ul>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="mod rv">
-  <h2><em>U5</em> Projects <small class="swipe mono">swipe →</small></h2>
-  <div class="rail">
-
-    <article class="pcard">
-      <div class="pimg ph"><i class="fas fa-battery-full"></i></div>
-      <h3>Li-ion Battery Management System</h3>
-      <p>STM32F103C8T6-based BMS built during my EV academy internship at VisionAstraa. It monitors the battery pack and protects it against four fault conditions.</p>
-      <p>Protections: over-voltage, under-voltage, over-current and over-temperature.</p>
-      <div class="tags"><span>STM32F103C8T6</span><span>Embedded C</span><span>BMS</span><span>Protection Logic</span><span>Li-ion</span></div>
-    </article>
-
-    <article class="pcard">
-      <div class="pimg"><img src="portable.png" alt="Portable Oscilloscope"></div>
-      <h3>Portable Oscilloscope using Arduino</h3>
-      <p>A low-cost portable oscilloscope built with Arduino and an OLED display. It visualizes sine, square and triangle waveforms, designed for basic signal analysis and waveform visualization.</p>
-      <div class="tags"><span>Arduino</span><span>OLED Display</span><span>Embedded C</span><span>ADC</span><span>Signal Processing</span></div>
-      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('Portable Oscilloscope Details','oscilloscopeDetails.html')">Details</button><button onclick="openModal('Portable Oscilloscope Code','oscilloscopeCode.txt')">Code</button></div>
-    </article>
-
-    <article class="pcard">
-      <div class="pimg"><img src="smart.png" alt="AgriGuard"></div>
-      <h3>AgriGuard – Smart IoT System</h3>
-      <p>Improves agricultural efficiency and safety by automating farming operations using IoT, so that field conditions can be monitored and acted on automatically.</p>
-      <div class="tags"><span>ESP32</span><span>IoT</span><span>Sensors</span><span>Embedded C</span><span>Automation</span></div>
-      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('AgriGuard Details','agriguardDetails.html')">Details</button><button onclick="openModal('AgriGuard Code','Agriculture.txt')">Code</button></div>
-    </article>
-
-    <article class="pcard">
-      <div class="pimg"><img src="component-tester.png" alt="Component Tester"></div>
-      <h3>All-in-One Component Tester</h3>
-      <p>A handy tool for quick identification and testing of electronic components during development and repair work.</p>
-      <div class="tags"><span>Arduino</span><span>Embedded C</span><span>Circuit Testing</span><span>Electronics</span></div>
-      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('Component Tester Details','testerDetails.html')">Details</button><button onclick="openModal('Component Tester Code','Tester.txt')">Code</button></div>
-    </article>
-
-    <article class="pcard">
-      <div class="pimg"><img src="led-pattern.png" alt="LED Pattern"></div>
-      <h3>Generating LED Patterns Using Arduino</h3>
-      <p>Demonstrates microcontroller-based control logic through visual LED pattern generation, a foundation project for digital I/O and timing.</p>
-      <div class="tags"><span>Arduino</span><span>Embedded C</span><span>LEDs</span><span>Digital I/O</span></div>
-      <div class="acts"><button onclick="toggleImg(this)"><i class="fas fa-eye"></i> View</button><button onclick="openModal('LED Pattern Details','ledPatternDetails.html')">Details</button><button onclick="openModal('LED Pattern Code','LED_Pattern.txt')">Code</button></div>
-    </article>
-
-    <article class="pcard">
-      <div class="pimg ph"><i class="fas fa-chart-line"></i></div>
-      <h3>Indian Market Live Dashboard</h3>
-      <p>A React-based dashboard for the Indian equity market with live index cards, FII/DII flows, an auto-refreshing Recharts area chart, market-movement reasons and a dark/light theme toggle.</p>
-      <p>Alongside it, I analyzed about 122 sessions of NIFTY 50 and NIFTY BANK data, finding a 0.93 daily return correlation and a repeating four-phase swing cycle across both indices.</p>
-      <div class="tags"><span>React</span><span>Recharts</span><span>JavaScript</span><span>Data Analysis</span><span>NIFTY 50</span><span>BANK NIFTY</span></div>
-    </article>
-
+  </ul></div>
   </div>
 </section>
 
-<!-- CERTIFICATES -->
-<section id="certs" class="mod rv">
-  <h2><em>U6</em> Certificates <small class="swipe mono">swipe →</small></h2>
-  <div class="rail">
+<section id="certs" class="sec rv">
+  <div class="sec-head"><div><h2>Certificates</h2><p>Courses, trainings and workshops.</p></div></div>
+  <div class="grid4">
     <article class="pcard cert"><img src="cirtificate4.jpg" alt="AI certificate"><h3>Introduction to Artificial Intelligence</h3><p>Infosys Springboard<br>26 Oct 2022</p></article>
     <article class="pcard cert"><img src="cirtificate1.jpg" alt="Placement certificate"><h3>Placement Readiness Program</h3><p>Wish 2 Skill LLP<br>35 Hours · 17 Oct 2025</p></article>
     <article class="pcard cert"><img src="cirtificate2.jpg" alt="Robotics certificate"><h3>Robotics Vocational Skill Training</h3><p>Robotics Technician · GTTC, Government of Karnataka<br>02 Jan 2023 – 28 Feb 2023</p></article>
@@ -176,20 +140,9 @@
   </div>
 </section>
 
-<!-- INTERESTS -->
-<section id="interests" class="mod rv">
-  <h2><em>U7</em> Beyond the Lab</h2>
-  <h3 class="mini">Hobbies</h3>
-  <div class="tags big"><span>🎧 Listening to Music</span><span>📷 Photography</span><span>🎮 Gaming</span><span>🏀 Sports</span><span>💪🏻 Fitness</span></div>
-  <h3 class="mini">Interests</h3>
-  <div class="tags big"><span>📈 Stock Market &amp; Technical Analysis</span><span>🌐 Web Building</span><span>🔍 Deep Learning</span><span>🏍️ Travelling</span></div>
-</section>
-
-<!-- PLAY -->
-<section id="play" class="mod rv">
-  <h2><em>U8</em> Play</h2>
-  <p class="mute">Take a short break and try my mini games, all built with plain JavaScript.</p>
-  <div class="tabs">
+<section id="play" class="sec rv">
+  <div class="sec-head"><div><h2>Play</h2><p>Take a short break and try my mini games, all built with plain JavaScript.</p></div></div>
+    <div class="tabs">
     <button class="tab on" data-g="snake">Snake</button>
     <button class="tab" data-g="logic">Logic Gates</button>
     <button class="tab" data-g="memory">Memory</button>
@@ -264,49 +217,44 @@
   </div>
 </section>
 
-<!-- OPEN TO WORK + RESUME -->
-<section id="resume" class="mod rv">
-  <h2><em>U9</em> Open to Work</h2>
-  <p>I'm looking for entry-level core electronics roles in Bengaluru where I can build, test and ship real hardware. Roles I'm a strong fit for:</p>
-  <div class="tags big"><span>Embedded Systems Engineer</span><span>PCB Design Engineer</span><span>BMS / Power Electronics Engineer</span><span>Hardware Test Engineer</span></div>
-  <p class="mute gap">My STM32 BMS project is the best place to see how I work, from design through protection logic and testing. Available to join immediately.</p>
-  <div class="hero-btns left">
-    <a href="Resume.pdf" target="_blank" class="btn"><i class="fas fa-eye"></i> View Resume</a>
-    <a href="Resume.pdf" download class="btn ghost"><i class="fas fa-download"></i> Download</a>
+<section id="resume" class="sec rv">
+  <div class="banner">
+    <h2>Open to work</h2>
+    <p>I'm looking for entry-level core electronics roles in Bengaluru where I can build, test and ship real hardware. My STM32 BMS project is the best place to see how I work. Available to join immediately.</p>
+    <div class="tags" style="margin:0"><span>Embedded Systems Engineer</span><span>PCB Design Engineer</span><span>Power Electronics Engineer</span><span>Hardware Test Engineer</span></div>
+    <div class="hero-btns"><a href="Resume.pdf" target="_blank" class="btn">View Resume</a><a href="Resume.pdf" download class="btn ghost">Download Resume</a></div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="mod rv">
-  <h2><em>U10</em> Get In Touch</h2>
-  <p class="mute">Let's connect &amp; collaborate 🤝</p>
-  <ul class="facts">
+<section id="contact" class="sec rv">
+  <div class="sec-head"><div><h2>Get in touch</h2><p>Let's connect and collaborate.</p></div></div>
+  <div class="contact">
+    <div><ul class="facts">
     <li><i class="fas fa-envelope"></i><div><small>Email</small>amruthanamapure@gmail.com</div></li>
     <li><i class="fas fa-phone"></i><div><small>Phone</small>+91 6361508317</div></li>
     <li><i class="fas fa-location-dot"></i><div><small>Location</small>Bengaluru, Karnataka, India</div></li>
     <li><i class="fab fa-linkedin-in"></i><div><small>LinkedIn</small>linkedin.com/in/amrut-hanamapure-b0244b313</div></li>
     <li><i class="fas fa-globe"></i><div><small>Portfolio</small>amruth-07.github.io</div></li>
-  </ul>
-  <div class="social">
+  </ul><div class="social">
     <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     <a href="mailto:amruthanamapure@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-  </div>
-  <form id="contact-form" class="form">
+  </div></div>
+    <form id="contact-form" class="form">
     <label>Name</label><input type="text" name="name" placeholder="Your Name" required>
     <label>Email</label><input type="email" name="email" placeholder="Your Email" required>
     <label>Subject</label><input type="text" name="subject" placeholder="Project Discussion" required>
     <label>Message</label><textarea rows="4" name="message" placeholder="Tell me about your project..." required></textarea>
     <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
   </form>
+  </div>
 </section>
 
-</main>
-
-<footer class="mono">© 2026 Amrut Hanamapure · designed &amp; soldered with ♥</footer>
+<footer>© 2026 Amrut Hanamapure · Bengaluru, India</footer>
+</div>
 
 <div id="projectModal" class="modal">
   <div class="modal-content">
