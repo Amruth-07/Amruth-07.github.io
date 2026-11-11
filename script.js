@@ -1,3321 +1,2013 @@
-/* =====================================================
-   AMRUT HANAMAPURE — PROFESSIONAL PORTFOLIO
-   Main JavaScript
-===================================================== */
+/* =========================================================
+   AMRUT HANAMAPURE — PORTFOLIO SCRIPT
+   ========================================================= */
 
-(() => {
-  "use strict";
+"use strict";
 
-  const root = document.documentElement;
-  const themeBtn = document.getElementById("themeBtn");
-  const prefersReducedMotion =
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* =========================================================
+   GLOBAL HELPERS
+========================================================= */
 
-  /* =====================================================
-     UTILITY
-  ===================================================== */
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => [...document.querySelectorAll(selector)];
 
-  const $ = (id) => document.getElementById(id);
 
-  const store = (key, value) => {
-    try {
-      if (value === undefined) {
-        return localStorage.getItem(key);
-      }
+/* =========================================================
+   THEME SWITCHER
+========================================================= */
 
-      localStorage.setItem(key, value);
-    } catch (_) {}
+const themeBtn = $("#themeBtn");
 
-    return null;
-  };
+function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
 
-  const random = (max) =>
-    Math.floor(Math.random() * max);
-
-  /* =====================================================
-     THEME
-  ===================================================== */
-
-  function applyTheme(theme) {
-    root.dataset.theme = theme;
-
-    store("portfolio-theme", theme);
+    localStorage.setItem(
+        "portfolio-theme",
+        theme
+    );
 
     if (themeBtn) {
-      const dark = theme === "dark";
+        const isDark = theme === "dark";
 
-      themeBtn.innerHTML = dark
-        ? '<i class="fa-regular fa-sun"></i>'
-        : '<i class="fa-regular fa-moon"></i>';
-
-      themeBtn.setAttribute(
-        "aria-label",
-        dark
-          ? "Switch to light theme"
-          : "Switch to dark theme"
-      );
-
-      themeBtn.title =
-        dark
-          ? "Switch to light theme"
-          : "Switch to dark theme";
+        themeBtn.innerHTML = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
     }
+}
 
-    const meta =
-      document.querySelector(
-        'meta[name="theme-color"]'
-      );
+const savedTheme =
+    localStorage.getItem("portfolio-theme") ||
+    "dark";
 
-    if (meta) {
-      meta.content =
-        theme === "dark"
-          ? "#09080b"
-          : "#fffaf6";
-    }
-  }
+setTheme(savedTheme);
 
-  applyTheme(
-    store("portfolio-theme") ||
-      root.dataset.theme ||
-      "light"
-  );
+themeBtn?.addEventListener("click", () => {
+    const current =
+        document.documentElement.dataset.theme;
 
-  themeBtn?.addEventListener("click", () => {
-    applyTheme(
-      root.dataset.theme === "dark"
-        ? "light"
-        : "dark"
+    setTheme(
+        current === "dark"
+            ? "light"
+            : "dark"
     );
-  });
+});
 
-  /* =====================================================
-     TYPING EFFECT
-  ===================================================== */
 
-  const typed = $("typed");
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-  const roles = [
-    "Electronics & Communication Engineer",
+const menuBtn = $("#menuBtn");
+const nav = $(".main-nav");
+
+menuBtn?.addEventListener("click", () => {
+    nav?.classList.toggle("open");
+
+    const expanded =
+        nav?.classList.contains("open");
+
+    menuBtn.setAttribute(
+        "aria-expanded",
+        expanded
+            ? "true"
+            : "false"
+    );
+});
+
+$$(".main-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+        nav?.classList.remove("open");
+    });
+});
+
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+$$('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+        const id =
+            link.getAttribute("href");
+
+        if (
+            !id ||
+            id === "#"
+        ) {
+            return;
+        }
+
+        const target =
+            document.querySelector(id);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+const progressBar =
+    $("#progressBar");
+
+function updateScrollProgress() {
+    if (!progressBar) {
+        return;
+    }
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        documentHeight > 0
+            ? (window.scrollY /
+                documentHeight) *
+              100
+            : 0;
+
+    progressBar.style.width =
+        `${Math.min(
+            100,
+            Math.max(
+                0,
+                progress
+            )
+        )}%`;
+}
+
+window.addEventListener(
+    "scroll",
+    updateScrollProgress,
+    {
+        passive: true
+    }
+);
+
+updateScrollProgress();
+
+
+/* =========================================================
+   TYPING EFFECT
+========================================================= */
+
+const typedText =
+    $("#typed");
+
+const typingWords = [
+    "Electronics Engineer",
     "Hardware Testing Engineer",
     "Embedded Systems Engineer",
     "PCB Design Engineer",
     "VLSI Enthusiast"
-  ];
+];
 
-  if (typed && !prefersReducedMotion) {
-    let roleIndex = 0;
-    let charIndex = roles[0].length;
-    let deleting = true;
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-    function typeLoop() {
-      const current = roles[roleIndex];
+function typeEffect() {
+    if (!typedText) {
+        return;
+    }
 
-      if (deleting) {
-        charIndex--;
+    const word =
+        typingWords[wordIndex];
 
-        typed.textContent =
-          current.substring(
-            0,
-            Math.max(0, charIndex)
-          );
-
-        if (charIndex <= 0) {
-          deleting = false;
-          roleIndex =
-            (roleIndex + 1) %
-            roles.length;
-        }
-
-        setTimeout(typeLoop, 35);
-      } else {
-        const nextRole =
-          roles[roleIndex];
-
+    if (!deleting) {
         charIndex++;
 
-        typed.textContent =
-          nextRole.substring(
-            0,
-            charIndex
-          );
+        typedText.textContent =
+            word.substring(
+                0,
+                charIndex
+            );
 
         if (
-          charIndex >=
-          nextRole.length
+            charIndex ===
+            word.length
         ) {
-          deleting = true;
-          setTimeout(typeLoop, 1600);
-        } else {
-          setTimeout(typeLoop, 60);
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1600
+            );
+
+            return;
         }
-      }
+    } else {
+        charIndex--;
+
+        typedText.textContent =
+            word.substring(
+                0,
+                charIndex
+            );
+
+        if (
+            charIndex === 0
+        ) {
+            deleting = false;
+
+            wordIndex =
+                (wordIndex + 1) %
+                typingWords.length;
+        }
     }
 
-    setTimeout(typeLoop, 1500);
-  }
-
-  /* =====================================================
-     SCROLL REVEAL
-  ===================================================== */
-
-  const revealItems =
-    document.querySelectorAll(".reveal");
-
-  if (
-    "IntersectionObserver" in window &&
-    !prefersReducedMotion
-  ) {
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (
-              entry.isIntersecting
-            ) {
-              entry.target.classList.add(
-                "is-visible"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
-            }
-          });
-        },
-        {
-          threshold: 0.08,
-          rootMargin:
-            "0px 0px -25px 0px"
-        }
-      );
-
-    revealItems.forEach((item) => {
-      observer.observe(item);
-    });
-  } else {
-    revealItems.forEach((item) => {
-      item.classList.add(
-        "is-visible"
-      );
-    });
-  }
-
-  /* =====================================================
-     HERO COUNTERS
-  ===================================================== */
-
-  const stats =
-    document.querySelector(
-      ".hero-stats"
+    setTimeout(
+        typeEffect,
+        deleting
+            ? 45
+            : 75
     );
+}
 
-  if (
-    stats &&
-    "IntersectionObserver" in window &&
-    !prefersReducedMotion
-  ) {
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting)
-              return;
+if (
+    typedText &&
+    !window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+) {
+    typeEffect();
+}
 
-            stats
-              .querySelectorAll(
-                "[data-count]"
-              )
-              .forEach((element) => {
-                const target =
-                  Number(
-                    element.dataset
-                      .count || 0
-                  );
 
-                let current = 0;
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
 
-                const step =
-                  Math.max(
-                    1,
-                    Math.ceil(
-                      target / 20
-                    )
-                  );
+const revealElements =
+    $$(".reveal");
 
-                const timer =
-                  setInterval(() => {
-                    current =
-                      Math.min(
-                        target,
-                        current +
-                          step
-                      );
-
-                    element.textContent =
-                      String(
-                        current
-                      );
-
-                    if (
-                      current >=
-                      target
-                    ) {
-                      clearInterval(
-                        timer
-                      );
-                    }
-                  }, 35);
-              });
-
-            observer.disconnect();
-          });
-        },
-        {
-          threshold: 0.35
-        }
-      );
-
-    observer.observe(stats);
-  }
-
-  /* =====================================================
-     SCROLL PROGRESS
-  ===================================================== */
-
-  const progressBar =
-    $("progressBar");
-
-  function updateProgress() {
-    if (!progressBar)
-      return;
-
-    const max =
-      document.documentElement
-        .scrollHeight -
-      window.innerHeight;
-
-    const percentage =
-      max > 0
-        ? (window.scrollY /
-            max) *
-          100
-        : 0;
-
-    progressBar.style.width =
-      `${Math.max(
-        0,
-        Math.min(
-          100,
-          percentage
-        )
-      )}%`;
-  }
-
-  window.addEventListener(
-    "scroll",
-    updateProgress,
-    {
-      passive: true
-    }
-  );
-
-  window.addEventListener(
-    "resize",
-    updateProgress
-  );
-
-  updateProgress();
-
-  /* =====================================================
-     NAVIGATION
-  ===================================================== */
-
-  const navLinks = [
-    ...document.querySelectorAll(
-      ".main-nav a"
-    )
-  ];
-
-  const sections =
-    navLinks
-      .map((link) =>
-        document.querySelector(
-          link.getAttribute(
-            "href"
-          )
-        )
-      )
-      .filter(Boolean);
-
-  if (
+if (
     "IntersectionObserver" in
     window
-  ) {
-    const navObserver =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach(
-            (entry) => {
-              if (
-                !entry.isIntersecting
-              )
-                return;
+) {
+    const revealObserver =
+        new IntersectionObserver(
+            (entries) => {
+                entries.forEach(
+                    (entry) => {
+                        if (
+                            entry.isIntersecting
+                        ) {
+                            entry.target.classList.add(
+                                "is-visible"
+                            );
 
-              navLinks.forEach(
-                (link) => {
-                  const active =
-                    link.getAttribute(
-                      "href"
-                    ) ===
-                    `#${entry.target.id}`;
-
-                  link.classList.toggle(
-                    "active",
-                    active
-                  );
-
-                  if (active) {
-                    link.setAttribute(
-                      "aria-current",
-                      "location"
-                    );
-                  } else {
-                    link.removeAttribute(
-                      "aria-current"
-                    );
-                  }
-                }
-              );
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+                        }
+                    }
+                );
+            },
+            {
+                threshold: 0.08
             }
-          );
-        },
-        {
-          rootMargin:
-            "-35% 0px -55% 0px"
-        }
-      );
-
-    sections.forEach(
-      (section) =>
-        navObserver.observe(
-          section
-        )
-    );
-  }
-
-  /* =====================================================
-     CONTACT FORM
-  ===================================================== */
-
-  const form =
-    $("contact-form");
-
-  const status =
-    $("form-status");
-
-  function setStatus(
-    message,
-    type = ""
-  ) {
-    if (!status)
-      return;
-
-    status.textContent =
-      message;
-
-    status.className =
-      `form-status ${type}`.trim();
-  }
-
-  if (form) {
-    const EMAILJS_PUBLIC_KEY =
-      "TZWUr1PeHYnnlkkBN";
-
-    const EMAILJS_SERVICE_ID =
-      "service_9uitjh4";
-
-    const EMAILJS_TEMPLATE_ID =
-      "template_re3hdru";
-
-    if (window.emailjs) {
-      try {
-        window.emailjs.init({
-          publicKey:
-            EMAILJS_PUBLIC_KEY
-        });
-      } catch (error) {
-        console.warn(
-          "EmailJS initialization failed:",
-          error
         );
-      }
+
+    revealElements.forEach(
+        (element) => {
+            revealObserver.observe(
+                element
+            );
+        }
+    );
+} else {
+    revealElements.forEach(
+        (element) => {
+            element.classList.add(
+                "is-visible"
+            );
+        }
+    );
+}
+
+
+/* =========================================================
+   PROJECT DETAILS MODAL
+========================================================= */
+
+const projectDetails = {
+
+    agriguard: {
+        title:
+            "AgriGuard – Smart IoT Farming & Security System",
+
+        description:
+            "An Arduino-based smart farming and field security system designed to automate irrigation and monitor field conditions.",
+
+        features: [
+            "Automatic irrigation using soil moisture sensing",
+            "Field security using PIR detection",
+            "Temperature monitoring",
+            "IoT-based monitoring using ESP8266",
+            "Reduced manual irrigation effort"
+        ],
+
+        technologies:
+            "Arduino, ESP8266, Soil Moisture Sensor, PIR Sensor, Temperature Sensor, IoT"
+    },
+
+    oscilloscope: {
+        title:
+            "Portable Oscilloscope",
+
+        description:
+            "A compact Arduino-based oscilloscope prototype designed to display measured waveform information on an OLED display.",
+
+        features: [
+            "Compact portable design",
+            "Arduino-based signal processing",
+            "OLED waveform display",
+            "Simple user interface",
+            "Useful for basic electronic signal observation"
+        ],
+
+        technologies:
+            "Arduino Nano/Uno, OLED SSD1306, Embedded C/C++"
+    },
+
+    tester: {
+        title:
+            "All-in-One Electronic Component Tester",
+
+        description:
+            "A portable Arduino-based component testing project designed to identify and test commonly used electronic components.",
+
+        features: [
+            "Component identification",
+            "Basic component measurement",
+            "OLED result display",
+            "Compact prototype",
+            "Useful for electronics troubleshooting"
+        ],
+
+        technologies:
+            "Arduino, OLED SSD1306, Resistors, Capacitors, Diodes, Transistors"
+    },
+
+    bms: {
+        title:
+            "5S Li-Ion Battery Management System",
+
+        description:
+            "A prototype battery management system designed for a 5-cell lithium-ion battery pack with voltage, current and temperature monitoring.",
+
+        features: [
+            "5-cell battery configuration",
+            "Cell voltage monitoring",
+            "Current monitoring",
+            "Temperature monitoring",
+            "MOSFET-based protection concept",
+            "OLED status display",
+            "Buzzer alert system"
+        ],
+
+        technologies:
+            "Arduino UNO, INA219, DS18B20, MOSFET, OLED, Li-Ion Cells"
+    },
+
+    led: {
+        title:
+            "LED Pattern Generator",
+
+        description:
+            "An Arduino-based digital electronics project that generates multiple LED lighting patterns using programmed control logic.",
+
+        features: [
+            "Multiple LED patterns",
+            "Arduino digital output control",
+            "Sequential lighting effects",
+            "Simple embedded programming",
+            "Low-cost prototype"
+        ],
+
+        technologies:
+            "Arduino UNO, LEDs, Resistors, Embedded C/C++"
+    },
+
+    pneumatic: {
+        title:
+            "Pneumatic Pick & Place Robot",
+
+        description:
+            "A miniature automation concept designed to demonstrate pneumatic pick-and-place movement for simple industrial handling applications.",
+
+        features: [
+            "Pick-and-place mechanism",
+            "Pneumatic actuation concept",
+            "Industrial automation application",
+            "Sequential control",
+            "Mini-project implementation"
+        ],
+
+        technologies:
+            "Pneumatic Cylinder, Solenoid Valve, Compressor, Sensors, Control Circuit"
+    }
+};
+
+
+/* =========================================================
+   PROJECT DETAILS BUTTONS
+========================================================= */
+
+$$(".project-details-btn").forEach(
+    (button) => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const id =
+                    button.dataset.project;
+
+                openProjectDetails(
+                    id
+                );
+            }
+        );
+    }
+);
+
+
+function openProjectDetails(
+    projectId
+) {
+    const project =
+        projectDetails[
+            projectId
+        ];
+
+    if (!project) {
+        return;
     }
 
-    form.addEventListener(
-      "submit",
-      async (event) => {
+    let modal =
+        $("#projectModal");
+
+    if (!modal) {
+        modal =
+            document.createElement(
+                "div"
+            );
+
+        modal.id =
+            "projectModal";
+
+        modal.className =
+            "modal";
+
+        document.body.appendChild(
+            modal
+        );
+    }
+
+    modal.innerHTML = `
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                aria-label="Close">
+                &times;
+            </button>
+
+            <div class="modal-header">
+                <span class="eyebrow">
+                    PROJECT DETAILS
+                </span>
+
+                <h2>
+                    ${project.title}
+                </h2>
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    ${project.description}
+                </p>
+
+                <h3>
+                    Key Features
+                </h3>
+
+                <ul>
+                    ${project.features
+                        .map(
+                            feature =>
+                                `<li>${feature}</li>`
+                        )
+                        .join("")}
+                </ul>
+
+                <h3>
+                    Technologies
+                </h3>
+
+                <p class="tech-list">
+                    ${project.technologies}
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+    modal.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+    const closeBtn =
+        modal.querySelector(
+            ".modal-close"
+        );
+
+    closeBtn?.addEventListener(
+        "click",
+        closeProjectModal
+    );
+
+    modal.addEventListener(
+        "click",
+        (event) => {
+            if (
+                event.target ===
+                modal
+            ) {
+                closeProjectModal();
+            }
+        }
+    );
+
+    document.addEventListener(
+        "keydown",
+        handleModalEscape
+    );
+}
+
+
+function closeProjectModal() {
+    const modal =
+        $("#projectModal");
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+
+    document.removeEventListener(
+        "keydown",
+        handleModalEscape
+    );
+}
+
+
+function handleModalEscape(
+    event
+) {
+    if (
+        event.key ===
+        "Escape"
+    ) {
+        closeProjectModal();
+    }
+}
+
+
+/* =========================================================
+   PROJECT CODE BUTTONS
+========================================================= */
+
+$$(".project-code-btn").forEach(
+    (button) => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const url =
+                    button.dataset.url ||
+                    "https://github.com/Amruth-07";
+
+                window.open(
+                    url,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+            }
+        );
+    }
+);
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    $("#contact-form");
+
+const formStatus =
+    $("#form-status");
+
+function showFormStatus(
+    message,
+    type = ""
+) {
+    if (!formStatus) {
+        return;
+    }
+
+    formStatus.textContent =
+        message;
+
+    formStatus.className =
+        `form-status ${type}`;
+}
+
+contactForm?.addEventListener(
+    "submit",
+    async (event) => {
+
         event.preventDefault();
 
-        const button =
-          form.querySelector(
-            '[type="submit"]'
-          );
+        const submitButton =
+            contactForm.querySelector(
+                'button[type="submit"]'
+            );
 
-        const original =
-          button?.innerHTML ||
-          "";
+        if (
+            submitButton
+        ) {
+            submitButton.disabled =
+                true;
 
-        if (button) {
-          button.disabled =
-            true;
-
-          button.textContent =
-            "Sending...";
+            submitButton.textContent =
+                "Sending...";
         }
-
-        setStatus(
-          "Sending your message..."
-        );
 
         try {
-          if (
-            window.emailjs &&
-            typeof window
-              .emailjs
-              .sendForm ===
-              "function"
-          ) {
-            await window.emailjs.sendForm(
-              EMAILJS_SERVICE_ID,
-              EMAILJS_TEMPLATE_ID,
-              form
-            );
 
-            form.reset();
+            if (
+                typeof emailjs !==
+                "undefined"
+            ) {
 
-            setStatus(
-              "Your message has been sent successfully.",
-              "success"
-            );
-          } else {
-            const data =
-              new FormData(
-                form
-              );
+                await emailjs.sendForm(
+                    "service_9uitjh4",
+                    "template_re3hdru",
+                    contactForm
+                );
 
-            const subject =
-              encodeURIComponent(
-                String(
-                  data.get(
-                    "subject"
-                  ) ||
-                    "Portfolio enquiry"
-                )
-              );
+                showFormStatus(
+                    "Message sent successfully.",
+                    "success"
+                );
 
-            const body =
-              encodeURIComponent(
-                `Name: ${data.get(
-                  "name"
-                )}
-Email: ${data.get(
-                  "email"
-                )}
+                contactForm.reset();
 
-${data.get(
-  "message"
-)}`
-              );
+            } else {
 
-            window.location.href =
-              `mailto:amruthanamapure@gmail.com?subject=${subject}&body=${body}`;
+                const formData =
+                    new FormData(
+                        contactForm
+                    );
 
-            setStatus(
-              "Your email application is opening."
-            );
-          }
-        } catch (error) {
-          console.error(
-            "Contact form error:",
+                const name =
+                    formData.get(
+                        "name"
+                    );
+
+                const email =
+                    formData.get(
+                        "email"
+                    );
+
+                const subject =
+                    formData.get(
+                        "subject"
+                    );
+
+                const message =
+                    formData.get(
+                        "message"
+                    );
+
+                const mailSubject =
+                    encodeURIComponent(
+                        subject ||
+                        "Portfolio enquiry"
+                    );
+
+                const mailBody =
+                    encodeURIComponent(
+                        `Name: ${name}
+Email: ${email}
+
+${message}`
+                    );
+
+                window.location.href =
+                    `mailto:amruthanamapure@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+            }
+
+        } catch (
             error
-          );
+        ) {
 
-          setStatus(
-            "Message could not be sent. Please email amruthanamapure@gmail.com directly.",
-            "error"
-          );
+            console.error(
+                "Email error:",
+                error
+            );
+
+            showFormStatus(
+                "Unable to send message. Please email me directly.",
+                "error"
+            );
+
         } finally {
-          if (button) {
-            button.disabled =
-              false;
 
-            button.innerHTML =
-              original;
-          }
+            if (
+                submitButton
+            ) {
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Send Message";
+            }
         }
-      }
-    );
-  }
-
-  /* =====================================================
-     FOOTER YEAR
-  ===================================================== */
-
-  const year =
-    $("year");
-
-  if (year) {
-    year.textContent =
-      new Date()
-        .getFullYear();
-  }
-})();
+    }
+);
 
 
-/* =====================================================
-   MINI GAMES
-===================================================== */
+/* =========================================================
+   EMAILJS INITIALIZATION
+========================================================= */
 
-(() => {
-  "use strict";
-
-  const $ = (id) =>
-    document.getElementById(id);
-
-  const store = (
-    key,
-    value
-  ) => {
+if (
+    typeof emailjs !==
+    "undefined"
+) {
     try {
-      if (
-        value === undefined
-      ) {
-        return localStorage.getItem(
-          key
+        emailjs.init({
+            publicKey:
+                "TZWUr1PeHYnnlkkBN"
+        });
+    } catch (
+        error
+    ) {
+        console.warn(
+            "EmailJS initialization failed:",
+            error
         );
-      }
+    }
+}
 
-      localStorage.setItem(
-        key,
-        value
-      );
-    } catch (_) {}
 
-    return null;
-  };
+/* =========================================================
+   SNAKE GAME
+========================================================= */
 
-  const rand =
-    (max) =>
-      Math.floor(
-        Math.random() *
-          max
-      );
+const snakeCanvas =
+    $("#snake");
 
-  /* =====================================================
-     SNAKE GAME
-  ===================================================== */
+if (snakeCanvas) {
 
-  const canvas =
-    $("snake");
-
-  if (canvas) {
     const ctx =
-      canvas.getContext(
-        "2d"
-      );
+        snakeCanvas.getContext(
+            "2d"
+        );
 
-    const GRID = 20;
+    const GRID =
+        20;
+
     const CELL =
-      canvas.width /
-      GRID;
-
-    const scoreEl =
-      $("sScore");
-
-    const bestEl =
-      $("sBest");
-
-    const startBtn =
-      $("sStart");
-
-    const pauseBtn =
-      $("sPause");
-
-    const levelEl =
-      $("sLevel");
-
-    const messageEl =
-      $("sMessage");
+        snakeCanvas.width /
+        GRID;
 
     let snake = [];
+
     let direction = {
-      x: 1,
-      y: 0
+        x: 1,
+        y: 0
     };
 
     let nextDirection = {
-      x: 1,
-      y: 0
+        x: 1,
+        y: 0
     };
 
-    let food = null;
+    let food = {
+        x: 14,
+        y: 10
+    };
 
-    let score = 0;
-
-    let best =
-      Number(
-        store(
-          "snakeBest"
-        ) || 0
-      );
-
-    let timer = null;
-    let started =
-      false;
-
-    let paused =
-      false;
-
-    let gameOver =
-      false;
-
-    let frame =
-      0;
-
-    if (bestEl) {
-      bestEl.textContent =
-        best;
-    }
-
-    /* ---------- FOOD ---------- */
-
-    function placeFood() {
-      do {
-        food = {
-          x: rand(GRID),
-          y: rand(GRID)
-        };
-      } while (
-        snake.some(
-          (part) =>
-            part.x ===
-              food.x &&
-            part.y ===
-              food.y
-        )
-      );
-    }
-
-    /* ---------- HUD ---------- */
-
-    function updateHUD() {
-      if (scoreEl)
-        scoreEl.textContent =
-          score;
-
-      if (bestEl)
-        bestEl.textContent =
-          best;
-
-      if (levelEl)
-        levelEl.textContent =
-          1 +
-          Math.floor(
-            score / 5
-          );
-    }
-
-    function message(text) {
-      if (messageEl)
-        messageEl.textContent =
-          text;
-    }
-
-    /* ---------- SPEED ---------- */
-
-    function speed() {
-      return Math.max(
-        60,
-        145 -
-          Math.floor(
-            score / 5
-          ) *
-            10
-      );
-    }
-
-    /* ---------- ROUNDED RECT ---------- */
-
-    function roundedRect(
-      x,
-      y,
-      width,
-      height,
-      radius
-    ) {
-      const r =
-        Math.min(
-          radius,
-          width / 2,
-          height / 2
-        );
-
-      ctx.beginPath();
-
-      ctx.moveTo(
-        x + r,
-        y
-      );
-
-      ctx.arcTo(
-        x + width,
-        y,
-        x + width,
-        y +
-          height,
-        r
-      );
-
-      ctx.arcTo(
-        x + width,
-        y +
-          height,
-        x,
-        y +
-          height,
-        r
-      );
-
-      ctx.arcTo(
-        x,
-        y +
-          height,
-        x,
-        y,
-        r
-      );
-
-      ctx.arcTo(
-        x,
-        y,
-        x + width,
-        y,
-        r
-      );
-
-      ctx.closePath();
-    }
-
-    /* =================================================
-       DRAW BOARD
-    ================================================= */
-
-    function draw() {
-      if (!food)
-        return;
-
-      ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-
-      /* ---------- BACKGROUND ---------- */
-
-      const bg =
-        ctx.createLinearGradient(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-
-      bg.addColorStop(
-        0,
-        "#050b09"
-      );
-
-      bg.addColorStop(
-        0.5,
-        "#0b1711"
-      );
-
-      bg.addColorStop(
-        1,
-        "#120b10"
-      );
-
-      ctx.fillStyle =
-        bg;
-
-      ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-
-      /* ---------- GRID ---------- */
-
-      ctx.strokeStyle =
-        "rgba(255, 145, 75, 0.12)";
-
-      ctx.lineWidth =
-        1;
-
-      for (
-        let i = 0;
-        i <= GRID;
-        i++
-      ) {
-        const p =
-          i * CELL +
-          0.5;
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-          p,
-          0
-        );
-
-        ctx.lineTo(
-          p,
-          canvas.height
-        );
-
-        ctx.stroke();
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-          0,
-          p
-        );
-
-        ctx.lineTo(
-          canvas.width,
-          p
-        );
-
-        ctx.stroke();
-      }
-
-      /* ---------- FOOD ---------- */
-
-      const pulse =
-        1 +
-        Math.sin(
-          frame *
-            0.18
-        ) *
-          0.08;
-
-      const fx =
-        food.x *
-          CELL +
-        CELL / 2;
-
-      const fy =
-        food.y *
-          CELL +
-        CELL / 2;
-
-      ctx.save();
-
-      ctx.shadowColor =
-        "#ff4d45";
-
-      ctx.shadowBlur =
-        25;
-
-      ctx.fillStyle =
-        "#ff5148";
-
-      ctx.beginPath();
-
-      ctx.arc(
-        fx - 3,
-        fy,
-        7 *
-          pulse,
-        0,
-        Math.PI *
-          2
-      );
-
-      ctx.arc(
-        fx + 3,
-        fy,
-        7 *
-          pulse,
-        0,
-        Math.PI *
-          2
-      );
-
-      ctx.fill();
-
-      /* Apple stem */
-
-      ctx.shadowBlur =
+    let score =
         0;
 
-      ctx.strokeStyle =
-        "#ffd4b0";
-
-      ctx.lineWidth =
-        1.5;
-
-      ctx.beginPath();
-
-      ctx.moveTo(
-        fx,
-        fy - 7
-      );
-
-      ctx.lineTo(
-        fx + 2,
-        fy - 12
-      );
-
-      ctx.stroke();
-
-      /* Leaf */
-
-      ctx.fillStyle =
-        "#ff9b58";
-
-      ctx.beginPath();
-
-      ctx.ellipse(
-        fx + 5,
-        fy - 10,
-        4,
-        2,
-        -0.5,
-        0,
-        Math.PI *
-          2
-      );
-
-      ctx.fill();
-
-      ctx.restore();
-
-      /* ---------- SNAKE ---------- */
-
-      snake.forEach(
-        (part, index) => {
-          const padding =
-            index === 0
-              ? 2
-              : 3;
-
-          const x =
-            part.x *
-              CELL +
-            padding;
-
-          const y =
-            part.y *
-              CELL +
-            padding;
-
-          const size =
-            CELL -
-            padding *
-              2;
-
-          const gradient =
-            ctx.createLinearGradient(
-              x,
-              y,
-              x +
-                size,
-              y +
-                size
-            );
-
-          if (
-            index === 0
-          ) {
-            gradient.addColorStop(
-              0,
-              "#fff3a6"
-            );
-
-            gradient.addColorStop(
-              0.45,
-              "#ff9a45"
-            );
-
-            gradient.addColorStop(
-              1,
-              "#ff4d88"
-            );
-          } else {
-            gradient.addColorStop(
-              0,
-              "#ff8b4d"
-            );
-
-            gradient.addColorStop(
-              0.5,
-              "#ff477e"
-            );
-
-            gradient.addColorStop(
-              1,
-              "#b52cff"
-            );
-          }
-
-          ctx.save();
-
-          ctx.shadowColor =
-            index === 0
-              ? "#ff9a45"
-              : "#ff397d";
-
-          ctx.shadowBlur =
-            index === 0
-              ? 18
-              : 8;
-
-          roundedRect(
-            x,
-            y,
-            size,
-            size,
-            index === 0
-              ? 7
-              : 6
-          );
-
-          ctx.fillStyle =
-            gradient;
-
-          ctx.fill();
-
-          ctx.shadowBlur =
-            0;
-
-          ctx.strokeStyle =
-            "rgba(255,255,255,.38)";
-
-          ctx.lineWidth =
-            1;
-
-          ctx.stroke();
-
-          ctx.restore();
-        }
-      );
-
-      /* ---------- EYES ---------- */
-
-      const head =
-        snake[0];
-
-      const hx =
-        head.x *
-          CELL +
-        CELL /
-          2;
-
-      const hy =
-        head.y *
-          CELL +
-        CELL /
-          2;
-
-      const offset =
-        4.5;
-
-      let eyes;
-
-      if (
-        direction.x !==
-        0
-      ) {
-        eyes = [
-          [
-            hx +
-              direction.x *
-                offset,
-            hy -
-              offset
-          ],
-          [
-            hx +
-              direction.x *
-                offset,
-            hy +
-              offset
-          ]
-        ];
-      } else {
-        eyes = [
-          [
-            hx -
-              offset,
-            hy +
-              direction.y *
-                offset
-          ],
-          [
-            hx +
-              offset,
-            hy +
-              direction.y *
-                offset
-          ]
-        ];
-      }
-
-      ctx.fillStyle =
-        "#160b15";
-
-      eyes.forEach(
-        ([x, y]) => {
-          ctx.beginPath();
-
-          ctx.arc(
-            x,
-            y,
-            1.7,
-            0,
-            Math.PI *
-              2
-          );
-
-          ctx.fill();
-        }
-      );
-
-      /* ---------- OVERLAY ---------- */
-
-      if (
-        !started ||
-        paused ||
-        gameOver
-      ) {
-        ctx.fillStyle =
-          "rgba(4, 4, 7, .68)";
-
-        ctx.fillRect(
-          0,
-          0,
-          canvas.width,
-          canvas.height
+    let best =
+        Number(
+            localStorage.getItem(
+                "snakeBest"
+            ) ||
+            0
         );
 
-        ctx.textAlign =
-          "center";
-
-        ctx.shadowColor =
-          "#ff5c8a";
-
-        ctx.shadowBlur =
-          20;
-
-        ctx.fillStyle =
-          "#ffffff";
-
-        ctx.font =
-          "800 34px Arial";
-
-        ctx.fillText(
-          gameOver
-            ? "GAME OVER"
-            : paused
-              ? "PAUSED"
-              : "SNAKE",
-          canvas.width /
-            2,
-          canvas.height /
-              2 -
-            10
-        );
-
-        ctx.shadowBlur =
-          0;
-
-        ctx.fillStyle =
-          "#ff9b58";
-
-        ctx.font =
-          "600 15px Arial";
-
-        let subtitle =
-          "Press START GAME to begin";
-
-        if (paused) {
-          subtitle =
-            "Press Resume to continue";
-        }
-
-        if (gameOver) {
-          subtitle =
-            `Score: ${score} • Press Play Again`;
-        }
-
-        ctx.fillText(
-          subtitle,
-          canvas.width /
-            2,
-          canvas.height /
-              2 +
-            25
-        );
-      }
-    }
-
-    /* ---------- RESET ---------- */
-
-    function reset() {
-      snake = [
-        {
-          x: 8,
-          y: 10
-        },
-        {
-          x: 7,
-          y: 10
-        },
-        {
-          x: 6,
-          y: 10
-        },
-        {
-          x: 5,
-          y: 10
-        }
-      ];
-
-      direction = {
-        x: 1,
-        y: 0
-      };
-
-      nextDirection = {
-        x: 1,
-        y: 0
-      };
-
-      score = 0;
-      frame = 0;
-      paused = false;
-      started = false;
-      gameOver = false;
-
-      placeFood();
-      updateHUD();
-
-      if (pauseBtn) {
-        pauseBtn.disabled =
-          true;
-
-        pauseBtn.textContent =
-          "Pause";
-      }
-
-      if (startBtn) {
-        startBtn.textContent =
-          "Start Game";
-      }
-
-      message(
-        "Ready? Press Start Game to play."
-      );
-
-      draw();
-    }
-
-    /* ---------- END ---------- */
-
-    function endGame() {
-      clearInterval(
-        timer
-      );
-
-      timer =
-        null;
-
-      gameOver =
-        true;
-
-      paused =
+    let gameRunning =
         false;
 
-      if (
-        score >
-        best
-      ) {
-        best =
-          score;
+    let paused =
+        false;
 
-        store(
-          "snakeBest",
-          String(
-            best
-          )
-        );
-      }
+    let gameOver =
+        false;
 
-      updateHUD();
+    let gameTimer =
+        null;
 
-      if (startBtn) {
-        startBtn.textContent =
-          "Play Again";
-      }
+    const scoreEl =
+        $("#sScore");
 
-      if (pauseBtn) {
-        pauseBtn.disabled =
-          true;
+    const bestEl =
+        $("#sBest");
 
-        pauseBtn.textContent =
-          "Pause";
-      }
+    const levelEl =
+        $("#sLevel");
 
-      message(
-        `Game over! Final score: ${score}.`
-      );
+    const messageEl =
+        $("#sMessage");
 
-      draw();
+    const startBtn =
+        $("#sStart");
+
+    const pauseBtn =
+        $("#sPause");
+
+
+    function setSnakeMessage(
+        message
+    ) {
+        if (
+            messageEl
+        ) {
+            messageEl.textContent =
+                message;
+        }
     }
 
-    /* ---------- MOVE ---------- */
 
-    function move() {
-      if (
-        !started ||
-        paused ||
-        gameOver
-      )
-        return;
+    function updateSnakeHUD() {
 
-      direction = {
-        ...nextDirection
-      };
+        if (
+            scoreEl
+        ) {
+            scoreEl.textContent =
+                score;
+        }
 
-      const head = {
-        x:
-          snake[0]
-            .x +
-          direction.x,
+        if (
+            bestEl
+        ) {
+            bestEl.textContent =
+                best;
+        }
 
-        y:
-          snake[0]
-            .y +
-          direction.y
-      };
+        if (
+            levelEl
+        ) {
+            levelEl.textContent =
+                1 +
+                Math.floor(
+                    score /
+                    5
+                );
+        }
+    }
 
-      const eating =
-        head.x ===
-          food.x &&
-        head.y ===
-          food.y;
 
-      const body =
-        eating
-          ? snake
-          : snake.slice(
-              0,
-              -1
-            );
+    function resetSnake() {
 
-      const wall =
-        head.x < 0 ||
-        head.y < 0 ||
-        head.x >=
-          GRID ||
-        head.y >=
-          GRID;
+        snake = [
+            {
+                x: 8,
+                y: 10
+            },
+            {
+                x: 7,
+                y: 10
+            },
+            {
+                x: 6,
+                y: 10
+            },
+            {
+                x: 5,
+                y: 10
+            }
+        ];
 
-      const hit =
-        body.some(
-          (part) =>
-            part.x ===
-              head.x &&
-            part.y ===
-              head.y
-        );
+        direction = {
+            x: 1,
+            y: 0
+        };
 
-      if (
-        wall ||
-        hit
-      ) {
-        endGame();
-        return;
-      }
+        nextDirection = {
+            x: 1,
+            y: 0
+        };
 
-      snake.unshift(
-        head
-      );
+        score =
+            0;
 
-      if (eating) {
-        score++;
+        gameRunning =
+            false;
 
-        frame++;
+        paused =
+            false;
+
+        gameOver =
+            false;
 
         placeFood();
 
-        updateHUD();
+        updateSnakeHUD();
 
-        clearInterval(
-          timer
-        );
-
-        timer =
-          setInterval(
-            move,
-            speed()
-          );
+        drawSnake();
 
         if (
-          score % 5 ===
-          0
+            pauseBtn
         ) {
-          message(
-            `Level ${
-              1 +
-              Math.floor(
-                score /
-                  5
-              )
-            } unlocked!`
-          );
-        } else {
-          message(
-            "Food collected! Keep going."
-          );
+            pauseBtn.disabled =
+                true;
+
+            pauseBtn.textContent =
+                "Pause";
         }
-      } else {
-        snake.pop();
-      }
 
-      frame++;
+        if (
+            startBtn
+        ) {
+            startBtn.textContent =
+                "Start Game";
+        }
 
-      draw();
-    }
-
-    /* ---------- START ---------- */
-
-    function start() {
-      clearInterval(
-        timer
-      );
-
-      reset();
-
-      started =
-        true;
-
-      if (startBtn) {
-        startBtn.textContent =
-          "Restart";
-      }
-
-      if (pauseBtn) {
-        pauseBtn.disabled =
-          false;
-      }
-
-      message(
-        "Game on! Use Arrow Keys, WASD or the controls."
-      );
-
-      draw();
-
-      timer =
-        setInterval(
-          move,
-          speed()
+        setSnakeMessage(
+            "Press Start Game to begin."
         );
     }
 
-    /* ---------- PAUSE ---------- */
 
-    function togglePause() {
-      if (
-        !started ||
-        gameOver
-      )
-        return;
+    function placeFood() {
 
-      paused =
-        !paused;
+        let valid =
+            false;
 
-      if (paused) {
-        clearInterval(
-          timer
-        );
+        while (!valid) {
 
-        timer =
-          null;
+            food = {
+                x:
+                    Math.floor(
+                        Math.random() *
+                        GRID
+                    ),
 
-        pauseBtn.textContent =
-          "Resume";
+                y:
+                    Math.floor(
+                        Math.random() *
+                        GRID
+                    )
+            };
 
-        message(
-          "Game paused."
-        );
-      } else {
-        pauseBtn.textContent =
-          "Pause";
-
-        message(
-          "Game resumed!"
-        );
-
-        timer =
-          setInterval(
-            move,
-            speed()
-          );
-      }
-
-      draw();
+            valid =
+                !snake.some(
+                    part =>
+                        part.x ===
+                            food.x &&
+                        part.y ===
+                            food.y
+                );
+        }
     }
 
-    /* ---------- DIRECTION ---------- */
 
-    function setDirection(
-      x,
-      y
+    function drawSnake() {
+
+        ctx.clearRect(
+            0,
+            0,
+            snakeCanvas.width,
+            snakeCanvas.height
+        );
+
+        /* Background */
+
+        const background =
+            ctx.createLinearGradient(
+                0,
+                0,
+                snakeCanvas.width,
+                snakeCanvas.height
+            );
+
+        background.addColorStop(
+            0,
+            "#070707"
+        );
+
+        background.addColorStop(
+            0.5,
+            "#110c0d"
+        );
+
+        background.addColorStop(
+            1,
+            "#070707"
+        );
+
+        ctx.fillStyle =
+            background;
+
+        ctx.fillRect(
+            0,
+            0,
+            snakeCanvas.width,
+            snakeCanvas.height
+        );
+
+
+        /* Grid */
+
+        ctx.strokeStyle =
+            "rgba(255, 140, 70, .12)";
+
+        ctx.lineWidth =
+            1;
+
+        for (
+            let i = 0;
+            i <= GRID;
+            i++
+        ) {
+
+            const position =
+                i * CELL;
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                position,
+                0
+            );
+
+            ctx.lineTo(
+                position,
+                snakeCanvas.height
+            );
+
+            ctx.stroke();
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                0,
+                position
+            );
+
+            ctx.lineTo(
+                snakeCanvas.width,
+                position
+            );
+
+            ctx.stroke();
+        }
+
+
+        /* Food */
+
+        const foodX =
+            food.x *
+                CELL +
+            CELL / 2;
+
+        const foodY =
+            food.y *
+                CELL +
+            CELL / 2;
+
+        ctx.save();
+
+        ctx.shadowColor =
+            "#ff3d4d";
+
+        ctx.shadowBlur =
+            25;
+
+        ctx.fillStyle =
+            "#ff4050";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            foodX,
+            foodY,
+            CELL *
+                0.30,
+            0,
+            Math.PI *
+                2
+        );
+
+        ctx.fill();
+
+        ctx.restore();
+
+
+        /* Snake */
+
+        snake.forEach(
+            (part, index) => {
+
+                const padding =
+                    index ===
+                    0
+                        ? 2
+                        : 3;
+
+                const x =
+                    part.x *
+                        CELL +
+                    padding;
+
+                const y =
+                    part.y *
+                        CELL +
+                    padding;
+
+                const size =
+                    CELL -
+                    padding *
+                        2;
+
+                const gradient =
+                    ctx.createLinearGradient(
+                        x,
+                        y,
+                        x +
+                            size,
+                        y +
+                            size
+                    );
+
+                if (
+                    index ===
+                    0
+                ) {
+
+                    gradient.addColorStop(
+                        0,
+                        "#fff3a6"
+                    );
+
+                    gradient.addColorStop(
+                        0.5,
+                        "#ff8c42"
+                    );
+
+                    gradient.addColorStop(
+                        1,
+                        "#ff3f8e"
+                    );
+
+                } else {
+
+                    gradient.addColorStop(
+                        0,
+                        "#ff8c42"
+                    );
+
+                    gradient.addColorStop(
+                        0.5,
+                        "#ff3f8e"
+                    );
+
+                    gradient.addColorStop(
+                        1,
+                        "#b52cff"
+                    );
+                }
+
+                ctx.save();
+
+                ctx.shadowColor =
+                    index ===
+                    0
+                        ? "#ff8c42"
+                        : "#ff3f8e";
+
+                ctx.shadowBlur =
+                    index ===
+                    0
+                        ? 18
+                        : 9;
+
+                ctx.fillStyle =
+                    gradient;
+
+                roundRect(
+                    ctx,
+                    x,
+                    y,
+                    size,
+                    size,
+                    6
+                );
+
+                ctx.fill();
+
+                ctx.restore();
+            }
+        );
+
+
+        /* Eyes */
+
+        if (
+            snake.length
+        ) {
+
+            const head =
+                snake[0];
+
+            const hx =
+                head.x *
+                    CELL +
+                CELL /
+                    2;
+
+            const hy =
+                head.y *
+                    CELL +
+                CELL /
+                    2;
+
+            ctx.fillStyle =
+                "#171018";
+
+            let eyes;
+
+            if (
+                direction.x !==
+                0
+            ) {
+
+                eyes = [
+                    [
+                        hx +
+                            direction.x *
+                                4,
+                        hy -
+                            4
+                    ],
+                    [
+                        hx +
+                            direction.x *
+                                4,
+                        hy +
+                            4
+                    ]
+                ];
+
+            } else {
+
+                eyes = [
+                    [
+                        hx -
+                            4,
+                        hy +
+                            direction.y *
+                                4
+                    ],
+                    [
+                        hx +
+                            4,
+                        hy +
+                            direction.y *
+                                4
+                    ]
+                ];
+            }
+
+            eyes.forEach(
+                eye => {
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        eye[0],
+                        eye[1],
+                        1.8,
+                        0,
+                        Math.PI *
+                            2
+                    );
+
+                    ctx.fill();
+                }
+            );
+        }
+
+
+        /* Overlay */
+
+        if (
+            !gameRunning ||
+            paused ||
+            gameOver
+        ) {
+
+            ctx.fillStyle =
+                "rgba(0,0,0,.65)";
+
+            ctx.fillRect(
+                0,
+                0,
+                snakeCanvas.width,
+                snakeCanvas.height
+            );
+
+            ctx.textAlign =
+                "center";
+
+            ctx.fillStyle =
+                "#ffffff";
+
+            ctx.font =
+                "800 34px Arial";
+
+            ctx.fillText(
+                gameOver
+                    ? "GAME OVER"
+                    : paused
+                        ? "PAUSED"
+                        : "SNAKE",
+                snakeCanvas.width /
+                    2,
+                snakeCanvas.height /
+                    2
+            );
+
+            ctx.fillStyle =
+                "#ff9a45";
+
+            ctx.font =
+                "600 15px Arial";
+
+            ctx.fillText(
+                gameOver
+                    ? `Score: ${score}`
+                    : paused
+                        ? "Press Resume"
+                        : "Press Start Game",
+                snakeCanvas.width /
+                    2,
+                snakeCanvas.height /
+                    2 +
+                    30
+            );
+        }
+    }
+
+
+    function roundRect(
+        context,
+        x,
+        y,
+        width,
+        height,
+        radius
     ) {
-      if (
-        x ===
-          -nextDirection.x &&
-        y ===
-          -nextDirection.y
-      ) {
-        return;
-      }
 
-      nextDirection = {
+        context.beginPath();
+
+        context.moveTo(
+            x +
+                radius,
+            y
+        );
+
+        context.arcTo(
+            x +
+                width,
+            y,
+            x +
+                width,
+            y +
+                height,
+            radius
+        );
+
+        context.arcTo(
+            x +
+                width,
+            y +
+                height,
+            x,
+            y +
+                height,
+            radius
+        );
+
+        context.arcTo(
+            x,
+            y +
+                height,
+            x,
+            y,
+            radius
+        );
+
+        context.arcTo(
+            x,
+            y,
+            x +
+                width,
+            y,
+            radius
+        );
+
+        context.closePath();
+    }
+
+
+    function snakeSpeed() {
+
+        return Math.max(
+            60,
+            150 -
+                Math.floor(
+                    score /
+                        5
+                ) *
+                    10
+        );
+    }
+
+
+    function changeDirection(
         x,
         y
-      };
+    ) {
+
+        if (
+            x ===
+                -nextDirection.x &&
+            y ===
+                -nextDirection.y
+        ) {
+            return;
+        }
+
+        nextDirection = {
+            x,
+            y
+        };
     }
 
-    /* ---------- BUTTON CONTROLS ---------- */
 
-    const directions = {
-      up: [
-        0,
-        -1
-      ],
-
-      down: [
-        0,
-        1
-      ],
-
-      left: [
-        -1,
-        0
-      ],
-
-      right: [
-        1,
-        0
-      ]
-    };
-
-    document
-      .querySelectorAll(
-        ".pad button[data-d]"
-      )
-      .forEach(
-        (button) => {
-          button.addEventListener(
-            "click",
-            () => {
-              if (
-                started &&
-                !paused &&
-                !gameOver
-              ) {
-                setDirection(
-                  ...directions[
-                    button
-                      .dataset
-                      .d
-                  ]
-                );
-              }
-            }
-          );
-        }
-      );
-
-    /* ---------- KEYBOARD ---------- */
-
-    window.addEventListener(
-      "keydown",
-      (event) => {
-        const target =
-          event.target;
+    function snakeMove() {
 
         if (
-          target &&
-          /INPUT|TEXTAREA|SELECT/.test(
-            target.tagName
-          )
+            !gameRunning ||
+            paused ||
+            gameOver
         ) {
-          return;
+            return;
         }
 
-        const keys = {
-          ArrowUp:
-            "up",
-
-          ArrowDown:
-            "down",
-
-          ArrowLeft:
-            "left",
-
-          ArrowRight:
-            "right",
-
-          w: "up",
-          W: "up",
-
-          s: "down",
-          S: "down",
-
-          a: "left",
-          A: "left",
-
-          d: "right",
-          D: "right"
+        direction = {
+            ...nextDirection
         };
 
-        if (
-          started &&
-          !paused &&
-          !gameOver &&
-          keys[event.key]
-        ) {
-          event.preventDefault();
+        const head =
+            snake[0];
 
-          setDirection(
-            ...directions[
-              keys[
-                event.key
-              ]
-            ]
-          );
+        const newHead = {
+            x:
+                head.x +
+                direction.x,
+
+            y:
+                head.y +
+                direction.y
+        };
+
+        const ateFood =
+            newHead.x ===
+                food.x &&
+            newHead.y ===
+                food.y;
+
+        const body =
+            ateFood
+                ? snake
+                : snake.slice(
+                    0,
+                    -1
+                );
+
+        const hitWall =
+            newHead.x <
+                0 ||
+            newHead.x >=
+                GRID ||
+            newHead.y <
+                0 ||
+            newHead.y >=
+                GRID;
+
+        const hitSelf =
+            body.some(
+                part =>
+                    part.x ===
+                        newHead.x &&
+                    part.y ===
+                        newHead.y
+            );
+
+        if (
+            hitWall ||
+            hitSelf
+        ) {
+
+            endSnakeGame();
+
+            return;
         }
 
-        if (
-          event.code ===
-            "Space" &&
-          $("g-snake")?.classList.contains(
-            "on"
-          )
-        ) {
-          event.preventDefault();
-
-          if (
-            started &&
-            !gameOver
-          ) {
-            togglePause();
-          }
-        }
-      }
-    );
-
-    /* ---------- SWIPE ---------- */
-
-    let touchX = 0;
-    let touchY = 0;
-
-    canvas.addEventListener(
-      "touchstart",
-      (event) => {
-        touchX =
-          event.touches[0]
-            .clientX;
-
-        touchY =
-          event.touches[0]
-            .clientY;
-      },
-      {
-        passive: true
-      }
-    );
-
-    canvas.addEventListener(
-      "touchend",
-      (event) => {
-        if (
-          !started ||
-          paused ||
-          gameOver
-        ) {
-          return;
-        }
-
-        const dx =
-          event.changedTouches[0]
-            .clientX -
-          touchX;
-
-        const dy =
-          event.changedTouches[0]
-            .clientY -
-          touchY;
+        snake.unshift(
+            newHead
+        );
 
         if (
-          Math.max(
-            Math.abs(dx),
-            Math.abs(dy)
-          ) < 20
+            ateFood
         ) {
-          return;
-        }
 
-        if (
-          Math.abs(dx) >
-          Math.abs(dy)
-        ) {
-          setDirection(
-            dx > 0
-              ? 1
-              : -1,
-            0
-          );
+            score++;
+
+            if (
+                score >
+                best
+            ) {
+
+                best =
+                    score;
+
+                localStorage.setItem(
+                    "snakeBest",
+                    String(
+                        best
+                    )
+                );
+            }
+
+            placeFood();
+
+            clearInterval(
+                gameTimer
+            );
+
+            gameTimer =
+                setInterval(
+                    snakeMove,
+                    snakeSpeed()
+                );
+
         } else {
-          setDirection(
-            0,
-            dy > 0
-              ? 1
-              : -1
-          );
+
+            snake.pop();
         }
-      },
-      {
-        passive: true
-      }
-    );
+
+        updateSnakeHUD();
+
+        drawSnake();
+    }
+
+
+    function startSnakeGame() {
+
+        clearInterval(
+            gameTimer
+        );
+
+        resetSnake();
+
+        gameRunning =
+            true;
+
+        gameOver =
+            false;
+
+        paused =
+            false;
+
+        if (
+            startBtn
+        ) {
+            startBtn.textContent =
+                "Restart";
+        }
+
+        if (
+            pauseBtn
+        ) {
+            pauseBtn.disabled =
+                false;
+        }
+
+        setSnakeMessage(
+            "Use Arrow Keys, WASD or the controls."
+        );
+
+        gameTimer =
+            setInterval(
+                snakeMove,
+                snakeSpeed()
+            );
+
+        drawSnake();
+    }
+
+
+    function endSnakeGame() {
+
+        clearInterval(
+            gameTimer
+        );
+
+        gameTimer =
+            null;
+
+        gameRunning =
+            false;
+
+        gameOver =
+            true;
+
+        if (
+            startBtn
+        ) {
+            startBtn.textContent =
+                "Play Again";
+        }
+
+        if (
+            pauseBtn
+        ) {
+            pauseBtn.disabled =
+                true;
+        }
+
+        setSnakeMessage(
+            `Game over! Score: ${score}`
+        );
+
+        updateSnakeHUD();
+
+        drawSnake();
+    }
+
+
+    function toggleSnakePause() {
+
+        if (
+            !gameRunning ||
+            gameOver
+        ) {
+            return;
+        }
+
+        paused =
+            !paused;
+
+        if (
+            paused
+        ) {
+
+            clearInterval(
+                gameTimer
+            );
+
+            pauseBtn.textContent =
+                "Resume";
+
+            setSnakeMessage(
+                "Game paused."
+            );
+
+        } else {
+
+            pauseBtn.textContent =
+                "Pause";
+
+            setSnakeMessage(
+                "Game resumed."
+            );
+
+            gameTimer =
+                setInterval(
+                    snakeMove,
+                    snakeSpeed()
+                );
+        }
+
+        drawSnake();
+    }
+
 
     startBtn?.addEventListener(
-      "click",
-      start
+        "click",
+        startSnakeGame
     );
 
     pauseBtn?.addEventListener(
-      "click",
-      togglePause
-    );
-
-    reset();
-  }
-
-  /* =====================================================
-     LOGIC GATES
-  ===================================================== */
-
-  const gates = {
-    AND: (a, b) =>
-      a & b,
-
-    OR: (a, b) =>
-      a | b,
-
-    NAND: (a, b) =>
-      +( !(a & b) ),
-
-    NOR: (a, b) =>
-      +( !(a | b) ),
-
-    XOR: (a, b) =>
-      a ^ b,
-
-    NOT: (a) =>
-      +!a
-  };
-
-  let logicRound = 0;
-  let logicScore = 0;
-  let logicAnswer = 0;
-  let logicActive = false;
-
-  const lgMsg =
-    $("lgMsg");
-
-  function askLogicQuestion() {
-    const names =
-      Object.keys(
-        gates
-      );
-
-    const name =
-      names[
-        random(
-          names.length
-        )
-      ];
-
-    const a =
-      random(2);
-
-    const b =
-      random(2);
-
-    logicAnswer =
-      gates[name](
-        a,
-        b
-      );
-
-    $("lgIn").textContent =
-      name === "NOT"
-        ? `A = ${a}`
-        : `A = ${a}   B = ${b}`;
-
-    $("lgQ").textContent =
-      name === "NOT"
-        ? "Y = NOT A = ?"
-        : `Y = A ${name} B = ?`;
-
-    $("lgRound").textContent =
-      logicRound;
-  }
-
-  function startLogic() {
-    logicRound =
-      1;
-
-    logicScore =
-      0;
-
-    logicActive =
-      true;
-
-    $("lgScore").textContent =
-      "0";
-
-    $("lgStart").textContent =
-      "Restart";
-
-    lgMsg.textContent =
-      "Choose 0 or 1.";
-
-    askLogicQuestion();
-  }
-
-  function answerLogic(value) {
-    if (!logicActive)
-      return;
-
-    const correct =
-      value ===
-      logicAnswer;
-
-    if (correct)
-      logicScore++;
-
-    $("lgScore").textContent =
-      logicScore;
-
-    lgMsg.textContent =
-      correct
-        ? "Correct!"
-        : `Wrong. Answer: ${logicAnswer}`;
-
-    if (
-      logicRound >=
-      10
-    ) {
-      logicActive =
-        false;
-
-      $("lgQ").textContent =
-        `Final score: ${logicScore}/10`;
-
-      $("lgIn").textContent =
-        "Quiz complete";
-
-      $("lgStart").textContent =
-        "Play Again";
-
-      return;
-    }
-
-    logicRound++;
-
-    setTimeout(
-      askLogicQuestion,
-      500
-    );
-  }
-
-  $("lgStart")?.addEventListener(
-    "click",
-    startLogic
-  );
-
-  $("lg0")?.addEventListener(
-    "click",
-    () =>
-      answerLogic(0)
-  );
-
-  $("lg1")?.addEventListener(
-    "click",
-    () =>
-      answerLogic(1)
-  );
-
-  /* =====================================================
-     MEMORY GAME
-  ===================================================== */
-
-  const icons = [
-    "fa-microchip",
-    "fa-bolt",
-    "fa-battery-full",
-    "fa-wifi",
-    "fa-lightbulb",
-    "fa-plug",
-    "fa-satellite-dish",
-    "fa-memory"
-  ];
-
-  const memoryGrid =
-    $("mgrid");
-
-  let firstCard =
-    null;
-
-  let memoryLocked =
-    false;
-
-  let moves =
-    0;
-
-  let matched =
-    0;
-
-  let memoryBest =
-    Number(
-      store(
-        "memBest"
-      ) || 0
-    );
-
-  if ($("mBest")) {
-    $("mBest").textContent =
-      memoryBest ||
-      "—";
-  }
-
-  function initMemory() {
-    const deck =
-      [
-        ...icons,
-        ...icons
-      ].sort(
-        () =>
-          Math.random() -
-          0.5
-      );
-
-    memoryGrid.innerHTML =
-      "";
-
-    firstCard =
-      null;
-
-    memoryLocked =
-      false;
-
-    moves =
-      0;
-
-    matched =
-      0;
-
-    $("mMoves").textContent =
-      "0";
-
-    $("mMsg").textContent =
-      "Match all electronic component pairs.";
-
-    deck.forEach(
-      (icon) => {
-        const card =
-          document.createElement(
-            "button"
-          );
-
-        card.className =
-          "mc";
-
-        card.dataset.ic =
-          icon;
-
-        card.innerHTML =
-          `<i class="fas ${icon}"></i>`;
-
-        card.addEventListener(
-          "click",
-          () =>
-            flipMemory(
-              card
-            )
-        );
-
-        memoryGrid.appendChild(
-          card
-        );
-      }
-    );
-  }
-
-  function flipMemory(
-    card
-  ) {
-    if (
-      memoryLocked ||
-      card.classList.contains(
-        "up"
-      ) ||
-      card.classList.contains(
-        "done"
-      )
-    ) {
-      return;
-    }
-
-    card.classList.add(
-      "up"
-    );
-
-    if (!firstCard) {
-      firstCard =
-        card;
-
-      return;
-    }
-
-    moves++;
-
-    $("mMoves").textContent =
-      moves;
-
-    if (
-      firstCard.dataset
-        .ic ===
-      card.dataset
-        .ic
-    ) {
-      firstCard.classList.replace(
-        "up",
-        "done"
-      );
-
-      card.classList.replace(
-        "up",
-        "done"
-      );
-
-      firstCard =
-        null;
-
-      matched++;
-
-      if (
-        matched ===
-        icons.length
-      ) {
-        $("mMsg").textContent =
-          `Solved in ${moves} moves!`;
-
-        if (
-          !memoryBest ||
-          moves <
-            memoryBest
-        ) {
-          memoryBest =
-            moves;
-
-          $("mBest").textContent =
-            memoryBest;
-
-          store(
-            "memBest",
-            memoryBest
-          );
-        }
-      }
-    } else {
-      memoryLocked =
-        true;
-
-      setTimeout(
-        () => {
-          firstCard.classList.remove(
-            "up"
-          );
-
-          card.classList.remove(
-            "up"
-          );
-
-          firstCard =
-            null;
-
-          memoryLocked =
-            false;
-        },
-        800
-      );
-    }
-  }
-
-  $("mReset")?.addEventListener(
-    "click",
-    initMemory
-  );
-
-  if (memoryGrid)
-    initMemory();
-
-  /* =====================================================
-     REACTION TEST
-  ===================================================== */
-
-  const reaction =
-    $("rxBox");
-
-  let reactionState =
-    "idle";
-
-  let reactionTimer;
-
-  let reactionStart;
-
-  let reactionBest =
-    Number(
-      store(
-        "rxBest"
-      ) || 0
-    );
-
-  if (
-    reactionBest &&
-    $("rxBest")
-  ) {
-    $("rxBest").textContent =
-      `${reactionBest} ms`;
-  }
-
-  function resetReaction() {
-    clearTimeout(
-      reactionTimer
-    );
-
-    reactionState =
-      "idle";
-
-    reaction.className =
-      "led";
-
-    $("rxMsg").textContent =
-      "Tap the LED to begin";
-  }
-
-  reaction?.addEventListener(
-    "click",
-    () => {
-      if (
-        reactionState ===
-        "idle"
-      ) {
-        reactionState =
-          "wait";
-
-        reaction.className =
-          "led wait";
-
-        $("rxMsg").textContent =
-          "Wait for green...";
-
-        reactionTimer =
-          setTimeout(
-            () => {
-              reactionState =
-                "go";
-
-              reaction.className =
-                "led go";
-
-              $("rxMsg").textContent =
-                "TAP NOW!";
-
-              reactionStart =
-                performance.now();
-            },
-            1500 +
-              Math.random() *
-                2500
-          );
-      } else if (
-        reactionState ===
-        "wait"
-      ) {
-        clearTimeout(
-          reactionTimer
-        );
-
-        reactionState =
-          "idle";
-
-        reaction.className =
-          "led bad";
-
-        $("rxMsg").textContent =
-          "Too early! Try again.";
-      } else if (
-        reactionState ===
-        "go"
-      ) {
-        const time =
-          Math.round(
-            performance.now() -
-              reactionStart
-          );
-
-        reactionState =
-          "idle";
-
-        reaction.className =
-          "led";
-
-        $("rxMsg").textContent =
-          `${time} ms. Tap to retry`;
-
-        if (
-          !reactionBest ||
-          time <
-            reactionBest
-        ) {
-          reactionBest =
-            time;
-
-          $("rxBest").textContent =
-            `${time} ms`;
-
-          store(
-            "rxBest",
-            time
-          );
-        }
-      }
-    }
-  );
-
-  /* =====================================================
-     TIC TAC TOE
-  ===================================================== */
-
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ];
-
-  const ticGrid =
-    $("tgrid");
-
-  if (ticGrid) {
-    let board =
-      Array(9).fill(
-        null
-      );
-
-    let gameOver =
-      false;
-
-    let wins =
-      0;
-
-    let losses =
-      0;
-
-    function winner(
-      board
-    ) {
-      for (
-        const line of lines
-      ) {
-        if (
-          board[line[0]] &&
-          board[line[0]] ===
-            board[line[1]] &&
-          board[line[0]] ===
-            board[line[2]]
-        ) {
-          return line;
-        }
-      }
-
-      return null;
-    }
-
-    function renderTic(
-      winningLine
-    ) {
-      [
-        ...ticGrid
-          .children
-      ].forEach(
-        (
-          cell,
-          index
-        ) => {
-          cell.textContent =
-            board[
-              index
-            ] ||
-            "";
-
-          cell.classList.toggle(
-            "o",
-            board[
-              index
-            ] ===
-              "O"
-          );
-
-          cell.classList.toggle(
-            "win",
-            winningLine
-              ? winningLine.includes(
-                  index
-                )
-              : false
-          );
-        }
-      );
-    }
-
-    function cpuMove() {
-      const findMove =
-        (symbol) => {
-          for (
-            const line of lines
-          ) {
-            const values =
-              line.map(
-                (i) =>
-                  board[i]
-              );
-
-            if (
-              values.filter(
-                (x) =>
-                  x ===
-                  symbol
-              ).length ===
-                2 &&
-              values.includes(
-                null
-              )
-            ) {
-              return line[
-                values.indexOf(
-                  null
-                )
-              ];
-            }
-          }
-
-          return -1;
-        };
-
-      let move =
-        findMove(
-          "O"
-        );
-
-      if (
-        move <
-        0
-      ) {
-        move =
-          findMove(
-            "X"
-          );
-      }
-
-      if (
-        move <
-          0 &&
-        !board[4]
-      ) {
-        move =
-          4;
-      }
-
-      if (
-        move <
-        0
-      ) {
-        const free =
-          board
-            .map(
-              (
-                value,
-                index
-              ) =>
-                value
-                  ? -1
-                  : index
-            )
-            .filter(
-              (i) =>
-                i >= 0
-            );
-
-        move =
-          free[
-            rand(
-              free.length
-            )
-          ];
-      }
-
-      board[
-        move
-      ] =
-        "O";
-    }
-
-    function playTic(
-      index
-    ) {
-      if (
-        gameOver ||
-        board[index]
-      ) {
-        return;
-      }
-
-      board[index] =
-        "X";
-
-      let win =
-        winner(
-          board
-        );
-
-      if (win) {
-        wins++;
-
-        $("tW").textContent =
-          wins;
-
-        gameOver =
-          true;
-
-        $("tMsg").textContent =
-          "You win!";
-
-        renderTic(
-          win
-        );
-
-        return;
-      }
-
-      if (
-        !board.includes(
-          null
-        )
-      ) {
-        gameOver =
-          true;
-
-        $("tMsg").textContent =
-          "Draw!";
-
-        renderTic(
-          null
-        );
-
-        return;
-      }
-
-      cpuMove();
-
-      win =
-        winner(
-          board
-        );
-
-      if (win) {
-        losses++;
-
-        $("tL").textContent =
-          losses;
-
-        gameOver =
-          true;
-
-        $("tMsg").textContent =
-          "CPU wins this round.";
-
-        renderTic(
-          win
-        );
-
-        return;
-      }
-
-      if (
-        !board.includes(
-          null
-        )
-      ) {
-        gameOver =
-          true;
-
-        $("tMsg").textContent =
-          "Draw!";
-
-        renderTic(
-          null
-        );
-
-        return;
-      }
-
-      $("tMsg").textContent =
-        "Your move.";
-
-      renderTic(
-        null
-      );
-    }
-
-    function resetTic() {
-      board =
-        Array(9).fill(
-          null
-        );
-
-      gameOver =
-        false;
-
-      $("tMsg").textContent =
-        "Your move.";
-
-      renderTic(
-        null
-      );
-    }
-
-    for (
-      let i = 0;
-      i < 9;
-      i++
-    ) {
-      const button =
-        document.createElement(
-          "button"
-        );
-
-      button.className =
-        "tc";
-
-      button.addEventListener(
         "click",
-        () =>
-          playTic(
-            i
-          )
-      );
-
-      ticGrid.appendChild(
-        button
-      );
-    }
-
-    $("tReset")?.addEventListener(
-      "click",
-      resetTic
+        toggleSnakePause
     );
 
-    resetTic();
-  }
 
-  /* =====================================================
-     LED SIMON
-  ===================================================== */
+    /* Keyboard */
 
-  const simonButtons = [
-    ...document.querySelectorAll(
-      ".sq"
-    )
-  ];
+    window.addEventListener(
+        "keydown",
+        (event) => {
 
-  if (
-    simonButtons.length
-  ) {
-    let sequence =
-      [];
+            const keys = {
+                ArrowUp:
+                    [0, -1],
 
-    let step =
-      0;
+                ArrowDown:
+                    [0, 1],
 
-    let accepting =
-      false;
+                ArrowLeft:
+                    [-1, 0],
 
-    let best =
-      Number(
-        store(
-          "simonBest"
-        ) || 0
-      );
+                ArrowRight:
+                    [1, 0],
 
-    let timers =
-      [];
+                w:
+                    [0, -1],
 
-    $("siBest").textContent =
-      best;
+                W:
+                    [0, -1],
 
-    function later(
-      fn,
-      delay
-    ) {
-      const timer =
-        setTimeout(
-          fn,
-          delay
-        );
+                s:
+                    [0, 1],
 
-      timers.push(
-        timer
-      );
-    }
+                S:
+                    [0, 1],
 
-    function flash(
-      index,
-      duration = 350
-    ) {
-      simonButtons[
-        index
-      ].classList.add(
-        "lit"
-      );
+                a:
+                    [-1, 0],
 
-      later(
-        () =>
-          simonButtons[
-            index
-          ].classList.remove(
-            "lit"
-          ),
-        duration
-      );
-    }
+                A:
+                    [-1, 0],
 
-    function stopSimon() {
-      timers.forEach(
-        clearTimeout
-      );
+                d:
+                    [1, 0],
 
-      timers =
-        [];
-
-      accepting =
-        false;
-
-      simonButtons.forEach(
-        (button) =>
-          button.classList.remove(
-            "lit"
-          )
-      );
-    }
-
-    function playSequence() {
-      accepting =
-        false;
-
-      $("siMsg").textContent =
-        "Watch carefully...";
-
-      sequence.forEach(
-        (
-          value,
-          index
-        ) => {
-          later(
-            () =>
-              flash(
-                value
-              ),
-            600 +
-              index *
-                650
-          );
-        }
-      );
-
-      later(
-        () => {
-          accepting =
-            true;
-
-          step =
-            0;
-
-          $("siMsg").textContent =
-            "Your turn!";
-        },
-        600 +
-          sequence.length *
-            650
-      );
-    }
-
-    function nextRound() {
-      sequence.push(
-        rand(4)
-      );
-
-      $("siLvl").textContent =
-        sequence.length;
-
-      playSequence();
-    }
-
-    $("siStart")?.addEventListener(
-      "click",
-      () => {
-        stopSimon();
-
-        sequence =
-          [];
-
-        $("siStart").textContent =
-          "Restart";
-
-        nextRound();
-      }
-    );
-
-    simonButtons.forEach(
-      (button) => {
-        button.addEventListener(
-          "click",
-          () => {
-            if (
-              !accepting
-            )
-              return;
-
-            const value =
-              Number(
-                button.dataset
-                  .c
-              );
-
-            flash(
-              value,
-              200
-            );
+                D:
+                    [1, 0]
+            };
 
             if (
-              value !==
-              sequence[
-                step
-              ]
+                keys[
+                    event.key
+                ]
             ) {
-              accepting =
-                false;
 
-              $("siMsg").textContent =
-                `Wrong! You reached level ${sequence.length}.`;
+                event.preventDefault();
 
-              if (
-                sequence.length >
-                best
-              ) {
-                best =
-                  sequence.length;
-
-                $("siBest").textContent =
-                  best;
-
-                store(
-                  "simonBest",
-                  best
+                changeDirection(
+                    ...keys[
+                        event.key
+                    ]
                 );
-              }
-
-              $("siStart").textContent =
-                "Play Again";
-
-              return;
             }
-
-            step++;
 
             if (
-              step ===
-              sequence.length
+                event.code ===
+                    "Space" &&
+                gameRunning
             ) {
-              accepting =
-                false;
 
-              $("siMsg").textContent =
-                "Correct! Next level...";
+                event.preventDefault();
 
-              later(
-                nextRound,
-                800
-              );
+                toggleSnakePause();
             }
-          }
-        );
-      }
-    );
-  }
-
-  /* =====================================================
-     BINARY QUIZ
-  ===================================================== */
-
-  let binaryRound =
-    0;
-
-  let binaryScore =
-    0;
-
-  let binaryAnswer =
-    0;
-
-  let binaryActive =
-    false;
-
-  function askBinary() {
-    binaryAnswer =
-      rand(16);
-
-    $("bQ").textContent =
-      binaryAnswer
-        .toString(2)
-        .padStart(
-          4,
-          "0"
-        );
-
-    $("bRound").textContent =
-      binaryRound;
-
-    const options =
-      new Set([
-        binaryAnswer
-      ]);
-
-    while (
-      options.size <
-      4
-    ) {
-      options.add(
-        rand(16)
-      );
-    }
-
-    const box =
-      $("bOpts");
-
-    box.innerHTML =
-      "";
-
-    [
-      ...options
-    ]
-      .sort(
-        () =>
-          Math.random() -
-          0.5
-      )
-      .forEach(
-        (value) => {
-          const button =
-            document.createElement(
-              "button"
-            );
-
-          button.className =
-            "btn";
-
-          button.textContent =
-            value;
-
-          button.addEventListener(
-            "click",
-            () =>
-              answerBinary(
-                value
-              )
-          );
-
-          box.appendChild(
-            button
-          );
         }
-      );
-  }
-
-  function answerBinary(
-    value
-  ) {
-    if (
-      !binaryActive
-    )
-      return;
-
-    const correct =
-      value ===
-      binaryAnswer;
-
-    if (correct)
-      binaryScore++;
-
-    $("bScore").textContent =
-      binaryScore;
-
-    $("bMsg").textContent =
-      correct
-        ? "Correct!"
-        : `Wrong. Answer: ${binaryAnswer}`;
-
-    if (
-      binaryRound >=
-      10
-    ) {
-      binaryActive =
-        false;
-
-      $("bQ").textContent =
-        `Score: ${binaryScore}/10`;
-
-      $("bOpts").innerHTML =
-        "";
-
-      $("bStart").textContent =
-        "Play Again";
-
-      return;
-    }
-
-    binaryRound++;
-
-    setTimeout(
-      askBinary,
-      500
     );
-  }
 
-  $("bStart")?.addEventListener(
-    "click",
-    () => {
-      binaryRound =
-        1;
 
-      binaryScore =
+    /* Touch / swipe */
+
+    let touchStartX =
         0;
 
-      binaryActive =
-        true;
+    let touchStartY =
+        0;
 
-      $("bScore").textContent =
-        "0";
+    snakeCanvas.addEventListener(
+        "touchstart",
+        (event) => {
 
-      $("bStart").textContent =
-        "Restart";
+            touchStartX =
+                event.touches[0]
+                    .clientX;
 
-      $("bMsg").textContent =
-        "Pick the decimal value.";
-
-      askBinary();
-    }
-  );
-
-  /* =====================================================
-     BUG HUNT
-  ===================================================== */
-
-  const holes =
-    $("holes");
-
-  if (holes) {
-    let score =
-      0;
-
-    let time =
-      20;
-
-    let best =
-      Number(
-        store(
-          "bugBest"
-        ) || 0
-      );
-
-    let tick =
-      null;
-
-    let spawn =
-      null;
-
-    let current =
-      -1;
-
-    $("bgBest").textContent =
-      best;
-
-    for (
-      let i = 0;
-      i < 9;
-      i++
-    ) {
-      const hole =
-        document.createElement(
-          "button"
-        );
-
-      hole.className =
-        "hole";
-
-      hole.innerHTML =
-        '<i class="fas fa-bug"></i>';
-
-      hole.addEventListener(
-        "click",
-        () => {
-          if (
-            i ===
-              current &&
-            tick
-          ) {
-            score++;
-
-            $("bgScore").textContent =
-              score;
-
-            hole.classList.remove(
-              "bug"
-            );
-
-            current =
-              -1;
-          }
+            touchStartY =
+                event.touches[0]
+                    .clientY;
+        },
+        {
+            passive: true
         }
-      );
+    );
 
-      holes.appendChild(
-        hole
-      );
-    }
+    snakeCanvas.addEventListener(
+        "touchend",
+        (event) => {
 
-    function stopBugGame() {
-      clearInterval(
-        tick
-      );
+            const dx =
+                event.changedTouches[0]
+                    .clientX -
+                touchStartX;
 
-      clearInterval(
-        spawn
-      );
+            const dy =
+                event.changedTouches[0]
+                    .clientY -
+                touchStartY;
 
-      tick =
-        null;
+            if (
+                Math.max(
+                    Math.abs(
+                        dx
+                    ),
+                    Math.abs(
+                        dy
+                    )
+                ) < 25
+            ) {
+                return;
+            }
 
-      spawn =
-        null;
+            if (
+                Math.abs(
+                    dx
+                ) >
+                Math.abs(
+                    dy
+                )
+            ) {
 
-      [
-        ...holes.children
-      ].forEach(
-        (hole) =>
-          hole.classList.remove(
-            "bug"
-          )
-      );
-
-      current =
-        -1;
-    }
-
-    function finishBugGame() {
-      stopBugGame();
-
-      $("bgStart").textContent =
-        "Play Again";
-
-      if (
-        score >
-        best
-      ) {
-        best =
-          score;
-
-        $("bgBest").textContent =
-          best;
-
-        store(
-          "bugBest",
-          best
-        );
-      }
-
-      $("bgMsg").innerHTML =
-        `Time's up! You squashed <b>${score}</b> bugs. Best: <b>${best}</b>`;
-    }
-
-    $("bgStart")?.addEventListener(
-      "click",
-      () => {
-        stopBugGame();
-
-        score =
-          0;
-
-        time =
-          20;
-
-        $("bgScore").textContent =
-          "0";
-
-        $("bgTime").textContent =
-          "20";
-
-        $("bgStart").textContent =
-          "Restart";
-
-        $("bgMsg").textContent =
-          "Go go go!";
-
-        tick =
-          setInterval(
-            () => {
-              time--;
-
-              $("bgTime").textContent =
-                time;
-
-              if (
-                time <=
-                0
-              ) {
-                finishBugGame();
-              }
-            },
-            1000
-          );
-
-        spawn =
-          setInterval(
-            () => {
-              if (
-                current >=
-                0
-              ) {
-                holes.children[
-                  current
-                ].classList.remove(
-                  "bug"
+                changeDirection(
+                    dx >
+                        0
+                        ? 1
+                        : -1,
+                    0
                 );
-              }
 
-              current =
-                rand(9);
+            } else {
 
-              holes.children[
-                current
-              ].classList.add(
-                "bug"
-              );
-            },
-            750
-          );
-      }
+                changeDirection(
+                    0,
+                    dy >
+                        0
+                        ? 1
+                        : -1
+                );
+            }
+        },
+        {
+            passive: true
+        }
     );
-  }
 
-  /* =====================================================
-     GAME TABS
-  ===================================================== */
 
-  document
-    .querySelectorAll(
-      ".tab"
-    )
-    .forEach(
-      (tab) => {
-        tab.addEventListener(
-          "click",
-          () => {
-            document
-              .querySelectorAll(
-                ".tab"
-              )
-              .forEach(
-                (item) => {
-                  const active =
-                    item ===
-                    tab;
+    /* On-screen buttons */
 
-                  item.classList.toggle(
-                    "on",
-                    active
-                  );
+    $$(
+        ".pad button[data-d]"
+    ).forEach(
+        (button) => {
 
-                  item.setAttribute(
-                    "aria-selected",
-                    active
-                      ? "true"
-                      : "false"
-                  );
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const directions = {
+                        up:
+                            [0, -1],
+
+                        down:
+                            [0, 1],
+
+                        left:
+                            [-1, 0],
+
+                        right:
+                            [1, 0]
+                    };
+
+                    const value =
+                        directions[
+                            button.dataset.d
+                        ];
+
+                    if (
+                        value
+                    ) {
+                        changeDirection(
+                            ...value
+                        );
+                    }
                 }
-              );
+            );
+        }
+    );
 
-            document
-              .querySelectorAll(
-                ".game"
-              )
-              .forEach(
-                (game) => {
-                  game.classList.toggle(
-                    "on",
-                    game.id ===
-                      `g-${tab.dataset.g}`
-                  );
-                }
-              );
-          }
+    resetSnake();
+}
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+const yearElement =
+    $("#year");
+
+if (
+    yearElement
+) {
+    yearElement.textContent =
+        new Date()
+            .getFullYear();
+}
+
+
+/* =========================================================
+   EXTERNAL LINK SECURITY
+========================================================= */
+
+$$(
+    'a[target="_blank"]'
+).forEach(
+    (link) => {
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
         );
-      }
-    );
+    }
+);
 
-})();
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        document.body.classList.add(
+            "loaded"
+        );
+    }
+);
