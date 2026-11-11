@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fffaf6">
+  <title>Amrut Hanamapure | Electronics &amp; Communication Engineer</title>
+  <meta name="description" content="Portfolio of Amrut Hanamapure, an Electronics and Communication Engineering graduate focused on hardware testing, embedded systems, PCB design and electronics engineering.">
+  <meta name="keywords" content="Amrut Hanamapure, Electronics Engineer, Graduate Engineer Trainee, Hardware Testing, Embedded Systems, PCB Design, Bengaluru">
+  <meta name="author" content="Amrut Hanamapure">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amrut Hanamapure | Electronics &amp; Communication Engineer">
+  <meta property="og:description" content="Hardware testing, embedded systems, PCB design and practical electronics projects.">
+  <meta property="og:url" content="https://amruth-07.github.io/">
+  <link rel="canonical" href="https://amruth-07.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem('portfolio-theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = saved || preferred;
+      } catch (_) {}
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#home" aria-label="Amrut Hanamapure home"><span class="brand-mark">AH</span><span>AMRUT<span class="brand-dot">.</span></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-resume" href="Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i><span>Resume</span></a>
+        <button id="themeBtn" class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> OPEN TO ENGINEERING OPPORTUNITIES</p>
+        <p class="hero-intro">Hello, I’m</p>
+        <h1>Amrut <span>Hanamapure</span></h1>
+        <h2 class="hero-role"><span id="typed">Electronics &amp; Communication Engineer</span><span class="typing-caret" aria-hidden="true">|</span></h2>
+        <p class="hero-description">ECE graduate with hands-on exposure to electronics production and quality testing, embedded-system prototypes, and practical circuit projects. Interested in building, testing and improving reliable hardware.</p>
+        <div class="hero-tags" aria-label="Areas of focus">
+          <span>Hardware Testing</span><span>Embedded Systems</span><span>PCB Design</span><span>Electronics</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects"><i class="fa-solid fa-arrow-right"></i> Explore Projects</a>
+          <a class="button button-secondary" href="Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> View Resume</a>
+        </div>
+        <div class="hero-contact-line">
+          <a href="mailto:amruthanamapure@gmail.com"><i class="fa-regular fa-envelope"></i> amruthanamapure@gmail.com</a>
+          <span class="contact-separator">·</span>
+          <span><i class="fa-solid fa-location-dot"></i> Bengaluru, India</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Profile card">
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+        <div class="profile-card">
+          <div class="profile-photo-wrap">
+            <div class="profile-fallback" aria-hidden="true">AH</div>
+            <img src="profile.jpg.jpg" alt="Portrait of Amrut Hanamapure" loading="eager" decoding="async" onerror="this.hidden=true">
+          </div>
+          <div class="profile-card-copy">
+            <span class="profile-label">ENGINEERING GRADUATE</span>
+            <strong>Electronics &amp; Communication</strong>
+            <span class="profile-location"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</span>
+          </div>
+          <div class="profile-card-footer"><span><i class="fa-solid fa-microchip"></i> Hardware</span><span><i class="fa-solid fa-code"></i> Embedded</span></div>
+        </div>
+        <div class="floating-chip chip-top"><i class="fa-solid fa-wave-square"></i><span>Test &amp; Validate</span></div>
+        <div class="floating-chip chip-bottom"><i class="fa-solid fa-layer-group"></i><span>Build &amp; Design</span></div>
+      </div>
+
+      <div class="hero-stats reveal" aria-label="Portfolio summary">
+        <div class="stat"><strong data-count="6">6</strong><span>Projects</span></div>
+        <div class="stat"><strong data-count="3">3</strong><span>Experience &amp; training</span></div>
+        <div class="stat"><strong data-count="5">5</strong><span>Certificates</span></div>
+        <div class="stat"><strong data-count="4">4</strong><span>Languages</span></div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-shell reveal">
+      <div class="section-heading"><div><p class="eyebrow">INTRODUCTION</p><h2>About <span>Me</span></h2></div><p class="section-note">A practical approach to electronics and engineering.</p></div>
+      <div class="about-layout">
+        <div class="about-main">
+          <p class="lead-paragraph">I am an Electronics and Communication Engineering graduate from City Engineering College, Bengaluru. My interests include embedded systems, PCB design and fabrication, circuit design, hardware testing, and VLSI fundamentals.</p>
+          <p>My experience includes production and quality testing at Avalon Technologies, an embedded-systems internship focused on an STM32-based Li-ion Battery Management System, and robotics vocational training at GTTC, Belagavi. These experiences have helped me connect engineering concepts with practical hardware work.</p>
+          <p>I enjoy learning new technologies, troubleshooting circuits, and developing projects that make electronics easier to understand and use. I am looking for an entry-level engineering opportunity where I can contribute, learn from experienced teams, and grow technically.</p>
+        </div>
+        <aside class="about-aside">
+          <div class="info-card"><span class="info-icon"><i class="fa-solid fa-graduation-cap"></i></span><div><small>Education</small><strong>BE – Electronics &amp; Communication</strong><span>City Engineering College, Bengaluru</span></div></div>
+          <div class="info-card"><span class="info-icon"><i class="fa-solid fa-location-dot"></i></span><div><small>Based in</small><strong>Bengaluru, Karnataka</strong><span>India</span></div></div>
+          <div class="info-card"><span class="info-icon"><i class="fa-solid fa-language"></i></span><div><small>Languages</small><strong>Kannada · English · Hindi · Marathi</strong><span>Communication</span></div></div>
+          <div class="info-card"><span class="info-icon"><i class="fa-solid fa-briefcase"></i></span><div><small>Career interest</small><strong>GET · Electronics · Hardware</strong><span>Embedded systems and testing</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-shell reveal">
+      <div class="section-heading"><div><p class="eyebrow">TECHNICAL TOOLKIT</p><h2>Skills &amp; <span>Focus Areas</span></h2></div><p class="section-note">Core areas, platforms and tools reflected in my project and training experience.</p></div>
+      <div class="skills-grid">
+        <article class="skill-card"><div class="skill-icon"><i class="fa-solid fa-microchip"></i></div><h3>Hardware &amp; Circuit Design</h3><p>Electronics fundamentals and board-level hardware work.</p><div class="skill-tags"><span>Circuit Design</span><span>PCB Design</span><span>PCB Fabrication</span><span>KiCad</span><span>VLSI Basics</span></div></article>
+        <article class="skill-card"><div class="skill-icon"><i class="fa-solid fa-code"></i></div><h3>Embedded Systems</h3><p>Microcontroller-based prototyping and embedded programming.</p><div class="skill-tags"><span>STM32</span><span>Arduino</span><span>ESP32</span><span>ARM Cortex</span><span>Embedded C</span><span>IoT</span><span>BMS</span></div></article>
+        <article class="skill-card"><div class="skill-icon"><i class="fa-solid fa-terminal"></i></div><h3>Programming</h3><p>Programming languages and tools used across technical projects.</p><div class="skill-tags"><span>C / C++</span><span>Python</span><span>Verilog</span><span>JavaScript</span><span>React</span></div></article>
+        <article class="skill-card"><div class="skill-icon"><i class="fa-solid fa-vial-circle-check"></i></div><h3>Testing &amp; Lab Equipment</h3><p>Functional checks, troubleshooting and production test exposure.</p><div class="skill-tags"><span>Test Jigs &amp; Fixtures</span><span>Oscilloscope</span><span>Multimeter</span><span>Production Testing</span><span>Quality Testing</span></div></article>
+      </div>
+      <div class="learning-strip"><div><span class="learning-label">CURRENTLY DEVELOPING</span><strong>Expanding practical skills in communication interfaces and test workflows</strong></div><div class="skill-tags"><span>UART</span><span>I²C</span><span>SPI</span><span>CAN</span><span>Test Case Writing</span><span>Python Test Automation</span><span>Logic Analyzer</span><span>Git &amp; GitHub</span></div></div>
+    </section>
+
+    <section id="experience" class="section section-shell reveal">
+      <div class="section-heading"><div><p class="eyebrow">INDUSTRY &amp; PRACTICAL EXPOSURE</p><h2>Experience</h2></div><p class="section-note">Production, embedded development and robotics training.</p></div>
+      <div class="timeline">
+        <article class="timeline-item"><div class="timeline-date">APR 2026 – AUG 2026</div><div class="timeline-marker"><i class="fa-solid fa-industry"></i></div><div class="timeline-content"><div class="timeline-title-row"><div><h3>Production &amp; Quality Testing</h3><p class="timeline-company">Avalon Technologies</p></div><span class="timeline-type">Industry Experience</span></div><p>Worked on electronics production testing, checking boards for functionality and quality before they moved forward in production. Used test jigs and fixtures, an oscilloscope and a multimeter to verify and troubleshoot boards.</p><div class="skill-tags"><span>Test Jigs</span><span>Fixtures</span><span>Oscilloscope</span><span>Multimeter</span><span>Board Testing</span></div></div></article>
+        <article class="timeline-item"><div class="timeline-date">FEB 2026 – MAY 2026</div><div class="timeline-marker"><i class="fa-solid fa-battery-three-quarters"></i></div><div class="timeline-content"><div class="timeline-title-row"><div><h3>Embedded Systems Intern</h3><p class="timeline-company">VisionAstraa EV Academy</p></div><span class="timeline-type">Internship</span></div><p>Designed and built an STM32F103C8T6-based Li-ion Battery Management System with over-voltage, under-voltage, over-current and over-temperature protection.</p><div class="skill-tags"><span>STM32F103C8T6</span><span>Embedded C</span><span>Li-ion BMS</span><span>Protection Logic</span></div></div></article>
+        <article class="timeline-item"><div class="timeline-date">JAN 2023 – FEB 2023</div><div class="timeline-marker"><i class="fa-solid fa-robot"></i></div><div class="timeline-content"><div class="timeline-title-row"><div><h3>Robotics Vocational Skill Training</h3><p class="timeline-company">GTTC, Belagavi · Government of Karnataka</p></div><span class="timeline-type">Vocational Training</span></div><p>Completed practical training in robot assembly, programming and troubleshooting, with certification as a Robotics Technician.</p><div class="skill-tags"><span>Robotics</span><span>Assembly</span><span>Programming</span><span>Troubleshooting</span></div></div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-shell reveal">
+      <div class="section-heading"><div><p class="eyebrow">SELECTED WORK</p><h2>Projects</h2></div><p class="section-note">Hands-on prototypes and software projects.</p></div>
+      <div class="projects-grid">
+        <article class="project-card project-featured">
+          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-battery-full"></i><span>Battery Management System</span></div><img src="bms-project.png" alt="STM32 Li-ion Battery Management System prototype" loading="lazy" onerror="this.hidden=true"></div>
+          <div class="project-body"><div class="project-kicker">EMBEDDED SYSTEMS · INTERNSHIP PROJECT</div><h3>Li-ion Battery Management System</h3><p>STM32F103C8T6-based BMS prototype designed to monitor a Li-ion battery pack and provide protection against over-voltage, under-voltage, over-current and over-temperature conditions.</p><div class="skill-tags"><span>STM32F103C8T6</span><span>Embedded C</span><span>Li-ion</span><span>Protection Logic</span></div><details class="project-details"><summary>Project overview</summary><p>The project focused on implementing core battery protection conditions using an STM32 microcontroller. It was developed during the Embedded Systems internship at VisionAstraa EV Academy.</p></details></div>
+        </article>
+        <article class="project-card">
+          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-wave-square"></i><span>Portable Oscilloscope</span></div><img src="portable.png" alt="Portable Arduino oscilloscope with OLED display" loading="lazy" onerror="this.hidden=true"></div>
+          <div class="project-body"><div class="project-kicker">ELECTRONICS · INSTRUMENTATION</div><h3>Portable Oscilloscope using Arduino</h3><p>A low-cost prototype using Arduino and an OLED display to visualize sine, square and triangle waveforms for basic signal analysis.</p><div class="skill-tags"><span>Arduino</span><span>OLED</span><span>Embedded C</span><span>ADC</span></div><details class="project-details"><summary>Project overview</summary><p>The prototype demonstrates waveform sampling and display concepts in a compact, educational instrument.</p></details></div>
+        </article>
+        <article class="project-card">
+          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-seedling"></i><span>AgriGuard IoT System</span></div><img src="smart.png" alt="AgriGuard smart IoT farming and security prototype" loading="lazy" onerror="this.hidden=true"></div>
+          <div class="project-body"><div class="project-kicker">IOT · SMART AGRICULTURE</div><h3>AgriGuard – Smart IoT Farming &amp; Security</h3><p>An IoT-based agriculture and field-safety concept that combines sensor monitoring with automated actions to support farming efficiency and security.</p><div class="skill-tags"><span>IoT</span><span>Sensors</span><span>Embedded C</span><span>Automation</span></div><details class="project-details"><summary>Project overview</summary><p>The project explores sensor-based field monitoring and automation, bringing together electronics, embedded programming and connected-system concepts.</p></details></div>
+        </article>
+        <article class="project-card">
+          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-screwdriver-wrench"></i><span>Component Tester</span></div><img src="component-tester.png" alt="Arduino all-in-one electronic component tester" loading="lazy" onerror="this.hidden=true"></div>
+          <div class="project-body"><div class="project-kicker">ELECTRONICS · TEST EQUIPMENT</div><h3>All-in-One Electronic Component Tester</h3><p>An Arduino-based tool designed to support quick identification and basic testing of electronic components during development and repair work.</p><div class="skill-tags"><span>Arduino</span><span>Embedded C</span><span>Circuit Testing</span><span>Electronics</span></div><details class="project-details"><summary>Project overview</summary><p>The project focuses on making common component checks more convenient through a compact microcontroller-based setup.</p></details></div>
+        </article>
+        <article class="project-card">
+          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-lightbulb"></i><span>LED Pattern Generator</span></div><img src="led-pattern.png" alt="Arduino LED pattern generation project" loading="lazy" onerror="this.hidden=true"></div>
+          <div class="project-body"><div class="project-kicker">MICROCONTROLLERS · DIGITAL I/O</div><h3>Generating LED Patterns using Arduino</h3><p>A basic microcontroller project demonstrating digital input/output control, timing and sequential LED patterns.</p><div class="skill-tags"><span>Arduino</span><span>Embedded C</span><span>LEDs</span><span>Digital I/O</span></div></div>
+        </article>
+        <article class="project-card">
+          <div class="project-media dashboard-media"><div class="dashboard-preview"><div class="dashboard-top"><span></span><span></span><span></span></div><div class="dashboard-numbers"><b></b><b></b><b></b></div><div class="dashboard-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="project-body"><div class="project-kicker">WEB DEVELOPMENT · DATA ANALYSIS</div><h3>Indian Market Live Dashboard</h3><p>A React dashboard concept with live index cards, FII/DII flow information, an auto-refreshing Recharts area chart and market-movement context.</p><div class="skill-tags"><span>React</span><span>Recharts</span><span>JavaScript</span><span>Data Analysis</span><span>NIFTY 50</span></div><details class="project-details"><summary>Project overview</summary><p>The accompanying analysis used approximately 122 sessions of NIFTY 50 and NIFTY BANK data to examine daily return correlation and recurring swing phases.</p></details></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section section-shell reveal">
+      <div class="section-heading"><div><p class="eyebrow">ACADEMIC BACKGROUND</p><h2>Education &amp; <span>Certifications</span></h2></div><p class="section-note">Formal education and additional technical learning.</p></div>
+      <div class="education-grid">
+        <div class="education-column"><h3 class="column-title"><i class="fa-solid fa-school"></i> Education</h3>
+          <article class="education-card"><span class="education-year">2023 – 2026</span><h4>BE – Electronics &amp; Communication Engineering</h4><p>City Engineering College, Bengaluru</p></article>
+          <article class="education-card"><span class="education-year">2020 – 2023</span><h4>Diploma – Electronics &amp; Communication Engineering</h4><p>Government Polytechnic, Athani</p><span class="education-score">CGPA: 8.3</span></article>
+        </div>
+        <div class="cert-column"><h3 class="column-title"><i class="fa-solid fa-award"></i> Certifications &amp; Workshops</h3>
+          <article class="cert-row"><span class="cert-icon"><i class="fa-solid fa-brain"></i></span><div><h4>Introduction to Artificial Intelligence</h4><p>Infosys Springboard · 26 Oct 2022</p></div></article>
+          <article class="cert-row"><span class="cert-icon"><i class="fa-solid fa-clipboard-check"></i></span><div><h4>Placement Readiness Program</h4><p>Wish 2 Skill LLP · 35 Hours · 17 Oct 2025</p></div></article>
+          <article class="cert-row"><span class="cert-icon"><i class="fa-solid fa-robot"></i></span><div><h4>Robotics Vocational Skill Training</h4><p>GTTC, Government of Karnataka · 02 Jan–28 Feb 2023</p></div></article>
+          <article class="cert-row"><span class="cert-icon"><i class="fa-solid fa-microchip"></i></span><div><h4>Next-Gen Embedded Solutions Using ARM Cortex</h4><p>Embedded Systems Workshop · 12–16 May 2025</p></div></article>
+          <article class="cert-row"><span class="cert-icon"><i class="fa-solid fa-wifi"></i></span><div><h4>IoT &amp; Its Applications</h4><p>Zeel Code Labs</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="opportunities" class="opportunity-section section-shell reveal">
+      <div class="opportunity-copy"><p class="eyebrow">NEXT STEP</p><h2>Open to the right <span>opportunity.</span></h2><p>Interested in entry-level roles where I can apply my electronics background and continue developing practical engineering skills.</p><div class="role-pills"><span>Graduate Engineer Trainee</span><span>Electronics Engineer</span><span>Hardware Test Engineer</span><span>Embedded Systems Engineer</span><span>PCB Design Engineer</span><span>Test Engineer</span><span>Junior Engineer</span></div></div>
+      <div class="opportunity-action"><a class="button button-light" href="Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> View my resume</a><a class="opportunity-email" href="mailto:amruthanamapure@gmail.com">amruthanamapure@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+    </section>
+
+    <section id="play" class="section section-shell reveal mini-lab-section">
+      <div class="section-heading"><div><p class="eyebrow">A LITTLE EXTRA</p><h2>Engineering <span>Mini-Lab</span></h2></div><p class="section-note">Small JavaScript games inspired by logic, memory and reaction.</p></div>
+      <details class="lab-accordion">
+        <summary><span><i class="fa-solid fa-gamepad"></i> Explore eight mini-games</span><i class="fa-solid fa-chevron-down accordion-chevron"></i></summary>
+        <div class="lab-inner">
+          <div class="tabs" role="tablist" aria-label="Choose a mini-game">
+            <button class="tab on" data-g="snake" role="tab" aria-selected="true">Snake</button><button class="tab" data-g="logic" role="tab" aria-selected="false">Logic Gates</button><button class="tab" data-g="memory" role="tab" aria-selected="false">Memory</button><button class="tab" data-g="react" role="tab" aria-selected="false">Reaction</button><button class="tab" data-g="ttt" role="tab" aria-selected="false">Tic-Tac-Toe</button><button class="tab" data-g="simon" role="tab" aria-selected="false">LED Simon</button><button class="tab" data-g="bin" role="tab" aria-selected="false">Binary Quiz</button><button class="tab" data-g="bug" role="tab" aria-selected="false">Bug Hunt</button>
+          </div>
+          <div class="game on" id="g-snake">
+            <div class="gbar snake-scoreboard">
+              <span class="snake-stat"><small>SCORE</small><b id="sScore">0</b></span>
+              <span class="snake-stat"><small>BEST</small><b id="sBest">0</b></span>
+              <span class="snake-stat snake-level"><small>LEVEL</small><b id="sLevel">1</b></span>
+            </div>
+            <div class="snake-board-shell">
+              <canvas id="snake" width="480" height="480" role="img" aria-label="Snake game board. Use the arrow keys, WASD keys, swipe, or direction pad to move the snake."></canvas>
+            </div>
+            <p class="hint">Collect the glowing food, avoid the walls and your own tail. Use arrow keys, WASD, swipe, or the direction pad.</p>
+            <div class="pad" aria-label="Snake direction controls">
+              <i></i><button data-d="up" type="button" aria-label="Move up">▲</button><i></i>
+              <button data-d="left" type="button" aria-label="Move left">◀</button><button data-d="down" type="button" aria-label="Move down">▼</button><button data-d="right" type="button" aria-label="Move right">▶</button>
+            </div>
+            <div class="snake-actions"><button class="button button-primary" id="sStart" type="button">Start Game</button><button class="button button-secondary" id="sPause" type="button" disabled>Pause</button></div>
+            <p class="snake-message" id="sMessage" aria-live="polite">Ready? Press Start Game to play.</p>
+          </div>
+          <div class="game" id="g-logic"><div class="gbar"><span>Round: <b id="lgRound">0</b>/10</span><span>Score: <b id="lgScore">0</b></span></div><div class="qbox"><small id="lgIn">Press start</small><h3 id="lgQ">Logic Gates Quiz</h3></div><div class="game-options"><button class="button button-secondary" id="lg0" type="button">0</button><button class="button button-secondary" id="lg1" type="button">1</button></div><p class="hint" id="lgMsg">Work out the output of each gate. 10 rounds.</p><button class="button button-primary" id="lgStart" type="button">Start Quiz</button></div>
+          <div class="game" id="g-memory"><div class="gbar"><span>Moves: <b id="mMoves">0</b></span><span>Best: <b id="mBest">–</b></span></div><div class="mgrid" id="mgrid"></div><p class="hint" id="mMsg">Match all the electronic component pairs.</p><button class="button button-primary" id="mReset" type="button">New Game</button></div>
+          <div class="game" id="g-react"><div class="gbar"><span id="rxMsg">Tap the LED to begin</span><span>Best: <b id="rxBest">–</b></span></div><button class="led" id="rxBox" aria-label="Reaction test LED" type="button"><i class="fa-solid fa-lightbulb"></i></button><p class="hint">Wait for the LED to turn green, then tap as fast as you can.</p></div>
+          <div class="game" id="g-ttt"><div class="gbar"><span>You: X · CPU: O</span><span>Wins: <b id="tW">0</b> · Losses: <b id="tL">0</b></span></div><div class="tgrid" id="tgrid"></div><p class="hint" id="tMsg">Your move.</p><button class="button button-primary" id="tReset" type="button">New Round</button></div>
+          <div class="game" id="g-simon"><div class="gbar"><span>Level: <b id="siLvl">0</b></span><span>Best: <b id="siBest">0</b></span></div><div class="sgrid"><button class="sq" data-c="0" aria-label="LED 1" type="button"><i class="fa-solid fa-lightbulb"></i></button><button class="sq" data-c="1" aria-label="LED 2" type="button"><i class="fa-solid fa-lightbulb"></i></button><button class="sq" data-c="2" aria-label="LED 3" type="button"><i class="fa-solid fa-lightbulb"></i></button><button class="sq" data-c="3" aria-label="LED 4" type="button"><i class="fa-solid fa-lightbulb"></i></button></div><p class="hint" id="siMsg">Watch the LED pattern, then repeat it.</p><button class="button button-primary" id="siStart" type="button">Start</button></div>
+          <div class="game" id="g-bin"><div class="gbar"><span>Round: <b id="bRound">0</b>/10</span><span>Score: <b id="bScore">0</b></span></div><div class="qbox"><small>Convert binary to decimal</small><h3 id="bQ">0000</h3></div><div class="opts" id="bOpts"></div><p class="hint" id="bMsg">Press start to begin 10 rounds.</p><button class="button button-primary" id="bStart" type="button">Start Quiz</button></div>
+          <div class="game" id="g-bug"><div class="gbar"><span>Score: <b id="bgScore">0</b></span><span>Time: <b id="bgTime">20</b>s</span></div><div class="holes" id="holes"></div><p class="hint" id="bgMsg">Tap the bugs before they hide. Best: <b id="bgBest">0</b></p><button class="button button-primary" id="bgStart" type="button">Start Hunt</button></div>
+        </div>
+      </details>
+    </section>
+
+    <section id="contact" class="section section-shell reveal">
+      <div class="section-heading"><div><p class="eyebrow">LET’S CONNECT</p><h2>Get in <span>Touch</span></h2></div><p class="section-note">For entry-level engineering roles, projects and professional connections.</p></div>
+      <div class="contact-layout">
+        <div class="contact-details">
+          <p class="lead-paragraph">Have an opportunity or would like to discuss an electronics project? Reach out through email or LinkedIn.</p>
+          <a class="contact-method" href="mailto:amruthanamapure@gmail.com"><span><i class="fa-regular fa-envelope"></i></span><div><small>Email</small><strong>amruthanamapure@gmail.com</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
+          <a class="contact-method" href="tel:+916361508317"><span><i class="fa-solid fa-phone"></i></span><div><small>Phone</small><strong>+91 63615 08317</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
+          <a class="contact-method" href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer"><span><i class="fa-brands fa-linkedin-in"></i></span><div><small>LinkedIn</small><strong>Connect professionally</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
+          <a class="contact-method" href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer"><span><i class="fa-brands fa-github"></i></span><div><small>GitHub</small><strong>View code and repositories</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
+          <div class="social-links" aria-label="Social profile shortcuts">
+            <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          <div class="all-links">
+            <h3>All my links</h3>
+            <a href="https://amruth-07.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe"></i><span><strong>Portfolio website</strong><small>amruth-07.github.io</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><strong>LinkedIn</strong><small>Professional profile</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i><span><strong>GitHub profile</strong><small>Projects and repositories</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-code-branch"></i><span><strong>Portfolio source repository</strong><small>GitHub repository</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i><span><strong>Instagram</strong><small>@amrut_hanamapure</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i><span><strong>Facebook</strong><small>Facebook profile link</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp</strong><small>Message me on WhatsApp</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="mailto:amruthanamapure@gmail.com"><i class="fa-regular fa-envelope"></i><span><strong>Email</strong><small>amruthanamapure@gmail.com</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="tel:+916361508317"><i class="fa-solid fa-phone"></i><span><strong>Phone</strong><small>+91 63615 08317</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form">
+          <div class="form-heading"><h3>Send a message</h3><p>Fields marked with * are required.</p></div>
+          <label for="contact-name">Your name *</label><input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Enter your name" required>
+          <label for="contact-email">Email address *</label><input id="contact-email" type="email" name="email" autocomplete="email" placeholder="Enter your email" required>
+          <label for="contact-subject">Subject *</label><input id="contact-subject" type="text" name="subject" placeholder="Job opportunity / Project discussion" required>
+          <label for="contact-message">Message *</label><textarea id="contact-message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+          <button class="button button-primary submit-button" type="submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">AH</span><span>AMRUT<span class="brand-dot">.</span></span></a><p>Designed and developed by Amrut Hanamapure.</p><a href="#home" class="back-top">Back to top <i class="fa-solid fa-arrow-up"></i></a></div><small>© <span id="year">2026</span> Amrut Hanamapure. All rights reserved.</small></footer>
+</body>
+</html>
