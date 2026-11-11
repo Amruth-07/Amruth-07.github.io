@@ -1,236 +1,162 @@
-/* =====================================
-   1. NEON STAR BACKGROUND
-   Twinkling soft-neon stars drift upward, shooting stars
-   streak past, and stars glow + drift away from your
-   cursor / finger.
-===================================== */
-const cv = document.getElementById("swarm"), cx = cv.getContext("2d");
-const COLORS = ["124,212,255", "183,156,245", "126,240,189"];   // dark mode (soft neon)
-const COLORS_LIGHT = ["43,143,199", "138,99,210", "31,169,122"]; // light mode
-let pal = COLORS;
+/* -------------------------------------------------------
+   AMRUT HANAMAPURE — PORTFOLIO INTERACTIONS
+-------------------------------------------------------- */
+(() => {
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* THEME TOGGLE (pure white / full black) */
-const root = document.documentElement, themeBtn = document.getElementById("themeBtn");
-function applyTheme(t) {
-  root.setAttribute("data-theme", t);
-  pal = t === "light" ? COLORS_LIGHT : COLORS;
-  themeBtn.innerHTML = `<i class="fas fa-${t === "light" ? "moon" : "sun"}"></i>`;
-  try { localStorage.setItem("theme", t); } catch (e) {}
-}
-themeBtn.onclick = () => applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
-applyTheme(root.getAttribute("data-theme") || "dark");
-
-const mouse = { x: -999, y: -999, tx: -999, ty: -999, on: false };
-let W, H, stars = [], shooters = [], nextShot = 0;
-const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-function resize() {
-  const d = Math.min(window.devicePixelRatio || 1, 2);
-  W = innerWidth; H = innerHeight;
-  cv.width = W * d; cv.height = H * d;
-  cx.setTransform(d, 0, 0, d, 0, 0);
-  const n = Math.min(150, Math.floor((W * H) / 6500));
-  stars = Array.from({ length: n }, () => {
-    const depth = Math.random();                       // 0 = far, 1 = near
-    return { x: Math.random() * W, y: Math.random() * H, ox: 0, oy: 0,
-             r: 0.5 + depth * 1.5, depth, k: rand3(), vy: 0.03 + depth * 0.14,
-             tw: 0.8 + Math.random() * 2.2, ph: Math.random() * 6.28 };
-  });
-}
-const rand3 = () => Math.floor(Math.random() * 3);
-
-function spawnShooter() {
-  const x = W * (0.3 + Math.random() * 0.7), y = -10;
-  shooters.push({ x, y, vx: -(5 + Math.random() * 3), vy: 3 + Math.random() * 2, life: 0, k: rand3() });
-}
-
-function frame() {
-  requestAnimationFrame(frame);
-  if (document.hidden) return;
-  const t = still ? 0 : performance.now() / 1000;
-  cx.clearRect(0, 0, W, H);
-  mouse.x += (mouse.tx - mouse.x) * 0.18;              // smooth cursor follow
-  mouse.y += (mouse.ty - mouse.y) * 0.18;
-  const dark = root.getAttribute("data-theme") !== "light";
-
-  for (const s of stars) {
-    if (!still) { s.y -= s.vy; if (s.y < -5) { s.y = H + 5; s.x = Math.random() * W; } }
-    // stars near the cursor drift away a little and glow brighter
-    let boost = 0;
-    if (mouse.on) {
-      const dx = s.x + s.ox - mouse.x, dy = s.y + s.oy - mouse.y, d = Math.hypot(dx, dy);
-      if (d < 130 && d > 1) { const f = (1 - d / 130); s.ox += (dx / d) * f * 1.2; s.oy += (dy / d) * f * 1.2; boost = f; }
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    try { localStorage.setItem('portfolio-theme', theme); } catch (_) {}
+    if (themeBtn) {
+      const isDark = theme === 'dark';
+      themeBtn.innerHTML = isDark ? '<i class="fa-regular fa-sun"></i>' : '<i class="fa-regular fa-moon"></i>';
+      themeBtn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      themeBtn.title = isDark ? 'Switch to light theme' : 'Switch to dark theme';
     }
-    s.ox *= 0.94; s.oy *= 0.94;
-    const px = s.x + s.ox, py = s.y + s.oy;
-    const tw = 0.5 + 0.5 * Math.sin(t * s.tw + s.ph);
-    const alpha = Math.min(1, 0.3 + tw * 0.6 + boost * 0.4);
-    const c = pal[s.k];
-    cx.fillStyle = `rgba(${c},${alpha})`;
-    cx.beginPath(); cx.arc(px, py, s.r * (1 + boost * 0.6), 0, 6.29); cx.fill();
-    if (dark || s.depth > 0.6) {                        // soft neon halo
-      cx.fillStyle = `rgba(${c},${alpha * (dark ? 0.16 : 0.1)})`;
-      cx.beginPath(); cx.arc(px, py, s.r * 3.4, 0, 6.29); cx.fill();
-    }
-    if (s.depth > 0.75) {                               // thin sparkle cross on the biggest stars
-      const L = s.r * (3 + tw * 3);
-      cx.strokeStyle = `rgba(${c},${alpha * 0.7})`; cx.lineWidth = 0.7;
-      cx.beginPath(); cx.moveTo(px - L, py); cx.lineTo(px + L, py); cx.moveTo(px, py - L); cx.lineTo(px, py + L); cx.stroke();
-    }
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.content = theme === 'dark' ? '#0b1220' : '#f5f8fc';
   }
 
-  if (!still) {                                         // occasional shooting star
-    if (t > nextShot) { spawnShooter(); nextShot = t + 3 + Math.random() * 4; }
-    for (let i = shooters.length - 1; i >= 0; i--) {
-      const m = shooters[i]; m.x += m.vx; m.y += m.vy; m.life++;
-      const tail = 70, mag = Math.hypot(m.vx, m.vy);
-      const g2 = cx.createLinearGradient(m.x, m.y, m.x - (m.vx / mag) * tail, m.y - (m.vy / mag) * tail);
-      g2.addColorStop(0, `rgba(${pal[m.k]},.9)`); g2.addColorStop(1, `rgba(${pal[m.k]},0)`);
-      cx.strokeStyle = g2; cx.lineWidth = 1.3;
-      cx.beginPath(); cx.moveTo(m.x, m.y); cx.lineTo(m.x - (m.vx / mag) * tail, m.y - (m.vy / mag) * tail); cx.stroke();
-      if (m.x < -80 || m.y > H + 80 || m.life > 220) shooters.splice(i, 1);
+  applyTheme(root.dataset.theme || 'light');
+  themeBtn?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+  // Rotating role descriptor. The static fallback remains meaningful without JavaScript.
+  const typed = document.getElementById('typed');
+  const roles = ['Electronics & Communication Engineer', 'Hardware Testing', 'Embedded Systems', 'PCB Design'];
+  if (typed && !prefersReducedMotion) {
+    let roleIndex = 0, charIndex = roles[0].length, deleting = true;
+    const tick = () => {
+      const word = roles[roleIndex];
+      if (deleting) {
+        charIndex--;
+        typed.textContent = word.slice(0, Math.max(0, charIndex));
+        if (charIndex <= 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; }
+        window.setTimeout(tick, 36);
+      } else {
+        const nextWord = roles[roleIndex];
+        charIndex++;
+        typed.textContent = nextWord.slice(0, charIndex);
+        if (charIndex >= nextWord.length) {
+          deleting = true;
+          window.setTimeout(tick, 1600);
+        } else window.setTimeout(tick, 62);
+      }
+    };
+    window.setTimeout(tick, 1900);
+  }
+
+  // Reveal elements only when motion is allowed; content is visible as a fallback.
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -25px 0px' });
+    revealItems.forEach(item => revealObserver.observe(item));
+  } else revealItems.forEach(item => item.classList.add('is-visible'));
+
+  // Count-up summary and current section navigation.
+  const stats = document.querySelector('.hero-stats');
+  if (stats && 'IntersectionObserver' in window && !prefersReducedMotion) {
+    const statsObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        stats.querySelectorAll('[data-count]').forEach(node => {
+          const target = Number(node.dataset.count || 0);
+          let current = 0;
+          const step = Math.max(1, Math.ceil(target / 18));
+          const timer = window.setInterval(() => {
+            current = Math.min(target, current + step);
+            node.textContent = String(current);
+            if (current >= target) window.clearInterval(timer);
+          }, 35);
+        });
+        statsObserver.disconnect();
+      });
+    }, { threshold: 0.35 });
+    statsObserver.observe(stats);
+  }
+
+  const progressBar = document.getElementById('progressBar');
+  const updateProgress = () => {
+    if (!progressBar) return;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+    progressBar.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  const navLinks = [...document.querySelectorAll('.main-nav a')];
+  const navSections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          const active = link.getAttribute('href') === `#${entry.target.id}`;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    navSections.forEach(section => navObserver.observe(section));
+  }
+
+  // Contact form: use the existing EmailJS configuration; provide a mail-client fallback.
+  const form = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  const setFormStatus = (message, type = '') => {
+    if (!formStatus) return;
+    formStatus.textContent = message;
+    formStatus.className = `form-status ${type}`.trim();
+  };
+  if (form) {
+    const EMAILJS_PUBLIC_KEY = 'TZWUr1PeHYnnlkkBN';
+    const EMAILJS_SERVICE_ID = 'service_9uitjh4';
+    const EMAILJS_TEMPLATE_ID = 'template_re3hdru';
+    if (window.emailjs) {
+      try { window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch (error) { console.warn('EmailJS initialization failed:', error); }
     }
-  }
-
-  if (mouse.on) {                                       // thin cursor ring
-    cx.strokeStyle = `rgba(${pal[2]},.9)`; cx.lineWidth = 1;
-    cx.beginPath(); cx.arc(mouse.x, mouse.y, 9, 0, 6.29); cx.stroke();
-    cx.fillStyle = `rgb(${pal[0]})`;
-    cx.beginPath(); cx.arc(mouse.x, mouse.y, 2, 0, 6.29); cx.fill();
-  }
-}
-
-const setPos = (x, y) => {
-  if (!mouse.on) { mouse.x = x; mouse.y = y; }
-  mouse.tx = x; mouse.ty = y; mouse.on = true;
-};
-addEventListener("mousemove", e => setPos(e.clientX, e.clientY));
-addEventListener("touchstart", e => setPos(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-addEventListener("touchmove", e => setPos(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-addEventListener("touchend", () => setTimeout(() => (mouse.on = false), 700));
-document.addEventListener("mouseleave", () => (mouse.on = false));
-addEventListener("resize", resize);
-resize(); frame();
-
-/* THIN SCROLL PROGRESS LINE */
-const bar = document.getElementById("bar");
-function progress() {
-  const max = document.documentElement.scrollHeight - innerHeight;
-  bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
-}
-addEventListener("scroll", progress, { passive: true });
-progress();
-
-/* =====================================
-   2. TYPING ROLE LINE
-===================================== */
-const roles = ["Embedded Systems Developer", "PCB Designer", "IoT Builder", "ECE Engineer"];
-const typed = document.getElementById("typed");
-let ri = 0, ci = 0, del = false;
-function type() {
-  const word = roles[ri];
-  typed.textContent = word.slice(0, ci);
-  if (!del && ci < word.length) ci++;
-  else if (!del) { del = true; return setTimeout(type, 1400); }
-  else if (ci > 0) ci--;
-  else { del = false; ri = (ri + 1) % roles.length; }
-  setTimeout(type, del ? 40 : 85);
-}
-type();
-
-/* =====================================
-   3. SCROLL REVEAL + STAT COUNTERS
-===================================== */
-const revealIO = new IntersectionObserver(list => {
-  list.forEach(en => {
-    if (en.isIntersecting) { en.target.classList.add("show"); revealIO.unobserve(en.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll(".rv").forEach(el => revealIO.observe(el));
-
-const statsIO = new IntersectionObserver(list => {
-  list.forEach(en => {
-    if (!en.isIntersecting) return;
-    en.target.querySelectorAll("[data-n]").forEach(el => {
-      const end = +el.dataset.n; let n = 0;
-      const t = setInterval(() => { el.textContent = ++n; if (n >= end) clearInterval(t); }, 180);
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const submitButton = form.querySelector('[type="submit"]');
+      const originalButtonText = submitButton?.innerHTML || '';
+      if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Sending…'; }
+      setFormStatus('Sending your message…');
+      try {
+        if (window.emailjs && typeof window.emailjs.sendForm === 'function') {
+          await window.emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+          form.reset();
+          setFormStatus('Your message has been sent successfully.', 'success');
+        } else {
+          const data = new FormData(form);
+          const subject = encodeURIComponent(String(data.get('subject') || 'Portfolio enquiry'));
+          const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`);
+          window.location.href = `mailto:amruthanamapure@gmail.com?subject=${subject}&body=${body}`;
+          setFormStatus('Your email application is opening. Please send the prepared message.');
+        }
+      } catch (error) {
+        console.error('Contact form error:', error);
+        setFormStatus('Message could not be sent. Please email amruthanamapure@gmail.com directly.', 'error');
+      } finally {
+        if (submitButton) { submitButton.disabled = false; submitButton.innerHTML = originalButtonText; }
+      }
     });
-    statsIO.unobserve(en.target);
-  });
-}, { threshold: 0.4 });
-statsIO.observe(document.querySelector(".stats"));
+  }
 
-/* =====================================
-   4. BOTTOM DOCK ACTIVE LINK
-===================================== */
-const dockMap = { home: "home", about: "about", skills: "about", experience: "about",
-                  projects: "projects", certs: "certs", interests: "certs", play: "certs", resume: "certs", contact: "contact" };
-const dockLinks = document.querySelectorAll(".dock a");
-const dockIO = new IntersectionObserver(list => {
-  list.forEach(en => {
-    if (!en.isIntersecting) return;
-    const target = dockMap[en.target.id];
-    dockLinks.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + target));
-  });
-}, { rootMargin: "-45% 0px -50% 0px" });
-Object.keys(dockMap).forEach(id => { const el = document.getElementById(id); if (el) dockIO.observe(el); });
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
+})();
 
-/* =====================================
-   5. PROJECT IMAGE EXPAND
-===================================== */
-function toggleImg(btn) {
-  const wrap = btn.closest(".pcard").querySelector(".pimg");
-  const open = wrap.classList.toggle("open");
-  btn.innerHTML = open ? '<i class="fas fa-eye-slash"></i> Hide' : '<i class="fas fa-eye"></i> View';
-}
-
-/* =====================================
-   6. MODAL (DETAILS / CODE) + COPY
-===================================== */
-const modal = document.getElementById("projectModal");
-function openModal(title, file) {
-  const body = document.getElementById("modalBody"), copy = document.getElementById("copyBtn");
-  document.getElementById("modalTitle").innerText = title;
-  body.innerHTML = "Loading...";
-  copy.style.display = "none";
-  modal.style.display = "block";
-  fetch(file)
-    .then(r => { if (!r.ok) throw new Error("File not found"); return r.text(); })
-    .then(data => {
-      if (file.endsWith(".txt")) {
-        body.innerHTML = `<pre class="language-cpp"><code class="language-cpp">${data.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
-        copy.style.display = "inline-flex";
-        if (window.Prism) Prism.highlightAllUnder(body);
-      } else body.innerHTML = data;
-    })
-    .catch(() => (body.innerHTML = "❌ Could not load the requested file."));
-}
-function closeModal() { modal.style.display = "none"; }
-modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-
-function copyCode() {
-  const code = document.querySelector("#modalBody code"), btn = document.getElementById("copyBtn");
-  if (!code) return;
-  navigator.clipboard.writeText(code.innerText).then(() => {
-    const old = btn.innerText; btn.innerText = "Copied ✓";
-    setTimeout(() => (btn.innerText = old), 1500);
-  });
-}
-
-/* =====================================
-   7. EMAILJS CONTACT FORM
-===================================== */
-addEventListener("load", () => {
-  if (window.emailjs) emailjs.init({ publicKey: "TZWUr1PeHYnnlkkBN" });
-  const form = document.getElementById("contact-form");
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    emailjs.sendForm("service_9uitjh4", "template_re3hdru", form)
-      .then(() => { alert("✅ Message sent successfully!"); form.reset(); })
-      .catch(err => { alert("❌ Failed to send message. Please try again later."); console.error(err); });
-  });
-});
 
 
 /* =====================================
@@ -392,7 +318,7 @@ addEventListener("load", () => {
 
   /* ---------- TABS ---------- */
   document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === t));
+    document.querySelectorAll(".tab").forEach(x => { x.classList.toggle("on", x === t); x.setAttribute("aria-selected", x === t ? "true" : "false"); });
     document.querySelectorAll(".game").forEach(x => x.classList.toggle("on", x.id === "g-" + t.dataset.g));
     if (timer) endSnake();
     rxReset();
