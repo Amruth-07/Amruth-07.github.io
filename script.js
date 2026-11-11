@@ -1,41 +1,179 @@
 /* =====================================
-   1. THEME TOGGLE (warm light / warm dark)
+   1. NEON STAR BACKGROUND
+   Twinkling soft-neon stars drift upward, shooting stars
+   streak past, and stars glow + drift away from your
+   cursor / finger.
 ===================================== */
+const cv = document.getElementById("swarm"), cx = cv.getContext("2d");
+const COLORS = ["124,212,255", "183,156,245", "126,240,189"];   // dark mode (soft neon)
+const COLORS_LIGHT = ["43,143,199", "138,99,210", "31,169,122"]; // light mode
+let pal = COLORS;
+
+/* THEME TOGGLE (pure white / full black) */
 const root = document.documentElement, themeBtn = document.getElementById("themeBtn");
 function applyTheme(t) {
   root.setAttribute("data-theme", t);
-  themeBtn.innerHTML = `<i class="fas fa-${t === "dark" ? "sun" : "moon"}"></i>`;
+  pal = t === "light" ? COLORS_LIGHT : COLORS;
+  themeBtn.innerHTML = `<i class="fas fa-${t === "light" ? "moon" : "sun"}"></i>`;
   try { localStorage.setItem("theme", t); } catch (e) {}
 }
-themeBtn.onclick = () => applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
-applyTheme(root.getAttribute("data-theme") || "light");
+themeBtn.onclick = () => applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+applyTheme(root.getAttribute("data-theme") || "dark");
+
+const mouse = { x: -999, y: -999, tx: -999, ty: -999, on: false };
+let W, H, stars = [], shooters = [], nextShot = 0;
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function resize() {
+  const d = Math.min(window.devicePixelRatio || 1, 2);
+  W = innerWidth; H = innerHeight;
+  cv.width = W * d; cv.height = H * d;
+  cx.setTransform(d, 0, 0, d, 0, 0);
+  const n = Math.min(150, Math.floor((W * H) / 6500));
+  stars = Array.from({ length: n }, () => {
+    const depth = Math.random();                       // 0 = far, 1 = near
+    return { x: Math.random() * W, y: Math.random() * H, ox: 0, oy: 0,
+             r: 0.5 + depth * 1.5, depth, k: rand3(), vy: 0.03 + depth * 0.14,
+             tw: 0.8 + Math.random() * 2.2, ph: Math.random() * 6.28 };
+  });
+}
+const rand3 = () => Math.floor(Math.random() * 3);
+
+function spawnShooter() {
+  const x = W * (0.3 + Math.random() * 0.7), y = -10;
+  shooters.push({ x, y, vx: -(5 + Math.random() * 3), vy: 3 + Math.random() * 2, life: 0, k: rand3() });
+}
+
+function frame() {
+  requestAnimationFrame(frame);
+  if (document.hidden) return;
+  const t = still ? 0 : performance.now() / 1000;
+  cx.clearRect(0, 0, W, H);
+  mouse.x += (mouse.tx - mouse.x) * 0.18;              // smooth cursor follow
+  mouse.y += (mouse.ty - mouse.y) * 0.18;
+  const dark = root.getAttribute("data-theme") !== "light";
+
+  for (const s of stars) {
+    if (!still) { s.y -= s.vy; if (s.y < -5) { s.y = H + 5; s.x = Math.random() * W; } }
+    // stars near the cursor drift away a little and glow brighter
+    let boost = 0;
+    if (mouse.on) {
+      const dx = s.x + s.ox - mouse.x, dy = s.y + s.oy - mouse.y, d = Math.hypot(dx, dy);
+      if (d < 130 && d > 1) { const f = (1 - d / 130); s.ox += (dx / d) * f * 1.2; s.oy += (dy / d) * f * 1.2; boost = f; }
+    }
+    s.ox *= 0.94; s.oy *= 0.94;
+    const px = s.x + s.ox, py = s.y + s.oy;
+    const tw = 0.5 + 0.5 * Math.sin(t * s.tw + s.ph);
+    const alpha = Math.min(1, 0.3 + tw * 0.6 + boost * 0.4);
+    const c = pal[s.k];
+    cx.fillStyle = `rgba(${c},${alpha})`;
+    cx.beginPath(); cx.arc(px, py, s.r * (1 + boost * 0.6), 0, 6.29); cx.fill();
+    if (dark || s.depth > 0.6) {                        // soft neon halo
+      cx.fillStyle = `rgba(${c},${alpha * (dark ? 0.16 : 0.1)})`;
+      cx.beginPath(); cx.arc(px, py, s.r * 3.4, 0, 6.29); cx.fill();
+    }
+    if (s.depth > 0.75) {                               // thin sparkle cross on the biggest stars
+      const L = s.r * (3 + tw * 3);
+      cx.strokeStyle = `rgba(${c},${alpha * 0.7})`; cx.lineWidth = 0.7;
+      cx.beginPath(); cx.moveTo(px - L, py); cx.lineTo(px + L, py); cx.moveTo(px, py - L); cx.lineTo(px, py + L); cx.stroke();
+    }
+  }
+
+  if (!still) {                                         // occasional shooting star
+    if (t > nextShot) { spawnShooter(); nextShot = t + 3 + Math.random() * 4; }
+    for (let i = shooters.length - 1; i >= 0; i--) {
+      const m = shooters[i]; m.x += m.vx; m.y += m.vy; m.life++;
+      const tail = 70, mag = Math.hypot(m.vx, m.vy);
+      const g2 = cx.createLinearGradient(m.x, m.y, m.x - (m.vx / mag) * tail, m.y - (m.vy / mag) * tail);
+      g2.addColorStop(0, `rgba(${pal[m.k]},.9)`); g2.addColorStop(1, `rgba(${pal[m.k]},0)`);
+      cx.strokeStyle = g2; cx.lineWidth = 1.3;
+      cx.beginPath(); cx.moveTo(m.x, m.y); cx.lineTo(m.x - (m.vx / mag) * tail, m.y - (m.vy / mag) * tail); cx.stroke();
+      if (m.x < -80 || m.y > H + 80 || m.life > 220) shooters.splice(i, 1);
+    }
+  }
+
+  if (mouse.on) {                                       // thin cursor ring
+    cx.strokeStyle = `rgba(${pal[2]},.9)`; cx.lineWidth = 1;
+    cx.beginPath(); cx.arc(mouse.x, mouse.y, 9, 0, 6.29); cx.stroke();
+    cx.fillStyle = `rgb(${pal[0]})`;
+    cx.beginPath(); cx.arc(mouse.x, mouse.y, 2, 0, 6.29); cx.fill();
+  }
+}
+
+const setPos = (x, y) => {
+  if (!mouse.on) { mouse.x = x; mouse.y = y; }
+  mouse.tx = x; mouse.ty = y; mouse.on = true;
+};
+addEventListener("mousemove", e => setPos(e.clientX, e.clientY));
+addEventListener("touchstart", e => setPos(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+addEventListener("touchmove", e => setPos(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+addEventListener("touchend", () => setTimeout(() => (mouse.on = false), 700));
+document.addEventListener("mouseleave", () => (mouse.on = false));
+addEventListener("resize", resize);
+resize(); frame();
+
+/* THIN SCROLL PROGRESS LINE */
+const bar = document.getElementById("bar");
+function progress() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
+}
+addEventListener("scroll", progress, { passive: true });
+progress();
 
 /* =====================================
-   2. MOBILE MENU + ACTIVE NAV LINK
+   2. TYPING ROLE LINE
 ===================================== */
-const nav = document.getElementById("nav");
-document.getElementById("burger").onclick = () => nav.classList.toggle("open");
-document.querySelectorAll(".links a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
-const navLinks = [...document.querySelectorAll(".links a")];
-const idMap = { home: "home", projects: "projects", skills: "skills", about: "about", experience: "about", certs: "about", play: "play", resume: "contact", contact: "contact" };
-const navIO = new IntersectionObserver(list => list.forEach(en => {
-  if (!en.isIntersecting) return;
-  const t = idMap[en.target.id];
-  navLinks.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + t));
-}), { rootMargin: "-40% 0px -55% 0px" });
-Object.keys(idMap).forEach(id => { const el = document.getElementById(id); if (el) navIO.observe(el); });
+const roles = ["Embedded Systems Developer", "PCB Designer", "IoT Builder", "ECE Engineer"];
+const typed = document.getElementById("typed");
+let ri = 0, ci = 0, del = false;
+function type() {
+  const word = roles[ri];
+  typed.textContent = word.slice(0, ci);
+  if (!del && ci < word.length) ci++;
+  else if (!del) { del = true; return setTimeout(type, 1400); }
+  else if (ci > 0) ci--;
+  else { del = false; ri = (ri + 1) % roles.length; }
+  setTimeout(type, del ? 40 : 85);
+}
+type();
 
 /* =====================================
    3. SCROLL REVEAL + STAT COUNTERS
 ===================================== */
-const revealIO = new IntersectionObserver(list => list.forEach(en => {
-  if (en.isIntersecting) { en.target.classList.add("show"); revealIO.unobserve(en.target); }
-}), { threshold: 0.08 });
+const revealIO = new IntersectionObserver(list => {
+  list.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add("show"); revealIO.unobserve(en.target); }
+  });
+}, { threshold: 0.1 });
 document.querySelectorAll(".rv").forEach(el => revealIO.observe(el));
-document.querySelectorAll("[data-n]").forEach(el => {
-  const end = +el.dataset.n; let n = 0;
-  const t = setInterval(() => { el.textContent = ++n; if (n >= end) clearInterval(t); }, 150);
-});
+
+const statsIO = new IntersectionObserver(list => {
+  list.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.querySelectorAll("[data-n]").forEach(el => {
+      const end = +el.dataset.n; let n = 0;
+      const t = setInterval(() => { el.textContent = ++n; if (n >= end) clearInterval(t); }, 180);
+    });
+    statsIO.unobserve(en.target);
+  });
+}, { threshold: 0.4 });
+statsIO.observe(document.querySelector(".stats"));
+
+/* =====================================
+   4. BOTTOM DOCK ACTIVE LINK
+===================================== */
+const dockMap = { home: "home", about: "about", skills: "about", experience: "about",
+                  projects: "projects", certs: "certs", interests: "certs", play: "certs", resume: "certs", contact: "contact" };
+const dockLinks = document.querySelectorAll(".dock a");
+const dockIO = new IntersectionObserver(list => {
+  list.forEach(en => {
+    if (!en.isIntersecting) return;
+    const target = dockMap[en.target.id];
+    dockLinks.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + target));
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+Object.keys(dockMap).forEach(id => { const el = document.getElementById(id); if (el) dockIO.observe(el); });
 
 /* =====================================
    5. PROJECT IMAGE EXPAND
