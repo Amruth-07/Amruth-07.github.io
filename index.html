@@ -185,9 +185,88 @@
   <div class="tags big"><span>📈 Stock Market &amp; Technical Analysis</span><span>🌐 Web Building</span><span>🔍 Deep Learning</span><span>🏍️ Travelling</span></div>
 </section>
 
+<!-- PLAY -->
+<section id="play" class="mod rv">
+  <h2><em>U8</em> Play</h2>
+  <p class="mute">Take a short break and try my mini games, all built with plain JavaScript.</p>
+  <div class="tabs">
+    <button class="tab on" data-g="snake">Snake</button>
+    <button class="tab" data-g="logic">Logic Gates</button>
+    <button class="tab" data-g="memory">Memory</button>
+    <button class="tab" data-g="react">Reaction</button>
+    <button class="tab" data-g="ttt">Tic-Tac-Toe</button>
+    <button class="tab" data-g="simon">LED Simon</button>
+    <button class="tab" data-g="bin">Binary Quiz</button>
+    <button class="tab" data-g="bug">Bug Hunt</button>
+  </div>
+
+  <div class="game on" id="g-snake">
+    <div class="gbar"><span>Score: <b id="sScore">0</b></span><span>Best: <b id="sBest">0</b></span></div>
+    <canvas id="snake" width="300" height="300"></canvas>
+    <p class="hint">Swipe on the board, use arrow keys, or tap the pad.</p>
+    <div class="pad"><i></i><button data-d="up" aria-label="Up">▲</button><i></i><button data-d="left" aria-label="Left">◀</button><button data-d="down" aria-label="Down">▼</button><button data-d="right" aria-label="Right">▶</button></div>
+    <button class="btn" id="sStart">Start Game</button>
+  </div>
+
+  <div class="game" id="g-logic">
+    <div class="gbar"><span>Round: <b id="lgRound">0</b>/10</span><span>Score: <b id="lgScore">0</b></span></div>
+    <div class="qbox"><small id="lgIn">Press start</small><h3 id="lgQ">Logic Gates Quiz</h3></div>
+    <div class="hero-btns"><button class="btn" id="lg0">0</button><button class="btn" id="lg1">1</button></div>
+    <p class="hint" id="lgMsg">Work out the output of each gate. 10 rounds.</p>
+    <button class="btn" id="lgStart">Start Quiz</button>
+  </div>
+
+  <div class="game" id="g-memory">
+    <div class="gbar"><span>Moves: <b id="mMoves">0</b></span><span>Best: <b id="mBest">–</b></span></div>
+    <div class="mgrid" id="mgrid"></div>
+    <p class="hint" id="mMsg">Match all the electronic component pairs.</p>
+    <button class="btn" id="mReset">New Game</button>
+  </div>
+
+  <div class="game" id="g-react">
+    <div class="gbar"><span id="rxMsg">Tap the LED to begin</span><span>Best: <b id="rxBest">–</b></span></div>
+    <button class="led" id="rxBox" aria-label="Reaction LED"><i class="fas fa-lightbulb"></i></button>
+    <p class="hint">Wait for the LED to turn green, then tap as fast as you can.</p>
+  </div>
+
+  <div class="game" id="g-ttt">
+    <div class="gbar"><span>You: X · CPU: O</span><span>Wins: <b id="tW">0</b> · Losses: <b id="tL">0</b></span></div>
+    <div class="tgrid" id="tgrid"></div>
+    <p class="hint" id="tMsg">Your move.</p>
+    <button class="btn" id="tReset">New Round</button>
+  </div>
+
+  <div class="game" id="g-simon">
+    <div class="gbar"><span>Level: <b id="siLvl">0</b></span><span>Best: <b id="siBest">0</b></span></div>
+    <div class="sgrid">
+      <button class="sq" data-c="0" aria-label="LED 1"><i class="fas fa-lightbulb"></i></button>
+      <button class="sq" data-c="1" aria-label="LED 2"><i class="fas fa-lightbulb"></i></button>
+      <button class="sq" data-c="2" aria-label="LED 3"><i class="fas fa-lightbulb"></i></button>
+      <button class="sq" data-c="3" aria-label="LED 4"><i class="fas fa-lightbulb"></i></button>
+    </div>
+    <p class="hint" id="siMsg">Watch the LED pattern, then repeat it.</p>
+    <button class="btn" id="siStart">Start</button>
+  </div>
+
+  <div class="game" id="g-bin">
+    <div class="gbar"><span>Round: <b id="bRound">0</b>/10</span><span>Score: <b id="bScore">0</b></span></div>
+    <div class="qbox"><small>Convert binary to decimal</small><h3 id="bQ">0000</h3></div>
+    <div class="opts" id="bOpts"></div>
+    <p class="hint" id="bMsg">Press start to begin 10 rounds.</p>
+    <button class="btn" id="bStart">Start Quiz</button>
+  </div>
+
+  <div class="game" id="g-bug">
+    <div class="gbar"><span>Score: <b id="bgScore">0</b></span><span>Time: <b id="bgTime">20</b>s</span></div>
+    <div class="holes" id="holes"></div>
+    <p class="hint" id="bgMsg">Tap the bugs before they hide. Best: <b id="bgBest">0</b></p>
+    <button class="btn" id="bgStart">Start Hunt</button>
+  </div>
+</section>
+
 <!-- OPEN TO WORK + RESUME -->
 <section id="resume" class="mod rv">
-  <h2><em>U8</em> Open to Work</h2>
+  <h2><em>U9</em> Open to Work</h2>
   <p>I'm looking for entry-level core electronics roles in Bengaluru where I can build, test and ship real hardware. Roles I'm a strong fit for:</p>
   <div class="tags big"><span>Embedded Systems Engineer</span><span>PCB Design Engineer</span><span>BMS / Power Electronics Engineer</span><span>Hardware Test Engineer</span></div>
   <p class="mute gap">My STM32 BMS project is the best place to see how I work, from design through protection logic and testing. Available to join immediately.</p>
@@ -199,7 +278,7 @@
 
 <!-- CONTACT -->
 <section id="contact" class="mod rv">
-  <h2><em>U9</em> Get In Touch</h2>
+  <h2><em>U10</em> Get In Touch</h2>
   <p class="mute">Let's connect &amp; collaborate 🤝</p>
   <ul class="facts">
     <li><i class="fas fa-envelope"></i><div><small>Email</small>amruthanamapure@gmail.com</div></li>
