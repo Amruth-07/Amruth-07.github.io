@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f5f8fc">
+  <meta name="theme-color" content="#fffaf6">
   <title>Amrut Hanamapure | Electronics &amp; Communication Engineer</title>
   <meta name="description" content="Portfolio of Amrut Hanamapure, an Electronics and Communication Engineering graduate focused on hardware testing, embedded systems, PCB design and electronics engineering.">
   <meta name="keywords" content="Amrut Hanamapure, Electronics Engineer, Graduate Engineer Trainee, Hardware Testing, Embedded Systems, PCB Design, Bengaluru">
@@ -47,7 +47,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a class="nav-resume" href="Amrut.GET.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i><span>Resume</span></a>
+        <a class="nav-resume" href="Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i><span>Resume</span></a>
         <button id="themeBtn" class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
       </div>
     </div>
@@ -81,7 +81,7 @@
         <div class="profile-card">
           <div class="profile-photo-wrap">
             <div class="profile-fallback" aria-hidden="true">AH</div>
-            <img src="profile.jpg.jpg" alt="Portrait of Amrut Hanamapure" onerror="this.hidden=true">
+            <img src="profile.jpg.jpg" alt="Portrait of Amrut Hanamapure" loading="eager" decoding="async" onerror="this.hidden=true">
           </div>
           <div class="profile-card-copy">
             <span class="profile-label">ENGINEERING GRADUATE</span>
@@ -199,7 +199,23 @@
           <div class="tabs" role="tablist" aria-label="Choose a mini-game">
             <button class="tab on" data-g="snake" role="tab" aria-selected="true">Snake</button><button class="tab" data-g="logic" role="tab" aria-selected="false">Logic Gates</button><button class="tab" data-g="memory" role="tab" aria-selected="false">Memory</button><button class="tab" data-g="react" role="tab" aria-selected="false">Reaction</button><button class="tab" data-g="ttt" role="tab" aria-selected="false">Tic-Tac-Toe</button><button class="tab" data-g="simon" role="tab" aria-selected="false">LED Simon</button><button class="tab" data-g="bin" role="tab" aria-selected="false">Binary Quiz</button><button class="tab" data-g="bug" role="tab" aria-selected="false">Bug Hunt</button>
           </div>
-          <div class="game on" id="g-snake"><div class="gbar"><span>Score: <b id="sScore">0</b></span><span>Best: <b id="sBest">0</b></span></div><canvas id="snake" width="300" height="300" aria-label="Snake game board"></canvas><p class="hint">Swipe on the board, use arrow keys, or tap the pad.</p><div class="pad"><i></i><button data-d="up" aria-label="Up">▲</button><i></i><button data-d="left" aria-label="Left">◀</button><button data-d="down" aria-label="Down">▼</button><button data-d="right" aria-label="Right">▶</button></div><button class="button button-primary" id="sStart" type="button">Start Game</button></div>
+          <div class="game on" id="g-snake">
+            <div class="gbar snake-scoreboard">
+              <span class="snake-stat"><small>SCORE</small><b id="sScore">0</b></span>
+              <span class="snake-stat"><small>BEST</small><b id="sBest">0</b></span>
+              <span class="snake-stat snake-level"><small>LEVEL</small><b id="sLevel">1</b></span>
+            </div>
+            <div class="snake-board-shell">
+              <canvas id="snake" width="480" height="480" role="img" aria-label="Snake game board. Use the arrow keys, WASD keys, swipe, or direction pad to move the snake."></canvas>
+            </div>
+            <p class="hint">Collect the glowing food, avoid the walls and your own tail. Use arrow keys, WASD, swipe, or the direction pad.</p>
+            <div class="pad" aria-label="Snake direction controls">
+              <i></i><button data-d="up" type="button" aria-label="Move up">▲</button><i></i>
+              <button data-d="left" type="button" aria-label="Move left">◀</button><button data-d="down" type="button" aria-label="Move down">▼</button><button data-d="right" type="button" aria-label="Move right">▶</button>
+            </div>
+            <div class="snake-actions"><button class="button button-primary" id="sStart" type="button">Start Game</button><button class="button button-secondary" id="sPause" type="button" disabled>Pause</button></div>
+            <p class="snake-message" id="sMessage" aria-live="polite">Ready? Press Start Game to play.</p>
+          </div>
           <div class="game" id="g-logic"><div class="gbar"><span>Round: <b id="lgRound">0</b>/10</span><span>Score: <b id="lgScore">0</b></span></div><div class="qbox"><small id="lgIn">Press start</small><h3 id="lgQ">Logic Gates Quiz</h3></div><div class="game-options"><button class="button button-secondary" id="lg0" type="button">0</button><button class="button button-secondary" id="lg1" type="button">1</button></div><p class="hint" id="lgMsg">Work out the output of each gate. 10 rounds.</p><button class="button button-primary" id="lgStart" type="button">Start Quiz</button></div>
           <div class="game" id="g-memory"><div class="gbar"><span>Moves: <b id="mMoves">0</b></span><span>Best: <b id="mBest">–</b></span></div><div class="mgrid" id="mgrid"></div><p class="hint" id="mMsg">Match all the electronic component pairs.</p><button class="button button-primary" id="mReset" type="button">New Game</button></div>
           <div class="game" id="g-react"><div class="gbar"><span id="rxMsg">Tap the LED to begin</span><span>Best: <b id="rxBest">–</b></span></div><button class="led" id="rxBox" aria-label="Reaction test LED" type="button"><i class="fa-solid fa-lightbulb"></i></button><p class="hint">Wait for the LED to turn green, then tap as fast as you can.</p></div>
@@ -220,7 +236,25 @@
           <a class="contact-method" href="tel:+916361508317"><span><i class="fa-solid fa-phone"></i></span><div><small>Phone</small><strong>+91 63615 08317</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
           <a class="contact-method" href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer"><span><i class="fa-brands fa-linkedin-in"></i></span><div><small>LinkedIn</small><strong>Connect professionally</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
           <a class="contact-method" href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer"><span><i class="fa-brands fa-github"></i></span><div><small>GitHub</small><strong>View code and repositories</strong></div><i class="fa-solid fa-arrow-up-right-from-square method-arrow"></i></a>
-          <div class="social-links"><a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a href="mailto:amruthanamapure@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a></div>
+          <div class="social-links" aria-label="Social profile shortcuts">
+            <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          <div class="all-links">
+            <h3>All my links</h3>
+            <a href="https://amruth-07.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe"></i><span><strong>Portfolio website</strong><small>amruth-07.github.io</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.linkedin.com/in/amrut-hanamapure-b0244b313" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><strong>LinkedIn</strong><small>Professional profile</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Amruth-07" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i><span><strong>GitHub profile</strong><small>Projects and repositories</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Amruth-07/Amruth-07.github.io.git" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-code-branch"></i><span><strong>Portfolio source repository</strong><small>GitHub repository</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.instagram.com/amrut_hanamapure?igsh=MWlsemx0b2ZzeXM5cg==" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i><span><strong>Instagram</strong><small>@amrut_hanamapure</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.facebook.com/share/1F7cyfeE5Z/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i><span><strong>Facebook</strong><small>Facebook profile link</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://wa.me/qr/744RYCQ3HT7DJ1" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp</strong><small>Message me on WhatsApp</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="mailto:amruthanamapure@gmail.com"><i class="fa-regular fa-envelope"></i><span><strong>Email</strong><small>amruthanamapure@gmail.com</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="tel:+916361508317"><i class="fa-solid fa-phone"></i><span><strong>Phone</strong><small>+91 63615 08317</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
         </div>
         <form id="contact-form" class="contact-form">
           <div class="form-heading"><h3>Send a message</h3><p>Fields marked with * are required.</p></div>
