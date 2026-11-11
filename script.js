@@ -1,11 +1,12 @@
 /* =====================================
-   1. CIRCUIT SWARM CURSOR
-   Dots drift, link to each other, and swarm
-   + connect to the cursor / finger.
+   1. OSCILLOSCOPE WAVE BACKGROUND (thin, soft-neon)
+   Sine / triangle / square traces drift across the page;
+   scanning beam dots ride along, and the waves bend
+   and ripple around your cursor / finger.
 ===================================== */
 const cv = document.getElementById("swarm"), cx = cv.getContext("2d");
-const COLORS = ["0,200,255", "168,85,247", "0,255,136"];      // dark mode
-const COLORS_LIGHT = ["0,134,179", "138,43,226", "0,163,92"];   // light mode
+const COLORS = ["124,212,255", "183,156,245", "126,240,189"];   // dark mode (soft neon)
+const COLORS_LIGHT = ["43,143,199", "138,99,210", "31,169,122"]; // light mode
 let pal = COLORS;
 
 /* THEME TOGGLE (pure white / full black) */
@@ -18,71 +19,83 @@ function applyTheme(t) {
 }
 themeBtn.onclick = () => applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
 applyTheme(root.getAttribute("data-theme") || "dark");
-const mouse = { x: -999, y: -999, on: false };
-let W, H, nodes = [];
+
+const mouse = { x: -999, y: -999, tx: -999, ty: -999, on: false };
+let W, H, waves = [];
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Oscilloscope shapes: sine, triangle, (soft) square */
+const SHAPES = [
+  x => Math.sin(x),
+  x => Math.asin(Math.sin(x)) * 2 / Math.PI,
+  x => Math.tanh(3.5 * Math.sin(x))
+];
 
 function resize() {
-  const d = window.devicePixelRatio || 1;
+  const d = Math.min(window.devicePixelRatio || 1, 2);
   W = innerWidth; H = innerHeight;
   cv.width = W * d; cv.height = H * d;
   cx.setTransform(d, 0, 0, d, 0, 0);
-  const n = Math.min(120, Math.floor((W * H) / 12000));
-  nodes = Array.from({ length: n }, (_, i) => {
-    const bx = (Math.random() - 0.5) * 0.55, by = (Math.random() - 0.5) * 0.55;
-    return { x: Math.random() * W, y: Math.random() * H, vx: bx, vy: by, bx, by,
-             k: i % 3, r: 1.5 + Math.random() * 1.8 };
-  });
+  const n = W < 600 ? 5 : 7;
+  waves = Array.from({ length: n }, (_, i) => ({
+    base: (H / (n + 1)) * (i + 1),
+    amp: 22 + Math.random() * 30,
+    freq: 0.004 + Math.random() * 0.006,
+    speed: (0.5 + Math.random() * 0.9) * (i % 2 ? 1 : -1),
+    phase: Math.random() * 6.28,
+    shape: SHAPES[i % 3],
+    k: i % 3,
+    beam: Math.random() * W
+  }));
 }
 
 function frame() {
-  cx.clearRect(0, 0, W, H);
-  for (const a of nodes) {
-    const dx = mouse.x - a.x, dy = mouse.y - a.y, d = Math.hypot(dx, dy);
-    a.vx += (a.bx - a.vx) * 0.02;
-    a.vy += (a.by - a.vy) * 0.02;
-    if (mouse.on && d < 190 && d > 1) {            // swarm: pull in + orbit
-      a.vx += (dx / d) * 0.07 - (dy / d) * 0.03;
-      a.vy += (dy / d) * 0.07 + (dx / d) * 0.03;
-    }
-    const s = Math.hypot(a.vx, a.vy);
-    if (s > 2.8) { a.vx *= 2.8 / s; a.vy *= 2.8 / s; }
-    a.x += a.vx; a.y += a.vy;
-    if (a.x < 0 || a.x > W) a.vx *= -1;
-    if (a.y < 0 || a.y > H) a.vy *= -1;
-  }
-  for (let i = 0; i < nodes.length; i++) {
-    const a = nodes[i];
-    cx.lineWidth = 1;
-    for (let j = i + 1; j < nodes.length; j++) {   // node-to-node circuit lines
-      const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-      if (d < 120) {
-        cx.strokeStyle = `rgba(${pal[a.k]},${(1 - d / 120) * 0.32})`;
-        cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke();
-      }
-    }
-    if (mouse.on) {                                 // node-to-cursor lines
-      const d = Math.hypot(a.x - mouse.x, a.y - mouse.y);
-      if (d < 200) {
-        cx.strokeStyle = `rgba(${pal[a.k]},${(1 - d / 200) * 0.85})`;
-        cx.lineWidth = 1.4;
-        cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(mouse.x, mouse.y); cx.stroke();
-      }
-    }
-    cx.shadowBlur = root.getAttribute("data-theme") === "light" ? 0 : 8; cx.shadowColor = `rgb(${pal[a.k]})`;
-    cx.fillStyle = `rgba(${pal[a.k]},.95)`;
-    cx.beginPath(); cx.arc(a.x, a.y, a.r, 0, Math.PI * 2); cx.fill();
-    cx.shadowBlur = 0;
-  }
-  if (mouse.on) {                                   // cursor core
-    cx.strokeStyle = `rgba(${pal[2]},.95)`; cx.lineWidth = 1.5;
-    cx.beginPath(); cx.arc(mouse.x, mouse.y, 8, 0, Math.PI * 2); cx.stroke();
-    cx.fillStyle = `rgb(${pal[0]})`;
-    cx.beginPath(); cx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2); cx.fill();
-  }
   requestAnimationFrame(frame);
+  if (document.hidden) return;
+  const t = still ? 0 : performance.now() / 1000;
+  cx.clearRect(0, 0, W, H);
+  mouse.x += (mouse.tx - mouse.x) * 0.18;          // smooth cursor follow
+  mouse.y += (mouse.ty - mouse.y) * 0.18;
+
+  const yAt = (w, x) => {
+    let y = w.base + w.amp * w.shape(x * w.freq * 6 + w.phase + t * w.speed);
+    if (mouse.on) {                                  // cursor bends + ripples nearby waves
+      const dx = x - mouse.x, dy = y - mouse.y, d2 = dx * dx + dy * dy;
+      const k = Math.exp(-d2 / (2 * 150 * 150));
+      y += (mouse.y - y) * 0.35 * k + Math.sin(Math.sqrt(d2) * 0.06 - t * 5) * 12 * k;
+    }
+    return y;
+  };
+
+  cx.lineWidth = 1;
+  for (const w of waves) {
+    cx.strokeStyle = `rgba(${pal[w.k]},.38)`;
+    cx.beginPath();
+    for (let x = 0; x <= W + 8; x += 6) {
+      const y = yAt(w, x);
+      x === 0 ? cx.moveTo(x, y) : cx.lineTo(x, y);
+    }
+    cx.stroke();
+    // scanning beam dot travelling along the trace
+    w.beam = (w.beam + 0.9 * Math.sign(w.speed) * (still ? 0 : 1) + W) % W;
+    const by = yAt(w, w.beam);
+    cx.fillStyle = `rgba(${pal[w.k]},.9)`;
+    cx.beginPath(); cx.arc(w.beam, by, 2.2, 0, Math.PI * 2); cx.fill();
+    cx.strokeStyle = `rgba(${pal[w.k]},.25)`;
+    cx.beginPath(); cx.arc(w.beam, by, 6, 0, Math.PI * 2); cx.stroke();
+  }
+  if (mouse.on) {                                     // thin cursor ring
+    cx.strokeStyle = `rgba(${pal[2]},.9)`; cx.lineWidth = 1;
+    cx.beginPath(); cx.arc(mouse.x, mouse.y, 9, 0, Math.PI * 2); cx.stroke();
+    cx.fillStyle = `rgb(${pal[0]})`;
+    cx.beginPath(); cx.arc(mouse.x, mouse.y, 2, 0, Math.PI * 2); cx.fill();
+  }
 }
 
-const setPos = (x, y) => { mouse.x = x; mouse.y = y; mouse.on = true; };
+const setPos = (x, y) => {
+  if (!mouse.on) { mouse.x = x; mouse.y = y; }
+  mouse.tx = x; mouse.ty = y; mouse.on = true;
+};
 addEventListener("mousemove", e => setPos(e.clientX, e.clientY));
 addEventListener("touchstart", e => setPos(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
 addEventListener("touchmove", e => setPos(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
@@ -90,6 +103,15 @@ addEventListener("touchend", () => setTimeout(() => (mouse.on = false), 700));
 document.addEventListener("mouseleave", () => (mouse.on = false));
 addEventListener("resize", resize);
 resize(); frame();
+
+/* THIN SCROLL PROGRESS LINE */
+const bar = document.getElementById("bar");
+function progress() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
+}
+addEventListener("scroll", progress, { passive: true });
+progress();
 
 /* =====================================
    2. TYPING ROLE LINE
