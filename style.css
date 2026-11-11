@@ -1,7 +1,4 @@
-/* -------------------------------------------------------
-   AMRUT HANAMAPURE — PROFESSIONAL ENGINEERING PORTFOLIO
-   Responsive, accessible, light/dark theme.
--------------------------------------------------------- */
+
 :root {
   color-scheme: light;
   --bg: #fffaf6;
@@ -395,3 +392,26 @@ h1 span { display: block; color: var(--accent); }
 .game .btn { min-height: 40px; padding: 8px 15px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: var(--surface); cursor: pointer; font-size: 12px; font-weight: 700; }
 .game .btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .contact-form button:disabled { opacity: .65; cursor: wait; transform: none; }
+
+
+/* Project card actions: Details + Code only */
+.project-actions { width: 100%; display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
+.project-action { min-height: 39px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: var(--surface-soft); font: inherit; font-size: 11px; font-weight: 800; text-decoration: none; cursor: pointer; transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease; }
+.project-action:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
+.project-details-button { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.project-code-button { color: var(--surface); background: var(--ink); border-color: var(--ink); }
+.project-code-button:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+.project-modal { width: min(600px, calc(100% - 28px)); max-height: min(82vh, 720px); padding: 0; border: 1px solid var(--line); border-radius: 19px; color: var(--ink); background: var(--surface); box-shadow: 0 24px 80px rgba(0,0,0,.32); }
+.project-modal::backdrop { background: rgba(8, 7, 10, .76); backdrop-filter: blur(5px); }
+.project-modal-panel { padding: clamp(20px, 4vw, 30px); overflow-y: auto; }
+.project-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+.project-modal-header .eyebrow { margin: 0 0 7px; color: var(--accent); font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+.project-modal-header h2 { margin: 0; font-family: Manrope, sans-serif; font-size: clamp(20px, 4vw, 27px); line-height: 1.25; }
+.project-modal-close { flex: 0 0 38px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: var(--surface-soft); cursor: pointer; }
+.project-modal-close:hover { color: var(--accent); border-color: var(--accent); }
+.project-modal-description { margin: 0 0 22px; color: var(--muted); font-size: 13px; line-height: 1.85; }
+.project-modal h3 { margin: 0 0 10px; font-size: 12px; font-weight: 900; }
+.project-modal-tags { margin-bottom: 22px; }
+.project-modal-footer { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 17px; border-top: 1px solid var(--line); }
+.project-modal-footer .button { cursor: pointer; }
+@media (max-width: 560px) { .project-actions { display: grid; grid-template-columns: 1fr 1fr; } .project-action { padding-inline: 8px; font-size: 10px; } .project-modal-footer { display: grid; grid-template-columns: 1fr 1fr; } }
