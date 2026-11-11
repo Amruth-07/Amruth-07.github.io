@@ -445,3 +445,57 @@ h1 span { display: block; color: var(--accent); }
 .game .btn { min-height: 40px; padding: 8px 15px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: var(--surface); cursor: pointer; font-size: 12px; font-weight: 700; }
 .game .btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .contact-form button:disabled { opacity: .65; cursor: wait; transform: none; }
+
+.project-media.project-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-media.project-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /*
+   * contain = entire photo remains visible
+   * without cutting the top/bottom/sides.
+   */
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 18px;
+
+  cursor: default;
+  transition: none !important;
+}
+
+/* No zoom effect */
+.project-media.project-photo:hover img {
+  transform: none !important;
+}
+
+/* Remove any old clickable image behavior */
+.project-media.project-photo,
+.project-media.project-photo img {
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+
+  .project-media.project-photo {
+    aspect-ratio: 3 / 4;
+    border-radius: 14px;
+  }
+
+  .project-media.project-photo img {
+    object-fit: contain;
+  }
+
+}
