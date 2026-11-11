@@ -452,3 +452,86 @@ h1 span { display: block; color: var(--accent); }
 .game .btn { min-height: 40px; padding: 8px 15px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: var(--surface); cursor: pointer; font-size: 12px; font-weight: 700; }
 .game .btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .contact-form button:disabled { opacity: .65; cursor: wait; transform: none; }
+
+
+/* ==========================================================
+   PROJECT PHOTOS — SMALLER 3:4 SIZE
+========================================================== */
+
+.project-card .project-media.project-photo {
+    width: 78%;
+    max-width: 260px;
+    aspect-ratio: 3 / 4;
+
+    height: auto;
+    min-height: 0;
+
+    margin: 18px auto 0;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+    background: #000;
+}
+
+/* Actual project photo */
+.project-card .project-media.project-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    border-radius: 15px;
+
+    transform: none !important;
+    transition: none !important;
+}
+
+/* No zoom */
+.project-card:hover .project-media.project-photo img {
+    transform: none !important;
+}
+
+/* Featured BMS card must use the same size */
+.project-featured .project-media.project-photo {
+    width: 78%;
+    max-width: 260px;
+    height: auto;
+    min-height: 0;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+
+    .project-card .project-media.project-photo,
+    .project-featured .project-media.project-photo {
+        width: 68%;
+        max-width: 220px;
+
+        aspect-ratio: 3 / 4;
+
+        height: auto;
+        min-height: 0;
+
+        margin: 16px auto 0;
+    }
+
+}
+
+/* Very small screens */
+@media (max-width: 420px) {
+
+    .project-card .project-media.project-photo,
+    .project-featured .project-media.project-photo {
+        width: 62%;
+        max-width: 190px;
+    }
+
+}
