@@ -140,34 +140,280 @@
     </section>
 
     <section id="projects" class="section section-shell reveal">
-      <div class="section-heading"><div><p class="eyebrow">SELECTED WORK</p><h2>Projects</h2></div><p class="section-note">Hands-on prototypes and software projects.</p></div>
-      <div class="projects-grid">
-        <article class="project-card project-featured">
-          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-battery-full"></i><span>Battery Management System</span></div><img src="BMS.jpg" alt="STM32 Li-ion Battery Management System prototype" loading="lazy" onerror="this.hidden=true"></div>
-          <div class="project-body"><div class="project-kicker">EMBEDDED SYSTEMS · INTERNSHIP PROJECT</div><h3>Li-ion Battery Management System</h3><p>STM32F103C8T6-based BMS prototype designed to monitor a Li-ion battery pack and provide protection against over-voltage, under-voltage, over-current and over-temperature conditions.</p><div class="skill-tags"><span>STM32F103C8T6</span><span>Embedded C</span><span>Li-ion</span><span>Protection Logic</span></div><details class="project-details"><summary>Project overview</summary><p>The project focused on implementing core battery protection conditions using an STM32 microcontroller. It was developed during the Embedded Systems internship at VisionAstraa EV Academy.</p></details></div>
-        </article>
-        <article class="project-card">
-          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-wave-square"></i><span>Portable Oscilloscope</span></div><img src="portable.jpg" alt="Portable Arduino oscilloscope with OLED display" loading="lazy" onerror="this.hidden=true"></div>
-          <div class="project-body"><div class="project-kicker">ELECTRONICS · INSTRUMENTATION</div><h3>Portable Oscilloscope using Arduino</h3><p>A low-cost prototype using Arduino and an OLED display to visualize sine, square and triangle waveforms for basic signal analysis.</p><div class="skill-tags"><span>Arduino</span><span>OLED</span><span>Embedded C</span><span>ADC</span></div><details class="project-details"><summary>Project overview</summary><p>The prototype demonstrates waveform sampling and display concepts in a compact, educational instrument.</p></details></div>
-        </article>
-        <article class="project-card">
-          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-seedling"></i><span>AgriGuard IoT System</span></div><img src="smart.jpg" alt="AgriGuard smart IoT farming and security prototype" loading="lazy" onerror="this.hidden=true"></div>
-          <div class="project-body"><div class="project-kicker">IOT · SMART AGRICULTURE</div><h3>AgriGuard – Smart IoT Farming &amp; Security</h3><p>An IoT-based agriculture and field-safety concept that combines sensor monitoring with automated actions to support farming efficiency and security.</p><div class="skill-tags"><span>IoT</span><span>Sensors</span><span>Embedded C</span><span>Automation</span></div><details class="project-details"><summary>Project overview</summary><p>The project explores sensor-based field monitoring and automation, bringing together electronics, embedded programming and connected-system concepts.</p></details></div>
-        </article>
-        <article class="project-card">
-          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-screwdriver-wrench"></i><span>Component Tester</span></div><img src="Tester.jpg" alt="Arduino all-in-one electronic component tester" loading="lazy" onerror="this.hidden=true"></div>
-          <div class="project-body"><div class="project-kicker">ELECTRONICS · TEST EQUIPMENT</div><h3>All-in-One Electronic Component Tester</h3><p>An Arduino-based tool designed to support quick identification and basic testing of electronic components during development and repair work.</p><div class="skill-tags"><span>Arduino</span><span>Embedded C</span><span>Circuit Testing</span><span>Electronics</span></div><details class="project-details"><summary>Project overview</summary><p>The project focuses on making common component checks more convenient through a compact microcontroller-based setup.</p></details></div>
-        </article>
-        <article class="project-card">
-          <div class="project-media"><div class="project-fallback"><i class="fa-solid fa-lightbulb"></i><span>LED Pattern Generator</span></div><img src="LED.jpg" alt="Arduino LED pattern generation project" loading="lazy" onerror="this.hidden=true"></div>
-          <div class="project-body"><div class="project-kicker">MICROCONTROLLERS · DIGITAL I/O</div><h3>Generating LED Patterns using Arduino</h3><p>A basic microcontroller project demonstrating digital input/output control, timing and sequential LED patterns.</p><div class="skill-tags"><span>Arduino</span><span>Embedded C</span><span>LEDs</span><span>Digital I/O</span></div></div>
-        </article>
-        <article class="project-card">
-          <div class="project-media dashboard-media"><div class="dashboard-preview"><div class="dashboard-top"><span></span><span></span><span></span></div><div class="dashboard-numbers"><b></b><b></b><b></b></div><div class="dashboard-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
-          <div class="project-body"><div class="project-kicker">WEB DEVELOPMENT · DATA ANALYSIS</div><h3>Indian Market Live Dashboard</h3><p>A React dashboard concept with live index cards, FII/DII flow information, an auto-refreshing Recharts area chart and market-movement context.</p><div class="skill-tags"><span>React</span><span>Recharts</span><span>JavaScript</span><span>Data Analysis</span><span>NIFTY 50</span></div><details class="project-details"><summary>Project overview</summary><p>The accompanying analysis used approximately 122 sessions of NIFTY 50 and NIFTY BANK data to examine daily return correlation and recurring swing phases.</p></details></div>
-        </article>
+
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">SELECTED WORK</p>
+      <h2>Projects</h2>
+    </div>
+
+    <p class="section-note">
+      Hands-on prototypes and software projects.
+    </p>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1 -->
+    <article class="project-card project-featured">
+
+      <div class="project-media project-photo">
+        <img
+          src="BMS.jpg"
+          alt="STM32 Li-ion Battery Management System prototype"
+          loading="lazy"
+        >
       </div>
-    </section>
+
+      <div class="project-body">
+
+        <div class="project-kicker">
+          EMBEDDED SYSTEMS · INTERNSHIP PROJECT
+        </div>
+
+        <h3>
+          Li-ion Battery Management System
+        </h3>
+
+        <p>
+          STM32F103C8T6-based BMS prototype designed to monitor
+          a Li-ion battery pack and provide protection against
+          over-voltage, under-voltage, over-current and
+          over-temperature conditions.
+        </p>
+
+        <div class="skill-tags">
+          <span>STM32F103C8T6</span>
+          <span>Embedded C</span>
+          <span>Li-ion</span>
+          <span>Protection Logic</span>
+        </div>
+
+        <p class="project-overview">
+          The project focused on implementing core battery
+          protection conditions using an STM32 microcontroller.
+          It was developed during the Embedded Systems internship
+          at VisionAstraa EV Academy.
+        </p>
+
+      </div>
+    </article>
+
+
+    <!-- PROJECT 2 -->
+    <article class="project-card">
+
+      <div class="project-media project-photo">
+        <img
+          src="portable.jpg"
+          alt="Portable Arduino oscilloscope with OLED display"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="project-body">
+
+        <div class="project-kicker">
+          ELECTRONICS · INSTRUMENTATION
+        </div>
+
+        <h3>
+          Portable Oscilloscope using Arduino
+        </h3>
+
+        <p>
+          A low-cost prototype using Arduino and an OLED display
+          to visualize sine, square and triangle waveforms for
+          basic signal analysis.
+        </p>
+
+        <div class="skill-tags">
+          <span>Arduino</span>
+          <span>OLED</span>
+          <span>Embedded C</span>
+          <span>ADC</span>
+        </div>
+
+        <p class="project-overview">
+          The prototype demonstrates waveform sampling and
+          display concepts in a compact, educational instrument.
+        </p>
+
+      </div>
+    </article>
+
+
+    <!-- PROJECT 3 -->
+    <article class="project-card">
+
+      <div class="project-media project-photo">
+        <img
+          src="smart.jpg"
+          alt="AgriGuard smart IoT farming and security prototype"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="project-body">
+
+        <div class="project-kicker">
+          IOT · SMART AGRICULTURE
+        </div>
+
+        <h3>
+          AgriGuard – Smart IoT Farming &amp; Security
+        </h3>
+
+        <p>
+          An IoT-based agriculture and field-safety concept that
+          combines sensor monitoring with automated actions to
+          support farming efficiency and security.
+        </p>
+
+        <div class="skill-tags">
+          <span>IoT</span>
+          <span>Sensors</span>
+          <span>Embedded C</span>
+          <span>Automation</span>
+        </div>
+
+        <p class="project-overview">
+          The project explores sensor-based field monitoring and
+          automation, bringing together electronics, embedded
+          programming and connected-system concepts.
+        </p>
+
+      </div>
+    </article>
+
+
+    <!-- PROJECT 4 -->
+    <article class="project-card">
+
+      <div class="project-media project-photo">
+        <img
+          src="Tester.jpg"
+          alt="Arduino all-in-one electronic component tester"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="project-body">
+
+        <div class="project-kicker">
+          ELECTRONICS · TEST EQUIPMENT
+        </div>
+
+        <h3>
+          All-in-One Electronic Component Tester
+        </h3>
+
+        <p>
+          An Arduino-based tool designed to support quick
+          identification and basic testing of electronic
+          components during development and repair work.
+        </p>
+
+        <div class="skill-tags">
+          <span>Arduino</span>
+          <span>Embedded C</span>
+          <span>Circuit Testing</span>
+          <span>Electronics</span>
+        </div>
+
+        <p class="project-overview">
+          The project focuses on making common component checks
+          more convenient through a compact microcontroller-based
+          setup.
+        </p>
+
+      </div>
+    </article>
+
+
+    <!-- PROJECT 5 -->
+    <article class="project-card">
+
+      <div class="project-media project-photo">
+        <img
+          src="LED.jpg"
+          alt="Arduino LED pattern generation project"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="project-body">
+
+        <div class="project-kicker">
+          MICROCONTROLLERS · DIGITAL I/O
+        </div>
+
+        <h3>
+          Generating LED Patterns using Arduino
+        </h3>
+
+        <p>
+          A basic microcontroller project demonstrating digital
+          input/output control, timing and sequential LED patterns.
+        </p>
+
+        <div class="skill-tags">
+          <span>Arduino</span>
+          <span>Embedded C</span>
+          <span>LEDs</span>
+          <span>Digital I/O</span>
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- PROJECT 6 -->
+    <article class="project-card">
+
+      <div class="project-media project-photo">
+        <img
+          src="market.jpg"
+          alt="Indian stock market data analysis dashboard"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="project-body">
+
+        <div class="project-kicker">
+          WEB DEVELOPMENT · DATA ANALYSIS
+        </div>
+
+        <h3>
+          Indian Market Live Dashboard
+        </h3>
+
+        <p>
+          A React dashboard concept with live index cards,
+          FII/DII flow information, an auto-refreshing Recharts
+          area chart and market-movement context.
+        </p>
+
+        <div class="skill-tags">
+          <span>React</span>
+          <span>Recharts</span>
+          <span>JavaScript</span>
+          <span>Data Analysis</span>
+          <span>NIFTY 50</span>
+        </div>
+
+        <p class="project-overview">
+          The accompanying analysis used approximately 122
+          sessions of NIFTY 50 and NIFTY BANK data to examine
+          daily return correlation and recurring swing phases.
+        </p>
+
+      </div>
+    </article>
+
+  </div>
+</section>
 
     <section id="education" class="section section-shell reveal">
       <div class="section-heading"><div><p class="eyebrow">ACADEMIC BACKGROUND</p><h2>Education &amp; <span>Certifications</span></h2></div><p class="section-note">Formal education and additional technical learning.</p></div>
