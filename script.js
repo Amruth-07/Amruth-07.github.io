@@ -1588,10 +1588,8 @@ ${data.get(
       y
     ) {
       if (
-        x ===
-          -nextDirection.x &&
-        y ===
-          -nextDirection.y
+        x === -direction.x &&
+        y === -direction.y
       ) {
         return;
       }
@@ -1848,11 +1846,14 @@ ${data.get(
   let logicScore = 0;
   let logicAnswer = 0;
   let logicActive = false;
+  let logicAnswered = true;
+  let logicQuestionTimer = null;
 
   const lgMsg =
     $("lgMsg");
 
   function askLogicQuestion() {
+    logicAnswered = false;
     const names =
       Object.keys(
         gates
@@ -1892,6 +1893,8 @@ ${data.get(
   }
 
   function startLogic() {
+    clearTimeout(logicQuestionTimer);
+    logicAnswered = true;
     logicRound =
       1;
 
@@ -1914,8 +1917,10 @@ ${data.get(
   }
 
   function answerLogic(value) {
-    if (!logicActive)
+    if (!logicActive || logicAnswered)
       return;
+
+    logicAnswered = true;
 
     const correct =
       value ===
@@ -1953,7 +1958,7 @@ ${data.get(
 
     logicRound++;
 
-    setTimeout(
+    logicQuestionTimer = setTimeout(
       askLogicQuestion,
       500
     );
@@ -2005,6 +2010,7 @@ ${data.get(
 
   let matched =
     0;
+  let memoryFlipTimer = null;
 
   let memoryBest =
     Number(
@@ -2020,6 +2026,9 @@ ${data.get(
   }
 
   function initMemory() {
+    clearTimeout(memoryFlipTimer);
+    memoryFlipTimer = null;
+
     const deck =
       [
         ...icons,
@@ -2162,21 +2171,16 @@ ${data.get(
       memoryLocked =
         true;
 
-      setTimeout(
+      memoryFlipTimer = setTimeout(
         () => {
-          firstCard.classList.remove(
-            "up"
-          );
+          if (firstCard) {
+            firstCard.classList.remove("up");
+          }
 
-          card.classList.remove(
-            "up"
-          );
-
-          firstCard =
-            null;
-
-          memoryLocked =
-            false;
+          card.classList.remove("up");
+          firstCard = null;
+          memoryLocked = false;
+          memoryFlipTimer = null;
         },
         800
       );
@@ -2915,8 +2919,11 @@ ${data.get(
 
   let binaryActive =
     false;
+  let binaryAnswered = true;
+  let binaryQuestionTimer = null;
 
   function askBinary() {
+    binaryAnswered = false;
     binaryAnswer =
       rand(16);
 
@@ -2990,10 +2997,10 @@ ${data.get(
   function answerBinary(
     value
   ) {
-    if (
-      !binaryActive
-    )
+    if (!binaryActive || binaryAnswered)
       return;
+
+    binaryAnswered = true;
 
     const correct =
       value ===
@@ -3031,7 +3038,7 @@ ${data.get(
 
     binaryRound++;
 
-    setTimeout(
+    binaryQuestionTimer = setTimeout(
       askBinary,
       500
     );
@@ -3040,6 +3047,8 @@ ${data.get(
   $("bStart")?.addEventListener(
     "click",
     () => {
+      clearTimeout(binaryQuestionTimer);
+      binaryAnswered = true;
       binaryRound =
         1;
 
