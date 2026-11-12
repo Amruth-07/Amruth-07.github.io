@@ -459,7 +459,7 @@ h1 span { display: block; color: var(--accent); }
 
 .project-card .project-media,
 .pcard .pimg {
-    width: 82% !important;
+    width: 72% !important;
     aspect-ratio: 4 / 3 !important;
     height: auto !important;
     min-height: 0 !important;
@@ -475,18 +475,18 @@ h1 span { display: block; color: var(--accent); }
 
 .project-card .project-media img,
 .pcard .pimg img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 90% !important;
+    height: 90% !important;
     object-fit: contain !important;
     object-position: center;
     display: block;
     transform: none !important;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 660px) {
     .project-card .project-media,
     .pcard .pimg {
-        width: 90% !important;
+        width: 80% !important;
         aspect-ratio: 4 / 3 !important;
     }
 }
