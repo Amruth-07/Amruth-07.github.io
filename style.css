@@ -240,8 +240,8 @@ h1 span { display: block; color: var(--accent); }
   position: absolute;
   inset: 0;
   display: block;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -453,63 +453,40 @@ h1 span { display: block; color: var(--accent); }
 .game .btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .contact-form button:disabled { opacity: .65; cursor: wait; transform: none; }
 
-
 /* =====================================================
-   PROJECT PHOTOS — 4:3
-   SMALLER & FULLY VISIBLE
+   PROJECT PHOTOS — SMALLER 4:3
 ===================================================== */
 
-.project-card .project-media {
-    width: 100%;
+.project-card .project-media,
+.pcard .pimg {
+    width: 82% !important;
     aspect-ratio: 4 / 3 !important;
     height: auto !important;
     min-height: 0 !important;
-
+    margin: 0 auto;
+    
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 16px;
     background: #000;
+    border-radius: 14px;
 }
 
-/* Project photo */
-.project-card .project-media img {
-    width: 100%;
-    height: 100%;
-
+.project-card .project-media img,
+.pcard .pimg img {
+    width: 100% !important;
+    height: 100% !important;
     object-fit: contain !important;
     object-position: center;
-
     display: block;
-
-    border-radius: 16px;
-
-    transform: none !important;
-    transition: none !important;
-
-    cursor: default;
-}
-
-/* Disable hover zoom */
-.project-card .project-media:hover img,
-.project-card:hover .project-media img {
     transform: none !important;
 }
 
-/* Mobile */
 @media (max-width: 760px) {
-
-    .project-card .project-media {
+    .project-card .project-media,
+    .pcard .pimg {
+        width: 90% !important;
         aspect-ratio: 4 / 3 !important;
-        height: auto !important;
-        min-height: 0 !important;
-    }
-
-    .project-card .project-media img {
-        width: 90%;
-        height: 900%;
-        object-fit: contain !important;
     }
 }
