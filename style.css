@@ -1,7 +1,4 @@
-/* -------------------------------------------------------
-   AMRUT HANAMAPURE — PROFESSIONAL ENGINEERING PORTFOLIO
-   Responsive, accessible, light/dark theme.
--------------------------------------------------------- */
+
 :root {
   color-scheme: light;
   --bg: #fffaf6;
@@ -221,13 +218,12 @@ h1 span { display: block; color: var(--accent); }
   flex-direction: column;
 }
 
-/* A width-based 3:4 image frame. There are no fixed image heights. */
 .project-media,
 .project-media.project-photo {
   position: relative;
   display: block;
-  width: 100%;
-  height: auto;
+  width: 80%;
+  height: 80%;
   min-height: 0;
   aspect-ratio: 4 / 3;
   flex: 0 0 auto;
